@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      NKJ-666
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://NKJ-666.github.io/post/java%E9%AB%98%E7%BA%A7-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Java高级 - 多线程 概述 多线程是多个线程并发进行的技术，进而能够提高整体性能。而一个程序中，独立运行的程序片段叫做线程。
+线程与进程的区别：
+进程是操作系统资源调度的基本单位，而线程是任务的调度执行的基本单位
+进程之间的切换开销较大
+进程共享资源困难但是同步简单，而线程则相反。
+线程分为四个状态：
+ 新建状态：使用new关键字创建出一个Thread对象后此线程就处于新建状态，直到调用start方法 就绪状态：调用完start方法后，线程就处于就绪状态，在就绪队列中等待CPU的调度 运行状态：如果就绪状态的线程获取到CPU资源，就可以运行run方法，此时Thread就处于运行状态，运行状态的线程可以转换到就绪状态，阻塞状态和死亡状态。 死亡状态：一个线程完成任务或者遇到终止代码时就会进入到终止状态 阻塞状态：线程中执行sleep，suspend等方法后线程就处于一种阻塞状态，在睡眠时间已到或者或者从新获取设备资源后就会到就绪状态。阻塞状态分为三种：   等待阻塞：运行状态中的线程执行 wait() 方法，使线程进入到等待阻塞状态。 同步阻塞：线程在获取 synchronized 同步锁失败(因为同步锁被其他线程占用)。 其他阻塞：通过调用线程的 sleep() 或 join() 发出了 I/O 请求时，线程就会进入到阻塞状态。当sleep() 状态超时，join() 等待线程终止或超时，或者 I/O 处理完毕，线程重新转入就绪状态。    线程的优先级 优先级是一个1-10的整数，默认情况下线程会分配的优先级是5。
+具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器资源。但是，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。
+创建线程的三种方式  通过继承Thread类  通过重写run方法来实现这个线程的任务逻辑
+public class ThreadTest extends Thread { private String threadName; private Thread thread; public ThreadTest(String threadName){ super(); this.threadName = threadName; System.out.println(&#34;create&#34;&#43;threadName); } @Override public void run() { System."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "",
+        "headline": "",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Java高级 - 多线程 概述 多线程是多个线程并发进行的技术，进而能够提高整体性能。而一个程序中，独立运行的程序片段叫做线程。\n线程与进程的区别：\n进程是操作系统资源调度的基本单位，而线程是任务的调度执行的基本单位\n进程之间的切换开销较大\n进程共享资源困难但是同步简单，而线程则相反。\n线程分为四个状态：\n 新建状态：使用new关键字创建出一个Thread对象后此线程就处于新建状态，直到调用start方法 就绪状态：调用完start方法后，线程就处于就绪状态，在就绪队列中等待CPU的调度 运行状态：如果就绪状态的线程获取到CPU资源，就可以运行run方法，此时Thread就处于运行状态，运行状态的线程可以转换到就绪状态，阻塞状态和死亡状态。 死亡状态：一个线程完成任务或者遇到终止代码时就会进入到终止状态 阻塞状态：线程中执行sleep，suspend等方法后线程就处于一种阻塞状态，在睡眠时间已到或者或者从新获取设备资源后就会到就绪状态。阻塞状态分为三种：   等待阻塞：运行状态中的线程执行 wait() 方法，使线程进入到等待阻塞状态。 同步阻塞：线程在获取 synchronized 同步锁失败(因为同步锁被其他线程占用)。 其他阻塞：通过调用线程的 sleep() 或 join() 发出了 I\/O 请求时，线程就会进入到阻塞状态。当sleep() 状态超时，join() 等待线程终止或超时，或者 I\/O 处理完毕，线程重新转入就绪状态。    线程的优先级 优先级是一个1-10的整数，默认情况下线程会分配的优先级是5。\n具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器资源。但是，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。\n创建线程的三种方式  通过继承Thread类  通过重写run方法来实现这个线程的任务逻辑\npublic class ThreadTest extends Thread { private String threadName; private Thread thread; public ThreadTest(String threadName){ super(); this.threadName = threadName; System.out.println(\u0026#34;create\u0026#34;\u002bthreadName); } @Override public void run() { System.
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/NKJ-666.github.io\/post\/java%E9%AB%98%E7%BA%A7-%E5%A4%9A%E7%BA%BF%E7%A8%8B\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightYear" : "0001",
+        "dateCreated": "0001-01-01T00:00:00.00Z",
+        "datePublished": "0001-01-01T00:00:00.00Z",
+        "dateModified": "0001-01-01T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "NKJ-666",
+            "url": "https://NKJ-666.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/NKJ-666.github.io\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/NKJ-666.github.io\/post\/java%E9%AB%98%E7%BA%A7-%E5%A4%9A%E7%BA%BF%E7%A8%8B\/",
+        "wordCount" : "448",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Cache_2f9c1b3c923a4a64..jpg" alt="profile picture" />
+        <h3 title=""><a href="/">NKJ-666</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://github.com/NKJ-666" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1></h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Mon, Jan 1, 0001
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">3-minute read</span>
+          </div>
+
+        
+      </div><h1 id="java高级---多线程">Java高级 - 多线程</h1>
+<h2 id="概述">概述</h2>
+<p>多线程是多个线程并发进行的技术，进而能够提高整体性能。而一个程序中，独立运行的程序片段叫做线程。</p>
+<p>线程与进程的区别：</p>
+<p>进程是操作系统资源调度的基本单位，而线程是任务的调度执行的基本单位</p>
+<p>进程之间的切换开销较大</p>
+<p>进程共享资源困难但是同步简单，而线程则相反。</p>
+<p>线程分为四个状态：</p>
+<ul>
+<li>新建状态：使用<code>new</code>关键字创建出一个<code>Thread</code>对象后此线程就处于新建状态，直到调用<code>start</code>方法</li>
+<li>就绪状态：调用完<code>start</code>方法后，线程就处于就绪状态，在就绪队列中等待CPU的调度</li>
+<li>运行状态：如果就绪状态的线程获取到CPU资源，就可以运行<code>run</code>方法，此时<code>Thread</code>就处于运行状态，运行状态的线程可以转换到就绪状态，阻塞状态和死亡状态。</li>
+<li>死亡状态：一个线程完成任务或者遇到终止代码时就会进入到终止状态</li>
+<li>阻塞状态：线程中执行<code>sleep</code>，<code>suspend</code>等方法后线程就处于一种阻塞状态，在睡眠时间已到或者或者从新获取设备资源后就会到就绪状态。阻塞状态分为三种：</li>
+<li>
+<ul>
+<li>等待阻塞：运行状态中的线程执行 wait() 方法，使线程进入到等待阻塞状态。</li>
+<li>同步阻塞：线程在获取 synchronized 同步锁失败(因为同步锁被其他线程占用)。</li>
+<li>其他阻塞：通过调用线程的 sleep() 或 join() 发出了 I/O 请求时，线程就会进入到阻塞状态。当sleep() 状态超时，join() 等待线程终止或超时，或者 I/O 处理完毕，线程重新转入就绪状态。</li>
+</ul>
+</li>
+</ul>
+<h2 id="线程的优先级">线程的优先级</h2>
+<p>优先级是一个<code>1-10</code>的整数，默认情况下线程会分配的优先级是5。</p>
+<p>具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器资源。但是，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。</p>
+<h2 id="创建线程的三种方式">创建线程的三种方式</h2>
+<ol>
+<li>通过继承<code>Thread</code>类</li>
+</ol>
+<p>通过重写<code>run</code>方法来实现这个线程的任务逻辑</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadTest</span> <span style="color:#66d9ef">extends</span> Thread <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String threadName<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Thread thread<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ThreadTest</span><span style="color:#f92672">(</span>String threadName<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">threadName</span> <span style="color:#f92672">=</span> threadName<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;create&#34;</span><span style="color:#f92672">+</span>threadName<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>threadName<span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;running&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;</span> 3<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+                System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>threadName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+                sleep<span style="color:#f92672">(</span>50<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">){</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;start&#34;</span><span style="color:#f92672">+</span>threadName<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>然后在主方法中测试：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Thread thread1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadTest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;thread1&#34;</span><span style="color:#f92672">);</span>
+thread1<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+Thread thread2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadTest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;thread2&#34;</span><span style="color:#f92672">);</span>
+thread2<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">new</span> ThreadTest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;thread3&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+</code></pre></div><ol start="2">
+<li>通过实现<code>Runnable</code>接口，重写<code>run</code>方法</li>
+</ol>
+<p>在<code>run</code>方法中实现线程的逻辑</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RunnableTest</span> <span style="color:#66d9ef">implements</span> Runnable<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String threadName<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Thread thread<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">RunnableTest</span><span style="color:#f92672">(</span>String threadName<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">threadName</span> <span style="color:#f92672">=</span> threadName<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;create &#34;</span><span style="color:#f92672">+</span> threadName<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>threadName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; running&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 3<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>threadName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span>i<span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+                Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>50<span style="color:#f92672">);</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">start</span><span style="color:#f92672">(){</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>threadName <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; start&#34;</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>thread <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+            thread <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;thread&#34;</span><span style="color:#f92672">);</span>
+            thread<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>最后自己写了一个<code>start</code>方法用于给<code>thread</code>初始化并调用</p>
+<p>而第一种方法中是重写的父类<code>Thread</code>中的方法</p>
+<p>在<code>main</code>方法中测试：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">RunnableTest runnable <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RunnableTest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Runnable thread1&#34;</span><span style="color:#f92672">);</span>
+runnable<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+RunnableTest runnableTest <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> RunnableTest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Runnable thread2&#34;</span><span style="color:#f92672">);</span>
+runnableTest<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+</code></pre></div><ol start="3">
+<li>通过<code>Callable</code>和<code>Future</code>来实现</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CallableTest</span> <span style="color:#66d9ef">implements</span> Callable <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> Object <span style="color:#a6e22e">call</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> i<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> 10<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">().</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">()+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> i<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> i<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>注意：这个<code>call</code>方法是有返回值的</p>
+<p>在主方法中调用时：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">CallableTest test <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> CallableTest<span style="color:#f92672">();</span>
+FutureTask<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> task <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FutureTask<span style="color:#f92672">&lt;&gt;(</span>test<span style="color:#f92672">);</span>
+<span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span>task<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;testThread&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;线程返回值为:&#34;</span><span style="color:#f92672">+</span>task<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">());</span>
+<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>ExecutionException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>因为上边在<code>call</code>方法中定义的返回值类型为<code>Integer</code>，所以在<code>FutureTask</code>中定义泛型类型为<code>Integer</code>。</p>
+<h2 id="多线程的一些重要方法">多线程的一些重要方法</h2>
+<ol>
+<li><code>join</code>方法</li>
+</ol>
+<p>在调用<code>join</code>方法的线程运行完之后才会运行其他的线程。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Thread thread1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadTest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;thread1&#34;</span><span style="color:#f92672">);</span>
+thread1<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+<span style="color:#75715e">//try {
+</span><span style="color:#75715e">//    thread1.join();
+</span><span style="color:#75715e">//} catch (InterruptedException e) {
+</span><span style="color:#75715e">//    e.printStackTrace();
+</span><span style="color:#75715e">//}
+</span><span style="color:#75715e"></span>Thread thread2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadTest<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;thread2&#34;</span><span style="color:#f92672">);</span>
+thread2<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+</code></pre></div><p>这样会使<code>thread1</code>执行完之后再执行<code>thread2</code></p>
+<ol start="2">
+<li><code>interrupt</code>方法</li>
+</ol>
+<p>该方法不会使线程立即终止</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InterruptTest</span> <span style="color:#66d9ef">extends</span> Thread<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(!</span>isInterrupted<span style="color:#f92672">()){</span>
+            n<span style="color:#f92672">++;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>n<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Thread thread3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> InterruptTest<span style="color:#f92672">();</span>
+thread3<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+    Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+thread3<span style="color:#f92672">.</span><span style="color:#a6e22e">interrupt</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+    thread3<span style="color:#f92672">.</span><span style="color:#a6e22e">join</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;end&#34;</span><span style="color:#f92672">);</span>
+</code></pre></div><p>在测试方法中每次都会判断线程是否interrupt,只有响应这个线程才能终止。</p>
+<p>注意：<code>interupt</code>只是将中断码设为true，需要代码实行逻辑。</p>
+<h2 id="线程池">线程池</h2>
+<p>多线程虽然可以提高运行效率，但是如果开启的线程过多，也会造成负面效应，因为在线程创建和销毁的时候会占用很多的CPU资源，造成资源浪费。</p>
+<p>这样就引入了线程池&ndash;可以复用一组线程。</p>
+<p>线程池内部维护了若干个线程，没有任务的时候，这些线程都处于等待状态。如果有新任务，就分配一个空闲线程执行。如果所有线程都处于忙碌状态，新任务要么放入队列等待，要么增加一个新线程进行处理。</p>
+<p>Java标准库提供了<code>ExecutorService</code>接口表示线程池</p>
+<p>因为<code>ExecutorService</code>只是接口，Java标准库提供的几个常用实现类有：</p>
+<ul>
+<li>FixedThreadPool：线程数固定的线程池；</li>
+<li>CachedThreadPool：线程数根据任务动态调整的线程池；   可以设置线程数的范围</li>
+<li>SingleThreadExecutor：仅单线程执行的线程池。</li>
+</ul>
+<p>这是一个线程实现类</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Task</span> <span style="color:#66d9ef">implements</span> Runnable<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String taskName<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Task</span><span style="color:#f92672">(</span>String taskName<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">taskName</span> <span style="color:#f92672">=</span> taskName<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;start task&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> taskName<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;end task &#34;</span><span style="color:#f92672">+</span> taskName<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>使用线程池调用</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadPoolTest</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String <span style="color:#f92672">[]</span> args<span style="color:#f92672">){</span>
+        ExecutorService service <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newFixedThreadPool</span><span style="color:#f92672">(</span>4<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>i <span style="color:#f92672">&lt;</span> 6<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            service<span style="color:#f92672">.</span><span style="color:#a6e22e">submit</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Task<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">+</span>i<span style="color:#f92672">));</span>
+        <span style="color:#f92672">}</span>
+        service<span style="color:#f92672">.</span><span style="color:#a6e22e">shutdown</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>观察运行结果就会发现会先运行前四个任务，等四个任务完成（也就是线程空闲后）之后才会运行后面的两个任务</p>
+<p>需要反复执行的线程<code>ScheduledThreadPool</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ScheduledExecutorService scheduledExecutorService <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newScheduledThreadPool</span><span style="color:#f92672">(</span>4<span style="color:#f92672">);</span>
+scheduledExecutorService<span style="color:#f92672">.</span><span style="color:#a6e22e">schedule</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Task<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;one time&#34;</span><span style="color:#f92672">),</span>1<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">);</span>
+scheduledExecutorService<span style="color:#f92672">.</span><span style="color:#a6e22e">scheduleAtFixedRate</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Task<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;fixed rate&#34;</span><span style="color:#f92672">),</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">,</span>TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">);</span>
+scheduledExecutorService<span style="color:#f92672">.</span><span style="color:#a6e22e">scheduleWithFixedDelay</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Task<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;fixed delay&#34;</span><span style="color:#f92672">),</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">,</span>TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">);</span>
+</code></pre></div></div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

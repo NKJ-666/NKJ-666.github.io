@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      NKJ-666
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://NKJ-666.github.io/post/java%E9%AB%98%E7%BA%A7-%E9%94%81/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Java高级 - 锁 锁的概述 当执行到某一个锁的代码块时，其他线程不能够抢占该线程的资源，直到该线程已经执行完释放所对象后，其他线程方能阻断。
+有时可能会出现这种问题，当一个线程正在执行某一个操作时，被另一个线程抢占资源，导致一个完整的方法被阻断，造成数据的丢失：
+public class Bank { private final double[] accounts; private ReentrantLock bankLock; private Condition sufficientFunds; private Object lock = new Object(); public Bank(int n, double initialBalance){ accounts = new double[n]; Arrays.fill(accounts, initialBalance); bankLock = new ReentrantLock(); sufficientFunds = bankLock.newCondition(); } public void transfer(int from, int to, double amount) throws InterruptedException{ //bankLock.lock();  //try{  while(accounts[from] &lt; amount){ sufficientFunds.await(); } System.out.println(Thread.currentThread()); accounts[from] -= amount; System.out.printf(&#34; %10.2f from %d to %d&#34;, amount, from, to); accounts[to] &#43;= amount; System."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "",
+        "headline": "",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Java高级 - 锁 锁的概述 当执行到某一个锁的代码块时，其他线程不能够抢占该线程的资源，直到该线程已经执行完释放所对象后，其他线程方能阻断。\n有时可能会出现这种问题，当一个线程正在执行某一个操作时，被另一个线程抢占资源，导致一个完整的方法被阻断，造成数据的丢失：\npublic class Bank { private final double[] accounts; private ReentrantLock bankLock; private Condition sufficientFunds; private Object lock = new Object(); public Bank(int n, double initialBalance){ accounts = new double[n]; Arrays.fill(accounts, initialBalance); bankLock = new ReentrantLock(); sufficientFunds = bankLock.newCondition(); } public void transfer(int from, int to, double amount) throws InterruptedException{ \/\/bankLock.lock();  \/\/try{  while(accounts[from] \u0026lt; amount){ sufficientFunds.await(); } System.out.println(Thread.currentThread()); accounts[from] -= amount; System.out.printf(\u0026#34; %10.2f from %d to %d\u0026#34;, amount, from, to); accounts[to] \u002b= amount; System.
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/NKJ-666.github.io\/post\/java%E9%AB%98%E7%BA%A7-%E9%94%81\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightYear" : "0001",
+        "dateCreated": "0001-01-01T00:00:00.00Z",
+        "datePublished": "0001-01-01T00:00:00.00Z",
+        "dateModified": "0001-01-01T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "NKJ-666",
+            "url": "https://NKJ-666.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/NKJ-666.github.io\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/NKJ-666.github.io\/post\/java%E9%AB%98%E7%BA%A7-%E9%94%81\/",
+        "wordCount" : "359",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Cache_2f9c1b3c923a4a64..jpg" alt="profile picture" />
+        <h3 title=""><a href="/">NKJ-666</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://github.com/NKJ-666" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1></h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Mon, Jan 1, 0001
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">2-minute read</span>
+          </div>
+
+        
+      </div><h1 id="java高级---锁">Java高级 - 锁</h1>
+<h2 id="锁的概述">锁的概述</h2>
+<p>当执行到某一个锁的代码块时，其他线程不能够抢占该线程的资源，直到该线程已经执行完释放所对象后，其他线程方能阻断。</p>
+<p>有时可能会出现这种问题，当一个线程正在执行某一个操作时，被另一个线程抢占资源，导致一个完整的方法被阻断，造成数据的丢失：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Bank</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span><span style="color:#f92672">[]</span> accounts<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">private</span> ReentrantLock bankLock<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Condition sufficientFunds<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Object lock <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Object<span style="color:#f92672">();</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Bank</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> n<span style="color:#f92672">,</span> <span style="color:#66d9ef">double</span> initialBalance<span style="color:#f92672">){</span>
+        accounts <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">double</span><span style="color:#f92672">[</span>n<span style="color:#f92672">];</span>
+        Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">fill</span><span style="color:#f92672">(</span>accounts<span style="color:#f92672">,</span> initialBalance<span style="color:#f92672">);</span>
+        bankLock <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ReentrantLock<span style="color:#f92672">();</span>
+        sufficientFunds <span style="color:#f92672">=</span> bankLock<span style="color:#f92672">.</span><span style="color:#a6e22e">newCondition</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transfer</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> from<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> to<span style="color:#f92672">,</span> <span style="color:#66d9ef">double</span> amount<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException<span style="color:#f92672">{</span>
+        <span style="color:#75715e">//bankLock.lock();
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//try{
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> amount<span style="color:#f92672">){</span>
+                sufficientFunds<span style="color:#f92672">.</span><span style="color:#a6e22e">await</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">());</span>
+            accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> amount<span style="color:#f92672">;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; %10.2f from %d to %d&#34;</span><span style="color:#f92672">,</span> amount<span style="color:#f92672">,</span> from<span style="color:#f92672">,</span> to<span style="color:#f92672">);</span>
+            accounts<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> amount<span style="color:#f92672">;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; Total balance: %10.2f%n&#34;</span><span style="color:#f92672">,</span> getTotalBalance<span style="color:#f92672">());</span>
+            sufficientFunds<span style="color:#f92672">.</span><span style="color:#a6e22e">notifyAll</span><span style="color:#f92672">();</span>
+       <span style="color:#75715e">//}finally {
+</span><span style="color:#75715e"></span>       <span style="color:#75715e">//    bankLock.unlock();
+</span><span style="color:#75715e"></span>       <span style="color:#75715e">//}
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">double</span> <span style="color:#a6e22e">getTotalBalance</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">double</span> sum <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">double</span> a <span style="color:#f92672">:</span> accounts<span style="color:#f92672">){</span>
+            sum <span style="color:#f92672">+=</span> a<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> sum<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">(){</span>
+        <span style="color:#66d9ef">return</span> accounts<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>    
+</code></pre></div><p>这是一个Bank类，用于各个账户之间的财产的转移。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> NACCOUNTS <span style="color:#f92672">=</span> 100<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span> INITIAL_BALANCE <span style="color:#f92672">=</span> 1000<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">double</span> MAX_AMOUNT <span style="color:#f92672">=</span> 1000<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> DELAY <span style="color:#f92672">=</span> 10<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        var bank <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Bank<span style="color:#f92672">(</span>NACCOUNTS<span style="color:#f92672">,</span> INITIAL_BALANCE<span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">for</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> NACCOUNTS<span style="color:#f92672">;</span> i<span style="color:#f92672">++){</span>
+            <span style="color:#66d9ef">int</span> fromAccount <span style="color:#f92672">=</span> i<span style="color:#f92672">;</span>
+            Runnable runnable <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Runnable<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                <span style="color:#a6e22e">@Override</span>
+                <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+                        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">){</span>
+                            <span style="color:#66d9ef">int</span> toAccount <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>bank<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">()</span> <span style="color:#f92672">*</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">random</span><span style="color:#f92672">());</span>
+                            <span style="color:#66d9ef">double</span> amount <span style="color:#f92672">=</span> MAX_AMOUNT <span style="color:#f92672">*</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">random</span><span style="color:#f92672">();</span>
+                            bank<span style="color:#f92672">.</span><span style="color:#a6e22e">transfer</span><span style="color:#f92672">(</span>fromAccount<span style="color:#f92672">,</span> toAccount<span style="color:#f92672">,</span> amount<span style="color:#f92672">);</span>
+                            Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">sleep</span><span style="color:#f92672">((</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> <span style="color:#f92672">(</span>DELAY <span style="color:#f92672">*</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">random</span><span style="color:#f92672">()));</span>
+                        <span style="color:#f92672">}</span>
+                    <span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>InterruptedException e<span style="color:#f92672">){</span>
+                        e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">();</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">};</span>
+            var t <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread<span style="color:#f92672">(</span>runnable<span style="color:#f92672">);</span>
+            t<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>这是测试方法</p>
+<p>运行完之后会发现总资产有时并不为100000也就是所有资产的总和，这就是上面提到的那个问题。</p>
+<p>所以这时就引出了锁</p>
+<h2 id="锁的应用">锁的应用</h2>
+<ol>
+<li><code>ReetrantLock</code></li>
+</ol>
+<p>这是一个重入锁，线程可以反复获得已拥有的锁，被一个锁保护的代码可以调用另一个使用相同锁的方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transfer</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> from<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> to<span style="color:#f92672">,</span> <span style="color:#66d9ef">double</span> amount<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException<span style="color:#f92672">{</span>
+        bankLock<span style="color:#f92672">.</span><span style="color:#a6e22e">lock</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">try</span><span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> amount<span style="color:#f92672">){</span>
+                sufficientFunds<span style="color:#f92672">.</span><span style="color:#a6e22e">await</span><span style="color:#f92672">();</span>
+            <span style="color:#f92672">}</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">());</span>
+            accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> amount<span style="color:#f92672">;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; %10.2f from %d to %d&#34;</span><span style="color:#f92672">,</span> amount<span style="color:#f92672">,</span> from<span style="color:#f92672">,</span> to<span style="color:#f92672">);</span>
+            accounts<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> amount<span style="color:#f92672">;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; Total balance: %10.2f%n&#34;</span><span style="color:#f92672">,</span> getTotalBalance<span style="color:#f92672">());</span>
+            sufficientFunds<span style="color:#f92672">.</span><span style="color:#a6e22e">notifyAll</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">finally</span> <span style="color:#f92672">{</span>
+            bankLock<span style="color:#f92672">.</span><span style="color:#a6e22e">unlock</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>这是改造的刚才的<code>transfer</code>方法，其中<code>bankLock</code>是一个<code>ReetrantLock</code>对象。</p>
+<p>注意在调用完<code>lock</code>方法后必须再调用<code>unlock</code>方法,否则可能会造成死锁。</p>
+<ol start="2">
+<li>synchronized</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transfer1</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> from<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> to<span style="color:#f92672">,</span> <span style="color:#66d9ef">double</span> amount<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> amount<span style="color:#f92672">){</span>
+        wait<span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">());</span>
+    accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> amount<span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; %10.2f from %d to %d&#34;</span><span style="color:#f92672">,</span> amount<span style="color:#f92672">,</span> from<span style="color:#f92672">,</span> to<span style="color:#f92672">);</span>
+    accounts<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> amount<span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; Total balance: %10.2f%n&#34;</span><span style="color:#f92672">,</span> getTotalBalance<span style="color:#f92672">());</span>
+    notifyAll<span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>这是使用synchronized关键字改造的transfer方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">transfer2</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> from<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> to<span style="color:#f92672">,</span> <span style="color:#66d9ef">double</span> amount<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> InterruptedException<span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">synchronized</span> <span style="color:#f92672">(</span>lock<span style="color:#f92672">){</span>
+        <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> amount<span style="color:#f92672">){</span>
+            lock<span style="color:#f92672">.</span><span style="color:#a6e22e">wait</span><span style="color:#f92672">();</span>
+        <span style="color:#f92672">}</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>Thread<span style="color:#f92672">.</span><span style="color:#a6e22e">currentThread</span><span style="color:#f92672">());</span>
+        accounts<span style="color:#f92672">[</span>from<span style="color:#f92672">]</span> <span style="color:#f92672">-=</span> amount<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; %10.2f from %d to %d&#34;</span><span style="color:#f92672">,</span> amount<span style="color:#f92672">,</span> from<span style="color:#f92672">,</span> to<span style="color:#f92672">);</span>
+        accounts<span style="color:#f92672">[</span>to<span style="color:#f92672">]</span> <span style="color:#f92672">+=</span> amount<span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34; Total balance: %10.2f%n&#34;</span><span style="color:#f92672">,</span> getTotalBalance<span style="color:#f92672">());</span>
+        lock<span style="color:#f92672">.</span><span style="color:#a6e22e">notifyAll</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>这是synchronized关键字定义的同步块</p>
+<p>注意：使用synchronized关键字时调用wait方法后必须调用notify方法，否则也可能导致死锁。</p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

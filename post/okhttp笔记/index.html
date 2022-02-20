@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      NKJ-666
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://NKJ-666.github.io/post/okhttp%E7%AC%94%E8%AE%B0/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="OkHttp笔记 概述及优点 一个高效的HTTP客户端：
+ HTTP/2支持对所有主机的所有请求共享一个套接字。 连接池减少了请求延迟。 透明GZIP可缩小下载大小。 响应缓存完全避免网络重复请求。 第一次连接失败时会尝试使用备用地址。 请求和响应API设计有流畅的构建器和不变性，支持同步阻塞调用和带有回调的异步调用。  获取网页内容 OkHttpClient client = new OkHttpClient(); String run(String url) throws IOException { Request request = new Request.Builder() .url(url) .build(); try (Response response = client.newCall(request).execute()) { return response.body().string(); } } run方法下载URL并返回其内容的字符串。
+发布到服务器 public static final MediaType JSON = MediaType.get(&#34;application/json; charset=utf-8&#34;); OkHttpClient client = new OkHttpClient(); String post(String url, String json) throws IOException { RequestBody body = RequestBody.create(JSON, json); Request request = new Request."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "",
+        "headline": "",
+        "alternativeHeadline": "",
+        "description": "
+      
+        OkHttp笔记 概述及优点 一个高效的HTTP客户端：\n HTTP\/2支持对所有主机的所有请求共享一个套接字。 连接池减少了请求延迟。 透明GZIP可缩小下载大小。 响应缓存完全避免网络重复请求。 第一次连接失败时会尝试使用备用地址。 请求和响应API设计有流畅的构建器和不变性，支持同步阻塞调用和带有回调的异步调用。  获取网页内容 OkHttpClient client = new OkHttpClient(); String run(String url) throws IOException { Request request = new Request.Builder() .url(url) .build(); try (Response response = client.newCall(request).execute()) { return response.body().string(); } } run方法下载URL并返回其内容的字符串。\n发布到服务器 public static final MediaType JSON = MediaType.get(\u0026#34;application\/json; charset=utf-8\u0026#34;); OkHttpClient client = new OkHttpClient(); String post(String url, String json) throws IOException { RequestBody body = RequestBody.create(JSON, json); Request request = new Request.
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/NKJ-666.github.io\/post\/okhttp%E7%AC%94%E8%AE%B0\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightYear" : "0001",
+        "dateCreated": "0001-01-01T00:00:00.00Z",
+        "datePublished": "0001-01-01T00:00:00.00Z",
+        "dateModified": "0001-01-01T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "NKJ-666",
+            "url": "https://NKJ-666.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/NKJ-666.github.io\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/NKJ-666.github.io\/post\/okhttp%E7%AC%94%E8%AE%B0\/",
+        "wordCount" : "1292",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Cache_2f9c1b3c923a4a64..jpg" alt="profile picture" />
+        <h3 title=""><a href="/">NKJ-666</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://github.com/NKJ-666" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1></h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Mon, Jan 1, 0001
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">7-minute read</span>
+          </div>
+
+        
+      </div><h1 id="okhttp笔记">OkHttp笔记</h1>
+<h2 id="概述及优点">概述及优点</h2>
+<p>一个高效的HTTP客户端：</p>
+<ul>
+<li>HTTP/2支持对所有主机的所有请求共享一个套接字。</li>
+<li>连接池减少了请求延迟。</li>
+<li>透明GZIP可缩小下载大小。</li>
+<li>响应缓存完全避免网络重复请求。</li>
+<li>第一次连接失败时会尝试使用备用地址。</li>
+<li>请求和响应API设计有流畅的构建器和不变性，支持同步阻塞调用和带有回调的异步调用。</li>
+</ul>
+<h2 id="获取网页内容">获取网页内容</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">OkHttpClient client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">();</span>
+
+String <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+  Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span>url<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+  <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>Response response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>run方法下载URL并返回其内容的字符串。</p>
+<h2 id="发布到服务器">发布到服务器</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> MediaType JSON
+    <span style="color:#f92672">=</span> MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/json; charset=utf-8&#34;</span><span style="color:#f92672">);</span>
+
+OkHttpClient client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">();</span>
+
+String <span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> String json<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+  RequestBody body <span style="color:#f92672">=</span> RequestBody<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>JSON<span style="color:#f92672">,</span> json<span style="color:#f92672">);</span>
+  Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span>url<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>body<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+  <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>Response response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">();</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>通过RequestBody的create方法，传入两个参数，第一个参数是内容类型，第二个参数是要发送的数据，创建RequestBody的实例,然后调用post方法将其传入。</p>
+<h2 id="版本">版本</h2>
+<p>建议使用<a href="https://search.maven.org/artifact/com.squareup.okhttp3/okhttp/4.9.0/jar">最新版本</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">implementation<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;com.squareup.okhttp3:okhttp:4.9.0&#34;</span><span style="color:#f92672">)</span>
+</code></pre></div><p>OkHttp一个用于测试HTTP,HTTPS,和HTTP/2客户端的库（模拟网络服务器）。</p>
+<p><a href="https://search.maven.org/artifact/com.squareup.okhttp3/mockwebserver/4.9.0/jar">最新版本</a></p>
+<h2 id="call">Call</h2>
+<p>HTTP 客户端的工作是接受您的请求并产生其响应。</p>
+<h3 id="request">Request</h3>
+<p>每个 HTTP 请求都包含一个 URL、一个方法（如<code>GET</code>或<code>POST</code>）和一个标头列表。请求还可能包含一个主体：特定内容类型的数据流。</p>
+<h3 id="response">Response</h3>
+<p>HTTP 响应。这个类的实例不是一成不变的：响应体是一个一次性值，可能只被消费一次然后关闭。所有其他属性都是不可变的。</p>
+<p>此类实现<a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html">Closeable</a>。关闭它只是关闭它的ResponseBody.</p>
+<h4 id="响应主体必须关闭">响应主体必须关闭</h4>
+<p>每个响应主体都由有限的资源支持，如套接字（实时网络响应）或打开的文件（用于缓存响应）。未能关闭响应正文将泄漏资源并最终可能导致应用程序变慢或崩溃。</p>
+<p>这个类和<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response/">Response 都</a>实现了<a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html">Closeable</a>。关闭响应只是关闭其响应主体。如果调用<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-call/execute/">Call.execute</a>或实现<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-callback/on-response/">Callback.onResponse</a>，则必须通过调用以下任何方法来关闭此主体：</p>
+<ul>
+<li><code>Response.close()</code></li>
+<li><code>Response.body().close()</code></li>
+<li><code>Response.body().source().close()</code></li>
+<li><code>Response.body().charStream().close()</code></li>
+<li><code>Response.body().byteStream().close()</code></li>
+<li><code>Response.body().bytes()</code></li>
+<li><code>Response.body().string()</code></li>
+</ul>
+<p>为同一个响应体调用多个close()方法没有任何好处。</p>
+<p>对于同步调用，确保响应主体关闭的最简单方法是使用<code>try</code> 块。使用这种结构，编译器会插入一个为您<code>finally</code>调用<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response/close/">close()</a>的隐式子句 。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Call call <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">);</span>
+<span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>Response response <span style="color:#f92672">=</span> call<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+<span style="color:#f92672">...</span> <span style="color:#75715e">// Use the response.
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>可以使用类似的块进行异步调用：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Call call <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">);</span>
+call<span style="color:#f92672">.</span><span style="color:#a6e22e">enqueue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Callback<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onResponse</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> Response response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>ResponseBody responseBody <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">...</span> <span style="color:#75715e">// Use the response.
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFailure</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> IOException e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">...</span> <span style="color:#75715e">// Handle the failure.
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+<span style="color:#f92672">});</span>
+</code></pre></div><p>如果您在另一个线程上使用响应正文，这些示例将不起作用。在这种情况下，消费线程必须在完成读取响应正文后调用<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/close/">close</a>。</p>
+<h3 id="responsebody只能被consume一次">ResponseBody只能被consume一次。</h3>
+<p>此类可用于流式传输非常大的响应。例如，可以使用此类读取大于分配给当前进程的整个内存的响应。它甚至可以流式传输大于当前设备上总存储量的响应，这是视频流应用程序的常见要求。</p>
+<p>由于此类不在内存中缓冲完整的响应，因此应用程序可能不会重新读取响应的字节。使用这一次将整个响应以<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/bytes/">字节</a>或<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/string/">字符串</a>读入内存 。或者使用<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/source/">source</a>、<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/byte-stream/">byteStream</a>或<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/char-stream/">charStream</a>流式传输响应。</p>
+<h3 id="重写请求">重写请求</h3>
+<p>当您向 OkHttp 提供 HTTP 请求时，您是在高级别描述该请求：<em>“使用这些标头为我获取此 URL。”</em> 为了正确性和效率，OkHttp 在传输之前重写您的请求。</p>
+<p>OkHttp可以添加标头是从原来的请求不存在，包括<code>Content-Length</code>，<code>Transfer-Encoding</code>，<code>User-Agent</code>，<code>Host</code>，<code>Connection</code>，和<code>Content-Type</code>。<code>Accept-Encoding</code>除非标头已经存在，否则它将为透明响应压缩添加标头。如果您有 cookie，OkHttp 会<code>Cookie</code>为它们添加一个标头。</p>
+<p>某些请求将具有缓存的响应。当这个缓存的响应不新鲜时，如果更新的响应比缓存的更新，OkHttp 可以执行<em>有条件的 GET</em>来下载更新的响应。这需要添加像<code>If-Modified-Since</code>和这样的标题<code>If-None-Match</code>。</p>
+<h3 id="重写响应">重写响应</h3>
+<p>如果使用透明压缩，OkHttp 将丢弃相应的响应头<code>Content-Encoding</code>，<code>Content-Length</code>因为它们不适用于解压的响应体。</p>
+<p>如果条件 GET 成功，来自网络和缓存的响应将按照规范的指示进行合并。</p>
+<h3 id="跟进请求">跟进请求</h3>
+<p>当您请求的 URL 移动时，网络服务器将返回一个响应代码，类似于<code>302</code>指示文档的新 URL。OkHttp 将跟随重定向来检索最终响应。</p>
+<p>如果响应发出授权质询，OkHttp 将要求<a href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-authenticator/"><code>Authenticator</code></a>（如果已配置）满足质询。如果身份验证器提供凭据，则会重试包含该凭据的请求。</p>
+<h3 id="重试请求">重试请求</h3>
+<p>有时连接失败：池连接陈旧并断开连接，或者无法访问网络服务器本身。如果可用，OkHttp 将使用不同的路由重试请求。</p>
+<h3 id="call-1">Call</h3>
+<p>通过重写、重定向、跟进和重试，您的简单请求可能会产生许多请求和响应。OkHttp 用于<code>Call</code>通过许多中间请求和响应来模拟满足您的请求的任务。通常这不是很多！但令人欣慰的是，如果您的 URL 被重定向或故障转移到备用 IP 地址，您的代码将继续工作。</p>
+<p>调用以以下两种方式之一执行：</p>
+<ul>
+<li>**同步：**您的线程阻塞，直到响应可读。</li>
+<li>**异步：**您在任何线程上排队请求，并在响应可读时在另一个线程上<a href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-callback/">回调</a>。</li>
+</ul>
+<p>可以从任何线程取消调用。如果它还没有完成，这将使调用失败！编写请求正文或读取响应正文的代码<code>IOException</code>在调用被取消时会受到影响。</p>
+<h3 id="派遣">派遣</h3>
+<p>对于同步调用，您可以使用自己的线程并负责管理您同时发出的请求数。同时连接太多会浪费资源；太少会损害延迟。</p>
+<p>对于异步调用，<a href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-dispatcher/"><code>Dispatcher</code></a>实现最大并发请求的策略。您可以设置每个网络服务器的最大值（默认为 5）和整体（默认为 64）。</p>
+<h2 id="缓存">缓存</h2>
+<p><code>class Cache :</code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html"><code>Closeable</code></a><code>,</code><a href="https://docs.oracle.com/javase/8/docs/api/java/io/Flushable.html"><code>Flushable</code></a></p>
+<p>缓存对文件系统的 HTTP 和 HTTPS 响应，以便它们可以被重用，从而节省时间和带宽。</p>
+<h3 id="缓存优化">缓存优化</h3>
+<p>为了衡量缓存有效性，此类跟踪三个统计信息：</p>
+<ul>
+<li>**请求计数：**自此缓存创建以来发出的 HTTP 请求数。</li>
+<li>**网络计数：**需要网络使用的那些请求的数量。</li>
+<li>**命中计数：**响应由缓存提供的那些请求的数量。</li>
+</ul>
+<p>有时请求会导致条件缓存命中。如果缓存包含响应的陈旧副本，客户端将发出一个有条件的<code>GET</code>. 然后服务器将发送更新的响应（如果已更改），或者如果客户端的副本仍然有效，则发送简短的“未修改”响应。此类响应会增加网络计数和命中计数。</p>
+<p>提高缓存命中率的最佳方法是配置 Web 服务器以返回可缓存的响应。尽管此客户端支持所有<a href="http://tools.ietf.org/html/rfc7234">HTTP/1.1 (RFC 7234)</a>缓存标头，但它不会缓存部分响应。</p>
+<h3 id="强制网络响应">强制网络响应</h3>
+<p>在某些情况下，例如用户单击“刷新”按钮后，可能需要跳过缓存，直接从服务器获取数据。要强制完全刷新，请添加<code>no-cache</code> 指令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">cacheControl</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> CacheControl<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">().</span><span style="color:#a6e22e">noCache</span><span style="color:#f92672">().</span><span style="color:#a6e22e">build</span><span style="color:#f92672">())</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</code></pre></div><p>如果只需要强制服务器验证缓存的响应，请改用更高效的<code>max-age=0</code>指令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">cacheControl</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> CacheControl<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">maxAge</span><span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">())</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</code></pre></div><h3 id="强制缓存响应">强制缓存响应</h3>
+<p>有时，如果资源立即可用，您会想要显示资源，否则不会显示。这可以用于让您的应用程序可以在等待下载最新数据时显示<em>一些</em>内容。要将请求限制为本地缓存资源，请添加<code>only-if-cached</code> 指令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">cacheControl</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> CacheControl<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">onlyIfCached</span><span style="color:#f92672">()</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">())</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+Response forceCacheResponse <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>forceCacheResponse<span style="color:#f92672">.</span><span style="color:#a6e22e">code</span><span style="color:#f92672">()</span> <span style="color:#f92672">!=</span> 504<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  <span style="color:#75715e">// The resource was cached! Show it.
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+  <span style="color:#75715e">// The resource was not cached.
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div><p>在陈旧的响应比没有响应更好的情况下，这种技术更有效。要允许陈旧的缓存响应，请使用<code>max-stale</code>以秒为单位的最大陈旧程度的指令：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">cacheControl</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> CacheControl<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">maxStale</span><span style="color:#f92672">(</span>365<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">DAYS</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">())</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+</code></pre></div><p>该<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-cache-control/">CacheControl</a>类可以配置请求高速缓存的指令和响应解析缓存指令。它甚至提供了方便的常量<a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-cache-control/-f-o-r-c-e_-n-e-t-w-o-r-k/">CacheControl.FORCE_NETWORK</a>和 <a href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-cache-control/-f-o-r-c-e_-c-a-c-h-e/">CacheControl.FORCE_CACHE</a>来解决上述用例。</p>
+<h2 id="连接">连接</h2>
+<p>OkHttp 使用三种类型来规划其与您的网络服务器的连接：URL、地址和路由。</p>
+<h3 id="httpurl">HttpUrl</h3>
+<p>一个统一的资源定位符 (URL)，其方案为<code>http</code>或<code>https</code>。使用此类来组合和分解 Internet 地址。例如，此代码将编写并打印用于 Google 搜索的 URL：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">HttpUrl url <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HttpUrl<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">scheme</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">host</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;www.google.com&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">addPathSegment</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;search&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">addQueryParameter</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;q&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;polar bears&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+</code></pre></div><p>打印：</p>
+<pre tabindex="0"><code>https://www.google.com/search?q=polar%20bears
+</code></pre><p>作为另一个示例，此代码打印 Twitter 搜索的人类可读查询参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">HttpUrl url <span style="color:#f92672">=</span> HttpUrl<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://twitter.com/search?q=cute%20%23puppies&amp;f=images&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">,</span> size <span style="color:#f92672">=</span> url<span style="color:#f92672">.</span><span style="color:#a6e22e">querySize</span><span style="color:#f92672">();</span> i <span style="color:#f92672">&lt;</span> size<span style="color:#f92672">;</span> i<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+  System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>url<span style="color:#f92672">.</span><span style="color:#a6e22e">queryParameterName</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;: &#34;</span> <span style="color:#f92672">+</span> url<span style="color:#f92672">.</span><span style="color:#a6e22e">queryParameterValue</span><span style="color:#f92672">(</span>i<span style="color:#f92672">));</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>打印：</p>
+<pre tabindex="0"><code>q: cute #puppies
+f: images
+</code></pre><p>除了从它们的组成部分组成 URL 并将 URL 分解成它们的组成部分之外，这个类还实现了相对 URL 解析：通过单击指定页面上的相对链接，您将到达什么地址。例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">HttpUrl base <span style="color:#f92672">=</span> HttpUrl<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.youtube.com/user/WatchTheDaily/videos&#34;</span><span style="color:#f92672">);</span>
+HttpUrl link <span style="color:#f92672">=</span> base<span style="color:#f92672">.</span><span style="color:#a6e22e">resolve</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;../../watch?v=cbP2N1BQdYc&#34;</span><span style="color:#f92672">);</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>link<span style="color:#f92672">);</span>
+</code></pre></div><p>打印：</p>
+<pre tabindex="0"><code>https://www.youtube.com/watch?v=cbP2N1BQdYc
+</code></pre><h3 id="httpurl的组成部分">HttpUrl的组成部分</h3>
+<h4 id="方案scheme">方案（scheme）</h4>
+<p>有时也称为<em>协议</em>，URL 的方案描述了应该使用什么机制来检索资源。尽管 URL 有许多方案（<code>mailto</code>、<code>file</code>、<code>ftp</code>），但此类仅支持<code>http</code>和<code>https</code>。将<a href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html">java.net.URI</a>用于具有任意方案的 URL。</p>
+<h4 id="用户名和密码">用户名和密码</h4>
+<p>用户名和密码可以存在也可以为空字符串。这个类没有提供区分空和缺席的机制。这些组件在实践中都不流行。通常，HTTP 应用程序使用其他机制进行用户识别和验证。</p>
+<h4 id="host">Host</h4>
+<p>主机标识为 URL 资源提供服务的网络服务器。它可以是类似<code>square.com</code>或的主机名、类似 <code>localhost</code>IPv4 地址<code>192.168.0.1</code>或类似 IPv6 地址<code>::1</code>。</p>
+<p>通常可以使用多个标识符访问网络服务器：其 IP 地址、注册域名，甚至<code>localhost</code>从服务器本身连接时。每个 Web 服务器的名称都是一个不同的 URL，它们不可互换。例如，即使 <code>http://square.github.io/dagger</code>和<code>http://google.github.io/dagger</code>由相同的 IP 地址提供服务，这两个 URL 标识不同的资源。</p>
+<h4 id="port">Port</h4>
+<p>用于连接到 Web 服务器的端口。默认情况下，HTTP 为 80，HTTPS 为 443。此类从不为端口返回 -1：如果在 URL 中未明确指定端口，则使用方案的默认值。</p>
+<h4 id="path">Path</h4>
+<p>该路径标识主机上的特定资源。路径具有像“/square/okhttp/issues/1486”这样的层次结构，并分解成像<code>[&quot;square&quot;, &quot;okhttp&quot;, &quot;issues&quot;, &quot;1486&quot;]</code>.</p>
+<p>此类提供按段组合和分解路径的方法。它通过在“/”和编码段之间交替来从段列表中组成每个路径。例如，段<code>[&quot;a&quot;, &quot;b&quot;]</code>构建“/a/b”，段<code>[&quot;a&quot;, &quot;b&quot;, &quot;&quot;]</code>构建“/a/b/”。</p>
+<p>如果路径的最后一段是空字符串，则路径以“/”结尾。此类始终构建非空路径：如果省略路径，则默认为“/”。默认路径的段列表是一个空字符串：<code>[&quot;&quot;]</code>。</p>
+<h4 id="query">Query</h4>
+<p>查询是可选的：它可以为null、空或非空。对于许多 HTTP URL，查询字符串被细分为一组名称-值参数。此类提供了将查询设置为单个字符串或单独的名称-值参数的方法。对于名称-值参数，这些值是可选的并且名称可以重复。</p>
+<h4 id="fragment">Fragment</h4>
+<p>片段是可选的：它可以为空、空或非空。与主机、端口、路径和查询不同，片段不会发送到网络服务器：它是客户端私有的。</p>
+<h4 id="编码">编码</h4>
+<p>每个组件都必须在嵌入完整 URL 之前进行编码。正如我们在上面看到的，字符串<code>cute #puppies</code>被编码为<code>cute%20%23puppies</code>当用作查询参数值时。</p>
+<h5 id="百分比编码">百分比编码</h5>
+<p>百分比编码将字符（如<code>\ud83c\udf69</code>）替换为其 UTF-8 十六进制字节（如 <code>%F0%9F%8D%A9</code>）。这种方法适用于空白字符、控制字符、非 ASCII 字符和在特定上下文中已经具有另一种含义的字符。</p>
+<p>除了主机名之外，每个 URL 组件都使用百分比编码。但是每个组件需要编码的字符集是不同的。例如，路径组件必须对其所有<code>?</code>字符进行转义，否则它可能会被解释为 URL 查询的开始。但是在 query 和 fragment 组件中，<code>?</code>字符没有分隔任何东西，也不需要转义。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">HttpUrl url <span style="color:#f92672">=</span> HttpUrl<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;http://who-let-the-dogs.out&#34;</span><span style="color:#f92672">).</span><span style="color:#a6e22e">newBuilder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">addPathSegment</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;_Who?_&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">query</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;_Who?_&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">fragment</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;_Who?_&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>url<span style="color:#f92672">);</span>
+</code></pre></div><p>这打印：</p>
+<pre tabindex="0"><code>http://who-let-the-dogs.out/_Who%3F_?_Who?_#_Who?_
+</code></pre><p>当解析缺少百分比编码的 URL 时，此类将对违规字符进行百分比编码。</p>
+<h5 id="idna映射和pinycode编码">IDNA映射和Pinycode编码</h5>
+<p>主机名有不同的要求并使用不同的编码方案。它由 IDNA 映射和 Punycode 编码组成。</p>
+<p>为了避免混淆和阻止网络钓鱼攻击，<a href="http://www.unicode.org/reports/tr46/#ToASCII">IDNA Mapping 会</a>转换名称以避免混淆字符。这包括基本的案例折叠：将喊叫 <code>SQUARE.COM</code>转变为冷静和随意<code>square.com</code>。它还可以处理更多异国情调的角色。例如，Unicode 商标符号 (™) 可能与 <code>http://ho™mail.com</code>混淆. 为了缓解这种情况，单个字符 (™) 映射到字符串 ™。所有 110 万个 Unicode 代码点都有类似的政策。请注意，某些代码点（例如“\ud83c\udf69”）未映射且不能在主机名中使用。</p>
+<p><a href="http://ietf.org/rfc/rfc3492.txt">Punycode</a>将 Unicode 字符串转换为 ASCII 字符串，使国际域名在任何地方都能使用。例如，“σ”编码为“xn–4xa”。编码后的字符串不是人类可读的，但可以与<a href="https://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html">InetAddress 等</a>类一起使用以建立连接。</p>
+<h3 id="地址">地址</h3>
+<p>地址指定网络服务器（如<code>github.com</code>）和连接到该服务器所需的所有<strong>静态</strong>配置：端口号、HTTPS 设置和首选网络协议（如 HTTP/2 或 SPDY）。</p>
+<p>共享相同地址的 URL 也可能共享相同的底层 TCP 套接字连接。共享连接具有显着的性能优势：更低的延迟、更高的吞吐量（由于<a href="http://www.igvita.com/2011/10/20/faster-web-vs-tcp-slow-start/">TCP 慢启动</a>）和节省电池。OkHttp 使用<a href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-connection-pool/">ConnectionPool</a>自动重用 HTTP/1.x 连接并复用 HTTP/2 和 SPDY 连接。</p>
+<p>在 OkHttp 中，地址的某些字段来自 URL（方案、主机名、端口），其余<a href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/">字段</a>来自<a href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/">OkHttpClient</a>。</p>
+<h3 id="路线">路线</h3>
+<p>路由提供实际连接到网络服务器所需的<strong>动态</strong>信息。这是要尝试的特定 IP 地址（由 DNS 查询发现）、要使用的确切代理服务器（如果正在使用<a href="http://developer.android.com/reference/java/net/ProxySelector.html">ProxySelector</a>）以及要协商的 TLS 版本（对于 HTTPS 连接）。</p>
+<p>一个地址可能有许多路由。例如，托管在多个数据中心的网络服务器可能会在其 DNS 响应中产生多个 IP 地址。</p>
+<p>连接用于到达抽象源服务器的具体路由。创建连接时，客户端有很多选项：</p>
+<ul>
+<li>**HTTP 代理：**可以为客户端显式配置代理服务器。否则使用<a href="https://docs.oracle.com/javase/8/docs/api/java/net/ProxySelector.html">代理选择器</a>。它可能尝试会返回多个代理。</li>
+<li>**IP地址：**无论是直接连接到源服务器还是代理，打开一个socket都需要一个IP地址。DNS 服务器可能会返回多个 IP 地址进行尝试。</li>
+</ul>
+<p>每条路线都是这些选项的特定选择。</p>
+<h3 id="连接-1">连接</h3>
+<p>当您使用 OkHttp 请求 URL 时，它会执行以下操作：</p>
+<ol>
+<li>它使用 URL 和配置好的 OkHttpClient 来创建<strong>地址</strong>。这个地址指定了我们将如何连接到网络服务器。</li>
+<li>它尝试从<strong>连接池中</strong>检索具有该地址的<strong>连接</strong>。</li>
+<li>如果它在池中没有找到连接，它会选择一个<strong>路由</strong>来尝试。这通常意味着发出 DNS 请求以获取服务器的 IP 地址。然后，它会根据需要选择 TLS 版本和代理服务器。</li>
+<li>如果是新路由，它会通过构建直接套接字连接、TLS 隧道（用于 HTTP 代理上的 HTTPS）或直接 TLS 连接来进行连接。它会根据需要进行 TLS 交互。</li>
+<li>它发送 HTTP 请求并读取响应。</li>
+</ol>
+<p>如果连接出现问题，OkHttp 会选择另一条路由并重试。这允许 OkHttp 在无法访问服务器地址的子集时进行恢复。当池连接陈旧或尝试的 TLS 版本不受支持时，它也很有用。</p>
+<p>收到响应后，连接将返回到池中，以便可以在以后的请求中重用。在一段时间不活动后，连接将从池中逐出。</p>
+<h2 id="事件">事件</h2>
+<p><img src="https://square.github.io/okhttp/images/events%402x.png" alt="事件图"></p>
+<p>这是一个<a href="https://github.com/square/okhttp/blob/master/samples/guide/src/main/java/okhttp3/recipes/PrintEventsNonConcurrent.java">示例事件侦听器</a>，它使用时间戳打印每个事件。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrintingEventListener</span> <span style="color:#66d9ef">extends</span> EventListener <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> callStartNanos<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printEvent</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">long</span> nowNanos <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>name<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;callStart&#34;</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+      callStartNanos <span style="color:#f92672">=</span> nowNanos<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">long</span> elapsedNanos <span style="color:#f92672">=</span> nowNanos <span style="color:#f92672">-</span> callStartNanos<span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%.3f %s%n&#34;</span><span style="color:#f92672">,</span> elapsedNanos <span style="color:#f92672">/</span> 1000000000d<span style="color:#f92672">,</span> name<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">callStart</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    printEvent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;callStart&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">callEnd</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    printEvent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;callEnd&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dnsStart</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> String domainName<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    printEvent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dnsStart&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">dnsEnd</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">,</span> String domainName<span style="color:#f92672">,</span> List<span style="color:#f92672">&lt;</span>InetAddress<span style="color:#f92672">&gt;</span> inetAddressList<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    printEvent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;dnsEnd&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>我们发出了几个call</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://publicobject.com/helloworld.txt&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;REQUEST 1 (new connection)&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>Response response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+  <span style="color:#75715e">// Consume and discard the response body.
+</span><span style="color:#75715e"></span>  response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">source</span><span style="color:#f92672">().</span><span style="color:#a6e22e">readByteString</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;REQUEST 2 (pooled connection)&#34;</span><span style="color:#f92672">);</span>
+<span style="color:#66d9ef">try</span> <span style="color:#f92672">(</span>Response response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+  <span style="color:#75715e">// Consume and discard the response body.
+</span><span style="color:#75715e"></span>  response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">source</span><span style="color:#f92672">().</span><span style="color:#a6e22e">readByteString</span><span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>并且侦听器打印相应的事件：</p>
+<pre tabindex="0"><code>REQUEST 1 (new connection)
+0.000 callStart
+0.010 dnsStart
+0.017 dnsEnd
+0.025 connectStart
+0.117 secureConnectStart
+0.586 secureConnectEnd
+0.586 connectEnd
+0.587 connectionAcquired
+0.588 requestHeadersStart
+0.590 requestHeadersEnd
+0.591 responseHeadersStart
+0.675 responseHeadersEnd
+0.676 responseBodyStart
+0.679 responseBodyEnd
+0.679 connectionReleased
+0.680 callEnd
+REQUEST 2 (pooled connection)
+0.000 callStart
+0.001 connectionAcquired
+0.001 requestHeadersStart
+0.001 requestHeadersEnd
+0.002 responseHeadersStart
+0.082 responseHeadersEnd
+0.082 responseBodyStart
+0.082 responseBodyEnd
+0.083 connectionReleased
+0.083 callEnd
+</code></pre><p>注意第二次调用没有触发连接事件。它重用了来自第一个请求的连接以获得显着更好的性能。</p>
+<h4 id="事件监听器factory">事件监听器Factory</h4>
+<p>在前面的示例中，我们使用字段<code>callStartNanos</code>, 来跟踪每个事件的经过时间。这很方便，但如果多个调用同时执行，它就行不通了。为了适应这种情况，使用<code>Factory</code>创建一个新的<code>EventListener</code>为每个实例<code>Call</code>。这允许每个侦听器保持特定于呼叫的状态。</p>
+<p>此<a href="https://github.com/square/okhttp/blob/master/samples/guide/src/main/java/okhttp3/recipes/PrintEvents.java">示例工厂</a>为每个调用创建一个唯一 ID，并使用该 ID 来区分日志消息中的调用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PrintingEventListener</span> <span style="color:#66d9ef">extends</span> EventListener <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Factory FACTORY <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Factory<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">final</span> AtomicLong nextCallId <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> AtomicLong<span style="color:#f92672">(</span>1L<span style="color:#f92672">);</span>
+
+    <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> EventListener <span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">long</span> callId <span style="color:#f92672">=</span> nextCallId<span style="color:#f92672">.</span><span style="color:#a6e22e">getAndIncrement</span><span style="color:#f92672">();</span>
+      System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%04d %s%n&#34;</span><span style="color:#f92672">,</span> callId<span style="color:#f92672">,</span> call<span style="color:#f92672">.</span><span style="color:#a6e22e">request</span><span style="color:#f92672">().</span><span style="color:#a6e22e">url</span><span style="color:#f92672">());</span>
+      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> PrintingEventListener<span style="color:#f92672">(</span>callId<span style="color:#f92672">,</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">());</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">};</span>
+
+  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> callId<span style="color:#f92672">;</span>
+  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">long</span> callStartNanos<span style="color:#f92672">;</span>
+
+  <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">PrintingEventListener</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> callId<span style="color:#f92672">,</span> <span style="color:#66d9ef">long</span> callStartNanos<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">callId</span> <span style="color:#f92672">=</span> callId<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">callStartNanos</span> <span style="color:#f92672">=</span> callStartNanos<span style="color:#f92672">;</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">printEvent</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">long</span> elapsedNanos <span style="color:#f92672">=</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">nanoTime</span><span style="color:#f92672">()</span> <span style="color:#f92672">-</span> callStartNanos<span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">printf</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;%04d %.3f %s%n&#34;</span><span style="color:#f92672">,</span> callId<span style="color:#f92672">,</span> elapsedNanos <span style="color:#f92672">/</span> 1000000000d<span style="color:#f92672">,</span> name<span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">callStart</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    printEvent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;callStart&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">callEnd</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    printEvent<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;callEnd&#34;</span><span style="color:#f92672">);</span>
+  <span style="color:#f92672">}</span>
+
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>我们可以使用这个监听器来竞争一对并发 HTTP 请求：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Request washingtonPostRequest <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.washingtonpost.com/&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>washingtonPostRequest<span style="color:#f92672">).</span><span style="color:#a6e22e">enqueue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Callback<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">});</span>
+
+Request newYorkTimesRequest <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://www.nytimes.com/&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>newYorkTimesRequest<span style="color:#f92672">).</span><span style="color:#a6e22e">enqueue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Callback<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">});</span>
+</code></pre></div><p>在家庭 WiFi 上运行这场比赛显示 Times ( <code>0002</code>) 完成得比 Post ( <code>0001</code>)稍早：</p>
+<pre tabindex="0"><code>0001 https://www.washingtonpost.com/
+0001 0.000 callStart
+0002 https://www.nytimes.com/
+0002 0.000 callStart
+0002 0.010 dnsStart
+0001 0.013 dnsStart
+0001 0.022 dnsEnd
+0002 0.019 dnsEnd
+0001 0.028 connectStart
+0002 0.025 connectStart
+0002 0.072 secureConnectStart
+0001 0.075 secureConnectStart
+0001 0.386 secureConnectEnd
+0002 0.390 secureConnectEnd
+0002 0.400 connectEnd
+0001 0.403 connectEnd
+0002 0.401 connectionAcquired
+0001 0.404 connectionAcquired
+0001 0.406 requestHeadersStart
+0002 0.403 requestHeadersStart
+0001 0.414 requestHeadersEnd
+0002 0.411 requestHeadersEnd
+0002 0.412 responseHeadersStart
+0001 0.415 responseHeadersStart
+0002 0.474 responseHeadersEnd
+0002 0.475 responseBodyStart
+0001 0.554 responseHeadersEnd
+0001 0.555 responseBodyStart
+0002 0.554 responseBodyEnd
+0002 0.554 connectionReleased
+0002 0.554 callEnd
+0001 0.624 responseBodyEnd
+0001 0.624 connectionReleased
+0001 0.624 callEnd
+</code></pre><p>这<code>EventListener.Factory</code>还可以将指标限制为调用的子集。这个捕获随机 10% 的指标：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MetricsEventListener</span> <span style="color:#66d9ef">extends</span> EventListener <span style="color:#f92672">{</span>
+  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Factory FACTORY <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Factory<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span> <span style="color:#66d9ef">public</span> EventListener <span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>Call call<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+      <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>Math<span style="color:#f92672">.</span><span style="color:#a6e22e">random</span><span style="color:#f92672">()</span> <span style="color:#f92672">&lt;</span> 0<span style="color:#f92672">.</span><span style="color:#a6e22e">10</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MetricsEventListener<span style="color:#f92672">(</span>call<span style="color:#f92672">);</span>
+      <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> EventListener<span style="color:#f92672">.</span><span style="color:#a6e22e">NONE</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">};</span>
+
+  <span style="color:#f92672">...</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="失败的event">失败的Event</h4>
+<p>当操作失败时，会调用失败方法。这适用<code>connectFailed()</code>于建立与服务器的连接<code>callFailed()</code>时的失败，以及HTTP 调用永久失败的情况。当发生故障时，<code>start</code>事件可能没有相应的<code>end</code>事件。</p>
+<p><img src="https://square.github.io/okhttp/images/events_with_failures%402x.png" alt="事件图"></p>
+<h4 id="带有重试和跟进的事件">带有重试和跟进的事件</h4>
+<p>OkHttp 具有弹性，可以从某些连接故障中自动恢复。在这种情况下，<code>connectFailed()</code>事件不是终止事件，并且后面没有<code>callFailed()</code>。尝试重试时，事件侦听器将接收多个相同类型的事件。</p>
+<p>单个 HTTP 调用可能需要发出后续请求来处理身份验证挑战、重定向和 HTTP 层超时。在这种情况下，可能会尝试多个连接、请求和响应。跟进是单个调用可能触发多个相同类型事件的另一个原因。</p>
+<p><img src="https://square.github.io/okhttp/images/events_with_failures_and_retries%402x.png" alt="事件图"></p>
+<h2 id="https">HTTPS</h2>
+<p>OkHttp尽可能的协调两个问题：</p>
+<ul>
+<li>连接到尽可能多的主机</li>
+<li>连接的安全性</li>
+</ul>
+<p><a href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-connection-spec/">ConnectionSpec</a>实现了特定的安全性与连接性决策。OkHttp 包含四个内置连接规范：</p>
+<ul>
+<li><code>RESTRICTED_TLS</code> 是一种安全配置，旨在满足更严格的合规性要求。</li>
+<li><code>MODERN_TLS</code> 是连接到现代 HTTPS 服务器的安全配置。</li>
+<li><code>COMPATIBLE_TLS</code> 是连接到安全但不是当前的 HTTPS 服务器的安全配置。</li>
+<li><code>CLEARTEXT</code>是用于<code>http://</code>URL的不安全配置。</li>
+</ul>
+<h2 id="代码示例">代码示例</h2>
+<p>Http Get</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">//创建okHttpClient对象
+</span><span style="color:#75715e"></span>OkHttpClient mOkHttpClient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">();</span>
+<span style="color:#75715e">//创建一个Request
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">final</span> Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;https://github.com/hongyangAndroid&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+<span style="color:#75715e">//new call
+</span><span style="color:#75715e"></span>Call call <span style="color:#f92672">=</span> mOkHttpClient<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">);</span> 
+<span style="color:#75715e">//请求加入调度
+</span><span style="color:#75715e"></span>call<span style="color:#f92672">.</span><span style="color:#a6e22e">enqueue</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Callback<span style="color:#f92672">()</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onFailure</span><span style="color:#f92672">(</span>Request request<span style="color:#f92672">,</span> IOException e<span style="color:#f92672">)</span>
+            <span style="color:#f92672">{</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#a6e22e">@Override</span>
+            <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onResponse</span><span style="color:#f92672">(</span><span style="color:#66d9ef">final</span> Response response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException
+            <span style="color:#f92672">{</span>
+                    <span style="color:#75715e">//String htmlStr =  response.body().string();
+</span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">});</span>
+</code></pre></div><p>代码分析：</p>
+<ul>
+<li>最好全局使用一个OkHttpClient</li>
+<li>创建一个request,可以通过RequestBuider设置参数</li>
+<li>通过request对象构造call对象，可以调用execute和cancel方法</li>
+<li>异步调用，call.enqueue,等待任务执行完成，在calllback中获取结果</li>
+<li>当整个GET成功，我们就回调在onResponse()方法中的方法处理ResponseBody包含的数据。通过response.body()方法得到ResponseBody对象。ResponseBody有几种方式转换返回的数据。</li>
+</ul>
+<p>Call有一个线程阻塞方法，execute()。可以直接调用这个方法返回一个Response。</p>
+<p>注意当我们使用Call.execute()方法返回的Response，首先要进行判断是否成功。调用Response.isSuccessful()（Returns true if the code is in [200..300),这里的code指的是Http响应消息的状态码）方法来判断。</p>
+<p>Http Post</p>
+<h3 id="post-提交json数据">post 提交Json数据</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> MediaType JSON <span style="color:#f92672">=</span> MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">parse</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;application/json; charset=utf-8&#34;</span><span style="color:#f92672">);</span>
+OkHttpClient client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">();</span>
+String <span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> String json<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+     RequestBody body <span style="color:#f92672">=</span> RequestBody<span style="color:#f92672">.</span><span style="color:#a6e22e">create</span><span style="color:#f92672">(</span>JSON<span style="color:#f92672">,</span> json<span style="color:#f92672">);</span>
+      Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span>url<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>body<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+    Response response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">isSuccessful</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IOException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Unexpected code &#34;</span> <span style="color:#f92672">+</span> response<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>使用Request的post方法来提交请求体RequestBody</p>
+<h3 id="post提交键值对">post提交键值对</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">kHttpClient client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> OkHttpClient<span style="color:#f92672">();</span>
+String <span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> String json<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+
+     RequestBody formBody <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> FormEncodingBuilder<span style="color:#f92672">()</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;platform&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;android&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;bug&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;subject&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;XXXXXXXXXXXXXXX&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+      Request request <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Request<span style="color:#f92672">.</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">()</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">url</span><span style="color:#f92672">(</span>url<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">post</span><span style="color:#f92672">(</span>body<span style="color:#f92672">)</span>
+      <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">();</span>
+
+    Response response <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">newCall</span><span style="color:#f92672">(</span>request<span style="color:#f92672">).</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">();</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>response<span style="color:#f92672">.</span><span style="color:#a6e22e">isSuccessful</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">body</span><span style="color:#f92672">().</span><span style="color:#a6e22e">string</span><span style="color:#f92672">();</span>
+    <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> IOException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Unexpected code &#34;</span> <span style="color:#f92672">+</span> response<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

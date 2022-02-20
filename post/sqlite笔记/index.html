@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      NKJ-666
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://NKJ-666.github.io/post/sqlite%E7%AC%94%E8%AE%B0/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="SQLite笔记 SQLite语法 注释 SQLite 注释是附加的注释，可以在 SQLite 代码中添加注释以增加其可读性，他们可以出现在任何空白处，包括在表达式内和其他 SQL 语句的中间，但它们不能嵌套。
+SQL 注释以两个连续的 &ldquo;-&rdquo; 字符（ASCII 0x2d）开始，并扩展至下一个换行符（ASCII 0x0a）或直到输入结束，以先到者为准。
+也可以使用 C 风格的注释，以 &ldquo;/&rdquo; 开始，并扩展至下一个 &ldquo;/&rdquo; 字符对或直到输入结束，以先到者为准。SQLite的注释可以跨越多行。
+SQLite创建数据库 sqlite3 DatabaseName.db注：不需要进入sqlite命令行
+也可以通过
+.open db_name.db来创建数据库。
+打开已存在数据库也是用 .open 命令，以上命令如果 test.db 存在则直接会打开，不存在就创建它。
+退出sqlite提示符
+.quit.dump命令 可以在命令提示符中使用 SQLite .dump 点命令来导出完整的数据库在一个文本文件中，
+sqlite3 testDB.db .dump &gt; testDB.sql转储到 ASCII 文本文件 testDB.sql 中.
+恢复：
+sqlite3 testDB.db &lt; testDB.sqlSQLite 附加数据库 ATTACH DATABASE file_name AS database_name;如果数据库尚未被创建，上面的命令将创建一个数据库，如果数据库已存在，则把数据库文件名称与逻辑数据库 &lsquo;Alias-Name&rsquo; 绑定在一起。
+打开的数据库和使用 ATTACH附加进来的数据库的必须位于同一文件夹下。
+数据库名称 main 和 temp 被保留用于主数据库和存储临时表及其他临时数据对象的数据库。这两个数据库名称可用于每个数据库连接，且不应该被用于附加，否则将得到一个警告消息，"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "",
+        "headline": "",
+        "alternativeHeadline": "",
+        "description": "
+      
+        SQLite笔记 SQLite语法 注释 SQLite 注释是附加的注释，可以在 SQLite 代码中添加注释以增加其可读性，他们可以出现在任何空白处，包括在表达式内和其他 SQL 语句的中间，但它们不能嵌套。\nSQL 注释以两个连续的 \u0026ldquo;-\u0026rdquo; 字符（ASCII 0x2d）开始，并扩展至下一个换行符（ASCII 0x0a）或直到输入结束，以先到者为准。\n也可以使用 C 风格的注释，以 \u0026ldquo;\/\u0026rdquo; 开始，并扩展至下一个 \u0026ldquo;\/\u0026rdquo; 字符对或直到输入结束，以先到者为准。SQLite的注释可以跨越多行。\nSQLite创建数据库 sqlite3 DatabaseName.db\r注：不需要进入sqlite命令行\n也可以通过\n.open db_name.db\r来创建数据库。\n打开已存在数据库也是用 .open 命令，以上命令如果 test.db 存在则直接会打开，不存在就创建它。\n退出sqlite提示符\n.quit\r.dump命令 可以在命令提示符中使用 SQLite .dump 点命令来导出完整的数据库在一个文本文件中，\nsqlite3 testDB.db .dump \u0026gt; testDB.sql\r转储到 ASCII 文本文件 testDB.sql 中.\n恢复：\nsqlite3 testDB.db \u0026lt; testDB.sql\rSQLite 附加数据库 ATTACH DATABASE file_name AS database_name;\r如果数据库尚未被创建，上面的命令将创建一个数据库，如果数据库已存在，则把数据库文件名称与逻辑数据库 \u0026lsquo;Alias-Name\u0026rsquo; 绑定在一起。\n打开的数据库和使用 ATTACH附加进来的数据库的必须位于同一文件夹下。\n数据库名称 main 和 temp 被保留用于主数据库和存储临时表及其他临时数据对象的数据库。这两个数据库名称可用于每个数据库连接，且不应该被用于附加，否则将得到一个警告消息，
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/NKJ-666.github.io\/post\/sqlite%E7%AC%94%E8%AE%B0\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightYear" : "0001",
+        "dateCreated": "0001-01-01T00:00:00.00Z",
+        "datePublished": "0001-01-01T00:00:00.00Z",
+        "dateModified": "0001-01-01T00:00:00.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "NKJ-666",
+            "url": "https://NKJ-666.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/NKJ-666.github.io\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/NKJ-666.github.io\/post\/sqlite%E7%AC%94%E8%AE%B0\/",
+        "wordCount" : "250",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Cache_2f9c1b3c923a4a64..jpg" alt="profile picture" />
+        <h3 title=""><a href="/">NKJ-666</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://github.com/NKJ-666" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1></h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Mon, Jan 1, 0001
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">2-minute read</span>
+          </div>
+
+        
+      </div><h1 id="sqlite笔记">SQLite笔记</h1>
+<h2 id="sqlite语法">SQLite语法</h2>
+<h3 id="注释">注释</h3>
+<p>SQLite 注释是附加的注释，可以在 SQLite 代码中添加注释以增加其可读性，他们可以出现在任何空白处，包括在表达式内和其他 SQL 语句的中间，但它们不能嵌套。</p>
+<p>SQL 注释以两个连续的 &ldquo;-&rdquo; 字符（ASCII 0x2d）开始，并扩展至下一个换行符（ASCII 0x0a）或直到输入结束，以先到者为准。</p>
+<p>也可以使用 C 风格的注释，以 &ldquo;/<em>&rdquo; 开始，并扩展至下一个 &ldquo;</em>/&rdquo; 字符对或直到输入结束，以先到者为准。SQLite的注释可以跨越多行。</p>
+<h2 id="sqlite创建数据库">SQLite创建数据库</h2>
+<pre tabindex="0"><code>sqlite3 DatabaseName.db
+</code></pre><p>注：不需要进入sqlite命令行</p>
+<p>也可以通过</p>
+<pre tabindex="0"><code>.open db_name.db
+</code></pre><p>来创建数据库。</p>
+<p>打开已存在数据库也是用 <strong>.open</strong> 命令，以上命令如果 <strong>test.db</strong> 存在则直接会打开，不存在就创建它。</p>
+<p>退出sqlite提示符</p>
+<pre tabindex="0"><code>.quit
+</code></pre><h3 id="dump命令">.dump命令</h3>
+<p>可以在命令提示符中使用 SQLite <strong>.dump</strong> 点命令来导出完整的数据库在一个文本文件中，</p>
+<pre tabindex="0"><code>sqlite3 testDB.db .dump &gt; testDB.sql
+</code></pre><p>转储到 ASCII 文本文件 <strong>testDB.sql</strong> 中.</p>
+<p>恢复：</p>
+<pre tabindex="0"><code>sqlite3 testDB.db &lt; testDB.sql
+</code></pre><h2 id="sqlite-附加数据库">SQLite 附加数据库</h2>
+<pre tabindex="0"><code>ATTACH DATABASE file_name AS database_name;
+</code></pre><p>如果数据库尚未被创建，上面的命令将创建一个数据库，如果数据库已存在，则把数据库文件名称与逻辑数据库 &lsquo;Alias-Name&rsquo; 绑定在一起。</p>
+<p>打开的数据库和使用 ATTACH附加进来的数据库的必须位于同一文件夹下。</p>
+<p>数据库名称 <strong>main</strong> 和 <strong>temp</strong> 被保留用于主数据库和存储临时表及其他临时数据对象的数据库。这两个数据库名称可用于每个数据库连接，且不应该被用于附加，否则将得到一个警告消息，</p>
+<h2 id="sqlite-分离数据库">SQLite 分离数据库</h2>
+<pre tabindex="0"><code>DETACH DATABASE 'Alias-Name';
+</code></pre><p>在这里，&lsquo;Alias-Name&rsquo; 与您之前使用 ATTACH 语句附加数据库时所用到的别名相同。</p>
+<h2 id="sqlite-insert语句">SQLite INSERT语句</h2>
+<p>可以使用一个表来填充另外一个表</p>
+<pre tabindex="0"><code>INSERT INTO first_table_name [(column1, column2, ... columnN)] 
+   SELECT column1, column2, ...columnN 
+   FROM second_table_name
+   [WHERE condition];
+</code></pre><p>可以设置输出列的宽度</p>
+<pre tabindex="0"><code>.width 10, 20, 10
+</code></pre><h2 id="schema信息">Schema信息</h2>
+<p>可以列出关于 COMPANY 表的完整信息，如下所示：</p>
+<pre tabindex="0"><code>sqlite&gt; SELECT sql FROM sqlite_master WHERE type = 'table' AND tbl_name = 'COMPANY';
+</code></pre><p>假设在 testDB.db 中已经存在唯一的 COMPANY 表，则将产生以下结果：</p>
+<pre tabindex="0"><code>CREATE TABLE COMPANY(
+   ID INT PRIMARY KEY     NOT NULL,
+   NAME           TEXT    NOT NULL,
+   AGE            INT     NOT NULL,
+   ADDRESS        CHAR(50),
+   SALARY         REAL
+)
+</code></pre><h2 id="sqlite运算符">SQLite运算符</h2>
+<ul>
+<li>
+<p>算术运算符</p>
+</li>
+<li>
+<p>比较运算符</p>
+</li>
+<li>
+<p>逻辑运算符</p>
+</li>
+<li>
+<p>位运算符</p>
+<p>==	=	!=	&lt;&gt;(不等于)	&gt; 	&lt;	&gt;=	&lt;=	!&lt;	!&gt;</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算符</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AND</td>
+<td style="text-align:left">AND 运算符允许在一个 SQL 语句的 WHERE 子句中的多个条件的存在。</td>
+</tr>
+<tr>
+<td style="text-align:left">BETWEEN</td>
+<td style="text-align:left">BETWEEN 运算符用于在给定最小值和最大值范围内的一系列值中搜索值。</td>
+</tr>
+<tr>
+<td style="text-align:left">EXISTS</td>
+<td style="text-align:left">EXISTS 运算符用于在满足一定条件的指定表中搜索行的存在。</td>
+</tr>
+<tr>
+<td style="text-align:left">IN</td>
+<td style="text-align:left">IN 运算符用于把某个值与一系列指定列表的值进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">NOT IN</td>
+<td style="text-align:left">IN 运算符的对立面，用于把某个值与不在一系列指定列表的值进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">LIKE</td>
+<td style="text-align:left">LIKE 运算符用于把某个值与使用通配符运算符的相似值进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">GLOB</td>
+<td style="text-align:left">GLOB 运算符用于把某个值与使用通配符运算符的相似值进行比较。GLOB 与 LIKE 不同之处在于，它是大小写敏感的。</td>
+</tr>
+<tr>
+<td style="text-align:left">NOT</td>
+<td style="text-align:left">NOT 运算符是所用的逻辑运算符的对立面。比如 NOT EXISTS、NOT BETWEEN、NOT IN，等等。<strong>它是否定运算符。</strong></td>
+</tr>
+<tr>
+<td style="text-align:left">OR</td>
+<td style="text-align:left">OR 运算符用于结合一个 SQL 语句的 WHERE 子句中的多个条件。</td>
+</tr>
+<tr>
+<td style="text-align:left">IS NULL</td>
+<td style="text-align:left">NULL 运算符用于把某个值与 NULL 值进行比较。</td>
+</tr>
+<tr>
+<td style="text-align:left">IS</td>
+<td style="text-align:left">IS 运算符与 = 相似。</td>
+</tr>
+<tr>
+<td style="text-align:left">IS NOT</td>
+<td style="text-align:left">IS NOT 运算符与 != 相似。</td>
+</tr>
+<tr>
+<td style="text-align:left">||</td>
+<td style="text-align:left">连接两个不同的字符串，得到一个新的字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">UNIQUE</td>
+<td style="text-align:left">UNIQUE 运算符搜索指定表中的每一行，确保唯一性（无重复）。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sqlite-like语句">SQLite Like语句</h2>
+<p>百分号（%）代表零个、一个或多个数字或字符。下划线（_）代表一个单一的数字或字符。这些符号可以被组合使用。（大小写不敏感）</p>
+<p>Glob 语句(大小写敏感型)：</p>
+<p>星号（*）代表零个、一个或多个数字或字符。问号（?）代表一个单一的数字或字符。这些符号可以被组合使用。</p>
+<h2 id="sqlite-having语句">SQLite Having语句</h2>
+<p>HAVING 子句允许指定条件来过滤将出现在最终结果中的分组结果。</p>
+<p>WHERE 子句在所选列上设置条件，而 HAVING 子句则在由 GROUP BY 子句创建的分组上设置条件。</p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
