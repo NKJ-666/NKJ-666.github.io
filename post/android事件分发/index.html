@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      NKJ-666
+        |
+        Android事件分发
+
+
+      
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://NKJ-666.github.io/post/android%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Android事件分发"/>
+<meta name="twitter:description" content="Android 事件分发 几个重要的对象 MotionEvent 在手指触摸屏幕时会有下面几种典型事件
+ ACTION_DOWN:手指刚接触屏幕 ACTION_MOVE:手指在屏幕上滑动 ACTION_UP:手指从屏幕上松开的一瞬间  其中
+ 点击屏幕后立即松开，事件序列为DOWN-&gt;UP 点击屏幕滑动一会再松开，事件序列为DOWN-&gt;MOVE-&gt;MOVE&hellip;-&gt;UP  这个MOTION_EVENT对象可以通过以下方法得到点击事件发生的x,y坐标
+ getX和getY这两个方法是返回相当于当前view的左上角的坐标 getRawX和getRawY返回的是相对于手机屏幕左上角的坐标  TouchSlop TouchSlop是系统能识别出的被认为是滑动的最小距离，如果滑动的距离小于这个值就相当于没有滑动，这是一个常量，和设备有关，可以通过ViewConfiguration.get(getContext()).getScaledTouchSlop来获取这个常量
+VelocityTracker 这个对象用于追踪手指在滑动过程中的速度，在view的onTouchEvent方法中追踪当前点击事件的速度：
+VelocityTracker velocitytracker = VelocityTracker.obtain(); velocityTracker.addMovement(event); velocityTracker.computeCurrentVelocity(1000); int xVelocity = (int) velocityTracker.getXVelocity(); int yVelocity = (int) velocityTracker.getYVelocity(); velocityTracker.clear(); velocityTracker.recycle(); 在获取速度之前必须调用computeCurrentVelocity方法计算速度，可以用：速度 = （终点位置 - 起点位置） / 时间段 来表示，并且computeCurrentVelocity中的参数单位为毫秒。
+在不使用时就调用clear和recycle方法
+GestureDetector 这个对象用于检测用户的单击，滑动，长按，双击等行为
+根据需要可以实现OnGestureListener和OnDoubleTapListener接口，创建GestureDetector的对象
+接着接管目标view的onTouchEvent方法，在待监听的view中添加
+boolean consume = mGestureDetector.onTouchEvent(event); return consume; 顶级view的事件分发 点击事件的事件分发就是对MotionEvent事件的分发过程，当一个MotionEvent产生了之后，系统把这个事件传递给一个具体的view的过程，主要涉及到三个重要的方法：
+dispatchTouchEvent,onInterceptTouchEvent,onTouchEvent
+  public boolean dispatchTouchEvent(MotionEvent ev)这个方法用来进行事件的分发，如果事件能够传递到一个view那么这个view的这个方法一定会被调用，返回的结果受当前view的onTouchEvent和下级view的dispatchTouchEvent影响，表示是否消耗当前的事件"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Android事件分发",
+        "headline": "Android事件分发",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Android 事件分发 几个重要的对象 MotionEvent 在手指触摸屏幕时会有下面几种典型事件\n ACTION_DOWN:手指刚接触屏幕 ACTION_MOVE:手指在屏幕上滑动 ACTION_UP:手指从屏幕上松开的一瞬间  其中\n 点击屏幕后立即松开，事件序列为DOWN-\u0026gt;UP 点击屏幕滑动一会再松开，事件序列为DOWN-\u0026gt;MOVE-\u0026gt;MOVE\u0026hellip;-\u0026gt;UP  这个MOTION_EVENT对象可以通过以下方法得到点击事件发生的x,y坐标\n getX和getY这两个方法是返回相当于当前view的左上角的坐标 getRawX和getRawY返回的是相对于手机屏幕左上角的坐标  TouchSlop TouchSlop是系统能识别出的被认为是滑动的最小距离，如果滑动的距离小于这个值就相当于没有滑动，这是一个常量，和设备有关，可以通过ViewConfiguration.get(getContext()).getScaledTouchSlop来获取这个常量\nVelocityTracker 这个对象用于追踪手指在滑动过程中的速度，在view的onTouchEvent方法中追踪当前点击事件的速度：\nVelocityTracker velocitytracker = VelocityTracker.obtain(); velocityTracker.addMovement(event); velocityTracker.computeCurrentVelocity(1000); int xVelocity = (int) velocityTracker.getXVelocity(); int yVelocity = (int) velocityTracker.getYVelocity(); velocityTracker.clear(); velocityTracker.recycle(); 在获取速度之前必须调用computeCurrentVelocity方法计算速度，可以用：速度 = （终点位置 - 起点位置） \/ 时间段 来表示，并且computeCurrentVelocity中的参数单位为毫秒。\n在不使用时就调用clear和recycle方法\nGestureDetector 这个对象用于检测用户的单击，滑动，长按，双击等行为\n根据需要可以实现OnGestureListener和OnDoubleTapListener接口，创建GestureDetector的对象\n接着接管目标view的onTouchEvent方法，在待监听的view中添加\nboolean consume = mGestureDetector.onTouchEvent(event); return consume; 顶级view的事件分发 点击事件的事件分发就是对MotionEvent事件的分发过程，当一个MotionEvent产生了之后，系统把这个事件传递给一个具体的view的过程，主要涉及到三个重要的方法：\ndispatchTouchEvent,onInterceptTouchEvent,onTouchEvent\n  public boolean dispatchTouchEvent(MotionEvent ev)\r这个方法用来进行事件的分发，如果事件能够传递到一个view那么这个view的这个方法一定会被调用，返回的结果受当前view的onTouchEvent和下级view的dispatchTouchEvent影响，表示是否消耗当前的事件
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/NKJ-666.github.io\/post\/android%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-02-20T19:50:37.00Z",
+        "datePublished": "2022-02-20T19:50:37.00Z",
+        "dateModified": "2022-02-20T19:50:37.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "NKJ-666",
+            "url": "https://NKJ-666.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/NKJ-666.github.io\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/NKJ-666.github.io\/post\/android%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91\/",
+        "wordCount" : "640",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Cache_2f9c1b3c923a4a64..jpg" alt="profile picture" />
+        <h3 title=""><a href="/">NKJ-666</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://github.com/NKJ-666" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Android事件分发</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Sun, Feb 20, 2022
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">4-minute read</span>
+          </div>
+
+        
+      </div><h1 id="android-事件分发">Android 事件分发</h1>
+<h2 id="几个重要的对象">几个重要的对象</h2>
+<h3 id="motionevent">MotionEvent</h3>
+<p>在手指触摸屏幕时会有下面几种典型事件</p>
+<ul>
+<li>ACTION_DOWN:手指刚接触屏幕</li>
+<li>ACTION_MOVE:手指在屏幕上滑动</li>
+<li>ACTION_UP:手指从屏幕上松开的一瞬间</li>
+</ul>
+<p>其中</p>
+<ul>
+<li>点击屏幕后立即松开，事件序列为DOWN-&gt;UP</li>
+<li>点击屏幕滑动一会再松开，事件序列为DOWN-&gt;MOVE-&gt;MOVE&hellip;-&gt;UP</li>
+</ul>
+<p>这个MOTION_EVENT对象可以通过以下方法得到点击事件发生的x,y坐标</p>
+<ul>
+<li><code>getX</code>和<code>getY</code>这两个方法是返回相当于当前<code>view</code>的左上角的坐标</li>
+<li><code>getRawX</code>和<code>getRawY</code>返回的是相对于手机屏幕左上角的坐标</li>
+</ul>
+<h3 id="touchslop">TouchSlop</h3>
+<p><code>TouchSlop</code>是系统能识别出的被认为是滑动的最小距离，如果滑动的距离小于这个值就相当于没有滑动，这是一个常量，和设备有关，可以通过<code>ViewConfiguration.get(getContext()).getScaledTouchSlop</code>来获取这个常量</p>
+<h3 id="velocitytracker">VelocityTracker</h3>
+<p>这个对象用于追踪手指在滑动过程中的速度，在<code>view</code>的<code>onTouchEvent</code>方法中追踪当前点击事件的速度：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">VelocityTracker velocitytracker <span style="color:#f92672">=</span> VelocityTracker<span style="color:#f92672">.</span><span style="color:#a6e22e">obtain</span><span style="color:#f92672">();</span>
+velocityTracker<span style="color:#f92672">.</span><span style="color:#a6e22e">addMovement</span><span style="color:#f92672">(</span>event<span style="color:#f92672">);</span>
+velocityTracker<span style="color:#f92672">.</span><span style="color:#a6e22e">computeCurrentVelocity</span><span style="color:#f92672">(</span>1000<span style="color:#f92672">);</span>
+<span style="color:#66d9ef">int</span> xVelocity <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> velocityTracker<span style="color:#f92672">.</span><span style="color:#a6e22e">getXVelocity</span><span style="color:#f92672">();</span>
+<span style="color:#66d9ef">int</span> yVelocity <span style="color:#f92672">=</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">)</span> velocityTracker<span style="color:#f92672">.</span><span style="color:#a6e22e">getYVelocity</span><span style="color:#f92672">();</span>
+velocityTracker<span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span><span style="color:#f92672">();</span>
+velocityTracker<span style="color:#f92672">.</span><span style="color:#a6e22e">recycle</span><span style="color:#f92672">();</span>
+</code></pre></div><p>在获取速度之前必须调用<code>computeCurrentVelocity</code>方法计算速度，可以用：速度 = （终点位置 - 起点位置） / 时间段 来表示，并且<code>computeCurrentVelocity</code>中的参数单位为毫秒。</p>
+<p>在不使用时就调用<code>clear</code>和<code>recycle</code>方法</p>
+<h3 id="gesturedetector">GestureDetector</h3>
+<p>这个对象用于检测用户的单击，滑动，长按，双击等行为</p>
+<p>根据需要可以实现<code>OnGestureListener</code>和<code>OnDoubleTapListener</code>接口，创建<code>GestureDetector</code>的对象</p>
+<p>接着接管目标<code>view</code>的<code>onTouchEvent</code>方法，在待监听的<code>view</code>中添加</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">boolean</span> consume <span style="color:#f92672">=</span> mGestureDetector<span style="color:#f92672">.</span><span style="color:#a6e22e">onTouchEvent</span><span style="color:#f92672">(</span>event<span style="color:#f92672">);</span>
+<span style="color:#66d9ef">return</span> consume<span style="color:#f92672">;</span>
+</code></pre></div><h2 id="顶级view的事件分发">顶级view的事件分发</h2>
+<p>点击事件的事件分发就是对<code>MotionEvent</code>事件的分发过程，当一个<code>MotionEvent</code>产生了之后，系统把这个事件传递给一个具体的<code>view</code>的过程，主要涉及到三个重要的方法：</p>
+<p><code>dispatchTouchEvent</code>,<code>onInterceptTouchEvent</code>,<code>onTouchEvent</code></p>
+<ul>
+<li>
+<pre tabindex="0"><code>public boolean dispatchTouchEvent(MotionEvent ev)
+</code></pre><p>这个方法用来进行事件的分发，如果事件能够传递到一个<code>view</code>那么这个<code>view</code>的这个方法一定会被调用，返回的结果受当前<code>view</code>的<code>onTouchEvent</code>和下级<code>view</code>的<code>dispatchTouchEvent</code>影响，表示是否消耗当前的事件</p>
+</li>
+<li>
+<pre tabindex="0"><code>public boolean onInterceptTouchEvent(MotionEvent event)
+</code></pre><p>在上边这个方法内部调用，用来判断是否拦截某个事件，如果<code>view</code>拦截了某个事件，那么在同一个时间序列中这个方法不会被再次调用，返回结果表示是否拦截当前事件。</p>
+</li>
+<li>
+<pre tabindex="0"><code>public boolean onTouchEvent(MotionEvent event)
+</code></pre><p>在<code>dispatchTouchEvent</code>方法中调用，用来处理点击事件，返回结果表示是否消耗当前事件，如果不消耗，那么在同一个时间序列中当前的<code>view</code>无法再次接受到这个事件</p>
+</li>
+</ul>
+<p>事件传递时会先传递到<code>activity</code>并调用其<code>dispatchTouchEvent</code>方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">dispatchTouchEvent</span><span style="color:#f92672">(</span>MotionEvent ev<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#f92672">...</span>
+	<span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>getWindow<span style="color:#f92672">().</span><span style="color:#a6e22e">superDispatchTouchEvent</span><span style="color:#f92672">(</span>ev<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">return</span> onTouchEvent<span style="color:#f92672">(</span>ev<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>可以发现在<code>Activity</code>的这个方法中调用了<code>Window.superDispatchTouchEvent</code>方法，而<code>window</code>对象的实现类是<code>PhoneWindow</code>，所以事件其实分发给了<code>phoneWindow</code>,查看这个文件中的<code>superDispatchTouchEvnet</code>方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> DecorView mDecor<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">superDispatchTouchEvent</span><span style="color:#f92672">(</span>MotionEvent event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+	<span style="color:#66d9ef">return</span> mDecor<span style="color:#f92672">.</span><span style="color:#a6e22e">superDispatchTouchEvent</span><span style="color:#f92672">(</span>event<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+
+</code></pre></div><p>发现又将事件传递给了顶层<code>view</code>-<code>decorView</code>,而<code>DecorView</code>是一个<code>FrameLayout</code>,也就是一个<code>viewGroup</code>，也就是将事件传递到了<code>viewGroup</code>的<code>dispatchTouchEvent</code>中，如果这个<code>viewGroup</code>拦截事件则<code>onInterceptTouchEvent</code>返回<code>true</code>，事件由<code>viewGroup</code>处理，如果<code>viewGroup</code>的<code>mOnTouchListener</code>被设置则<code>onTouch</code>会被调用，否则<code>onTouchEvent</code>会被调用，如果都提供的话，那么<code>onTouch</code>会覆盖<code>onTouchEvent</code>,<code>onTouchEvent</code>中如果设置了<code>mOnClickListener</code>则<code>onClick</code>会被调用，如果顶级<code>viewGroup</code>不拦截事件，则事件会传递给他的子<code>view</code>,这时子<code>view</code>的<code>dispatchTouchEvent</code>会被调用，也就和上面的过程一样了</p>
+<p>下面看<code>viewGroup</code>的<code>dispatchTouchEvent</code>方法，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> intercepted<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>actionMasked <span style="color:#f92672">==</span> MotionEvent<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_DOWN</span> <span style="color:#f92672">||</span> mFirstTouchTarget <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">boolean</span> disallowIntercept <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>mGroupFlags <span style="color:#f92672">&amp;</span> FLAG_DISALLOW_INTERCEPT<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">;</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>disallowIntercept<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    intercepted <span style="color:#f92672">=</span> onInterceptTouchEvent<span style="color:#f92672">(</span>ev<span style="color:#f92672">);</span>
+                    ev<span style="color:#f92672">.</span><span style="color:#a6e22e">setAction</span><span style="color:#f92672">(</span>action<span style="color:#f92672">);</span> 
+                <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                    intercepted <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                intercepted <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+</code></pre></div><p>其中<code>mFirstTouchTarget</code>是对消耗的<code>view</code>的一个链表形式的保存，如果事件由当前<code>viewGroup</code>拦截时那么<code>mFirstTouchTarget</code>就为空，如果传递给子<code>view</code>并交由子元素拦截时那么<code>mFirstTouchTarget</code>就指向子元素</p>
+<p>也有一种特殊情况，就是<code>FLAG_DISALLOW_INTERCEPT</code>标记位，这个标记位通过<code>requestDisallowInterceptTouchEvent</code>设置，一般用于子<code>view</code>中，可以拦截除去<code>ACTION_DOWN</code>以外的其他事件（当事件为<code>ACTION_DOWN</code>时就会重置这个标志位），当遇到<code>ACTION_DOWN</code>的事件时，<code>viewGroup</code>总会询问自己要不要拦截这个事件，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>actionMasked <span style="color:#f92672">==</span> MotionEvent<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_DOWN</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    cancelAndClearTouchTargets<span style="color:#f92672">(</span>ev<span style="color:#f92672">);</span>
+    resetTouchState<span style="color:#f92672">();</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>从这一段代码的<code>resetTouchState</code>方法重置标志位，通过上面的代码可以发现，当<code>viewGroup</code>决定拦截事件后，那么之后的点击事件都会默认交给他来处理，而不会调用<code>onInterceptTouchEvent</code>方法</p>
+<p>当<code>viewGroup</code>不拦截事件时，事件分发给他的子<code>view</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">final</span> View<span style="color:#f92672">[]</span> children <span style="color:#f92672">=</span> mChildren<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> childrenCount <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span> i <span style="color:#f92672">&gt;=</span> 0<span style="color:#f92672">;</span> i<span style="color:#f92672">--)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> childIndex <span style="color:#f92672">=</span> customOrder
+        <span style="color:#f92672">?</span> getChildDrawingOrder<span style="color:#f92672">(</span>childrenCount<span style="color:#f92672">,</span> i<span style="color:#f92672">)</span> <span style="color:#f92672">:</span> i<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">final</span> View child <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>preorderedList <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">?</span> children<span style="color:#f92672">[</span>childIndex<span style="color:#f92672">]</span> <span style="color:#f92672">:</span> preorderedList<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>childIndex<span style="color:#f92672">);</span>
+
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>childWithAccessibilityFocus <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>childWithAccessibilityFocus <span style="color:#f92672">!=</span> child<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        childWithAccessibilityFocus <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        i <span style="color:#f92672">=</span> childrenCount <span style="color:#f92672">-</span> 1<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>canViewReceivePointerEvents<span style="color:#f92672">(</span>child<span style="color:#f92672">)</span>
+        <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>isTransformedTouchPointInView<span style="color:#f92672">(</span>x<span style="color:#f92672">,</span> y<span style="color:#f92672">,</span> child<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+        ev<span style="color:#f92672">.</span><span style="color:#a6e22e">setTargetAccessibilityFocus</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+        <span style="color:#66d9ef">continue</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    newTouchTarget <span style="color:#f92672">=</span> getTouchTarget<span style="color:#f92672">(</span>child<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>newTouchTarget <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        newTouchTarget<span style="color:#f92672">.</span><span style="color:#a6e22e">pointerIdBits</span> <span style="color:#f92672">|=</span> idBitsToAssign<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    resetCancelNextUpFlag<span style="color:#f92672">(</span>child<span style="color:#f92672">);</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>dispatchTransformedTouchEvent<span style="color:#f92672">(</span>ev<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> child<span style="color:#f92672">,</span> idBitsToAssign<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+        mLastTouchDownTime <span style="color:#f92672">=</span> ev<span style="color:#f92672">.</span><span style="color:#a6e22e">getDownTime</span><span style="color:#f92672">();</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>preorderedList <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> j <span style="color:#f92672">&lt;</span> childrenCount<span style="color:#f92672">;</span> j<span style="color:#f92672">++)</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>children<span style="color:#f92672">[</span>childIndex<span style="color:#f92672">]</span> <span style="color:#f92672">==</span> mChildren<span style="color:#f92672">[</span>j<span style="color:#f92672">])</span> <span style="color:#f92672">{</span>
+                    mLastTouchDownIndex <span style="color:#f92672">=</span> j<span style="color:#f92672">;</span>
+                    <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+            mLastTouchDownIndex <span style="color:#f92672">=</span> childIndex<span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        mLastTouchDownX <span style="color:#f92672">=</span> ev<span style="color:#f92672">.</span><span style="color:#a6e22e">getX</span><span style="color:#f92672">();</span>
+        mLastTouchDownY <span style="color:#f92672">=</span> ev<span style="color:#f92672">.</span><span style="color:#a6e22e">getY</span><span style="color:#f92672">();</span>
+        newTouchTarget <span style="color:#f92672">=</span> addTouchTarget<span style="color:#f92672">(</span>child<span style="color:#f92672">,</span> idBitsToAssign<span style="color:#f92672">);</span>
+        alreadyDispatchedToNewTouchTarget <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>遍历所有子元素，判断子元素能否接收到点击事件，在<code>dispatchTransformedTouchEvent</code>中调用的是子元素的<code>dispatchTouchEvent</code>，在他的内部有下面一段代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>child <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">){</span>
+    handled <span style="color:#f92672">=</span> <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dispatchTouchEvent</span><span style="color:#f92672">(</span>event<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+    handled <span style="color:#f92672">=</span> child<span style="color:#f92672">.</span><span style="color:#a6e22e">dispatchTouchEvent</span><span style="color:#f92672">(</span>event<span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>而上面传入的<code>child</code>不是<code>null</code>，所以会调用子元素的<code>dispatchTouchEvent</code>，如果子元素的这个方法返回<code>true</code>那么<code>mFirstTouchEvent</code>就会呗赋值同时跳出<code>for</code>循环，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">newTouchTarget <span style="color:#f92672">=</span> addTouchTarget<span style="color:#f92672">(</span>child<span style="color:#f92672">,</span> idBitsToAssign<span style="color:#f92672">);</span>
+alreadyDispatchedToNewTouchTarget <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+<span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+</code></pre></div><p>其中<code>mFirstTouchEvent</code>的赋值过程在<code>addTouchTarget</code>方法中</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">private</span> TouchTarget <span style="color:#a6e22e">addTouchTarget</span><span style="color:#f92672">(</span>View child<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> pointerIdBits<span style="color:#f92672">){</span>
+    TouchTarget target <span style="color:#f92672">=</span> TouchTarget<span style="color:#f92672">.</span><span style="color:#a6e22e">obtain</span><span style="color:#f92672">(</span>child<span style="color:#f92672">,</span> pointerIdBits<span style="color:#f92672">);</span>
+    target<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span> <span style="color:#f92672">=</span> mFirstTouchTarget<span style="color:#f92672">;</span>
+    mFirstTouchTarget <span style="color:#f92672">=</span> target<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">return</span> target<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>如果遍历所有的子元素后事件没有被处理，那么<code>viewGroup</code>会自己处理点击事件，从上面的源码就可以得出这个结论</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mFirstTouchTarget <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    handled <span style="color:#f92672">=</span> dispatchTransformedTouchEvent<span style="color:#f92672">(</span>ev<span style="color:#f92672">,</span> canceled<span style="color:#f92672">,</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">,</span>
+        TouchTarget<span style="color:#f92672">.</span><span style="color:#a6e22e">ALL_POINTER_IDS</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span> 
+</code></pre></div><p>第三个参数为<code>null</code>也就是调用<code>super.dispatchTouchEvent</code>,也就是交由<code>view</code>来处理。</p>
+<h3 id="view对点击事件的处理过程">view对点击事件的处理过程</h3>
+<p>首先看<code>view</code>的<code>dispatchTouchEvent</code>方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">dispatchTouchEvent</span><span style="color:#f92672">(</span>MotionEvent event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mInputEventConsistencyVerifier <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            mInputEventConsistencyVerifier<span style="color:#f92672">.</span><span style="color:#a6e22e">onTouchEvent</span><span style="color:#f92672">(</span>event<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>onFilterTouchEventForSecurity<span style="color:#f92672">(</span>event<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+            <span style="color:#75715e">//noinspection SimplifiableIfStatement
+</span><span style="color:#75715e"></span>            ListenerInfo li <span style="color:#f92672">=</span> mListenerInfo<span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>li <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> li<span style="color:#f92672">.</span><span style="color:#a6e22e">mOnTouchListener</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>mViewFlags <span style="color:#f92672">&amp;</span> ENABLED_MASK<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> ENABLED
+                    <span style="color:#f92672">&amp;&amp;</span> li<span style="color:#f92672">.</span><span style="color:#a6e22e">mOnTouchListener</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onTouch</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">,</span> event<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>onTouchEvent<span style="color:#f92672">(</span>event<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mInputEventConsistencyVerifier <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            mInputEventConsistencyVerifier<span style="color:#f92672">.</span><span style="color:#a6e22e">onUnhandledEvent</span><span style="color:#f92672">(</span>event<span style="color:#f92672">,</span> 0<span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>分析上面源码，发现会先判断有没有设置<code>onTouchListener</code>，如果其中的<code>onTouch</code>方法返回<code>true</code>，那么<code>onTouchEvent</code>就不会调用，从这可以发现<code>onTouchListener</code>的优先级高于<code>onTouchEvent</code></p>
+<p>然后是<code>onTouchEvent</code>，</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">if</span> <span style="color:#f92672">((</span>viewFlags <span style="color:#f92672">&amp;</span> ENABLED_MASK<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> DISABLED<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>event<span style="color:#f92672">.</span><span style="color:#a6e22e">getAction</span><span style="color:#f92672">()</span> <span style="color:#f92672">==</span> MotionEvent<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_UP</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">(</span>mPrivateFlags <span style="color:#f92672">&amp;</span> PFLAG_PRESSED<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        setPressed<span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#75715e">// A disabled view that is clickable still consumes the touch
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// events, it just doesn&#39;t respond to them.
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#f92672">(((</span>viewFlags <span style="color:#f92672">&amp;</span> CLICKABLE<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> CLICKABLE <span style="color:#f92672">||</span>
+            <span style="color:#f92672">(</span>viewFlags <span style="color:#f92672">&amp;</span> LONG_CLICKABLE<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> LONG_CLICKABLE<span style="color:#f92672">));</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>可以发现，即使<code>view</code>的状态不可用，仍然会消耗点击事件，下面看<code>onTouchEvent</code>中对点击事件的具体处理</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">if</span> <span style="color:#f92672">(((</span>viewFlags <span style="color:#f92672">&amp;</span> CLICKABLE<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> CLICKABLE <span style="color:#f92672">||</span>
+        <span style="color:#f92672">(</span>viewFlags <span style="color:#f92672">&amp;</span> LONG_CLICKABLE<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> LONG_CLICKABLE<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">switch</span> <span style="color:#f92672">(</span>event<span style="color:#f92672">.</span><span style="color:#a6e22e">getAction</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">case</span> MotionEvent<span style="color:#f92672">.</span><span style="color:#a6e22e">ACTION_UP</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">boolean</span> prepressed <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>mPrivateFlags <span style="color:#f92672">&amp;</span> PFLAG_PREPRESSED<span style="color:#f92672">)</span> <span style="color:#f92672">!=</span> 0<span style="color:#f92672">;</span>
+            <span style="color:#f92672">...</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>mHasPerformedLongPress<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                <span style="color:#75715e">// This is a tap, so remove the longpress check
+</span><span style="color:#75715e"></span>                removeLongPressCallback<span style="color:#f92672">();</span>
+
+                <span style="color:#75715e">// Only perform take click actions if we were in the pressed state
+</span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>focusTaken<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                    <span style="color:#75715e">// Use a Runnable and post this rather than calling
+</span><span style="color:#75715e"></span>                    <span style="color:#75715e">// performClick directly. This lets other visual state
+</span><span style="color:#75715e"></span>                    <span style="color:#75715e">// of the view update before click actions start.
+</span><span style="color:#75715e"></span>                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>mPerformClick <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                        mPerformClick <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PerformClick<span style="color:#f92672">();</span>
+                    <span style="color:#f92672">}</span>
+                    <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>post<span style="color:#f92672">(</span>mPerformClick<span style="color:#f92672">))</span> <span style="color:#f92672">{</span>
+                        performClick<span style="color:#f92672">();</span>
+                    <span style="color:#f92672">}</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+            <span style="color:#66d9ef">break</span><span style="color:#f92672">;</span>
+            <span style="color:#f92672">...</span>
+    <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>从这一段代码可以看出来，<code>view</code>的<code>CLICKABLE</code>和<code>LONG_CLICKABLE</code>有一个为true，那么事件就会被消耗，如果<code>view</code>设置了<code>onClickListener</code>那么<code>performClick</code>就会被调用，就会在他内部调用<code>onclick</code>方法</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">performClick</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        sendAccessibilityEvent<span style="color:#f92672">(</span>AccessibilityEvent<span style="color:#f92672">.</span><span style="color:#a6e22e">TYPE_VIEW_CLICKED</span><span style="color:#f92672">);</span>
+
+        ListenerInfo li <span style="color:#f92672">=</span> mListenerInfo<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>li <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> li<span style="color:#f92672">.</span><span style="color:#a6e22e">mOnClickListener</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            playSoundEffect<span style="color:#f92672">(</span>SoundEffectConstants<span style="color:#f92672">.</span><span style="color:#a6e22e">CLICK</span><span style="color:#f92672">);</span>
+            li<span style="color:#f92672">.</span><span style="color:#a6e22e">mOnClickListener</span><span style="color:#f92672">.</span><span style="color:#a6e22e">onClick</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">);</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><p>另外</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setOnClickListener</span><span style="color:#f92672">(</span>OnClickListener l<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>isClickable<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            setClickable<span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        getListenerInfo<span style="color:#f92672">().</span><span style="color:#a6e22e">mOnClickListener</span> <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+    
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setOnLongClickListener</span><span style="color:#f92672">(</span>OnLongClickListener l<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(!</span>isLongClickable<span style="color:#f92672">())</span> <span style="color:#f92672">{</span>
+            setLongClickable<span style="color:#f92672">(</span><span style="color:#66d9ef">true</span><span style="color:#f92672">);</span>
+        <span style="color:#f92672">}</span>
+        getListenerInfo<span style="color:#f92672">().</span><span style="color:#a6e22e">mOnLongClickListener</span> <span style="color:#f92672">=</span> l<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>  
+</code></pre></div><p>观察这两个方法会发现设置这两个<code>listener</code>会自动将对应的属性设置为<code>true</code></p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></body>
+</html>

@@ -7,6 +7,11 @@
   <title>
     
       NKJ-666
+        |
+        Java高级 锁
+
+
+      
 
 
     
@@ -84,7 +89,7 @@
 
   
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
+<meta name="twitter:title" content="Java高级 锁"/>
 <meta name="twitter:description" content="Java高级 - 锁 锁的概述 当执行到某一个锁的代码块时，其他线程不能够抢占该线程的资源，直到该线程已经执行完释放所对象后，其他线程方能阻断。
 有时可能会出现这种问题，当一个线程正在执行某一个操作时，被另一个线程抢占资源，导致一个完整的方法被阻断，造成数据的丢失：
 public class Bank { private final double[] accounts; private ReentrantLock bankLock; private Condition sufficientFunds; private Object lock = new Object(); public Bank(int n, double initialBalance){ accounts = new double[n]; Arrays.fill(accounts, initialBalance); bankLock = new ReentrantLock(); sufficientFunds = bankLock.newCondition(); } public void transfer(int from, int to, double amount) throws InterruptedException{ //bankLock.lock();  //try{  while(accounts[from] &lt; amount){ sufficientFunds.await(); } System.out.println(Thread.currentThread()); accounts[from] -= amount; System.out.printf(&#34; %10.2f from %d to %d&#34;, amount, from, to); accounts[to] &#43;= amount; System."/>
@@ -103,8 +108,8 @@ public class Bank { private final double[] accounts; private ReentrantLock bankL
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "articleSection": "post",
-        "name": "",
-        "headline": "",
+        "name": "Java高级 锁",
+        "headline": "Java高级 锁",
         "alternativeHeadline": "",
         "description": "
       
@@ -137,10 +142,10 @@ public class Bank { private final double[] accounts; private ReentrantLock bankL
             "@type": "Person",
             "name": "NKJ-666"
         },
-        "copyrightYear" : "0001",
-        "dateCreated": "0001-01-01T00:00:00.00Z",
-        "datePublished": "0001-01-01T00:00:00.00Z",
-        "dateModified": "0001-01-01T00:00:00.00Z",
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-02-20T19:55:43.00Z",
+        "datePublished": "2022-02-20T19:55:43.00Z",
+        "dateModified": "2022-02-20T19:55:43.00Z",
         "publisher":{
             "@type":"Organization",
             "name": "NKJ-666",
@@ -287,13 +292,13 @@ public class Bank { private final double[] accounts; private ReentrantLock bankL
     <div class="post-content">
       
       <div class="post-title">
-        <h1></h1>
+        <h1>Java高级 锁</h1>
         
           <div class="info">
             <em class="fas fa-calendar-day"></em>
             <span class="date"
               >
-                Mon, Jan 1, 0001
+                Sun, Feb 20, 2022
 
 
               </span
