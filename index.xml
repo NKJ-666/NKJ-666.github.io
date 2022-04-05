@@ -6,7 +6,30 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 20 Feb 2022 19:56:55 +0800</lastBuildDate><atom:link href="https://NKJ-666.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Apr 2022 19:11:57 +0800</lastBuildDate><atom:link href="https://NKJ-666.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cmu15445 Project-1</title>
+      <link>https://NKJ-666.github.io/post/cmu15445project1/</link>
+      <pubDate>Tue, 05 Apr 2022 19:11:57 +0800</pubDate>
+      
+      <guid>https://NKJ-666.github.io/post/cmu15445project1/</guid>
+      
+        <description>CMU 15445 Project - 1 简介 Project - 1让我们实现一个数据库的buffer pool，那么我们首先来了解一下buffer pool是用来做什么的：
+我们在使用数据库的时候会有很多重复的或者可重复利用的查询，那如果我们每次都需要从磁盘上进行查询的话就会浪费很多的时间，那么如何解决这个问题呢，这就需要设计一个缓冲区，用来对我们之前的查询结果进行储存，那么下面我们先来思考一些问题：
+  DBMS如何管理其内存并从磁盘上返回数据？
+  首先来先了解一下这几个概念：
+ page：数据库在磁盘中是以page为单位进行存储的，每一页存储相应的数据。 frame：在缓冲池中是以frame为单位存储，它和page是一个相对的概念，因为从磁盘获取的page最后是要存储到缓冲池中的frame上的。  page table会追踪内存中的page，也可以对page table进行一些操作，比如说，对某些page进行加锁，保护这个page不会被替换掉；也可以对某个位置加锁，保证这个位置不再存储page。
+也可以理解为page table是一个page_id -&amp;gt; frame_id的映射。
+具体实现 Task-1 LRU REPLACEMENT POLICY 缓冲区是有一定的容量的，当缓冲区被占满之后就要考虑替换掉一些很少使用的page，那么如何定义这些很少使用的page呢，这就用到了LRU (least recently used) 策略。那么这个task-1就需要我们实现LRU算法中的一些内容。
+首先看我们需要实现的这4个函数：
+ Victim(frame_id_t*): 删除与跟踪的所有其他元素相比最近最少访问的对象，将其内容存储在输出参数中并返回True。如果Replacer为空返回False。 Pin(frame_id_t): 当某个page被固定时调用这个方法，使这个page从LRUReplacer中删除。 Unpin(frame_id_t)：当page的pin_count 变为 0，也就是这个页面没有被使用时应调用此方法。此方法应将包含未固定页面的框架添加到LRUReplacer. Size()：这个方法返回在LRUReplacer中的frame的个数.  既然LRUReplacer需要存储一些数据，那么我们首先需要确定使用那些数据结构来实现，虽然说实现LRU算法虽简单的数据结构是队列，但当你插入一个页面时，如果该页面是之前就已经在队列中的，那么就要找出之前已经存在队列中的那个页面，然后删除，在重新插入在队列尾部，找到并删除这个操作对于队列来说明显不合适，哈希表能快速查找并删除。
+private: // TODO(student): implement me!  std::unordered_map&amp;lt;frame_id_t, std::list&amp;lt;frame_id_t&amp;gt;::iterator&amp;gt; lru_hash_; size_t max_size_; std::mutex mut_; std::list&amp;lt;frame_id_t&amp;gt; lru_list_; 其中lru_hash_是一个哈希表，键是页面，值是一个节点，节点用一个双向链表连接起来。
+max_size_用来所存储的最大的frame数量
+mut_用来定义一个互斥锁，既然要线程安全，那么就肯定需要一些锁保证
+lru_list_用来存储所有的frame</description>
+      
+    </item>
+    
     <item>
       <title>SQLite</title>
       <link>https://NKJ-666.github.io/post/sqlite/</link>
