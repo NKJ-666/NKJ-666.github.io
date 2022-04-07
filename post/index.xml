@@ -6,7 +6,30 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Apr 2022 19:11:57 +0800</lastBuildDate><atom:link href="https://NKJ-666.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Apr 2022 15:20:48 +0800</lastBuildDate><atom:link href="https://NKJ-666.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CMU15445Project2</title>
+      <link>https://NKJ-666.github.io/post/cmu15445project2/</link>
+      <pubDate>Thu, 07 Apr 2022 15:20:48 +0800</pubDate>
+      
+      <guid>https://NKJ-666.github.io/post/cmu15445project2/</guid>
+      
+        <description>CMU 15445 Project-2 预备知识 第二个项目需要我们实现一个基于磁盘的哈希表，需要快速搜索数据而不需要遍历每一条数据。
+需要使用可扩展散列方案实现散列表。
+该索引包含一个目录页面，其中包含指向存储桶页面的指针。该表将通过项目#1 中的缓冲池访问页面。该表包含一个目录页面，其中存储了表和存储桶的所有元数据。哈希表需要支持完整/空存储桶的存储桶拆分/合并，以及全局深度必须更改时的目录扩展/收缩。
+静态hash和动态hash 静态散列中存储桶的数量是确定的，也就是不管向其中插入多少数据，桶的数量总是不变的，通过hash函数计算得到的索引值也是不变的。如果桶的规模过小，当插入的数据过多时，每个桶中的数据就会很多，就会导致查找的性能大幅下降；如果桶的规模过大，那么就会导致有很大一部分空间被无效地占用，造成资源的浪费。
+动态散列中存储桶的数量是不确定的，也允许根据需要改变hash函数，当插入的数据变多或者删除数据后，它会相应的改变存储桶的数量来对空间占用和性能上做一个平衡。它的两种常见的实现方式分别为可扩展动态散列和线性散列。在这个项目中，我们需要实现的就是一个可扩展动态散列。
+可扩展动态散列 在上面这张图中
+ 参数k：最大位数 参数i：全局深度（global_depth) 参数n：目前最大桶的个数 而每个桶又有其对应的local_depth,代表使用了几位数字  当插入二进制1110这个数时，我们只根据这个数的前i位来确定索引，发现这个桶中还没有满，所以可以插入
+当再插入二进制1010时，根据其前i位来确定桶的索引值，发现桶已经满了，之后对这个桶进行分裂，然后对同种的元素和这个将要插入的元素重新进行hash运算，计算出新的索引值，将对应的元素放入新的桶中。
+此后每次桶满后都会将这个桶分裂，每次分裂时都会比较local_depth和global_depth，如果这两个值相等的话，就需要增加global_depth。
+实验过程 目录和桶的页面布局 目录 这个页面用来保存哈希表的所有元数据：
+ page_id:保存目录页面的id lsn:日志序列号 global_depth:全局深度 local_depths:本地深度的数组 bucket_page_ids:所有桶id的数组  page_id_t page_id_; lsn_t lsn_; uint32_t global_depth_{0}; uint8_t local_depths_[DIRECTORY_ARRAY_SIZE]; page_id_t bucket_page_ids_[DIRECTORY_ARRAY_SIZE]; 在这个类中我们需要实现一些get和set方法，还需要实现一些工具性的方法：
+uint32_t HashTableDirectoryPage::GetGlobalDepthMask() { return ((1 &amp;lt;&amp;lt; global_depth_) - 1); } uint32_t HashTableDirectoryPage::GetLocalDepthMask(uint32_t bucket_idx) { return ((1 &amp;lt;&amp;lt; local_depths_[bucket_idx]) - 1); } 这个方法获取全局和本地深度的掩码，取出对应的二进制位数
+void HashTableDirectoryPage::IncrGlobalDepth() { int org_num = Size(); for (int org_index = 0, new_index = org_num; org_index &amp;lt; org_num; new_index++, org_index++) { bucket_page_ids_[new_index] = bucket_page_ids_[org_index]; local_depths_[new_index] = local_depths_[org_index]; } global_depth_++; } void HashTableDirectoryPage::IncrLocalDepth(uint32_t bucket_idx) { local_depths_[bucket_idx]++; } void HashTableDirectoryPage::DecrLocalDepth(uint32_t bucket_idx) { local_depths_[bucket_idx]--; } void HashTableDirectoryPage::DecrGlobalDepth() { global_depth_--; } 这些函数用于改变全局深度和本地深度，当增加全局深度时也就增加了桶的个数，需要给新的桶赋予一些信息</description>
+      
+    </item>
+    
     <item>
       <title>Cmu15445 Project-1</title>
       <link>https://NKJ-666.github.io/post/cmu15445project1/</link>

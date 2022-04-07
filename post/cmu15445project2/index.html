@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    
+      NKJ-666
+        |
+        CMU15445Project2
+
+
+      
+
+
+    
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.24f9f28bfaca2cdc5a222bb5e42d30c701d7ffb0b31d30dfc4afc0e044dfbf24.css"
+    integrity="sha256-JPnyi/rKLNxaIiu15C0wxwHX/7CzHTDfxK/A4ETfvyQ="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+
+  <link rel="canonical" href="https://NKJ-666.github.io/post/cmu15445project2/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+
+  
+
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CMU15445Project2"/>
+<meta name="twitter:description" content="CMU 15445 Project-2 预备知识 第二个项目需要我们实现一个基于磁盘的哈希表，需要快速搜索数据而不需要遍历每一条数据。
+需要使用可扩展散列方案实现散列表。
+该索引包含一个目录页面，其中包含指向存储桶页面的指针。该表将通过项目#1 中的缓冲池访问页面。该表包含一个目录页面，其中存储了表和存储桶的所有元数据。哈希表需要支持完整/空存储桶的存储桶拆分/合并，以及全局深度必须更改时的目录扩展/收缩。
+静态hash和动态hash 静态散列中存储桶的数量是确定的，也就是不管向其中插入多少数据，桶的数量总是不变的，通过hash函数计算得到的索引值也是不变的。如果桶的规模过小，当插入的数据过多时，每个桶中的数据就会很多，就会导致查找的性能大幅下降；如果桶的规模过大，那么就会导致有很大一部分空间被无效地占用，造成资源的浪费。
+动态散列中存储桶的数量是不确定的，也允许根据需要改变hash函数，当插入的数据变多或者删除数据后，它会相应的改变存储桶的数量来对空间占用和性能上做一个平衡。它的两种常见的实现方式分别为可扩展动态散列和线性散列。在这个项目中，我们需要实现的就是一个可扩展动态散列。
+可扩展动态散列 在上面这张图中
+ 参数k：最大位数 参数i：全局深度（global_depth) 参数n：目前最大桶的个数 而每个桶又有其对应的local_depth,代表使用了几位数字  当插入二进制1110这个数时，我们只根据这个数的前i位来确定索引，发现这个桶中还没有满，所以可以插入
+当再插入二进制1010时，根据其前i位来确定桶的索引值，发现桶已经满了，之后对这个桶进行分裂，然后对同种的元素和这个将要插入的元素重新进行hash运算，计算出新的索引值，将对应的元素放入新的桶中。
+此后每次桶满后都会将这个桶分裂，每次分裂时都会比较local_depth和global_depth，如果这两个值相等的话，就需要增加global_depth。
+实验过程 目录和桶的页面布局 目录 这个页面用来保存哈希表的所有元数据：
+ page_id:保存目录页面的id lsn:日志序列号 global_depth:全局深度 local_depths:本地深度的数组 bucket_page_ids:所有桶id的数组  page_id_t page_id_; lsn_t lsn_; uint32_t global_depth_{0}; uint8_t local_depths_[DIRECTORY_ARRAY_SIZE]; page_id_t bucket_page_ids_[DIRECTORY_ARRAY_SIZE]; 在这个类中我们需要实现一些get和set方法，还需要实现一些工具性的方法：
+uint32_t HashTableDirectoryPage::GetGlobalDepthMask() { return ((1 &lt;&lt; global_depth_) - 1); } uint32_t HashTableDirectoryPage::GetLocalDepthMask(uint32_t bucket_idx) { return ((1 &lt;&lt; local_depths_[bucket_idx]) - 1); } 这个方法获取全局和本地深度的掩码，取出对应的二进制位数
+void HashTableDirectoryPage::IncrGlobalDepth() { int org_num = Size(); for (int org_index = 0, new_index = org_num; org_index &lt; org_num; new_index&#43;&#43;, org_index&#43;&#43;) { bucket_page_ids_[new_index] = bucket_page_ids_[org_index]; local_depths_[new_index] = local_depths_[org_index]; } global_depth_&#43;&#43;; } void HashTableDirectoryPage::IncrLocalDepth(uint32_t bucket_idx) { local_depths_[bucket_idx]&#43;&#43;; } void HashTableDirectoryPage::DecrLocalDepth(uint32_t bucket_idx) { local_depths_[bucket_idx]--; } void HashTableDirectoryPage::DecrGlobalDepth() { global_depth_--; } 这些函数用于改变全局深度和本地深度，当增加全局深度时也就增加了桶的个数，需要给新的桶赋予一些信息"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "CMU15445Project2",
+        "headline": "CMU15445Project2",
+        "alternativeHeadline": "",
+        "description": "
+      
+        CMU 15445 Project-2 预备知识 第二个项目需要我们实现一个基于磁盘的哈希表，需要快速搜索数据而不需要遍历每一条数据。\n需要使用可扩展散列方案实现散列表。\n该索引包含一个目录页面，其中包含指向存储桶页面的指针。该表将通过项目#1 中的缓冲池访问页面。该表包含一个目录页面，其中存储了表和存储桶的所有元数据。哈希表需要支持完整\/空存储桶的存储桶拆分\/合并，以及全局深度必须更改时的目录扩展\/收缩。\n静态hash和动态hash 静态散列中存储桶的数量是确定的，也就是不管向其中插入多少数据，桶的数量总是不变的，通过hash函数计算得到的索引值也是不变的。如果桶的规模过小，当插入的数据过多时，每个桶中的数据就会很多，就会导致查找的性能大幅下降；如果桶的规模过大，那么就会导致有很大一部分空间被无效地占用，造成资源的浪费。\n动态散列中存储桶的数量是不确定的，也允许根据需要改变hash函数，当插入的数据变多或者删除数据后，它会相应的改变存储桶的数量来对空间占用和性能上做一个平衡。它的两种常见的实现方式分别为可扩展动态散列和线性散列。在这个项目中，我们需要实现的就是一个可扩展动态散列。\n可扩展动态散列 在上面这张图中\n 参数k：最大位数 参数i：全局深度（global_depth) 参数n：目前最大桶的个数 而每个桶又有其对应的local_depth,代表使用了几位数字  当插入二进制1110这个数时，我们只根据这个数的前i位来确定索引，发现这个桶中还没有满，所以可以插入\n当再插入二进制1010时，根据其前i位来确定桶的索引值，发现桶已经满了，之后对这个桶进行分裂，然后对同种的元素和这个将要插入的元素重新进行hash运算，计算出新的索引值，将对应的元素放入新的桶中。\n此后每次桶满后都会将这个桶分裂，每次分裂时都会比较local_depth和global_depth，如果这两个值相等的话，就需要增加global_depth。\n实验过程 目录和桶的页面布局 目录 这个页面用来保存哈希表的所有元数据：\n page_id:保存目录页面的id lsn:日志序列号 global_depth:全局深度 local_depths:本地深度的数组 bucket_page_ids:所有桶id的数组  page_id_t page_id_; lsn_t lsn_; uint32_t global_depth_{0}; uint8_t local_depths_[DIRECTORY_ARRAY_SIZE]; page_id_t bucket_page_ids_[DIRECTORY_ARRAY_SIZE]; 在这个类中我们需要实现一些get和set方法，还需要实现一些工具性的方法：\nuint32_t HashTableDirectoryPage::GetGlobalDepthMask() { return ((1 \u0026lt;\u0026lt; global_depth_) - 1); } uint32_t HashTableDirectoryPage::GetLocalDepthMask(uint32_t bucket_idx) { return ((1 \u0026lt;\u0026lt; local_depths_[bucket_idx]) - 1); } 这个方法获取全局和本地深度的掩码，取出对应的二进制位数\nvoid HashTableDirectoryPage::IncrGlobalDepth() { int org_num = Size(); for (int org_index = 0, new_index = org_num; org_index \u0026lt; org_num; new_index\u002b\u002b, org_index\u002b\u002b) { bucket_page_ids_[new_index] = bucket_page_ids_[org_index]; local_depths_[new_index] = local_depths_[org_index]; } global_depth_\u002b\u002b; } void HashTableDirectoryPage::IncrLocalDepth(uint32_t bucket_idx) { local_depths_[bucket_idx]\u002b\u002b; } void HashTableDirectoryPage::DecrLocalDepth(uint32_t bucket_idx) { local_depths_[bucket_idx]--; } void HashTableDirectoryPage::DecrGlobalDepth() { global_depth_--; } 这些函数用于改变全局深度和本地深度，当增加全局深度时也就增加了桶的个数，需要给新的桶赋予一些信息
+
+
+      
+
+
+    ",
+        "inLanguage": "en-us",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/NKJ-666.github.io\/post\/cmu15445project2\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "NKJ-666"
+        },
+        "copyrightYear" : "2022",
+        "dateCreated": "2022-04-07T15:20:48.00Z",
+        "datePublished": "2022-04-07T15:20:48.00Z",
+        "dateModified": "2022-04-07T15:20:48.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "NKJ-666",
+            "url": "https://NKJ-666.github.io/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/NKJ-666.github.io\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+      ]
+
+    ,
+        "url" : "https:\/\/NKJ-666.github.io\/post\/cmu15445project2\/",
+        "wordCount" : "1180",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    animated fadeInDown
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Home</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    animated fadeInDown
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Cache_2f9c1b3c923a4a64..jpg" alt="profile picture" />
+        <h3 title=""><a href="/">NKJ-666</a></h3>
+        <div class="description">
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://github.com/NKJ-666" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      animated fadeInDown
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>CMU15445Project2</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Thu, Apr 7, 2022
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">6-minute read</span>
+          </div>
+
+        
+      </div><h1 id="cmu-15445-project-2">CMU 15445 Project-2</h1>
+<h2 id="预备知识">预备知识</h2>
+<p>第二个项目需要我们实现一个基于磁盘的哈希表，需要快速搜索数据而不需要遍历每一条数据。</p>
+<p>需要使用可扩展散列方案实现散列表。</p>
+<p>该索引包含一个目录页面，其中包含指向存储桶页面的指针。该表将通过项目#1 中的缓冲池访问页面。该表包含一个目录页面，其中存储了表和存储桶的所有元数据。哈希表需要支持完整/空存储桶的存储桶拆分/合并，以及全局深度必须更改时的目录扩展/收缩。</p>
+<h3 id="静态hash和动态hash">静态hash和动态hash</h3>
+<p><strong>静态散列</strong>中存储桶的数量是确定的，也就是不管向其中插入多少数据，桶的数量总是不变的，通过hash函数计算得到的索引值也是不变的。如果桶的规模过小，当插入的数据过多时，每个桶中的数据就会很多，就会导致查找的性能大幅下降；如果桶的规模过大，那么就会导致有很大一部分空间被无效地占用，造成资源的浪费。</p>
+<p><strong>动态散列</strong>中存储桶的数量是不确定的，也允许根据需要改变hash函数，当插入的数据变多或者删除数据后，它会相应的改变存储桶的数量来对空间占用和性能上做一个平衡。它的两种常见的实现方式分别为<strong>可扩展动态散列</strong>和<strong>线性散列</strong>。在这个项目中，我们需要实现的就是一个可扩展动态散列。</p>
+<h4 id="可扩展动态散列">可扩展动态散列</h4>
+<p><img src="https://img-blog.csdnimg.cn/20191120155920179.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3QxODQzODYwNTAxOA==,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p>
+<p>在上面这张图中</p>
+<ul>
+<li>参数k：最大位数</li>
+<li>参数i：全局深度（global_depth)</li>
+<li>参数n：目前最大桶的个数</li>
+<li>而每个桶又有其对应的local_depth,代表使用了几位数字</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20191120155952330.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3QxODQzODYwNTAxOA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>当插入二进制1110这个数时，我们只根据这个数的前i位来确定索引，发现这个桶中还没有满，所以可以插入</p>
+<p><img src="https://img-blog.csdnimg.cn/20191120160032715.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3QxODQzODYwNTAxOA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>当再插入二进制1010时，根据其前i位来确定桶的索引值，发现桶已经满了，之后对这个桶进行分裂，然后对同种的元素和这个将要插入的元素重新进行hash运算，计算出新的索引值，将对应的元素放入新的桶中。</p>
+<p><img src="https://img-blog.csdnimg.cn/20191120160114875.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3QxODQzODYwNTAxOA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20191120160155504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3QxODQzODYwNTAxOA==,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<p>此后每次桶满后都会将这个桶分裂，每次分裂时都会比较<code>local_depth</code>和<code>global_depth</code>，如果这两个值相等的话，就需要增加<code>global_depth</code>。</p>
+<h2 id="实验过程">实验过程</h2>
+<h3 id="目录和桶的页面布局">目录和桶的页面布局</h3>
+<h4 id="目录">目录</h4>
+<p>这个页面用来保存哈希表的所有元数据：</p>
+<ul>
+<li><code>page_id</code>:保存目录页面的id</li>
+<li><code>lsn</code>:日志序列号</li>
+<li><code>global_depth</code>:全局深度</li>
+<li><code>local_depths</code>:本地深度的数组</li>
+<li><code>bucket_page_ids</code>:所有桶id的数组</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">page_id_t page_id_;
+lsn_t lsn_;
+<span style="color:#66d9ef">uint32_t</span> global_depth_{<span style="color:#ae81ff">0</span>};
+<span style="color:#66d9ef">uint8_t</span> local_depths_[DIRECTORY_ARRAY_SIZE];
+page_id_t bucket_page_ids_[DIRECTORY_ARRAY_SIZE];
+</code></pre></div><p>在这个类中我们需要实现一些<code>get</code>和<code>set</code>方法，还需要实现一些工具性的方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">uint32_t</span> HashTableDirectoryPage<span style="color:#f92672">::</span>GetGlobalDepthMask() {
+    <span style="color:#66d9ef">return</span> ((<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> global_depth_) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+}
+<span style="color:#66d9ef">uint32_t</span> HashTableDirectoryPage<span style="color:#f92672">::</span>GetLocalDepthMask(<span style="color:#66d9ef">uint32_t</span> bucket_idx) {
+        <span style="color:#66d9ef">return</span> ((<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> local_depths_[bucket_idx]) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>);
+}
+</code></pre></div><p>这个方法获取全局和本地深度的掩码，取出对应的二进制位数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">void</span> HashTableDirectoryPage<span style="color:#f92672">::</span>IncrGlobalDepth() {
+    <span style="color:#66d9ef">int</span> org_num <span style="color:#f92672">=</span> Size();
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> org_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, new_index <span style="color:#f92672">=</span> org_num; org_index <span style="color:#f92672">&lt;</span> org_num; new_index<span style="color:#f92672">++</span>, org_index<span style="color:#f92672">++</span>) {
+        bucket_page_ids_[new_index] <span style="color:#f92672">=</span> bucket_page_ids_[org_index];
+        local_depths_[new_index] <span style="color:#f92672">=</span> local_depths_[org_index];
+    }
+    global_depth_<span style="color:#f92672">++</span>;
+}
+<span style="color:#66d9ef">void</span> HashTableDirectoryPage<span style="color:#f92672">::</span>IncrLocalDepth(<span style="color:#66d9ef">uint32_t</span> bucket_idx) {
+        local_depths_[bucket_idx]<span style="color:#f92672">++</span>;
+}
+<span style="color:#66d9ef">void</span> HashTableDirectoryPage<span style="color:#f92672">::</span>DecrLocalDepth(<span style="color:#66d9ef">uint32_t</span> bucket_idx) {
+    local_depths_[bucket_idx]<span style="color:#f92672">--</span>;
+}
+<span style="color:#66d9ef">void</span> HashTableDirectoryPage<span style="color:#f92672">::</span>DecrGlobalDepth() { global_depth_<span style="color:#f92672">--</span>; }
+</code></pre></div><p>这些函数用于改变全局深度和本地深度，当增加全局深度时也就增加了桶的个数，需要给新的桶赋予一些信息</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">uint32_t</span> HashTableDirectoryPage<span style="color:#f92672">::</span>Size() {
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> global_depth_;
+}
+</code></pre></div><p>这个函数用于返回最大的桶的个数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">bool</span> HashTableDirectoryPage<span style="color:#f92672">::</span>CanShrink() {
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> Size(); i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span> (local_depths_[i] <span style="color:#f92672">&gt;=</span> global_depth_) {
+            <span style="color:#66d9ef">return</span> false;
+        }
+    }
+    <span style="color:#66d9ef">return</span> true;
+}
+</code></pre></div><p>用于判断是否能够对全局深度也就是桶的最大个数进行压缩，当删除完某个桶中的元素后需要合并桶时需要判断全局深度能否进行收缩，当每个桶的本地深度都小于全局深度时就可以对全局深度进行压缩。</p>
+<h4 id="桶">桶</h4>
+<ul>
+<li><code>occupied_</code> :如果 <code>array_</code> 的第 i个索引曾经被占用，则 <code>occupied_</code>的第i位为 1。</li>
+<li><code>readable_</code> :如果<code>array_</code> 的第 i个索引持有一个可读值，<code>readable_</code> 的第i位为 1。</li>
+<li><code>array_</code> ：保存键值对的数组。</li>
+</ul>
+<p>在这个桶的页面中我们需要实现添加，查找和删除的操作</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">//获取某个键对应的值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> HASH_TABLE_BUCKET_TYPE<span style="color:#f92672">::</span>GetValue(KeyType key, KeyComparator cmp, std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>ValueType<span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span>result) {
+  <span style="color:#66d9ef">bool</span> res <span style="color:#f92672">=</span> false;
+  <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> BUCKET_ARRAY_SIZE; i<span style="color:#f92672">++</span>) {
+      <span style="color:#66d9ef">if</span> (IsReadable(i) <span style="color:#f92672">&amp;&amp;</span> cmp(array_[i].first, key) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+          result<span style="color:#f92672">-&gt;</span>push_back(array_[i].second);
+          res <span style="color:#f92672">=</span> true;
+      }
+  }
+  <span style="color:#66d9ef">return</span> res;
+}
+</code></pre></div><p>首先需要桶的这个位置是否可读，如果可读的话在使用特定的方法判断这两个键是否相等，如果相等的话就将结果添加到对应的结果容器中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_BUCKET_TYPE<span style="color:#f92672">::</span>Insert(KeyType key, ValueType value, KeyComparator cmp) {
+    size_t available <span style="color:#f92672">=</span> BUCKET_ARRAY_SIZE;
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> BUCKET_ARRAY_SIZE; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span> (IsReadable(i)) {
+            <span style="color:#66d9ef">if</span> (cmp(key, array_[i].first) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> value <span style="color:#f92672">==</span> array_[i].second) {
+                <span style="color:#66d9ef">return</span> false;
+            }
+        } <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (available <span style="color:#f92672">==</span> BUCKET_ARRAY_SIZE){
+            available <span style="color:#f92672">=</span> i;
+            <span style="color:#66d9ef">break</span>;
+        }
+    }
+    <span style="color:#66d9ef">if</span> (available <span style="color:#f92672">==</span> BUCKET_ARRAY_SIZE) {
+        <span style="color:#66d9ef">return</span> false;
+    }
+    array_[available] <span style="color:#f92672">=</span> MappingType(key, value);
+    SetOccupied(available);
+    SetReadable(available);
+    <span style="color:#66d9ef">return</span> true;
+}
+</code></pre></div><p>这个函数用于向桶中插入新的数据，如果这个数据已经存在的话，那么就不插入，返回<code>false</code>，如果不存在的话就找到一个空闲的位置将这个数据插入到桶中并返回<code>true</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_BUCKET_TYPE<span style="color:#f92672">::</span>Remove(KeyType key, ValueType value, KeyComparator cmp) {
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> BUCKET_ARRAY_SIZE; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span> (IsReadable(i)) {
+            <span style="color:#66d9ef">if</span> (cmp(key, array_[i].first) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> value <span style="color:#f92672">==</span> array_[i].second) {
+                RemoveAt(i);
+                <span style="color:#66d9ef">return</span> true;
+            }
+        }
+    }
+    <span style="color:#66d9ef">return</span> false;
+}
+</code></pre></div><p>这个函数用于移除桶中的某个数据，如果键和值都和提供的键值相等的话就将这个数据从桶中删除。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_BUCKET_TYPE<span style="color:#f92672">::</span>IsOccupied(<span style="color:#66d9ef">uint32_t</span> bucket_idx) <span style="color:#66d9ef">const</span> {
+    <span style="color:#66d9ef">uint8_t</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint8_t</span><span style="color:#f92672">&gt;</span>(occupied_[bucket_idx <span style="color:#f92672">/</span> <span style="color:#ae81ff">8</span>]);
+    <span style="color:#66d9ef">return</span> (value <span style="color:#f92672">&amp;</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> (bucket_idx <span style="color:#f92672">%</span> <span style="color:#ae81ff">8</span>))) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>;
+}
+</code></pre></div><p>这个函数根据文档说明只需要判断对应位数的值是否为1即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_BUCKET_TYPE<span style="color:#f92672">::</span>IsFull() {
+    <span style="color:#66d9ef">uint8_t</span> sample <span style="color:#f92672">=</span> <span style="color:#ae81ff">255</span>;
+    size_t num <span style="color:#f92672">=</span> BUCKET_ARRAY_SIZE <span style="color:#f92672">/</span> <span style="color:#ae81ff">8</span>;
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> num; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span> ((sample <span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint8_t</span><span style="color:#f92672">&gt;</span>(readable_[i])) <span style="color:#f92672">!=</span> sample) {
+            <span style="color:#66d9ef">return</span> false;
+        }
+    }
+    size_t num_remain <span style="color:#f92672">=</span> BUCKET_ARRAY_SIZE <span style="color:#f92672">%</span> <span style="color:#ae81ff">8</span>;
+    <span style="color:#66d9ef">if</span> (num_remain <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+        <span style="color:#66d9ef">uint8_t</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint8_t</span><span style="color:#f92672">&gt;</span>(readable_[num]);
+        <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> num_remain; i<span style="color:#f92672">++</span>) {
+            <span style="color:#66d9ef">if</span> ((value <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+                <span style="color:#66d9ef">return</span> false;
+            }
+            value <span style="color:#f92672">&gt;&gt;=</span> <span style="color:#ae81ff">1</span>;
+        }
+    }
+    <span style="color:#66d9ef">return</span> true;
+}
+</code></pre></div><p>这个函数用于判断是否这个桶已经满了，只需要判断<code>readable</code>数组中的每一位是否都被占用即可，需要注意的是除了整除的部分还有余数的部分也需要判断。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">uint32_t</span> HASH_TABLE_BUCKET_TYPE<span style="color:#f92672">::</span>NumReadable() {
+    <span style="color:#66d9ef">uint32_t</span> num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    size_t r_num <span style="color:#f92672">=</span> BUCKET_ARRAY_SIZE <span style="color:#f92672">/</span> <span style="color:#ae81ff">8</span>;
+    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r_num; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">uint8_t</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint8_t</span><span style="color:#f92672">&gt;</span>(readable_[i]);
+        <span style="color:#66d9ef">for</span> (size_t j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">8</span>; j<span style="color:#f92672">++</span>) {
+            <span style="color:#66d9ef">if</span> ((value <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+                num<span style="color:#f92672">++</span>;
+            }
+            value <span style="color:#f92672">&gt;&gt;=</span> <span style="color:#ae81ff">1</span>;
+        }
+    }
+    size_t r_num_remain <span style="color:#f92672">=</span> BUCKET_ARRAY_SIZE <span style="color:#f92672">%</span> <span style="color:#ae81ff">8</span>;
+    <span style="color:#66d9ef">if</span> (r_num_remain <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) {
+        <span style="color:#66d9ef">uint8_t</span> value <span style="color:#f92672">=</span> <span style="color:#66d9ef">static_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">uint8_t</span><span style="color:#f92672">&gt;</span>(readable_[num]);
+        <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> r_num_remain; i<span style="color:#f92672">++</span>) {
+            <span style="color:#66d9ef">if</span> ((value <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
+                num<span style="color:#f92672">++</span>;
+            }
+            value <span style="color:#f92672">&gt;&gt;=</span> <span style="color:#ae81ff">1</span>;
+        }
+    }
+    <span style="color:#66d9ef">return</span> num;
+}
+</code></pre></div><p>这个函数和<code>IsFull</code>函数类似，只需要判断对应位数的数字即可。</p>
+<h3 id="哈希表的实现">哈希表的实现</h3>
+<p>前面已经对可扩展哈希表做了简单的介绍，现在就需要实现对应的函数了</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">// member variables
+</span><span style="color:#75715e"></span>page_id_t directory_page_id_; <span style="color:#75715e">// 存储哈希表页面信息的page_id
+</span><span style="color:#75715e"></span>BufferPoolManager <span style="color:#f92672">*</span>buffer_pool_manager_; <span style="color:#75715e">//缓冲池管理器（项目1中实现）
+</span><span style="color:#75715e"></span>KeyComparator comparator_; <span style="color:#75715e">// 键比较器
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Readers includes inserts and removes, writers are splits and merges
+</span><span style="color:#75715e"></span>ReaderWriterLatch table_latch_; <span style="color:#75715e">//锁
+</span><span style="color:#75715e"></span>HashFunction<span style="color:#f92672">&lt;</span>KeyType<span style="color:#f92672">&gt;</span> hash_fn_; <span style="color:#75715e">//哈希函数
+</span></code></pre></div><p>这是一些字段的定义，其中包含<strong>Project - 1</strong>中我们实现的一些东西。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">uint32_t</span> HASH_TABLE_TYPE<span style="color:#f92672">::</span>KeyToDirectoryIndex(KeyType key, HashTableDirectoryPage <span style="color:#f92672">*</span>dir_page) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Hash</span>(key) <span style="color:#f92672">&amp;</span> dir_page<span style="color:#f92672">-&gt;</span>GetGlobalDepthMask(); <span style="color:#75715e">// 获取hash值对应的位数
+</span><span style="color:#75715e"></span>}
+
+<span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">inline</span> <span style="color:#66d9ef">uint32_t</span> HASH_TABLE_TYPE<span style="color:#f92672">::</span>KeyToPageId(KeyType key, HashTableDirectoryPage <span style="color:#f92672">*</span>dir_page) {
+    <span style="color:#66d9ef">return</span> dir_page<span style="color:#f92672">-&gt;</span>GetBucketPageId(KeyToDirectoryIndex(key, dir_page));
+}
+</code></pre></div><p>这两个函数用于通过所给的键值获取对应的桶的索引以及桶对应的<code>page_id</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*</span>HASH_TABLE_TYPE<span style="color:#f92672">::</span>FetchBucketPage(page_id_t bucket_page_id) {
+    Page <span style="color:#f92672">*</span> page <span style="color:#f92672">=</span> buffer_pool_manager_<span style="color:#f92672">-&gt;</span>FetchPage(bucket_page_id);
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span>HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*&gt;</span>(page<span style="color:#f92672">-&gt;</span>GetData());
+}
+</code></pre></div><p>通过给出的桶的页面id获取对应的桶的信息。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+HashTableDirectoryPage <span style="color:#f92672">*</span>HASH_TABLE_TYPE<span style="color:#f92672">::</span>FetchDirectoryPage() {
+  HashTableDirectoryPage <span style="color:#f92672">*</span>dir_page;
+  <span style="color:#66d9ef">if</span> (directory_page_id_ <span style="color:#f92672">==</span> INVALID_PAGE_ID) {
+      page_id_t new_dir_id;
+      Page <span style="color:#f92672">*</span> page <span style="color:#f92672">=</span> buffer_pool_manager_<span style="color:#f92672">-&gt;</span>NewPage(<span style="color:#f92672">&amp;</span>new_dir_id);
+      dir_page <span style="color:#f92672">=</span> <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span>HashTableDirectoryPage <span style="color:#f92672">*&gt;</span>(page<span style="color:#f92672">-&gt;</span>GetData());
+      dir_page<span style="color:#f92672">-&gt;</span>SetPageId(new_dir_id);
+      directory_page_id_ <span style="color:#f92672">=</span> new_dir_id;
+      page_id_t new_bucket_id;
+      page <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>;
+      page <span style="color:#f92672">=</span> buffer_pool_manager_<span style="color:#f92672">-&gt;</span>NewPage(<span style="color:#f92672">&amp;</span>new_bucket_id);
+      dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(<span style="color:#ae81ff">0</span>, new_bucket_id);
+      buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(new_bucket_id, true);
+      buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(new_dir_id, true);
+  }
+  Page <span style="color:#f92672">*</span> page <span style="color:#f92672">=</span> buffer_pool_manager_<span style="color:#f92672">-&gt;</span>FetchPage(directory_page_id_);
+  dir_page <span style="color:#f92672">=</span> <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span>HashTableDirectoryPage <span style="color:#f92672">*&gt;</span>(page<span style="color:#f92672">-&gt;</span>GetData());
+  <span style="color:#66d9ef">return</span> dir_page;
+}
+</code></pre></div><p>这个函数用于获取目录页面，如果目录页面不存在的话就新建一个目录页面，并给这个页面赋一些初值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_TYPE<span style="color:#f92672">::</span>GetValue(Transaction <span style="color:#f92672">*</span>transaction, <span style="color:#66d9ef">const</span> KeyType <span style="color:#f92672">&amp;</span>key, std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>ValueType<span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span>result) {
+    HashTableDirectoryPage <span style="color:#f92672">*</span> dir_page <span style="color:#f92672">=</span> FetchDirectoryPage();
+    page_id_t page_id <span style="color:#f92672">=</span> KeyToPageId(key, dir_page);
+    HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*</span> bucket <span style="color:#f92672">=</span> FetchBucketPage(page_id);
+    <span style="color:#66d9ef">bool</span> res <span style="color:#f92672">=</span> bucket<span style="color:#f92672">-&gt;</span>GetValue(key, comparator_, result);
+    buffer_pool_mmanager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), false);
+    <span style="color:#66d9ef">return</span> res;
+}
+</code></pre></div><p>用于查找给出的键对应的值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_TYPE<span style="color:#f92672">::</span>Insert(Transaction <span style="color:#f92672">*</span>transaction, <span style="color:#66d9ef">const</span> KeyType <span style="color:#f92672">&amp;</span>key, <span style="color:#66d9ef">const</span> ValueType <span style="color:#f92672">&amp;</span>value) {
+    HashTableDirectoryPage <span style="color:#f92672">*</span> dir_page <span style="color:#f92672">=</span> FetchDirectoryPage();
+    page_id_t bucket_id <span style="color:#f92672">=</span> KeyToPageId(key, dir_page);
+    HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*</span> bucket <span style="color:#f92672">=</span> FetchBucketPage(bucket_id);
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>bucket<span style="color:#f92672">-&gt;</span>IsFull()) {
+        <span style="color:#66d9ef">bool</span> res <span style="color:#f92672">=</span> bucket<span style="color:#f92672">-&gt;</span>Insert(key, value, comparator_);
+        buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(bucket_id, true);
+        buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), false);
+        <span style="color:#66d9ef">return</span> res;
+    }
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), false);
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(bucket_id, false);
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">SplitInsert</span>(transaction, key, value);
+}
+</code></pre></div><p>用于向给出的key对应的桶中插入数据，如果桶没有满则直接插入，如果桶满了，那么就需要将这个桶进行分裂，然后对同种的元素重新进行哈希运算，重新放入对应的桶中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_TYPE<span style="color:#f92672">::</span>SplitInsert(Transaction <span style="color:#f92672">*</span>transaction, <span style="color:#66d9ef">const</span> KeyType <span style="color:#f92672">&amp;</span>key, <span style="color:#66d9ef">const</span> ValueType <span style="color:#f92672">&amp;</span>value) {
+    HashTableDirectoryPage <span style="color:#f92672">*</span> dir_page <span style="color:#f92672">=</span> FetchDirectoryPage();
+    <span style="color:#66d9ef">int64_t</span> split_bucket_index <span style="color:#f92672">=</span> KeyToDirectoryIndex(key, dir_page);
+    <span style="color:#66d9ef">uint32_t</span> split_bucket_depth <span style="color:#f92672">=</span> dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(split_bucket_index);
+    <span style="color:#66d9ef">if</span> (split_bucket_depth <span style="color:#f92672">==</span> dir_page<span style="color:#f92672">-&gt;</span>GetGlobalDepth()) {
+        dir_page<span style="color:#f92672">-&gt;</span>IncrGlobalDepth();
+    }
+    dir_page<span style="color:#f92672">-&gt;</span>IncrLocalDepth(split_bucket_index);
+    page_id_t split_bucket_page_id <span style="color:#f92672">=</span> KeyToPageId(key, dir_page);
+    HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*</span> split_bucket <span style="color:#f92672">=</span> FetchBucketPage(split_bucket_page_id);
+    <span style="color:#66d9ef">uint32_t</span> origin_size <span style="color:#f92672">=</span> split_bucket<span style="color:#f92672">-&gt;</span>NumReadable();
+    MappingType <span style="color:#f92672">*</span> origin_array <span style="color:#f92672">=</span> split_bucket<span style="color:#f92672">-&gt;</span>GetArrayCopy();
+    split_bucket<span style="color:#f92672">-&gt;</span>Reset();
+    page_id_t split_image_bucket_id;
+    Page <span style="color:#f92672">*</span> page <span style="color:#f92672">=</span> buffer_pool_manager_<span style="color:#f92672">-&gt;</span>NewPage(<span style="color:#f92672">&amp;</span>split_image_bucket_id);
+    HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*</span> split_image_bucket <span style="color:#f92672">=</span> <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span>HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*&gt;</span>(page<span style="color:#f92672">-&gt;</span>GetData());
+    <span style="color:#66d9ef">uint32_t</span> split_image_bucket_index <span style="color:#f92672">=</span> dir_page<span style="color:#f92672">-&gt;</span>GetSplitImageIndex(split_bucket_index);
+    dir_page<span style="color:#f92672">-&gt;</span>SetLocalDepth(split_image_bucket_index, dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(split_bucket_index));
+    dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(split_image_bucket_index, split_image_bucket_id);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> origin_size; i<span style="color:#f92672">++</span>) {
+        MappingType temp <span style="color:#f92672">=</span> origin_array[i];
+        <span style="color:#66d9ef">uint32_t</span> target_bucket_index <span style="color:#f92672">=</span> Hash(temp.first) <span style="color:#f92672">&amp;</span> dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepthMask(split_bucket_index);
+        page_id_t target_page_id <span style="color:#f92672">=</span> dir_page<span style="color:#f92672">-&gt;</span>GetBucketPageId(target_bucket_index);
+        <span style="color:#66d9ef">if</span> (target_page_id <span style="color:#f92672">==</span> split_bucket_page_id) {
+            split_bucket<span style="color:#f92672">-&gt;</span>Insert(temp.first, temp.second, comparator_);
+        } <span style="color:#66d9ef">else</span> {
+            split_image_bucket<span style="color:#f92672">-&gt;</span>Insert(temp.first, temp.second, comparator_);
+        }
+    }
+    <span style="color:#66d9ef">delete</span> [] origin_array;
+    <span style="color:#66d9ef">uint32_t</span> diff <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(split_bucket_index);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> split_bucket_index; i <span style="color:#f92672">&lt;</span> dir_page<span style="color:#f92672">-&gt;</span>Size(); i <span style="color:#f92672">+=</span> diff) {
+        dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(i, split_bucket_page_id);
+        dir_page<span style="color:#f92672">-&gt;</span>SetLocalDepth(i, dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(split_bucket_index));
+    }
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> split_bucket_index; i <span style="color:#f92672">&gt;=</span> diff; i <span style="color:#f92672">-=</span> diff) {
+        dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(i, split_bucket_page_id);
+        dir_page<span style="color:#f92672">-&gt;</span>SetLocalDepth(i, dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(split_bucket_index));
+    }
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> split_image_bucket_index; i <span style="color:#f92672">&gt;=</span> diff; i <span style="color:#f92672">-=</span> diff) {
+        dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(i, split_image_bucket_id);
+        dir_page<span style="color:#f92672">-&gt;</span>SetLocalDepth(i, dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(split_image_bucket_index));
+    }
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> split_image_bucket_index; i <span style="color:#f92672">&lt;</span> dir_page<span style="color:#f92672">-&gt;</span>Size(); i <span style="color:#f92672">+=</span> diff) {
+        dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(i, split_image_bucket_id);
+        dir_page<span style="color:#f92672">-&gt;</span>SetLocalDepth(i, dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(split_image_bucket_index));
+    }
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(split_image_bucket_id, true);
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(split_bucket_page_id, true);
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), true);
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Insert</span>(transaction, key, value);
+}
+</code></pre></div><p>分裂时首先需要判断局部深度是否等于全局深度，如果相等的话就需要扩展全局深度之后再扩展局部深度，然后根据将要分裂的桶的索引获取分裂所得到的的新桶的索引，对元素的key重新进行hash运算确定将数据放入到哪一个桶中，最后再重新尝试插入新的元素。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">bool</span> HASH_TABLE_TYPE<span style="color:#f92672">::</span>Remove(Transaction <span style="color:#f92672">*</span>transaction, <span style="color:#66d9ef">const</span> KeyType <span style="color:#f92672">&amp;</span>key, <span style="color:#66d9ef">const</span> ValueType <span style="color:#f92672">&amp;</span>value) {
+    HashTableDirectoryPage <span style="color:#f92672">*</span> dir_page <span style="color:#f92672">=</span> FetchDirectoryPage();
+    page_id_t page_id <span style="color:#f92672">=</span> KeyToPageId(key, dir_page);
+    HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*</span> bucket <span style="color:#f92672">=</span> FetchBucketPage(page_id);
+    <span style="color:#66d9ef">bool</span> res <span style="color:#f92672">=</span> bucket<span style="color:#f92672">-&gt;</span>Remove(key, value, comparator_);
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(page_id, true);
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), false);
+    <span style="color:#66d9ef">if</span> (bucket<span style="color:#f92672">-&gt;</span>IsEmpty()) {
+        Merge(transaction, key, value);
+    }
+    <span style="color:#66d9ef">return</span> res;
+}
+</code></pre></div><p><code>remove</code>函数和<code>getValue</code>元素相对简单，只需要通过key获取对应桶的索引，然后从桶中移除相应的数据即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">template</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">typename</span> KeyType, <span style="color:#66d9ef">typename</span> ValueType, <span style="color:#66d9ef">typename</span> KeyComparator<span style="color:#f92672">&gt;</span>
+<span style="color:#66d9ef">void</span> HASH_TABLE_TYPE<span style="color:#f92672">::</span>Merge(Transaction <span style="color:#f92672">*</span>transaction, <span style="color:#66d9ef">const</span> KeyType <span style="color:#f92672">&amp;</span>key, <span style="color:#66d9ef">const</span> ValueType <span style="color:#f92672">&amp;</span>value) {
+    HashTableDirectoryPage <span style="color:#f92672">*</span> dir_page <span style="color:#f92672">=</span> FetchDirectoryPage();
+    <span style="color:#66d9ef">uint32_t</span> target_bucket_index <span style="color:#f92672">=</span> KeyToDirectoryIndex(key, dir_page);
+    page_id_t target_bucket_page_id <span style="color:#f92672">=</span> dir_page<span style="color:#f92672">-&gt;</span>GetBucketPageId(target_bucket_index);
+    <span style="color:#66d9ef">uint32_t</span> target_image_index <span style="color:#f92672">=</span> dir_page<span style="color:#f92672">-&gt;</span>GetSplitImageIndex(target_bucket_index);
+    <span style="color:#66d9ef">uint32_t</span> local_depth <span style="color:#f92672">=</span> dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(target_bucket_index);
+    <span style="color:#66d9ef">if</span> (local_depth <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+        buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), false);
+        <span style="color:#66d9ef">return</span>;
+    }
+    <span style="color:#66d9ef">if</span> (local_depth <span style="color:#f92672">!=</span> dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(target_image_index)) {
+        buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), false);
+        <span style="color:#66d9ef">return</span>;
+    }
+    HASH_TABLE_BUCKET_TYPE <span style="color:#f92672">*</span> target_bucket <span style="color:#f92672">=</span> FetchBucketPage(target_bucket_page_id);
+    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>target_bucket<span style="color:#f92672">-&gt;</span>IsEmpty()) {
+        buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(target_bucket_page_id, false);
+        buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), false);
+        <span style="color:#66d9ef">return</span>;
+    }
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(target_bucket_page_id, false);
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>DeletePage(target_bucket_page_id);
+    page_id_t  image_bucket_page_id <span style="color:#f92672">=</span> dir_page<span style="color:#f92672">-&gt;</span>GetBucketPageId(target_image_index);
+    dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(target_bucket_index, image_bucket_page_id);
+    dir_page<span style="color:#f92672">-&gt;</span>DecrLocalDepth(target_bucket_index);
+    dir_page<span style="color:#f92672">-&gt;</span>DecrLocalDepth(target_image_index);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint32_t</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> dir_page<span style="color:#f92672">-&gt;</span>Size(); i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">if</span> (dir_page<span style="color:#f92672">-&gt;</span>GetBucketPageId(i) <span style="color:#f92672">==</span> target_bucket_page_id <span style="color:#f92672">||</span> dir_page<span style="color:#f92672">-&gt;</span>GetBucketPageId(i) <span style="color:#f92672">==</span> image_bucket_page_id) {
+            dir_page<span style="color:#f92672">-&gt;</span>SetBucketPageId(i, image_bucket_page_id);
+            dir_page<span style="color:#f92672">-&gt;</span>SetLocalDepth(i, dir_page<span style="color:#f92672">-&gt;</span>GetLocalDepth(target_bucket_index));
+        }
+    }
+    <span style="color:#66d9ef">while</span> (dir_page<span style="color:#f92672">-&gt;</span>CanShrink()) {
+        dir_page<span style="color:#f92672">-&gt;</span>DecrGlobalDepth();
+    }
+    buffer_pool_manager_<span style="color:#f92672">-&gt;</span>UnpinPage(dir_page<span style="color:#f92672">-&gt;</span>GetPageId(), true);
+}
+</code></pre></div><p>桶合并时需要先判断这个桶能不能被合并，如果桶的局部深度为0，桶的局部深度不等于对应的image桶的深度，或者桶不为空，那么这个桶都不能被合并，然后将这个桶中原来所有的信息都设置为将要合并进的桶中的信息。</p>
+<h3 id="并发控制">并发控制</h3>
+<p>最后一个任务需要对一些操作进行上锁，就不细说了。</p>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          NKJ-666
+          2022
+
+
+        
+      </li>
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script></body>
+</html>
