@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en-us" class="lang-en-us">
+    <head><meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="keywords" content="Android,Hugo,Hugo Theme,Luna," /><meta name="description" content="OkHttp笔记" />
+<meta itemprop="description" content="OkHttp笔记" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta itemprop="name" content="OkHttp笔记 - Kevier Blog" />
+<link href="https://nkj-666.github.io/index.xml" title="OkHttp笔记 - Kevier Blog" type="application/rss+xml" rel="alternate" />
+<title>OkHttp笔记 - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="OkHttp笔记 - Kevier Blog" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="OkHttp笔记" />
+<meta property="og:description" content="OkHttp笔记" />
+<meta property="og:url" content="https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/" /><meta property="article:published_time" content="2022-04-15T02:49:13&#43;02:00" /><meta property="article:modified_time" content="2023-04-07T17:19:23&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="OkHttp笔记 - Kevier Blog" />
+<meta name="apple-mobile-web-app-status-bar-style" content="white" />
+
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="@Ice_Hazymoon" />
+    <meta name="twitter:creator" content="@Ice_Hazymoon" /><meta name="twitter:title" content="OkHttp笔记 - Kevier Blog" />
+<meta name="twitter:description" content="OkHttp笔记" />
+<meta name="twitter:url" content="https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/" /><meta name="twitter:image" content="" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="manifest" href="/manifest.json" /><link href="/icon.png" rel="shortcut icon" />
+<link href="/icon.png" rel="Bookmark" />
+<link rel="apple-touch-icon" href="/icon.png" /><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "OkHttp笔记",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/nkj-666.github.io\/2022\/04\/15\/okhttp%E7%AC%94%E8%AE%B0.html\/"
+  },"genre": "posts","keywords": "Android","wordcount": 8020 ,
+  "url": "https:\/\/nkj-666.github.io\/2022\/04\/15\/okhttp%E7%AC%94%E8%AE%B0.html\/","datePublished": "2022-04-15T02:49:13\u002b02:00","dateModified": "2023-04-07T17:19:23\u002b08:00","author": {
+    "@type": "Person",
+    "name": "Ice-Hazymoon"
+  },"description": ""
+}
+</script>
+
+
+    </head>
+
+    <body class="dark:bg-darkBg dark:text-darkText">
+        <div class="relative mx-auto shadow-lg md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl">
+            <div class="main flex flex-col justify-between bg-white dark:bg-darkFg"><header
+    class="relative"
+><nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
+            <div class="route-items flex w-full items-center justify-around"><a
+                        title="Home"
+                        data-active-link="/"
+                        href="/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-home flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">Home</span>
+                    </a><a
+                        title="About"
+                        data-active-link="/about/"
+                        href="/about/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-heart flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">About</span>
+                    </a>
+            </div>
+        </nav><div class="dark-mode-switch absolute right-0 top-0 z-10 cursor-pointer pr-2 pt-2 text-xl leading-none">
+    <i class="eva eva-moon opacity-20 dark:opacity-70"></i>
+</div>
+</header>
+<main class=" relative flex flex-grow" id="swup"><style>:root {
+        --font:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }</style>
+<div class="type-posts layout- w-full"><div class="relative h-full">
+    <div class="relative h-full">
+        <div class="page-view-article flex h-full flex-col bg-white dark:bg-darkFg"><div class="relative"><div>
+    <div class="-mb-2 w-full p-6 pb-0 text-3xl md:px-10">
+        OkHttp笔记
+    </div>
+</div>
+</div>
+<div class="article-info border-b p-6 pb-3 text-sm dark:border-darkBorder md:px-10">
+    <div>
+        <div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+            <i class="eva eva-clock-outline mr-1"></i>
+            <span>
+                <time
+                    title="Published in 15 Apr 2022 02:49:13"datetime="2022-04-15T02:49:13+02:00">15 Apr 2022</time
+                >
+            </span>
+        </div><span class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                    <i class="eva eva-edit-2-outline mr-1"></i>
+                    <span>
+                        <time
+                            title="Last modified on: 07 Apr 2023 17:19:23"datetime="2023-04-07T17:19:23+08:00">07 Apr 2023</time
+                        >
+                    </span>
+                </span><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                <i class="eva eva-flag-outline mr-1"></i>
+                <span>17 mins read</span>
+            </div></div><div class="mb-3 flex items-center">
+            <i class="eva eva-pricetags-outline mr-1"></i>
+            <span class="mr-3">Tags</span><a href="/tags/android" title="Android" class="group mr-2 flex items-center text-sm">
+                    <i class="mr-1 text-gray-400 group-hover:text-theme">#</i>
+                    <span class="text-gray-400 group-hover:text-theme">Android</span>
+                </a></div></div>
+<aside
+            class="toc border-b border-gray-300 px-5 py-5 dark:border-darkBorder md:px-10 2xl:fixed 2xl:top-10 2xl:m-0 2xl:-ml-72 2xl:w-72 2xl:border-none 2xl:p-0 2xl:py-4 2xl:pr-4 "
+        >
+            <header>
+                <h1 class="mb-3 text-2xl font-bold 2xl:mb-4">Table of Contents</h1>
+            </header>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述及优点">概述及优点</a></li>
+    <li><a href="#获取网页内容">获取网页内容</a></li>
+    <li><a href="#发布到服务器">发布到服务器</a></li>
+    <li><a href="#版本">版本</a></li>
+    <li><a href="#call">Call</a>
+      <ul>
+        <li><a href="#request">Request</a></li>
+        <li><a href="#response">Response</a></li>
+        <li><a href="#responsebody只能被consume一次">ResponseBody只能被consume一次。</a></li>
+        <li><a href="#重写请求">重写请求</a></li>
+        <li><a href="#重写响应">重写响应</a></li>
+        <li><a href="#跟进请求">跟进请求</a></li>
+        <li><a href="#重试请求">重试请求</a></li>
+        <li><a href="#call-1">Call</a></li>
+        <li><a href="#派遣">派遣</a></li>
+      </ul>
+    </li>
+    <li><a href="#缓存">缓存</a>
+      <ul>
+        <li><a href="#缓存优化">缓存优化</a></li>
+        <li><a href="#强制网络响应">强制网络响应</a></li>
+        <li><a href="#强制缓存响应">强制缓存响应</a></li>
+      </ul>
+    </li>
+    <li><a href="#连接">连接</a>
+      <ul>
+        <li><a href="#httpurl">HttpUrl</a></li>
+        <li><a href="#httpurl的组成部分">HttpUrl的组成部分</a></li>
+        <li><a href="#地址">地址</a></li>
+        <li><a href="#路线">路线</a></li>
+        <li><a href="#连接-1">连接</a></li>
+      </ul>
+    </li>
+    <li><a href="#事件">事件</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#https">HTTPS</a></li>
+    <li><a href="#代码示例">代码示例</a>
+      <ul>
+        <li><a href="#post-提交json数据">post 提交Json数据</a></li>
+        <li><a href="#post提交键值对">post提交键值对</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="Faster Reads" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
+            ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
+        >
+
+<h1 class="group " id="okhttp笔记"
+    >OkHttp笔记<a href="#okhttp%e7%ac%94%e8%ae%b0"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h1>
+
+
+
+<h2 class="group " id="概述及优点"
+    >概述及优点<a href="#%e6%a6%82%e8%bf%b0%e5%8f%8a%e4%bc%98%e7%82%b9"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>一个高效的HTTP客户端：</p>
+<ul>
+<li>HTTP/2支持对所有主机的所有请求共享一个套接字。</li>
+<li>连接池减少了请求延迟。</li>
+<li>透明GZIP可缩小下载大小。</li>
+<li>响应缓存完全避免网络重复请求。</li>
+<li>第一次连接失败时会尝试使用备用地址。</li>
+<li>请求和响应API设计有流畅的构建器和不变性，支持同步阻塞调用和带有回调的异步调用。</li>
+</ul>
+
+
+<h2 class="group " id="获取网页内容"
+    >获取网页内容<a href="#%e8%8e%b7%e5%8f%96%e7%bd%91%e9%a1%b5%e5%86%85%e5%ae%b9"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">run</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>run方法下载URL并返回其内容的字符串。</p>
+
+
+<h2 class="group " id="发布到服务器"
+    >发布到服务器<a href="#%e5%8f%91%e5%b8%83%e5%88%b0%e6%9c%8d%e5%8a%a1%e5%99%a8"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> MediaType JSON
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">=</span> MediaType<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;application/json; charset=utf-8&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">,</span> String json<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  RequestBody body <span style="color:#ff79c6">=</span> RequestBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>JSON<span style="color:#ff79c6">,</span> json<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>body<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过RequestBody的create方法，传入两个参数，第一个参数是内容类型，第二个参数是要发送的数据，创建RequestBody的实例,然后调用post方法将其传入。</p>
+
+
+<h2 class="group " id="版本"
+    >版本<a href="#%e7%89%88%e6%9c%ac"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>建议使用<a
+    class="link"
+    href="https://search.maven.org/artifact/com.squareup.okhttp3/okhttp/4.9.0/jar"target="_blank" rel="noopener">最新版本</a
+>
+</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>implementation<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;com.squareup.okhttp3:okhttp:4.9.0&#34;</span><span style="color:#ff79c6">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>OkHttp一个用于测试HTTP,HTTPS,和HTTP/2客户端的库（模拟网络服务器）。</p>
+<p><a
+    class="link"
+    href="https://search.maven.org/artifact/com.squareup.okhttp3/mockwebserver/4.9.0/jar"target="_blank" rel="noopener">最新版本</a
+>
+</p>
+
+
+<h2 class="group " id="call"
+    >Call<a href="#call"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>HTTP 客户端的工作是接受您的请求并产生其响应。</p>
+
+
+<h3 class="group " id="request"
+    >Request<a href="#request"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>每个 HTTP 请求都包含一个 URL、一个方法（如<code>GET</code>或<code>POST</code>）和一个标头列表。请求还可能包含一个主体：特定内容类型的数据流。</p>
+
+
+<h3 class="group " id="response"
+    >Response<a href="#response"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>HTTP 响应。这个类的实例不是一成不变的：响应体是一个一次性值，可能只被消费一次然后关闭。所有其他属性都是不可变的。</p>
+<p>此类实现<a
+    class="link"
+    href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html"target="_blank" rel="noopener">Closeable</a
+>
+。关闭它只是关闭它的ResponseBody.</p>
+
+
+<h4 class="group " id="响应主体必须关闭"
+    >响应主体必须关闭<a href="#%e5%93%8d%e5%ba%94%e4%b8%bb%e4%bd%93%e5%bf%85%e9%a1%bb%e5%85%b3%e9%97%ad"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>每个响应主体都由有限的资源支持，如套接字（实时网络响应）或打开的文件（用于缓存响应）。未能关闭响应正文将泄漏资源并最终可能导致应用程序变慢或崩溃。</p>
+<p>这个类和<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response/"target="_blank" rel="noopener">Response 都</a
+>
+实现了<a
+    class="link"
+    href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html"target="_blank" rel="noopener">Closeable</a
+>
+。关闭响应只是关闭其响应主体。如果调用<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-call/execute/"target="_blank" rel="noopener">Call.execute</a
+>
+或实现<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-callback/on-response/"target="_blank" rel="noopener">Callback.onResponse</a
+>
+，则必须通过调用以下任何方法来关闭此主体：</p>
+<ul>
+<li><code>Response.close()</code></li>
+<li><code>Response.body().close()</code></li>
+<li><code>Response.body().source().close()</code></li>
+<li><code>Response.body().charStream().close()</code></li>
+<li><code>Response.body().byteStream().close()</code></li>
+<li><code>Response.body().bytes()</code></li>
+<li><code>Response.body().string()</code></li>
+</ul>
+<p>为同一个响应体调用多个close()方法没有任何好处。</p>
+<p>对于同步调用，确保响应主体关闭的最简单方法是使用<code>try</code> 块。使用这种结构，编译器会插入一个为您<code>finally</code>调用<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response/close/"target="_blank" rel="noopener">close()</a
+>
+的隐式子句 。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Call call <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">...</span> <span style="color:#6272a4">// Use the response.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以使用类似的块进行异步调用：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Call call <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> Response response<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>ResponseBody responseBody <span style="color:#ff79c6">=</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">...</span> <span style="color:#6272a4">// Use the response.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span> <span style="color:#6272a4">// Handle the failure.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果您在另一个线程上使用响应正文，这些示例将不起作用。在这种情况下，消费线程必须在完成读取响应正文后调用<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/close/"target="_blank" rel="noopener">close</a
+>
+。</p>
+
+
+<h3 class="group " id="responsebody只能被consume一次"
+    >ResponseBody只能被consume一次。<a href="#responsebody%e5%8f%aa%e8%83%bd%e8%a2%abconsume%e4%b8%80%e6%ac%a1"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>此类可用于流式传输非常大的响应。例如，可以使用此类读取大于分配给当前进程的整个内存的响应。它甚至可以流式传输大于当前设备上总存储量的响应，这是视频流应用程序的常见要求。</p>
+<p>由于此类不在内存中缓冲完整的响应，因此应用程序可能不会重新读取响应的字节。使用这一次将整个响应以<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/bytes/"target="_blank" rel="noopener">字节</a
+>
+或<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/string/"target="_blank" rel="noopener">字符串</a
+>
+读入内存 。或者使用<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/source/"target="_blank" rel="noopener">source</a
+>
+、<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/byte-stream/"target="_blank" rel="noopener">byteStream</a
+>
+或<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-response-body/char-stream/"target="_blank" rel="noopener">charStream</a
+>
+流式传输响应。</p>
+
+
+<h3 class="group " id="重写请求"
+    >重写请求<a href="#%e9%87%8d%e5%86%99%e8%af%b7%e6%b1%82"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>当您向 OkHttp 提供 HTTP 请求时，您是在高级别描述该请求：<em>“使用这些标头为我获取此 URL。”</em> 为了正确性和效率，OkHttp 在传输之前重写您的请求。</p>
+<p>OkHttp可以添加标头是从原来的请求不存在，包括<code>Content-Length</code>，<code>Transfer-Encoding</code>，<code>User-Agent</code>，<code>Host</code>，<code>Connection</code>，和<code>Content-Type</code>。<code>Accept-Encoding</code>除非标头已经存在，否则它将为透明响应压缩添加标头。如果您有 cookie，OkHttp 会<code>Cookie</code>为它们添加一个标头。</p>
+<p>某些请求将具有缓存的响应。当这个缓存的响应不新鲜时，如果更新的响应比缓存的更新，OkHttp 可以执行<em>有条件的 GET</em>来下载更新的响应。这需要添加像<code>If-Modified-Since</code>和这样的标题<code>If-None-Match</code>。</p>
+
+
+<h3 class="group " id="重写响应"
+    >重写响应<a href="#%e9%87%8d%e5%86%99%e5%93%8d%e5%ba%94"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>如果使用透明压缩，OkHttp 将丢弃相应的响应头<code>Content-Encoding</code>，<code>Content-Length</code>因为它们不适用于解压的响应体。</p>
+<p>如果条件 GET 成功，来自网络和缓存的响应将按照规范的指示进行合并。</p>
+
+
+<h3 class="group " id="跟进请求"
+    >跟进请求<a href="#%e8%b7%9f%e8%bf%9b%e8%af%b7%e6%b1%82"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>当您请求的 URL 移动时，网络服务器将返回一个响应代码，类似于<code>302</code>指示文档的新 URL。OkHttp 将跟随重定向来检索最终响应。</p>
+<p>如果响应发出授权质询，OkHttp 将要求<a
+    class="link"
+    href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-authenticator/"target="_blank" rel="noopener"><code>Authenticator</code></a
+>
+（如果已配置）满足质询。如果身份验证器提供凭据，则会重试包含该凭据的请求。</p>
+
+
+<h3 class="group " id="重试请求"
+    >重试请求<a href="#%e9%87%8d%e8%af%95%e8%af%b7%e6%b1%82"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>有时连接失败：池连接陈旧并断开连接，或者无法访问网络服务器本身。如果可用，OkHttp 将使用不同的路由重试请求。</p>
+
+
+<h3 class="group " id="call-1"
+    >Call<a href="#call-1"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>通过重写、重定向、跟进和重试，您的简单请求可能会产生许多请求和响应。OkHttp 用于<code>Call</code>通过许多中间请求和响应来模拟满足您的请求的任务。通常这不是很多！但令人欣慰的是，如果您的 URL 被重定向或故障转移到备用 IP 地址，您的代码将继续工作。</p>
+<p>调用以以下两种方式之一执行：</p>
+<ul>
+<li>**同步：**您的线程阻塞，直到响应可读。</li>
+<li>**异步：**您在任何线程上排队请求，并在响应可读时在另一个线程上<a
+    class="link"
+    href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-callback/"target="_blank" rel="noopener">回调</a
+>
+。</li>
+</ul>
+<p>可以从任何线程取消调用。如果它还没有完成，这将使调用失败！编写请求正文或读取响应正文的代码<code>IOException</code>在调用被取消时会受到影响。</p>
+
+
+<h3 class="group " id="派遣"
+    >派遣<a href="#%e6%b4%be%e9%81%a3"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>对于同步调用，您可以使用自己的线程并负责管理您同时发出的请求数。同时连接太多会浪费资源；太少会损害延迟。</p>
+<p>对于异步调用，<a
+    class="link"
+    href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-dispatcher/"target="_blank" rel="noopener"><code>Dispatcher</code></a
+>
+实现最大并发请求的策略。您可以设置每个网络服务器的最大值（默认为 5）和整体（默认为 64）。</p>
+
+
+<h2 class="group " id="缓存"
+    >缓存<a href="#%e7%bc%93%e5%ad%98"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p><code>class Cache :</code><a
+    class="link"
+    href="https://docs.oracle.com/javase/8/docs/api/java/io/Closeable.html"target="_blank" rel="noopener"><code>Closeable</code></a
+>
+<code>,</code><a
+    class="link"
+    href="https://docs.oracle.com/javase/8/docs/api/java/io/Flushable.html"target="_blank" rel="noopener"><code>Flushable</code></a
+>
+</p>
+<p>缓存对文件系统的 HTTP 和 HTTPS 响应，以便它们可以被重用，从而节省时间和带宽。</p>
+
+
+<h3 class="group " id="缓存优化"
+    >缓存优化<a href="#%e7%bc%93%e5%ad%98%e4%bc%98%e5%8c%96"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>为了衡量缓存有效性，此类跟踪三个统计信息：</p>
+<ul>
+<li>**请求计数：**自此缓存创建以来发出的 HTTP 请求数。</li>
+<li>**网络计数：**需要网络使用的那些请求的数量。</li>
+<li>**命中计数：**响应由缓存提供的那些请求的数量。</li>
+</ul>
+<p>有时请求会导致条件缓存命中。如果缓存包含响应的陈旧副本，客户端将发出一个有条件的<code>GET</code>. 然后服务器将发送更新的响应（如果已更改），或者如果客户端的副本仍然有效，则发送简短的“未修改”响应。此类响应会增加网络计数和命中计数。</p>
+<p>提高缓存命中率的最佳方法是配置 Web 服务器以返回可缓存的响应。尽管此客户端支持所有<a
+    class="link"
+    href="http://tools.ietf.org/html/rfc7234"target="_blank" rel="noopener">HTTP/1.1 (RFC 7234)</a
+>
+缓存标头，但它不会缓存部分响应。</p>
+
+
+<h3 class="group " id="强制网络响应"
+    >强制网络响应<a href="#%e5%bc%ba%e5%88%b6%e7%bd%91%e7%bb%9c%e5%93%8d%e5%ba%94"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>在某些情况下，例如用户单击“刷新”按钮后，可能需要跳过缓存，直接从服务器获取数据。要强制完全刷新，请添加<code>no-cache</code> 指令：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">noCache</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果只需要强制服务器验证缓存的响应，请改用更高效的<code>max-age=0</code>指令：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">maxAge</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">0</span><span style="color:#ff79c6">,</span> TimeUnit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">SECONDS</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="强制缓存响应"
+    >强制缓存响应<a href="#%e5%bc%ba%e5%88%b6%e7%bc%93%e5%ad%98%e5%93%8d%e5%ba%94"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>有时，如果资源立即可用，您会想要显示资源，否则不会显示。这可以用于让您的应用程序可以在等待下载最新数据时显示<em>一些</em>内容。要将请求限制为本地缓存资源，请添加<code>only-if-cached</code> 指令：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">onlyIfCached</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>Response forceCacheResponse <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>forceCacheResponse<span style="color:#ff79c6">.</span><span style="color:#50fa7b">code</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">504</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// The resource was cached! Show it.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// The resource was not cached.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在陈旧的响应比没有响应更好的情况下，这种技术更有效。要允许陈旧的缓存响应，请使用<code>max-stale</code>以秒为单位的最大陈旧程度的指令：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">maxStale</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">365</span><span style="color:#ff79c6">,</span> TimeUnit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DAYS</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-cache-control/"target="_blank" rel="noopener">CacheControl</a
+>
+类可以配置请求高速缓存的指令和响应解析缓存指令。它甚至提供了方便的常量<a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-cache-control/-f-o-r-c-e_-n-e-t-w-o-r-k/"target="_blank" rel="noopener">CacheControl.FORCE_NETWORK</a
+>
+和 <a
+    class="link"
+    href="https://square.github.io/okhttp/4.x/okhttp/okhttp3/-cache-control/-f-o-r-c-e_-c-a-c-h-e/"target="_blank" rel="noopener">CacheControl.FORCE_CACHE</a
+>
+来解决上述用例。</p>
+
+
+<h2 class="group " id="连接"
+    >连接<a href="#%e8%bf%9e%e6%8e%a5"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>OkHttp 使用三种类型来规划其与您的网络服务器的连接：URL、地址和路由。</p>
+
+
+<h3 class="group " id="httpurl"
+    >HttpUrl<a href="#httpurl"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>一个统一的资源定位符 (URL)，其方案为<code>http</code>或<code>https</code>。使用此类来组合和分解 Internet 地址。例如，此代码将编写并打印用于 Google 搜索的 URL：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">scheme</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">host</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;www.google.com&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addPathSegment</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;search&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addQueryParameter</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;q&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;polar bears&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>https://www.google.com/search?q=polar%20bears
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>作为另一个示例，此代码打印 Twitter 搜索的人类可读查询参数：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://twitter.com/search?q=cute%20%23puppies&amp;f=images&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">,</span> size <span style="color:#ff79c6">=</span> url<span style="color:#ff79c6">.</span><span style="color:#50fa7b">querySize</span><span style="color:#ff79c6">();</span> i <span style="color:#ff79c6">&lt;</span> size<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">.</span><span style="color:#50fa7b">queryParameterName</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;: &#34;</span> <span style="color:#ff79c6">+</span> url<span style="color:#ff79c6">.</span><span style="color:#50fa7b">queryParameterValue</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>q: cute #puppies
+</span></span><span style="display:flex;"><span>f: images
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>除了从它们的组成部分组成 URL 并将 URL 分解成它们的组成部分之外，这个类还实现了相对 URL 解析：通过单击指定页面上的相对链接，您将到达什么地址。例如：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl base <span style="color:#ff79c6">=</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://www.youtube.com/user/WatchTheDaily/videos&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>HttpUrl link <span style="color:#ff79c6">=</span> base<span style="color:#ff79c6">.</span><span style="color:#50fa7b">resolve</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;../../watch?v=cbP2N1BQdYc&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>link<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>https://www.youtube.com/watch?v=cbP2N1BQdYc
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="httpurl的组成部分"
+    >HttpUrl的组成部分<a href="#httpurl%e7%9a%84%e7%bb%84%e6%88%90%e9%83%a8%e5%88%86"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+
+
+<h4 class="group " id="方案scheme"
+    >方案（scheme）<a href="#%e6%96%b9%e6%a1%88scheme"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>有时也称为<em>协议</em>，URL 的方案描述了应该使用什么机制来检索资源。尽管 URL 有许多方案（<code>mailto</code>、<code>file</code>、<code>ftp</code>），但此类仅支持<code>http</code>和<code>https</code>。将<a
+    class="link"
+    href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html"target="_blank" rel="noopener">java.net.URI</a
+>
+用于具有任意方案的 URL。</p>
+
+
+<h4 class="group " id="用户名和密码"
+    >用户名和密码<a href="#%e7%94%a8%e6%88%b7%e5%90%8d%e5%92%8c%e5%af%86%e7%a0%81"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>用户名和密码可以存在也可以为空字符串。这个类没有提供区分空和缺席的机制。这些组件在实践中都不流行。通常，HTTP 应用程序使用其他机制进行用户识别和验证。</p>
+
+
+<h4 class="group " id="host"
+    >Host<a href="#host"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>主机标识为 URL 资源提供服务的网络服务器。它可以是类似<code>square.com</code>或的主机名、类似 <code>localhost</code>IPv4 地址<code>192.168.0.1</code>或类似 IPv6 地址<code>::1</code>。</p>
+<p>通常可以使用多个标识符访问网络服务器：其 IP 地址、注册域名，甚至<code>localhost</code>从服务器本身连接时。每个 Web 服务器的名称都是一个不同的 URL，它们不可互换。例如，即使 <code>http://square.github.io/dagger</code>和<code>http://google.github.io/dagger</code>由相同的 IP 地址提供服务，这两个 URL 标识不同的资源。</p>
+
+
+<h4 class="group " id="port"
+    >Port<a href="#port"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>用于连接到 Web 服务器的端口。默认情况下，HTTP 为 80，HTTPS 为 443。此类从不为端口返回 -1：如果在 URL 中未明确指定端口，则使用方案的默认值。</p>
+
+
+<h4 class="group " id="path"
+    >Path<a href="#path"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>该路径标识主机上的特定资源。路径具有像“/square/okhttp/issues/1486”这样的层次结构，并分解成像<code>[&quot;square&quot;, &quot;okhttp&quot;, &quot;issues&quot;, &quot;1486&quot;]</code>.</p>
+<p>此类提供按段组合和分解路径的方法。它通过在“/”和编码段之间交替来从段列表中组成每个路径。例如，段<code>[&quot;a&quot;, &quot;b&quot;]</code>构建“/a/b”，段<code>[&quot;a&quot;, &quot;b&quot;, &quot;&quot;]</code>构建“/a/b/”。</p>
+<p>如果路径的最后一段是空字符串，则路径以“/”结尾。此类始终构建非空路径：如果省略路径，则默认为“/”。默认路径的段列表是一个空字符串：<code>[&quot;&quot;]</code>。</p>
+
+
+<h4 class="group " id="query"
+    >Query<a href="#query"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>查询是可选的：它可以为null、空或非空。对于许多 HTTP URL，查询字符串被细分为一组名称-值参数。此类提供了将查询设置为单个字符串或单独的名称-值参数的方法。对于名称-值参数，这些值是可选的并且名称可以重复。</p>
+
+
+<h4 class="group " id="fragment"
+    >Fragment<a href="#fragment"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>片段是可选的：它可以为空、空或非空。与主机、端口、路径和查询不同，片段不会发送到网络服务器：它是客户端私有的。</p>
+
+
+<h4 class="group " id="编码"
+    >编码<a href="#%e7%bc%96%e7%a0%81"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>每个组件都必须在嵌入完整 URL 之前进行编码。正如我们在上面看到的，字符串<code>cute #puppies</code>被编码为<code>cute%20%23puppies</code>当用作查询参数值时。</p>
+
+
+<h5 class="group " id="百分比编码"
+    >百分比编码<a href="#%e7%99%be%e5%88%86%e6%af%94%e7%bc%96%e7%a0%81"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h5>
+
+<p>百分比编码将字符（如<code>\ud83c\udf69</code>）替换为其 UTF-8 十六进制字节（如 <code>%F0%9F%8D%A9</code>）。这种方法适用于空白字符、控制字符、非 ASCII 字符和在特定上下文中已经具有另一种含义的字符。</p>
+<p>除了主机名之外，每个 URL 组件都使用百分比编码。但是每个组件需要编码的字符集是不同的。例如，路径组件必须对其所有<code>?</code>字符进行转义，否则它可能会被解释为 URL 查询的开始。但是在 query 和 fragment 组件中，<code>?</code>字符没有分隔任何东西，也不需要转义。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://who-let-the-dogs.out&#34;</span><span style="color:#ff79c6">).</span><span style="color:#50fa7b">newBuilder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addPathSegment</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;_Who?_&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">query</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;_Who?_&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">fragment</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;_Who?_&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这打印：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>http://who-let-the-dogs.out/_Who%3F_?_Who?_#_Who?_
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>当解析缺少百分比编码的 URL 时，此类将对违规字符进行百分比编码。</p>
+
+
+<h5 class="group " id="idna映射和pinycode编码"
+    >IDNA映射和Pinycode编码<a href="#idna%e6%98%a0%e5%b0%84%e5%92%8cpinycode%e7%bc%96%e7%a0%81"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h5>
+
+<p>主机名有不同的要求并使用不同的编码方案。它由 IDNA 映射和 Punycode 编码组成。</p>
+<p>为了避免混淆和阻止网络钓鱼攻击，<a
+    class="link"
+    href="http://www.unicode.org/reports/tr46/#ToASCII"target="_blank" rel="noopener">IDNA Mapping 会</a
+>
+转换名称以避免混淆字符。这包括基本的案例折叠：将喊叫 <code>SQUARE.COM</code>转变为冷静和随意<code>square.com</code>。它还可以处理更多异国情调的角色。例如，Unicode 商标符号 (™) 可能与 <code>http://ho™mail.com</code>混淆. 为了缓解这种情况，单个字符 (™) 映射到字符串 ™。所有 110 万个 Unicode 代码点都有类似的政策。请注意，某些代码点（例如“\ud83c\udf69”）未映射且不能在主机名中使用。</p>
+<p><a
+    class="link"
+    href="http://ietf.org/rfc/rfc3492.txt"target="_blank" rel="noopener">Punycode</a
+>
+将 Unicode 字符串转换为 ASCII 字符串，使国际域名在任何地方都能使用。例如，“σ”编码为“xn–4xa”。编码后的字符串不是人类可读的，但可以与<a
+    class="link"
+    href="https://docs.oracle.com/javase/8/docs/api/java/net/InetAddress.html"target="_blank" rel="noopener">InetAddress 等</a
+>
+类一起使用以建立连接。</p>
+
+
+<h3 class="group " id="地址"
+    >地址<a href="#%e5%9c%b0%e5%9d%80"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>地址指定网络服务器（如<code>github.com</code>）和连接到该服务器所需的所有<strong>静态</strong>配置：端口号、HTTPS 设置和首选网络协议（如 HTTP/2 或 SPDY）。</p>
+<p>共享相同地址的 URL 也可能共享相同的底层 TCP 套接字连接。共享连接具有显着的性能优势：更低的延迟、更高的吞吐量（由于<a
+    class="link"
+    href="http://www.igvita.com/2011/10/20/faster-web-vs-tcp-slow-start/"target="_blank" rel="noopener">TCP 慢启动</a
+>
+）和节省电池。OkHttp 使用<a
+    class="link"
+    href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-connection-pool/"target="_blank" rel="noopener">ConnectionPool</a
+>
+自动重用 HTTP/1.x 连接并复用 HTTP/2 和 SPDY 连接。</p>
+<p>在 OkHttp 中，地址的某些字段来自 URL（方案、主机名、端口），其余<a
+    class="link"
+    href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/"target="_blank" rel="noopener">字段</a
+>
+来自<a
+    class="link"
+    href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-ok-http-client/"target="_blank" rel="noopener">OkHttpClient</a
+>
+。</p>
+
+
+<h3 class="group " id="路线"
+    >路线<a href="#%e8%b7%af%e7%ba%bf"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>路由提供实际连接到网络服务器所需的<strong>动态</strong>信息。这是要尝试的特定 IP 地址（由 DNS 查询发现）、要使用的确切代理服务器（如果正在使用<a
+    class="link"
+    href="http://developer.android.com/reference/java/net/ProxySelector.html"target="_blank" rel="noopener">ProxySelector</a
+>
+）以及要协商的 TLS 版本（对于 HTTPS 连接）。</p>
+<p>一个地址可能有许多路由。例如，托管在多个数据中心的网络服务器可能会在其 DNS 响应中产生多个 IP 地址。</p>
+<p>连接用于到达抽象源服务器的具体路由。创建连接时，客户端有很多选项：</p>
+<ul>
+<li>**HTTP 代理：**可以为客户端显式配置代理服务器。否则使用<a
+    class="link"
+    href="https://docs.oracle.com/javase/8/docs/api/java/net/ProxySelector.html"target="_blank" rel="noopener">代理选择器</a
+>
+。它可能尝试会返回多个代理。</li>
+<li>**IP地址：**无论是直接连接到源服务器还是代理，打开一个socket都需要一个IP地址。DNS 服务器可能会返回多个 IP 地址进行尝试。</li>
+</ul>
+<p>每条路线都是这些选项的特定选择。</p>
+
+
+<h3 class="group " id="连接-1"
+    >连接<a href="#%e8%bf%9e%e6%8e%a5-1"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>当您使用 OkHttp 请求 URL 时，它会执行以下操作：</p>
+<ol>
+<li>它使用 URL 和配置好的 OkHttpClient 来创建<strong>地址</strong>。这个地址指定了我们将如何连接到网络服务器。</li>
+<li>它尝试从<strong>连接池中</strong>检索具有该地址的<strong>连接</strong>。</li>
+<li>如果它在池中没有找到连接，它会选择一个<strong>路由</strong>来尝试。这通常意味着发出 DNS 请求以获取服务器的 IP 地址。然后，它会根据需要选择 TLS 版本和代理服务器。</li>
+<li>如果是新路由，它会通过构建直接套接字连接、TLS 隧道（用于 HTTP 代理上的 HTTPS）或直接 TLS 连接来进行连接。它会根据需要进行 TLS 交互。</li>
+<li>它发送 HTTP 请求并读取响应。</li>
+</ol>
+<p>如果连接出现问题，OkHttp 会选择另一条路由并重试。这允许 OkHttp 在无法访问服务器地址的子集时进行恢复。当池连接陈旧或尝试的 TLS 版本不受支持时，它也很有用。</p>
+<p>收到响应后，连接将返回到池中，以便可以在以后的请求中重用。在一段时间不活动后，连接将从池中逐出。</p>
+
+
+<h2 class="group " id="事件"
+    >事件<a href="#%e4%ba%8b%e4%bb%b6"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://square.github.io/okhttp/images/events%402x.png"
+            src="/images/outload.svg"data-alt="事件图"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://square.github.io/okhttp/images/events%402x.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://square.github.io/okhttp/images/events%402x.png"alt="事件图"/>
+            </picture>
+        </a>
+    </noscript><figcaption>事件图</figcaption></figure>
+</p>
+<p>这是一个<a
+    class="link"
+    href="https://github.com/square/okhttp/blob/master/samples/guide/src/main/java/okhttp3/recipes/PrintEventsNonConcurrent.java"target="_blank" rel="noopener">示例事件侦听器</a
+>
+，它使用时间戳打印每个事件。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">PrintingEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">long</span> callStartNanos<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printEvent</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> nowNanos <span style="color:#ff79c6">=</span> System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">nanoTime</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">equals</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callStart&#34;</span><span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>      callStartNanos <span style="color:#ff79c6">=</span> nowNanos<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> elapsedNanos <span style="color:#ff79c6">=</span> nowNanos <span style="color:#ff79c6">-</span> callStartNanos<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">printf</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;%.3f %s%n&#34;</span><span style="color:#ff79c6">,</span> elapsedNanos <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">1000000000</span>d<span style="color:#ff79c6">,</span> name<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callStart</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callStart&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callEnd</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callEnd&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dnsStart</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> String domainName<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;dnsStart&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dnsEnd</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> String domainName<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>InetAddress<span style="color:#ff79c6">&gt;</span> inetAddressList<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;dnsEnd&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们发出了几个call</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;REQUEST 1 (new connection)&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Consume and discard the response body.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">source</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">readByteString</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;REQUEST 2 (pooled connection)&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Consume and discard the response body.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">source</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">readByteString</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>并且侦听器打印相应的事件：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>REQUEST 1 (new connection)
+</span></span><span style="display:flex;"><span>0.000 callStart
+</span></span><span style="display:flex;"><span>0.010 dnsStart
+</span></span><span style="display:flex;"><span>0.017 dnsEnd
+</span></span><span style="display:flex;"><span>0.025 connectStart
+</span></span><span style="display:flex;"><span>0.117 secureConnectStart
+</span></span><span style="display:flex;"><span>0.586 secureConnectEnd
+</span></span><span style="display:flex;"><span>0.586 connectEnd
+</span></span><span style="display:flex;"><span>0.587 connectionAcquired
+</span></span><span style="display:flex;"><span>0.588 requestHeadersStart
+</span></span><span style="display:flex;"><span>0.590 requestHeadersEnd
+</span></span><span style="display:flex;"><span>0.591 responseHeadersStart
+</span></span><span style="display:flex;"><span>0.675 responseHeadersEnd
+</span></span><span style="display:flex;"><span>0.676 responseBodyStart
+</span></span><span style="display:flex;"><span>0.679 responseBodyEnd
+</span></span><span style="display:flex;"><span>0.679 connectionReleased
+</span></span><span style="display:flex;"><span>0.680 callEnd
+</span></span><span style="display:flex;"><span>REQUEST 2 (pooled connection)
+</span></span><span style="display:flex;"><span>0.000 callStart
+</span></span><span style="display:flex;"><span>0.001 connectionAcquired
+</span></span><span style="display:flex;"><span>0.001 requestHeadersStart
+</span></span><span style="display:flex;"><span>0.001 requestHeadersEnd
+</span></span><span style="display:flex;"><span>0.002 responseHeadersStart
+</span></span><span style="display:flex;"><span>0.082 responseHeadersEnd
+</span></span><span style="display:flex;"><span>0.082 responseBodyStart
+</span></span><span style="display:flex;"><span>0.082 responseBodyEnd
+</span></span><span style="display:flex;"><span>0.083 connectionReleased
+</span></span><span style="display:flex;"><span>0.083 callEnd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意第二次调用没有触发连接事件。它重用了来自第一个请求的连接以获得显着更好的性能。</p>
+
+
+<h4 class="group " id="事件监听器factory"
+    >事件监听器Factory<a href="#%e4%ba%8b%e4%bb%b6%e7%9b%91%e5%90%ac%e5%99%a8factory"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>在前面的示例中，我们使用字段<code>callStartNanos</code>, 来跟踪每个事件的经过时间。这很方便，但如果多个调用同时执行，它就行不通了。为了适应这种情况，使用<code>Factory</code>创建一个新的<code>EventListener</code>为每个实例<code>Call</code>。这允许每个侦听器保持特定于呼叫的状态。</p>
+<p>此<a
+    class="link"
+    href="https://github.com/square/okhttp/blob/master/samples/guide/src/main/java/okhttp3/recipes/PrintEvents.java"target="_blank" rel="noopener">示例工厂</a
+>
+为每个调用创建一个唯一 ID，并使用该 ID 来区分日志消息中的调用。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">PrintingEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Factory FACTORY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Factory<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> AtomicLong nextCallId <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> AtomicLong<span style="color:#ff79c6">(</span><span style="color:#bd93f9">1L</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @Override <span style="color:#8be9fd;font-style:italic">public</span> EventListener <span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">long</span> callId <span style="color:#ff79c6">=</span> nextCallId<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAndIncrement</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>      System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">printf</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;%04d %s%n&#34;</span><span style="color:#ff79c6">,</span> callId<span style="color:#ff79c6">,</span> call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">request</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> PrintingEventListener<span style="color:#ff79c6">(</span>callId<span style="color:#ff79c6">,</span> System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">nanoTime</span><span style="color:#ff79c6">());</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">long</span> callId<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">long</span> callStartNanos<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">PrintingEventListener</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> callId<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">long</span> callStartNanos<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">callId</span> <span style="color:#ff79c6">=</span> callId<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">callStartNanos</span> <span style="color:#ff79c6">=</span> callStartNanos<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printEvent</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> elapsedNanos <span style="color:#ff79c6">=</span> System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">nanoTime</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">-</span> callStartNanos<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">printf</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;%04d %.3f %s%n&#34;</span><span style="color:#ff79c6">,</span> callId<span style="color:#ff79c6">,</span> elapsedNanos <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">1000000000</span>d<span style="color:#ff79c6">,</span> name<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callStart</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callStart&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callEnd</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callEnd&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们可以使用这个监听器来竞争一对并发 HTTP 请求：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request washingtonPostRequest <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://www.washingtonpost.com/&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>washingtonPostRequest<span style="color:#ff79c6">).</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Request newYorkTimesRequest <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://www.nytimes.com/&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>newYorkTimesRequest<span style="color:#ff79c6">).</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在家庭 WiFi 上运行这场比赛显示 Times ( <code>0002</code>) 完成得比 Post ( <code>0001</code>)稍早：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>0001 https://www.washingtonpost.com/
+</span></span><span style="display:flex;"><span>0001 0.000 callStart
+</span></span><span style="display:flex;"><span>0002 https://www.nytimes.com/
+</span></span><span style="display:flex;"><span>0002 0.000 callStart
+</span></span><span style="display:flex;"><span>0002 0.010 dnsStart
+</span></span><span style="display:flex;"><span>0001 0.013 dnsStart
+</span></span><span style="display:flex;"><span>0001 0.022 dnsEnd
+</span></span><span style="display:flex;"><span>0002 0.019 dnsEnd
+</span></span><span style="display:flex;"><span>0001 0.028 connectStart
+</span></span><span style="display:flex;"><span>0002 0.025 connectStart
+</span></span><span style="display:flex;"><span>0002 0.072 secureConnectStart
+</span></span><span style="display:flex;"><span>0001 0.075 secureConnectStart
+</span></span><span style="display:flex;"><span>0001 0.386 secureConnectEnd
+</span></span><span style="display:flex;"><span>0002 0.390 secureConnectEnd
+</span></span><span style="display:flex;"><span>0002 0.400 connectEnd
+</span></span><span style="display:flex;"><span>0001 0.403 connectEnd
+</span></span><span style="display:flex;"><span>0002 0.401 connectionAcquired
+</span></span><span style="display:flex;"><span>0001 0.404 connectionAcquired
+</span></span><span style="display:flex;"><span>0001 0.406 requestHeadersStart
+</span></span><span style="display:flex;"><span>0002 0.403 requestHeadersStart
+</span></span><span style="display:flex;"><span>0001 0.414 requestHeadersEnd
+</span></span><span style="display:flex;"><span>0002 0.411 requestHeadersEnd
+</span></span><span style="display:flex;"><span>0002 0.412 responseHeadersStart
+</span></span><span style="display:flex;"><span>0001 0.415 responseHeadersStart
+</span></span><span style="display:flex;"><span>0002 0.474 responseHeadersEnd
+</span></span><span style="display:flex;"><span>0002 0.475 responseBodyStart
+</span></span><span style="display:flex;"><span>0001 0.554 responseHeadersEnd
+</span></span><span style="display:flex;"><span>0001 0.555 responseBodyStart
+</span></span><span style="display:flex;"><span>0002 0.554 responseBodyEnd
+</span></span><span style="display:flex;"><span>0002 0.554 connectionReleased
+</span></span><span style="display:flex;"><span>0002 0.554 callEnd
+</span></span><span style="display:flex;"><span>0001 0.624 responseBodyEnd
+</span></span><span style="display:flex;"><span>0001 0.624 connectionReleased
+</span></span><span style="display:flex;"><span>0001 0.624 callEnd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这<code>EventListener.Factory</code>还可以将指标限制为调用的子集。这个捕获随机 10% 的指标：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">MetricsEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Factory FACTORY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Factory<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    @Override <span style="color:#8be9fd;font-style:italic">public</span> EventListener <span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">random</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0.10</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> MetricsEventListener<span style="color:#ff79c6">(</span>call<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> EventListener<span style="color:#ff79c6">.</span><span style="color:#50fa7b">NONE</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h4 class="group " id="失败的event"
+    >失败的Event<a href="#%e5%a4%b1%e8%b4%a5%e7%9a%84event"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>当操作失败时，会调用失败方法。这适用<code>connectFailed()</code>于建立与服务器的连接<code>callFailed()</code>时的失败，以及HTTP 调用永久失败的情况。当发生故障时，<code>start</code>事件可能没有相应的<code>end</code>事件。</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://square.github.io/okhttp/images/events_with_failures%402x.png"
+            src="/images/outload.svg"data-alt="事件图"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://square.github.io/okhttp/images/events_with_failures%402x.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://square.github.io/okhttp/images/events_with_failures%402x.png"alt="事件图"/>
+            </picture>
+        </a>
+    </noscript><figcaption>事件图</figcaption></figure>
+</p>
+
+
+<h4 class="group " id="带有重试和跟进的事件"
+    >带有重试和跟进的事件<a href="#%e5%b8%a6%e6%9c%89%e9%87%8d%e8%af%95%e5%92%8c%e8%b7%9f%e8%bf%9b%e7%9a%84%e4%ba%8b%e4%bb%b6"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h4>
+
+<p>OkHttp 具有弹性，可以从某些连接故障中自动恢复。在这种情况下，<code>connectFailed()</code>事件不是终止事件，并且后面没有<code>callFailed()</code>。尝试重试时，事件侦听器将接收多个相同类型的事件。</p>
+<p>单个 HTTP 调用可能需要发出后续请求来处理身份验证挑战、重定向和 HTTP 层超时。在这种情况下，可能会尝试多个连接、请求和响应。跟进是单个调用可能触发多个相同类型事件的另一个原因。</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://square.github.io/okhttp/images/events_with_failures_and_retries%402x.png"
+            src="/images/outload.svg"data-alt="事件图"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://square.github.io/okhttp/images/events_with_failures_and_retries%402x.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://square.github.io/okhttp/images/events_with_failures_and_retries%402x.png"alt="事件图"/>
+            </picture>
+        </a>
+    </noscript><figcaption>事件图</figcaption></figure>
+</p>
+
+
+<h2 class="group " id="https"
+    >HTTPS<a href="#https"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>OkHttp尽可能的协调两个问题：</p>
+<ul>
+<li>连接到尽可能多的主机</li>
+<li>连接的安全性</li>
+</ul>
+<p><a
+    class="link"
+    href="http://square.github.io/okhttp/4.x/okhttp/okhttp3/-connection-spec/"target="_blank" rel="noopener">ConnectionSpec</a
+>
+实现了特定的安全性与连接性决策。OkHttp 包含四个内置连接规范：</p>
+<ul>
+<li><code>RESTRICTED_TLS</code> 是一种安全配置，旨在满足更严格的合规性要求。</li>
+<li><code>MODERN_TLS</code> 是连接到现代 HTTPS 服务器的安全配置。</li>
+<li><code>COMPATIBLE_TLS</code> 是连接到安全但不是当前的 HTTPS 服务器的安全配置。</li>
+<li><code>CLEARTEXT</code>是用于<code>http://</code>URL的不安全配置。</li>
+</ul>
+
+
+<h2 class="group " id="代码示例"
+    >代码示例<a href="#%e4%bb%a3%e7%a0%81%e7%a4%ba%e4%be%8b"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>Http Get</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//创建okHttpClient对象
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>OkHttpClient mOkHttpClient <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//创建一个Request
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">final</span> Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://github.com/hongyangAndroid&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//new call
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>Call call <span style="color:#ff79c6">=</span> mOkHttpClient<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span> 
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//请求加入调度
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            @Override
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span><span style="color:#ff79c6">(</span>Request request<span style="color:#ff79c6">,</span> IOException e<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            @Override
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">final</span> Response response<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">//String htmlStr =  response.body().string();
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>代码分析：</p>
+<ul>
+<li>最好全局使用一个OkHttpClient</li>
+<li>创建一个request,可以通过RequestBuider设置参数</li>
+<li>通过request对象构造call对象，可以调用execute和cancel方法</li>
+<li>异步调用，call.enqueue,等待任务执行完成，在calllback中获取结果</li>
+<li>当整个GET成功，我们就回调在onResponse()方法中的方法处理ResponseBody包含的数据。通过response.body()方法得到ResponseBody对象。ResponseBody有几种方式转换返回的数据。</li>
+</ul>
+<p>Call有一个线程阻塞方法，execute()。可以直接调用这个方法返回一个Response。</p>
+<p>注意当我们使用Call.execute()方法返回的Response，首先要进行判断是否成功。调用Response.isSuccessful()（Returns true if the code is in [200..300),这里的code指的是Http响应消息的状态码）方法来判断。</p>
+<p>Http Post</p>
+
+
+<h3 class="group " id="post-提交json数据"
+    >post 提交Json数据<a href="#post-%e6%8f%90%e4%ba%a4json%e6%95%b0%e6%8d%ae"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> MediaType JSON <span style="color:#ff79c6">=</span> MediaType<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;application/json; charset=utf-8&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">,</span> String json<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>     RequestBody body <span style="color:#ff79c6">=</span> RequestBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>JSON<span style="color:#ff79c6">,</span> json<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>      Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>body<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isSuccessful</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> IOException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Unexpected code &#34;</span> <span style="color:#ff79c6">+</span> response<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用Request的post方法来提交请求体RequestBody</p>
+
+
+<h3 class="group " id="post提交键值对"
+    >post提交键值对<a href="#post%e6%8f%90%e4%ba%a4%e9%94%ae%e5%80%bc%e5%af%b9"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>kHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">,</span> String json<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     RequestBody formBody <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FormEncodingBuilder<span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;platform&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;android&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;name&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;bug&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;subject&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;XXXXXXXXXXXXXXX&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>body<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isSuccessful</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> IOException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Unexpected code &#34;</span> <span style="color:#ff79c6">+</span> response<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></section>
+<div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14"><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="Share to twitter"
+                href="https://twitter.com/share?&text=OkHttp%e7%ac%94%e8%ae%b0&url=https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="eva eva-twitter hover:text-theme"></i
+            ></a><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="Share to facebook"
+                href="https://www.facebook.com/sharer.php?u=https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="eva eva-facebook hover:text-theme"></i
+            ></a><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="Share to weibo"
+                href="https://service.weibo.com/share/share.php?url=https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/&title=OkHttp%e7%ac%94%e8%ae%b0&sudaref=nkj-666.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
+            ><svg class="inline-block h-5 w-5 fill-current hover:text-theme" viewBox="0 0 1193 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2681" width="200" height="200"> <path d="M456.991736 557.336482c-107.598583 0-194.644628 74.956316-194.644629 166.838252s87.046045 166.838253 194.644629 166.838253c107.598583 0 194.644628-74.956316 194.644628-166.838253s-87.046045-166.838253-194.644628-166.838252zM391.707202 822.101535c-36.269185 0-66.493506-27.806375-66.493507-62.866588s29.015348-62.866588 66.493507-62.866588c36.269185 0 66.493506 27.806375 66.493506 62.866588S427.976387 822.101535 391.707202 822.101535z m93.090909-91.881936c-14.507674 0-26.597403-12.089728-26.597403-26.597403s12.089728-26.597403 26.597403-26.597403 26.597403 12.089728 26.597403 26.597403-12.089728 26.597403-26.597403 26.597403zM239.376623 281.690673C97.9268 394.125148-18.134593 600.859504 30.224321 661.308146c32.642267 41.105077 59.239669-19.343566 124.524203-89.46399 30.224321-32.642267 77.374262-54.403778 122.106258-90.672964 20.552538-16.92562 197.062574-35.060213 230.913813-35.060212 97.9268-99.135773 114.85242-207.943329 74.956316-258.720189-48.358914-59.239669-201.898465-16.92562-343.348288 94.299882z" p-id="2682" ></path> <path d="M808.802834 560.9634C906.729634 461.827627 911.565525 377.199528 870.460449 326.422668c-47.149941-60.448642-211.570248-32.642267-351.811098 78.583235" p-id="2683" ></path> <path d="M605.695396 353.020071c-14.507674 8.46281-25.38843 12.089728-29.015349 7.253837-1.208973-2.417946-1.208973-6.044864 1.208973-9.671783-16.92562-1.208973-33.85124-1.208973-50.776859-1.208973C235.749705 349.393152 0 500.514758 0 686.696576s235.749705 337.303424 527.112161 337.303424 527.112161-151.121606 527.11216-337.303424c0-170.465171-194.644628-309.497048-448.528925-333.676505zM481.171192 959.924439C275.645809 959.924439 108.807556 847.489965 108.807556 708.458087s166.838253-251.466352 372.363636-251.466351 372.363636 112.434475 372.363637 251.466351-166.838253 251.466352-372.363637 251.466352z" p-id="2684" ></path> <path d="M1021.582054 423.140496c-3.626919 0-6.044864 0-9.671782-1.208973-18.134593-4.835891-29.015348-24.179457-22.970485-42.31405 2.417946-7.253837 3.626919-16.92562 3.626919-29.015348 0-65.284534-53.194805-119.688312-119.688312-119.688312-19.343566 0-33.85124-15.716647-33.851239-33.851239s15.716647-33.85124 33.851239-33.85124c103.971665 0 187.390791 84.628099 187.390791 187.390791 0 18.134593-2.417946 33.85124-6.044864 48.358914-4.835891 14.507674-18.134593 24.179457-32.642267 24.179457z" p-id="2685" ></path> <path d="M1146.106257 473.917355c-2.417946 0-6.044864 0-8.46281-1.208972-20.552538-4.835891-32.642267-25.38843-27.806375-45.940969 6.044864-24.179457 8.46281-47.149941 8.46281-71.329397C1118.299882 201.898465 991.357733 74.956316 836.609209 74.956316c-20.552538 0-37.478158-16.92562-37.478158-37.478158S816.056671 0 836.609209 0c197.062574 0 356.646989 159.584416 356.646989 356.646989 0 29.015348-3.626919 59.239669-10.880755 88.255018-3.626919 18.134593-19.343566 29.015348-36.269186 29.015348z" p-id="2686" ></path> </svg></a><i class="eva eva-copy mr-4 cursor-pointer hover:text-theme" title="Copy Link" data-clipboard-text="https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/"></i><div class="group relative hidden h-5 w-5 cursor-pointer sm:inline-block">
+                <i title="QR Code" class="eva show-qrcode eva-smartphone hover:text-theme"></i>
+                <div
+                    class="qrcode-wrapper pointer-events-none absolute left-2/4 bottom-10 h-32 w-32 -translate-x-1/2 overflow-hidden rounded border border-gray-300 bg-white p-2 opacity-0 transition duration-300 ease-[ease] group-hover:opacity-100"
+                >
+                    <img class="h-full w-full" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/" alt="QR Code" />
+                </div>
+            </div></div>
+<div class="border-b dark:border-darkBorder"></div><div class="flex justify-between px-2 py-4 text-xl md:px-6 md:text-2xl">
+    <div>
+        <a
+            href="/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/"
+            title="Retrofit 笔记"
+            class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
+            <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+                <i class="eva eva-chevron-left-outline"></i>
+            </span>
+            <span>Prev</span>
+        </a>
+    </div><div class="hidden items-center text-xs xl:flex">
+        Unless otherwise stated, this blog is licensed under 「
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank" rel="noopener noreferrer" class="text-theme">CC BY-NC-ND 4.0</a>
+        」
+    </div>
+    <div class="flex items-center text-sm xl:hidden">
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank" rel="noopener noreferrer" class="text-theme">
+            <img src="/Cc-by-nc-nd.svg" alt="CC BY-NC-ND 4.0" title="CC BY-NC-ND 4.0" class="w-24" />
+        </a>
+    </div>
+
+    <a
+        href="/2022/04/15/mysql%E7%AC%94%E8%AE%B0.html/"
+        title="MySQL笔记"
+        class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
+        <span>Next</span>
+        <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+            <i class="eva eva-chevron-right-outline"></i>
+        </span>
+    </a>
+</div>
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+                </main><footer>
+    <div
+        class="com-footer flex flex-col items-center border-t py-4 px-4 text-sm leading-none text-gray-600 dark:border-darkBorder dark:text-darkTextPlaceholder md:flex-row md:justify-between"
+    >
+        <div class="mb-2 flex items-center justify-between text-center md:mb-0">
+            <span class="">© 2021 - 2023</span>
+            <span class="mx-1.5 opacity-50"> | </span>Powered by <a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> <span class="text-xs opacity-70">❤</span> <a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://github.com/Ice-Hazymoon/hugo-theme-luna" target="_blank" rel="noopener noreferrer">Luna</a></div>
+
+        <div class="flex items-center"><span class="noscript-hidden mx-1.5 hidden opacity-50 md:block"> | </span><a data-no-swup href="https://nkj-666.github.io/index.xml" target="_blank" class="mr-1.5 hover:text-theme">
+                    <span class=" md:hidden lg:inline"><svg t="1650887361919" class="mr-0.5 w-3 fill-current text-inherit inline-block align-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3091"><path d="M320.16155 831.918c0 70.738-57.344 128.082-128.082 128.082S63.99955 902.656 63.99955 831.918s57.344-128.082 128.082-128.082 128.08 57.346 128.08 128.082z m351.32 94.5c-16.708-309.2-264.37-557.174-573.9-573.9C79.31155 351.53 63.99955 366.21 63.99955 384.506v96.138c0 16.83 12.98 30.944 29.774 32.036 223.664 14.568 402.946 193.404 417.544 417.544 1.094 16.794 15.208 29.774 32.036 29.774h96.138c18.298 0.002 32.978-15.31 31.99-33.58z m288.498 0.576C943.19155 459.354 566.92955 80.89 97.00555 64.02 78.94555 63.372 63.99955 77.962 63.99955 96.032v96.136c0 17.25 13.67 31.29 30.906 31.998 382.358 15.678 689.254 322.632 704.93 704.93 0.706 17.236 14.746 30.906 31.998 30.906h96.136c18.068-0.002 32.658-14.948 32.01-33.008z" p-id="3092"></path></svg></span>
+                    <span>RSS</span>
+                </a><a data-no-swup href="https://nkj-666.github.io/sitemap.xml" target="_blank" class="mr-1.5 hover:text-theme">
+                    <span class=" md:hidden lg:inline"><svg t="1650887940556" class="mr-0.5 w-3 fill-current text-inherit inline-block align-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6291"><path d="M950.044 625.778h-68.266v-56.89c0-45.51-39.822-85.332-85.334-85.332h-256v-85.334h68.267c39.822 0 73.956-34.133 73.956-73.955V130.844c0-39.822-34.134-73.955-73.956-73.955H415.29c-39.822 0-73.956 34.133-73.956 73.955v193.423c0 39.822 34.134 73.955 73.956 73.955h68.267v85.334h-256c-45.512 0-85.334 39.822-85.334 85.333v56.889H73.956C34.133 625.778 0 659.91 0 699.733v193.423c0 39.822 34.133 73.955 73.956 73.955h193.422c39.822 0 73.955-34.133 73.955-73.955V699.733c0-39.822-34.133-73.955-73.955-73.955H199.11v-56.89c0-17.066 11.378-28.444 28.445-28.444h568.888c17.067 0 28.445 11.378 28.445 28.445v56.889h-68.267c-39.822 0-73.955 34.133-73.955 73.955v193.423c0 39.822 34.133 73.955 73.955 73.955h193.422c39.823 0 73.956-34.133 73.956-73.955V699.733c0-39.822-34.133-73.955-73.956-73.955z" p-id="6292"></path></svg></span>
+                    <span>Sitemap</span>
+                </a><div id="google_translate_element" class="overflow-hidden rounded border dark:border-darkBorder"></div></div><div id="run-time" class="mt-2 flex-grow text-right md:mt-0">
+    <span>Run time: </span><b id="run-time-d">0</b>
+    <span class="text-xs">days</span>
+    <b id="run-time-h">0</b>
+    <span class="text-xs">h</span>
+    <b id="run-time-m">0</b>
+    <span class="text-xs">m</span>
+    <b id="run-time-s">0</b>
+    <span class="text-xs">s</span>
+</div>
+</div>
+
+    <script type="text/javascript">
+window.__theme = {
+    cdn: '',
+    pjax: true ,
+    isServer: false ,
+    $version:"",
+    lang: 'en-us',
+    imageZoom: true ,
+    lazyload: true ,
+    bionicReading: {
+        enabled: true ,
+        skipLinks: false ,
+        autoBionic: false ,
+        excludeWords:[],
+        excludeClasses:["github"],
+        excludeNodeNames:[],
+    },
+    katex: true ,
+    search: true ,
+    backtop: true ,
+    pangu: true ,
+    autoDarkMode: false ,
+    googleAnalytics:false,
+    hugoEncrypt: {
+        wrongPasswordText: 'Password is incorrect',
+        userStorage:window['sessionStorage'],
+    },
+    console: {
+        enabled: true ,
+        leftColor: '#dd6065',
+        rightColor: '#feb462',
+        leftText: 'Hugo Theme Luna',
+        rightText: 'Powered by NKJ-666',
+    },
+    assets: {
+        error_svg: "\/images\/error.svg",
+        search_svg: "\/images\/search.svg",
+    },
+    i18n: {
+        copy: {
+            success: "Copy success",
+            failed: "Copy failed",
+            copyCode: "Copy code",
+        },
+        search: {
+            untitled: "Untitled",
+            loadFailure: "Initialization of the search engine failed",
+            input: "Type something...",
+        },
+        darkMode: {
+            dark: "Switch to dark mode",
+            light: "Switch to light mode"
+        }
+    },creatTime: "2021\/12\/12"}
+</script>
+<script type="text/javascript" src="/ts/main.1f7accfe243b98c78d4e4dd412caf872a0bc99d72fa4ed9b8bdf02db3f739896.js" defer integrity="sha256-H3rM/iQ7mMeNTk3UEsr4cqC8mdcvpO2bi98C2z9zmJY="></script><script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('\/sw.js');
+        });
+    }
+</script>
+<script type="text/javascript" src="/translate-google.ecd37c3cc8f7e1b08910201dd0d9fc3e5f4b1395fb8ebead3141b931f036f777.js" defer integrity="sha256-7NN8PMj34bCJECAd0Nn8Pl9LE5X7jr6tMUG5MfA293c="></script><script type="text/javascript">
+    window.translateelement_styles = "\/sass\/translateelement.min.c65796c6c3e4d48c75f72776948be83c5c448d1c5cc466b996b00657c558d28a.css";
+    function googleTranslateElementInit(){
+        new google.translate.TranslateElement({
+            pageLanguage: 'en-us',
+            includedLanguages: 'af,ga,sq,it,ar,ja,az,kn,eu,ko,bn,la,be,lv,bg,lt,ca,mk,zh-CN,ms,zh-TW,mt,hr,no,cs,fa,da,pl,nl,pt,en,ro,eo,ru,et,sr,tl,sk,fi,sl,fr,es,gl,sw,ka,sv,de,ta,el,te,gu,th,ht,tr,iw,uk,hi,ur,hu,vi,is,cy,id,yi',
+            autoDisplay:false
+        },'google_translate_element');
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    
+</script>
+
+<script data-swup-reload-script>
+    
+    
+</script>
+</footer>
+</div>
+        </div><a
+        href="#nav"
+        title="Back to top"
+        id="back-top"
+        class="fixed right-6 bottom-9 z-10 translate-y-3 scale-90 cursor-pointer rounded-full bg-white opacity-0 transition duration-300 ease-[ease] dark:bg-darkBgAccent sm:scale-100"
+    >
+        <div class="relative">
+            <div class="absolute left-0 top-0 flex h-full w-full items-center justify-center text-xl">
+                <i class="eva eva-arrow-upward-outline"></i>
+            </div>
+            <svg id="svg" width="54" height="54" viewBox="0 0 54 54" preserveAspectRatio="xMinYMin meet">
+                <circle
+                    transform="rotate(-90, 27 , 27)"
+                    style="stroke-dasharray: 157, 157; stroke-dashoffset: 157;"
+                    cx="27"
+                    cy="27"
+                    r="25"
+                    fill="none"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke="var(--theme)"
+                />
+            </svg>
+        </div>
+    </a><div id="i18nlist"></div><noscript>
+    <style>
+        .dark-mode-switch,
+        #run-time,
+        #bionicReading,
+        .noscript-hidden,
+        [data-clipboard-text],
+        [data-lazyload] {
+            display: none;
+        }
+        #back-top {
+            opacity: 1;
+        }
+        .noscript-show {
+            display: initial;
+        }
+    </style>
+</noscript>
+</body>
+</html>

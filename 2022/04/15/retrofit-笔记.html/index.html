@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en-us" class="lang-en-us">
+    <head><meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="keywords" content="Android,Hugo,Hugo Theme,Luna," /><meta name="description" content="Retrofit 笔记" />
+<meta itemprop="description" content="Retrofit 笔记" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta itemprop="name" content="Retrofit 笔记 - Kevier Blog" />
+<link href="https://nkj-666.github.io/index.xml" title="Retrofit 笔记 - Kevier Blog" type="application/rss+xml" rel="alternate" />
+<title>Retrofit 笔记 - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="Retrofit 笔记 - Kevier Blog" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Retrofit 笔记" />
+<meta property="og:description" content="Retrofit 笔记" />
+<meta property="og:url" content="https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/" /><meta property="article:published_time" content="2022-04-15T02:49:13&#43;02:00" /><meta property="article:modified_time" content="2023-04-07T17:19:34&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Retrofit 笔记 - Kevier Blog" />
+<meta name="apple-mobile-web-app-status-bar-style" content="white" />
+
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="@Ice_Hazymoon" />
+    <meta name="twitter:creator" content="@Ice_Hazymoon" /><meta name="twitter:title" content="Retrofit 笔记 - Kevier Blog" />
+<meta name="twitter:description" content="Retrofit 笔记" />
+<meta name="twitter:url" content="https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/" /><meta name="twitter:image" content="" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="manifest" href="/manifest.json" /><link href="/icon.png" rel="shortcut icon" />
+<link href="/icon.png" rel="Bookmark" />
+<link rel="apple-touch-icon" href="/icon.png" /><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Retrofit 笔记",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/nkj-666.github.io\/2022\/04\/15\/retrofit-%E7%AC%94%E8%AE%B0.html\/"
+  },"genre": "posts","keywords": "Android","wordcount": 3990 ,
+  "url": "https:\/\/nkj-666.github.io\/2022\/04\/15\/retrofit-%E7%AC%94%E8%AE%B0.html\/","datePublished": "2022-04-15T02:49:13\u002b02:00","dateModified": "2023-04-07T17:19:34\u002b08:00","author": {
+    "@type": "Person",
+    "name": "Ice-Hazymoon"
+  },"description": ""
+}
+</script>
+
+
+    </head>
+
+    <body class="dark:bg-darkBg dark:text-darkText">
+        <div class="relative mx-auto shadow-lg md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl">
+            <div class="main flex flex-col justify-between bg-white dark:bg-darkFg"><header
+    class="relative"
+><nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
+            <div class="route-items flex w-full items-center justify-around"><a
+                        title="Home"
+                        data-active-link="/"
+                        href="/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-home flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">Home</span>
+                    </a><a
+                        title="About"
+                        data-active-link="/about/"
+                        href="/about/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-heart flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">About</span>
+                    </a>
+            </div>
+        </nav><div class="dark-mode-switch absolute right-0 top-0 z-10 cursor-pointer pr-2 pt-2 text-xl leading-none">
+    <i class="eva eva-moon opacity-20 dark:opacity-70"></i>
+</div>
+</header>
+<main class=" relative flex flex-grow" id="swup"><style>:root {
+        --font:Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }</style>
+<div class="type-posts layout- w-full"><div class="relative h-full">
+    <div class="relative h-full">
+        <div class="page-view-article flex h-full flex-col bg-white dark:bg-darkFg"><div class="relative"><div>
+    <div class="-mb-2 w-full p-6 pb-0 text-3xl md:px-10">
+        Retrofit 笔记
+    </div>
+</div>
+</div>
+<div class="article-info border-b p-6 pb-3 text-sm dark:border-darkBorder md:px-10">
+    <div>
+        <div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+            <i class="eva eva-clock-outline mr-1"></i>
+            <span>
+                <time
+                    title="Published in 15 Apr 2022 02:49:13"datetime="2022-04-15T02:49:13+02:00">15 Apr 2022</time
+                >
+            </span>
+        </div><span class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                    <i class="eva eva-edit-2-outline mr-1"></i>
+                    <span>
+                        <time
+                            title="Last modified on: 07 Apr 2023 17:19:34"datetime="2023-04-07T17:19:34+08:00">07 Apr 2023</time
+                        >
+                    </span>
+                </span><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                <i class="eva eva-flag-outline mr-1"></i>
+                <span>8 mins read</span>
+            </div></div><div class="mb-3 flex items-center">
+            <i class="eva eva-pricetags-outline mr-1"></i>
+            <span class="mr-3">Tags</span><a href="/tags/android" title="Android" class="group mr-2 flex items-center text-sm">
+                    <i class="mr-1 text-gray-400 group-hover:text-theme">#</i>
+                    <span class="text-gray-400 group-hover:text-theme">Android</span>
+                </a></div></div>
+<aside
+            class="toc border-b border-gray-300 px-5 py-5 dark:border-darkBorder md:px-10 2xl:fixed 2xl:top-10 2xl:m-0 2xl:-ml-72 2xl:w-72 2xl:border-none 2xl:p-0 2xl:py-4 2xl:pr-4 "
+        >
+            <header>
+                <h1 class="mb-3 text-2xl font-bold 2xl:mb-4">Table of Contents</h1>
+            </header>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述">概述</a></li>
+    <li><a href="#api-声明">API 声明</a>
+      <ul>
+        <li><a href="#请求方法">请求方法</a></li>
+        <li><a href="#网址操作">网址操作</a></li>
+        <li><a href="#请求正文">请求正文</a></li>
+        <li><a href="#form-encoding和多部分">Form Encoding和多部分</a></li>
+        <li><a href="#header操作">Header操作</a></li>
+        <li><a href="#同步和异步">同步和异步</a></li>
+      </ul>
+    </li>
+    <li><a href="#改造配置">改造配置</a>
+      <ul>
+        <li><a href="#转换器">转换器</a></li>
+        <li><a href="#自定义转换器">自定义转换器</a></li>
+      </ul>
+    </li>
+    <li><a href="#使用">使用</a>
+      <ul>
+        <li><a href="#步骤1添加retrofit库的依赖并添加网络权限">步骤1：添加Retrofit库的依赖并添加网络权限</a></li>
+        <li><a href="#步骤2创建接受服务器返回数据的类">步骤2：创建接受服务器返回数据的类</a></li>
+        <li><a href="#步骤3创建用于描述网络请求的接口">步骤3：创建用于描述网络请求的接口</a></li>
+        <li><a href="#步骤4创建retrofit实例">步骤4：创建Retrofit实例</a></li>
+        <li><a href="#步骤5创建网络请求接口实例">步骤5：创建网络请求接口实例</a></li>
+        <li><a href="#步骤6-发送网络请求异步和同步">步骤6: 发送网络请求（异步和同步）</a></li>
+        <li><a href="#步骤7处理返回数据">步骤7：处理返回数据</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="Faster Reads" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
+            ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
+        >
+
+<h1 class="group " id="retrofit-笔记"
+    >Retrofit 笔记<a href="#retrofit-%e7%ac%94%e8%ae%b0"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h1>
+
+
+
+<h2 class="group " id="概述"
+    >概述<a href="#%e6%a6%82%e8%bf%b0"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>一种适用于Android和Java的HTTP客户端</p>
+<p>Retrofit将HTTP API转换为一个Java接口</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">GitHubService</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  @GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;users/{user}/repos&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>  Call<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span>Repo<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#50fa7b">listRepos</span><span style="color:#ff79c6">(</span>@Path<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user&#34;</span><span style="color:#ff79c6">)</span> String user<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Retrofit 类的实例可以产生一个实现了GithubService接口的类的实例。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Retrofit retrofit <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Retrofit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">baseUrl</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://api.github.com/&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>GitHubService service <span style="color:#ff79c6">=</span> retrofit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>GitHubService<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Call</code>创建的每个<code>GitHubService</code>都可以向远程 Web 服务器发出同步或异步 HTTP 请求。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span>Repo<span style="color:#ff79c6">&gt;&gt;</span> repos <span style="color:#ff79c6">=</span> service<span style="color:#ff79c6">.</span><span style="color:#50fa7b">listRepos</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;octocat&#34;</span><span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用注解来描述 HTTP 请求：</p>
+<ul>
+<li>URL 参数替换和查询参数支持</li>
+<li>对象转换为请求正文（例如，JSON、协议缓冲区）</li>
+<li>分段请求正文和文件上传</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>准确来说，Retrofit 是一个 RESTful 的 HTTP 网络请求框架的封装。</li>
+<li>原因：网络请求的工作本质上是 OkHttp 完成，而 Retrofit 仅负责 网络请求接口的封装</li>
+<li><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk0NDM2NS1iNTE5NGYxZDE2NjczNTg5LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwJTdDaW1hZ2VWaWV3Mi8yL3cvMTI0MA"
+            src="/images/outload.svg"data-alt="本质过程"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk0NDM2NS1iNTE5NGYxZDE2NjczNTg5LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwJTdDaW1hZ2VWaWV3Mi8yL3cvMTI0MA" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk0NDM2NS1iNTE5NGYxZDE2NjczNTg5LnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwJTdDaW1hZ2VWaWV3Mi8yL3cvMTI0MA"alt="本质过程"/>
+            </picture>
+        </a>
+    </noscript><figcaption>本质过程</figcaption></figure>
+</li>
+<li>App应用程序通过 Retrofit 请求网络，实际上是使用 Retrofit 接口层封装请求参数、Header、Url 等信息，之后由 OkHttp 完成后续的请求操作</li>
+<li>在服务端返回数据之后，OkHttp 将原始的结果交给 Retrofit，Retrofit根据用户的需求对结果进行解析</li>
+</ul>
+
+
+<h2 class="group " id="api-声明"
+    >API 声明<a href="#api-%e5%a3%b0%e6%98%8e"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+
+
+<h3 class="group " id="请求方法"
+    >请求方法<a href="#%e8%af%b7%e6%b1%82%e6%96%b9%e6%b3%95"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>每个方法都必须有一个提供请求方法和相对 URL 的 HTTP 注释。有八个内置注释：<code>HTTP</code>，<code>GET</code>，<code>POST</code>，<code>PUT</code>，<code>PATCH</code>，<code>DELETE</code>，<code>OPTIONS</code>和<code>HEAD</code>。资源的相对 URL 在注释中指定。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@GET ( &#34;用户/列表&#34; )
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>您还可以在 URL 中指定查询参数。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@GET ( &#34;users/list?sort=desc&#34; )
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="网址操作"
+    >网址操作<a href="#%e7%bd%91%e5%9d%80%e6%93%8d%e4%bd%9c"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>可以使用方法上的替换块和参数动态更新请求 URL。替换块在{}中，相应的参数必须用@Path使用相同的字符串进行注释。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;group/{id}/users&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#50fa7b">groupList</span><span style="color:#ff79c6">(</span>@Path<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#8be9fd">int</span> groupId<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>也可以添加查询参数</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;group/{id}/users&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#50fa7b">groupList</span><span style="color:#ff79c6">(</span>@Path<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#8be9fd">int</span> groupId<span style="color:#ff79c6">,</span> @Query<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;sort&#34;</span><span style="color:#ff79c6">)</span> String sort<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对于复杂的查询参数可以使用Map</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;group/{id}/users&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#50fa7b">groupList</span><span style="color:#ff79c6">(</span>@Path<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;id&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#8be9fd">int</span> groupId<span style="color:#ff79c6">,</span> @QueryMap Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> String<span style="color:#ff79c6">&gt;</span> options<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="请求正文"
+    >请求正文<a href="#%e8%af%b7%e6%b1%82%e6%ad%a3%e6%96%87"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>可以指定一个对象作为带有<code>@Body</code>注释的 HTTP 请求正文。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@POST<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;users/new&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">createUser</span><span style="color:#ff79c6">(</span>@Body User user<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该对象也将使用<code>Retrofit</code>实例上指定的转换器进行转换。如果不添加转换器，则只能使用RequestBody。</p>
+
+
+<h3 class="group " id="form-encoding和多部分"
+    >Form Encoding和多部分<a href="#form-encoding%e5%92%8c%e5%a4%9a%e9%83%a8%e5%88%86"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>可以声明方法来发送表单编码和多部分数据。</p>
+<p>当<code>@FormUrlEncoded</code>存在于方法中时发送表单编码数据。每个键值对都被注释为<code>@Field</code>包含名称和提供值的对象。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@FormUrlEncoded
+</span></span><span style="display:flex;"><span>@POST<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user/edit&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">updateUser</span><span style="color:#ff79c6">(</span>@Field<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;first_name&#34;</span><span style="color:#ff79c6">)</span> String first<span style="color:#ff79c6">,</span> @Field<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;last_name&#34;</span><span style="color:#ff79c6">)</span> String last<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>@Multipart</code>方法中存在时使用多部分请求。部件是使用<code>@Part</code>注释声明的。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Multipart
+</span></span><span style="display:flex;"><span>@PUT<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user/photo&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">updateUser</span><span style="color:#ff79c6">(</span>@Part<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;photo&#34;</span><span style="color:#ff79c6">)</span> RequestBody photo<span style="color:#ff79c6">,</span> @Part<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;description&#34;</span><span style="color:#ff79c6">)</span> RequestBody description<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>多部分部件使用<code>Retrofit</code>的转换器之一，或者它们可以实现<code>RequestBody</code>来处理自己的序列化。</p>
+
+
+<h3 class="group " id="header操作"
+    >Header操作<a href="#header%e6%93%8d%e4%bd%9c"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>您可以使用<code>@Headers</code>注释为方法设置静态标头。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Headers<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Cache-Control: max-age=640000&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;widget/list&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>List<span style="color:#ff79c6">&lt;</span>Widget<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#50fa7b">widgetList</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@Headers<span style="color:#ff79c6">({</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Accept: application/vnd.github.v3.full+json&#34;</span><span style="color:#ff79c6">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;User-Agent: Retrofit-Sample-App&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">})</span>
+</span></span><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;users/{username}&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">getUser</span><span style="color:#ff79c6">(</span>@Path<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;username&#34;</span><span style="color:#ff79c6">)</span> String username<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>注意，标头不会相互覆盖。所有具有相同名称的标头都将包含在请求中。</p>
+<p>可以使用<code>@Header</code>注解动态更新请求头。必须向’@Header提供相应的参数。如果值为 null，则将省略标头。否则，<code>toString</code>将调用该值，并使用结果。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">getUser</span><span style="color:#ff79c6">(</span>@Header<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Authorization&#34;</span><span style="color:#ff79c6">)</span> String authorization<span style="color:#ff79c6">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>对于复杂的Header组合也可以用Map来代替</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">getUser</span><span style="color:#ff79c6">(</span>@HeaderMap Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> String<span style="color:#ff79c6">&gt;</span> headers<span style="color:#ff79c6">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以使用<a
+    class="link"
+    href="https://github.com/square/okhttp/wiki/Interceptors"target="_blank" rel="noopener">OkHttp 拦截器</a
+>
+指定需要添加到每个请求的<a
+    class="link"
+    href="https://github.com/square/okhttp/wiki/Interceptors"target="_blank" rel="noopener">标头</a
+>
+。</p>
+
+
+<h3 class="group " id="同步和异步"
+    >同步和异步<a href="#%e5%90%8c%e6%ad%a5%e5%92%8c%e5%bc%82%e6%ad%a5"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p><code>Call</code>实例可以同步或异步执行。每个实例只能使用一次，但是调用<code>clone()</code>会创建一个可以使用的新实例。</p>
+<p>在 Android 上，回调将在主线程上执行。在 JVM 上，回调将发生在执行 HTTP 请求的同一线程上。</p>
+
+
+<h2 class="group " id="改造配置"
+    >改造配置<a href="#%e6%94%b9%e9%80%a0%e9%85%8d%e7%bd%ae"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p><code>Retrofit</code>是将 API 接口转换为可调用对象的类。默认情况下，Retrofit 将为您的平台提供合理的默认值，但它允许自定义。</p>
+
+
+<h3 class="group " id="转换器"
+    >转换器<a href="#%e8%bd%ac%e6%8d%a2%e5%99%a8"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>默认情况下，Retrofit 只能将 HTTP 主体反序列化为 OkHttp 的<code>ResponseBody</code>类型，并且只能接受其<code>RequestBody</code>类型为<code>@Body</code>.</p>
+<p>可以添加转换器以支持其他类型。为了您的方便，六个兄弟模块采用流行的序列化库。</p>
+<ul>
+<li><a
+    class="link"
+    href="https://github.com/google/gson"target="_blank" rel="noopener">Gson</a
+>
+: <code>com.squareup.retrofit2:converter-gson</code></li>
+<li><a
+    class="link"
+    href="https://github.com/FasterXML/jackson"target="_blank" rel="noopener">Jackson</a
+>
+: <code>com.squareup.retrofit2:converter-jackson</code></li>
+<li><a
+    class="link"
+    href="https://github.com/square/moshi/"target="_blank" rel="noopener">Moshi</a
+>
+: <code>com.squareup.retrofit2:converter-moshi</code></li>
+<li><a
+    class="link"
+    href="https://developers.google.com/protocol-buffers/"target="_blank" rel="noopener">Protobuf</a
+>
+: <code>com.squareup.retrofit2:converter-protobuf</code></li>
+<li><a
+    class="link"
+    href="https://github.com/square/wire"target="_blank" rel="noopener">Wire</a
+>
+: <code>com.squareup.retrofit2:converter-wire</code></li>
+<li><a
+    class="link"
+    href="http://simple.sourceforge.net/"target="_blank" rel="noopener">Simple XML</a
+>
+: <code>com.squareup.retrofit2:converter-simplexml</code></li>
+<li><a
+    class="link"
+    href="https://docs.oracle.com/javase/tutorial/jaxb/intro/index.html"target="_blank" rel="noopener">JAXB</a
+>
+: <code>com.squareup.retrofit2:converter-jaxb</code></li>
+<li>Scalars (primitives, boxed, and String): <code>com.squareup.retrofit2:converter-scalars</code></li>
+</ul>
+<p>这是使用<code>GsonConverterFactory</code>该类生成<code>GitHubService</code>使用 Gson 进行反序列化的接口实现的示例。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Retrofit retrofit <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Retrofit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">baseUrl</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://api.github.com/&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addConverterFactory</span><span style="color:#ff79c6">(</span>GsonConverterFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">())</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>GitHubService service <span style="color:#ff79c6">=</span> retrofit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>GitHubService<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="自定义转换器"
+    >自定义转换器<a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e8%bd%ac%e6%8d%a2%e5%99%a8"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>如果您需要与使用 Retrofit 不支持的内容格式（例如 YAML、txt、自定义格式）的 API 进行通信，或者您希望使用不同的库来实现现有格式，您可以轻松创建你自己的转换器。创建一个继承于<a
+    class="link"
+    href="https://github.com/square/retrofit/blob/master/retrofit/src/main/java/retrofit2/Converter.java"target="_blank" rel="noopener"><code>Converter.Factory</code>类</a
+>
+的类，并在构建适配器时传入一个实例。</p>
+<p><a
+    class="link"
+    href="https://search.maven.org/remote_content?g=com.squareup.retrofit2&amp;a=retrofit&amp;v=LATEST"target="_blank" rel="noopener">最新 JAR包</a
+>
+</p>
+
+
+<h2 class="group " id="使用"
+    >使用<a href="#%e4%bd%bf%e7%94%a8"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+
+
+<h3 class="group " id="步骤1添加retrofit库的依赖并添加网络权限"
+    >步骤1：添加Retrofit库的依赖并添加网络权限<a href="#%e6%ad%a5%e9%aa%a41%e6%b7%bb%e5%8a%a0retrofit%e5%ba%93%e7%9a%84%e4%be%9d%e8%b5%96%e5%b9%b6%e6%b7%bb%e5%8a%a0%e7%bd%91%e7%bb%9c%e6%9d%83%e9%99%90"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+
+
+<h3 class="group " id="步骤2创建接受服务器返回数据的类"
+    >步骤2：创建接受服务器返回数据的类<a href="#%e6%ad%a5%e9%aa%a42%e5%88%9b%e5%bb%ba%e6%8e%a5%e5%8f%97%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%bf%94%e5%9b%9e%e6%95%b0%e6%8d%ae%e7%9a%84%e7%b1%bb"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+
+
+<h3 class="group " id="步骤3创建用于描述网络请求的接口"
+    >步骤3：创建用于描述网络请求的接口<a href="#%e6%ad%a5%e9%aa%a43%e5%88%9b%e5%bb%ba%e7%94%a8%e4%ba%8e%e6%8f%8f%e8%bf%b0%e7%bd%91%e7%bb%9c%e8%af%b7%e6%b1%82%e7%9a%84%e6%8e%a5%e5%8f%a3"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>注意：</p>
+<ul>
+<li>
+<p>用 动态代理 动态 将该接口的注解“翻译”成一个 Http 请求，最后再执行 Http 请求</p>
+</li>
+<li>
+<p>接口中的每个方法的参数都需要使用注解标注，否则会报错</p>
+</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">GetRequest_Interface</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;openapi.do?keyfrom=Yanzhikai&amp;key=2032414398&amp;type=data&amp;doctype=json&amp;version=1.1&amp;q=car&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>    Call<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span>  <span style="color:#50fa7b">getCall</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// @GET注解的作用:采用Get方法发送网络请求
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// getCall() = 接收网络请求数据的方法
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// 其中返回类型为Call&lt;*&gt;，*是接收数据的类（即上面定义的Translation类）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// 如果想直接获得Responsebody中的内容，可以定义网络请求返回值为Call&lt;ResponseBody&gt;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>Retrofit把 网络请求的URL 分成了两部分设置：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">// 第1部分：在网络请求接口的注解设置
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span> @GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;openapi.do?keyfrom=Yanzhikai&amp;key=2032414398&amp;type=data&amp;doctype=json&amp;version=1.1&amp;q=car&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span>  <span style="color:#50fa7b">getCall</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 第2部分：在创建Retrofit实例时通过.baseUrl()设置
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>Retrofit retrofit <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Retrofit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">baseUrl</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://fanyi.youdao.com/&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">//设置网络请求的Url地址
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addConverterFactory</span><span style="color:#ff79c6">(</span>GsonConverterFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">())</span> <span style="color:#6272a4">//设置数据解析器
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 从上面看出：一个请求的URL可以通过 替换块 和 请求方法的参数 来进行动态的URL更新。
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 替换块是由 被{}包裹起来的字符串构成
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 即：Retrofit支持动态改变网络请求根目录
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>网络请求的完整 Url =在创建Retrofit实例时通过.baseUrl()设置 +网络请求接口的注解设置（下面称 “path“ ）</li>
+</ul>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk0NDM2NS0zZGM0MjAxNzAzODMwMmQzLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwJTdDaW1hZ2VWaWV3Mi8yL3cvMTI0MA"
+            src="/images/outload.svg"data-alt="URL整合规则"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk0NDM2NS0zZGM0MjAxNzAzODMwMmQzLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwJTdDaW1hZ2VWaWV3Mi8yL3cvMTI0MA" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk0NDM2NS0zZGM0MjAxNzAzODMwMmQzLnBuZz9pbWFnZU1vZ3IyL2F1dG8tb3JpZW50L3N0cmlwJTdDaW1hZ2VWaWV3Mi8yL3cvMTI0MA"alt="URL整合规则"/>
+            </picture>
+        </a>
+    </noscript><figcaption>URL整合规则</figcaption></figure>
+</p>
+<ul>
+<li>@Header &amp; @Headers（请求头&amp;不固定请求头）</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">// @Header
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">getUser</span><span style="color:#ff79c6">(</span>@Header<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Authorization&#34;</span><span style="color:#ff79c6">)</span> String authorization<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// @Headers
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>@Headers<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Authorization: authorization&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>@GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Call<span style="color:#ff79c6">&lt;</span>User<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">getUser</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 以上的效果是一致的。
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 区别在于使用场景和使用方式
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 1. 使用场景：@Header用于添加不固定的请求头，@Headers用于添加固定的请求头
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">// 2. 使用方式：@Header作用于方法的参数；@Headers作用于方法
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>@Body</li>
+</ul>
+<p>注意：如果提交的是一个Map，那么作用相当于 <code>@Field</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>FormBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span> builder <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FormBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>builder<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;key&#34;</span><span style="color:#ff79c6">,</span><span style="color:#f1fa8c">&#34;value&#34;</span><span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>@Field &amp; @FieldMap</li>
+</ul>
+<p>与 <code>@FormUrlEncoded</code> 注解配合使用</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">GetRequest_Interface</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         *表明是一个表单格式的请求（Content-Type:application/x-www-form-urlencoded）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         * &lt;code&gt;Field(&#34;username&#34;)&lt;/code&gt; 表示将后面的 &lt;code&gt;String name&lt;/code&gt; 中name的取值作为 username 的值
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         */</span>
+</span></span><span style="display:flex;"><span>        @POST<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/form&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        @FormUrlEncoded
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">testFormUrlEncoded1</span><span style="color:#ff79c6">(</span>@Field<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;username&#34;</span><span style="color:#ff79c6">)</span> String name<span style="color:#ff79c6">,</span> @Field<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;age&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#8be9fd">int</span> age<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         * Map的key作为表单的键
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         */</span>
+</span></span><span style="display:flex;"><span>        @POST<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/form&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        @FormUrlEncoded
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">testFormUrlEncoded2</span><span style="color:#ff79c6">(</span>@FieldMap Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> Object<span style="color:#ff79c6">&gt;</span> map<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 具体使用
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>         <span style="color:#6272a4">// @Field
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> call1 <span style="color:#ff79c6">=</span> service<span style="color:#ff79c6">.</span><span style="color:#50fa7b">testFormUrlEncoded1</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Carson&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">24</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// @FieldMap
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// 实现的效果与上面相同，但要传入Map
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> Object<span style="color:#ff79c6">&gt;</span> map <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        map<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;username&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;Carson&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        map<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;age&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#bd93f9">24</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> call2 <span style="color:#ff79c6">=</span> service<span style="color:#ff79c6">.</span><span style="color:#50fa7b">testFormUrlEncoded2</span><span style="color:#ff79c6">(</span>map<span style="color:#ff79c6">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>@Part &amp; @PartMap</li>
+</ul>
+<p>作用：发送 Post请求 时提交请求的表单字段</p>
+<p>与@Field的区别：功能相同，但携带的参数类型更加丰富，包括数据流，所以适用于 有文件上传 的场景，与 <code>@Multipart</code> 注解配合使用</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">GetRequest_Interface</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#6272a4">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         * {@link Part} 后面支持三种类型，{@link RequestBody}、{@link okhttp3.MultipartBody.Part} 、任意类型
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         * 除 {@link okhttp3.MultipartBody.Part} 以外，其它类型都必须带上表单字段({@link okhttp3.MultipartBody.Part} 中已经包含了表单字段的信息)，
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         */</span>
+</span></span><span style="display:flex;"><span>        @POST<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/form&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        @Multipart
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">testFileUpload1</span><span style="color:#ff79c6">(</span>@Part<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;name&#34;</span><span style="color:#ff79c6">)</span> RequestBody name<span style="color:#ff79c6">,</span> @Part<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;age&#34;</span><span style="color:#ff79c6">)</span> RequestBody age<span style="color:#ff79c6">,</span> @Part MultipartBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Part</span> file<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         * PartMap 注解支持一个Map作为参数，支持 {@link RequestBody } 类型，
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         * 如果有其它的类型，会被{@link retrofit2.Converter}转换，如后面会介绍的 使用{@link com.google.gson.Gson} 的 {@link retrofit2.converter.gson.GsonRequestBodyConverter}
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         * 所以{@link MultipartBody.Part} 就不适用了,所以文件只能用&lt;b&gt; @Part MultipartBody.Part &lt;/b&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">         */</span>
+</span></span><span style="display:flex;"><span>        @POST<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/form&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        @Multipart
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">testFileUpload2</span><span style="color:#ff79c6">(</span>@PartMap Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> RequestBody<span style="color:#ff79c6">&gt;</span> args<span style="color:#ff79c6">,</span> @Part MultipartBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Part</span> file<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        @POST<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/form&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        @Multipart
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">testFileUpload3</span><span style="color:#ff79c6">(</span>@PartMap Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> RequestBody<span style="color:#ff79c6">&gt;</span> args<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 具体使用
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span> MediaType textType <span style="color:#ff79c6">=</span> MediaType<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;text/plain&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        RequestBody name <span style="color:#ff79c6">=</span> RequestBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>textType<span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;Carson&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        RequestBody age <span style="color:#ff79c6">=</span> RequestBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>textType<span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;24&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        RequestBody file <span style="color:#ff79c6">=</span> RequestBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>MediaType<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;application/octet-stream&#34;</span><span style="color:#ff79c6">),</span> <span style="color:#f1fa8c">&#34;这里是模拟文件的内容&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// @Part
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        MultipartBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Part</span> filePart <span style="color:#ff79c6">=</span> MultipartBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Part</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">createFormData</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;file&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;test.txt&#34;</span><span style="color:#ff79c6">,</span> file<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> call3 <span style="color:#ff79c6">=</span> service<span style="color:#ff79c6">.</span><span style="color:#50fa7b">testFileUpload1</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">,</span> age<span style="color:#ff79c6">,</span> filePart<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        ResponseBodyPrinter<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printResponseBody</span><span style="color:#ff79c6">(</span>call3<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// @PartMap
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// 实现和上面同样的效果
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> RequestBody<span style="color:#ff79c6">&gt;</span> fileUpload2Args <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;&gt;();</span>
+</span></span><span style="display:flex;"><span>        fileUpload2Args<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;name&#34;</span><span style="color:#ff79c6">,</span> name<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        fileUpload2Args<span style="color:#ff79c6">.</span><span style="color:#50fa7b">put</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;age&#34;</span><span style="color:#ff79c6">,</span> age<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//这里并不会被当成文件，因为没有文件名(包含在Content-Disposition请求头中)，但上面的 filePart 有
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">//fileUpload2Args.put(&#34;file&#34;, file);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> call4 <span style="color:#ff79c6">=</span> service<span style="color:#ff79c6">.</span><span style="color:#50fa7b">testFileUpload2</span><span style="color:#ff79c6">(</span>fileUpload2Args<span style="color:#ff79c6">,</span> filePart<span style="color:#ff79c6">);</span> <span style="color:#6272a4">//单独处理文件
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        ResponseBodyPrinter<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printResponseBody</span><span style="color:#ff79c6">(</span>call4<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>@Query和@QueryMap</li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> @GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;/&#34;</span><span style="color:#ff79c6">)</span>    
+</span></span><span style="display:flex;"><span>   Call<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">cate</span><span style="color:#ff79c6">(</span>@Query<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;cate&#34;</span><span style="color:#ff79c6">)</span> String cate<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>@Path</li>
+</ul>
+<p>作用：URL地址的缺省值</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">GetRequest_Interface</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        @GET<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;users/{user}/repos&#34;</span><span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span>  getBlog（@Path<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;user&#34;</span><span style="color:#ff79c6">)</span> String user ）<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// 访问的API是：https://api.github.com/users/{user}/repos
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// 在发起请求时， {user} 会被替换为方法的第一个参数 user（被@Path注解作用）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>@Url</li>
+</ul>
+<p>直接传入一个请求的 URL变量 用于URL设置</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">GetRequest_Interface</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        @GET
+</span></span><span style="display:flex;"><span>        Call<span style="color:#ff79c6">&lt;</span>ResponseBody<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">testUrlAndQuery</span><span style="color:#ff79c6">(</span>@Url String url<span style="color:#ff79c6">,</span> @Query<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;showAll&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#8be9fd">boolean</span> showAll<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#6272a4">// 当有URL注解时，@GET传入的URL就可以省略
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>       <span style="color:#6272a4">// 当GET、POST...HTTP等方法中没有设置Url时，则必须使用 {@link Url}提供
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="步骤4创建retrofit实例"
+    >步骤4：创建Retrofit实例<a href="#%e6%ad%a5%e9%aa%a44%e5%88%9b%e5%bb%baretrofit%e5%ae%9e%e4%be%8b"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Retrofit retrofit <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Retrofit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">baseUrl</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://fanyi.youdao.com/&#34;</span><span style="color:#ff79c6">)</span> <span style="color:#6272a4">// 设置网络请求的Url地址
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addConverterFactory</span><span style="color:#ff79c6">(</span>GsonConverterFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">())</span> <span style="color:#6272a4">// 设置数据解析器
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addCallAdapterFactory</span><span style="color:#ff79c6">(</span>RxJavaCallAdapterFactory<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">())</span> <span style="color:#6272a4">// 支持RxJava平台
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Retrofit支持多种网络请求适配器方式：guava、Java8和rxjava</p>
+<p>使用时如使用的是 <code>Android</code> 默认的 <code>CallAdapter</code>，则不需要添加网络请求适配器的依赖，否则则需要按照需求进行添加
+Retrofit 提供的 <code>CallAdapter</code></p>
+
+
+<h3 class="group " id="步骤5创建网络请求接口实例"
+    >步骤5：创建网络请求接口实例<a href="#%e6%ad%a5%e9%aa%a45%e5%88%9b%e5%bb%ba%e7%bd%91%e7%bb%9c%e8%af%b7%e6%b1%82%e6%8e%a5%e5%8f%a3%e5%ae%9e%e4%be%8b"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">// 创建 网络请求接口 的实例
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        GetRequest_Interface request <span style="color:#ff79c6">=</span> retrofit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>GetRequest_Interface<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//对 发送请求 进行封装
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Call<span style="color:#ff79c6">&lt;</span>Reception<span style="color:#ff79c6">&gt;</span> call <span style="color:#ff79c6">=</span> request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getCall</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="步骤6-发送网络请求异步和同步"
+    >步骤6: 发送网络请求（异步和同步）<a href="#%e6%ad%a5%e9%aa%a46-%e5%8f%91%e9%80%81%e7%bd%91%e7%bb%9c%e8%af%b7%e6%b1%82%e5%bc%82%e6%ad%a5%e5%92%8c%e5%90%8c%e6%ad%a5"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//发送网络请求(异步)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//请求成功时回调
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            @Override
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span><span style="color:#ff79c6">(</span>Call<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span> call<span style="color:#ff79c6">,</span> Response<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span> response<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">//请求处理,输出结果
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">show</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//请求失败时候的回调
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            @Override
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span><span style="color:#ff79c6">(</span>Call<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span> call<span style="color:#ff79c6">,</span> Throwable throwable<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;连接失败&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 发送网络请求（同步）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>Response<span style="color:#ff79c6">&lt;</span>Reception<span style="color:#ff79c6">&gt;</span> response <span style="color:#ff79c6">=</span> call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+
+<h3 class="group " id="步骤7处理返回数据"
+    >步骤7：处理返回数据<a href="#%e6%ad%a5%e9%aa%a47%e5%a4%84%e7%90%86%e8%bf%94%e5%9b%9e%e6%95%b0%e6%8d%ae"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//发送网络请求(异步)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//请求成功时回调
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            @Override
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span><span style="color:#ff79c6">(</span>Call<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span> call<span style="color:#ff79c6">,</span> Response<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span> response<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// 对返回数据进行处理
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">show</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//请求失败时候的回调
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            @Override
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span><span style="color:#ff79c6">(</span>Call<span style="color:#ff79c6">&lt;</span>Translation<span style="color:#ff79c6">&gt;</span> call<span style="color:#ff79c6">,</span> Throwable throwable<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>                System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;连接失败&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// 发送网络请求（同步）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  Response<span style="color:#ff79c6">&lt;</span>Reception<span style="color:#ff79c6">&gt;</span> response <span style="color:#ff79c6">=</span> call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// 对返回数据进行处理
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">show</span><span style="color:#ff79c6">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></section>
+<div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14"><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="Share to twitter"
+                href="https://twitter.com/share?&text=Retrofit%20%e7%ac%94%e8%ae%b0&url=https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="eva eva-twitter hover:text-theme"></i
+            ></a><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="Share to facebook"
+                href="https://www.facebook.com/sharer.php?u=https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="eva eva-facebook hover:text-theme"></i
+            ></a><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="Share to weibo"
+                href="https://service.weibo.com/share/share.php?url=https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/&title=Retrofit%20%e7%ac%94%e8%ae%b0&sudaref=nkj-666.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
+            ><svg class="inline-block h-5 w-5 fill-current hover:text-theme" viewBox="0 0 1193 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2681" width="200" height="200"> <path d="M456.991736 557.336482c-107.598583 0-194.644628 74.956316-194.644629 166.838252s87.046045 166.838253 194.644629 166.838253c107.598583 0 194.644628-74.956316 194.644628-166.838253s-87.046045-166.838253-194.644628-166.838252zM391.707202 822.101535c-36.269185 0-66.493506-27.806375-66.493507-62.866588s29.015348-62.866588 66.493507-62.866588c36.269185 0 66.493506 27.806375 66.493506 62.866588S427.976387 822.101535 391.707202 822.101535z m93.090909-91.881936c-14.507674 0-26.597403-12.089728-26.597403-26.597403s12.089728-26.597403 26.597403-26.597403 26.597403 12.089728 26.597403 26.597403-12.089728 26.597403-26.597403 26.597403zM239.376623 281.690673C97.9268 394.125148-18.134593 600.859504 30.224321 661.308146c32.642267 41.105077 59.239669-19.343566 124.524203-89.46399 30.224321-32.642267 77.374262-54.403778 122.106258-90.672964 20.552538-16.92562 197.062574-35.060213 230.913813-35.060212 97.9268-99.135773 114.85242-207.943329 74.956316-258.720189-48.358914-59.239669-201.898465-16.92562-343.348288 94.299882z" p-id="2682" ></path> <path d="M808.802834 560.9634C906.729634 461.827627 911.565525 377.199528 870.460449 326.422668c-47.149941-60.448642-211.570248-32.642267-351.811098 78.583235" p-id="2683" ></path> <path d="M605.695396 353.020071c-14.507674 8.46281-25.38843 12.089728-29.015349 7.253837-1.208973-2.417946-1.208973-6.044864 1.208973-9.671783-16.92562-1.208973-33.85124-1.208973-50.776859-1.208973C235.749705 349.393152 0 500.514758 0 686.696576s235.749705 337.303424 527.112161 337.303424 527.112161-151.121606 527.11216-337.303424c0-170.465171-194.644628-309.497048-448.528925-333.676505zM481.171192 959.924439C275.645809 959.924439 108.807556 847.489965 108.807556 708.458087s166.838253-251.466352 372.363636-251.466351 372.363636 112.434475 372.363637 251.466351-166.838253 251.466352-372.363637 251.466352z" p-id="2684" ></path> <path d="M1021.582054 423.140496c-3.626919 0-6.044864 0-9.671782-1.208973-18.134593-4.835891-29.015348-24.179457-22.970485-42.31405 2.417946-7.253837 3.626919-16.92562 3.626919-29.015348 0-65.284534-53.194805-119.688312-119.688312-119.688312-19.343566 0-33.85124-15.716647-33.851239-33.851239s15.716647-33.85124 33.851239-33.85124c103.971665 0 187.390791 84.628099 187.390791 187.390791 0 18.134593-2.417946 33.85124-6.044864 48.358914-4.835891 14.507674-18.134593 24.179457-32.642267 24.179457z" p-id="2685" ></path> <path d="M1146.106257 473.917355c-2.417946 0-6.044864 0-8.46281-1.208972-20.552538-4.835891-32.642267-25.38843-27.806375-45.940969 6.044864-24.179457 8.46281-47.149941 8.46281-71.329397C1118.299882 201.898465 991.357733 74.956316 836.609209 74.956316c-20.552538 0-37.478158-16.92562-37.478158-37.478158S816.056671 0 836.609209 0c197.062574 0 356.646989 159.584416 356.646989 356.646989 0 29.015348-3.626919 59.239669-10.880755 88.255018-3.626919 18.134593-19.343566 29.015348-36.269186 29.015348z" p-id="2686" ></path> </svg></a><i class="eva eva-copy mr-4 cursor-pointer hover:text-theme" title="Copy Link" data-clipboard-text="https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/"></i><div class="group relative hidden h-5 w-5 cursor-pointer sm:inline-block">
+                <i title="QR Code" class="eva show-qrcode eva-smartphone hover:text-theme"></i>
+                <div
+                    class="qrcode-wrapper pointer-events-none absolute left-2/4 bottom-10 h-32 w-32 -translate-x-1/2 overflow-hidden rounded border border-gray-300 bg-white p-2 opacity-0 transition duration-300 ease-[ease] group-hover:opacity-100"
+                >
+                    <img class="h-full w-full" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/" alt="QR Code" />
+                </div>
+            </div></div>
+<div class="border-b dark:border-darkBorder"></div><div class="flex justify-between px-2 py-4 text-xl md:px-6 md:text-2xl">
+    <div>
+        <a
+            href="/2022/04/15/sqlite%E7%AC%94%E8%AE%B0.html/"
+            title="SQLite笔记"
+            class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
+            <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+                <i class="eva eva-chevron-left-outline"></i>
+            </span>
+            <span>Prev</span>
+        </a>
+    </div><div class="hidden items-center text-xs xl:flex">
+        Unless otherwise stated, this blog is licensed under 「
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank" rel="noopener noreferrer" class="text-theme">CC BY-NC-ND 4.0</a>
+        」
+    </div>
+    <div class="flex items-center text-sm xl:hidden">
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" target="_blank" rel="noopener noreferrer" class="text-theme">
+            <img src="/Cc-by-nc-nd.svg" alt="CC BY-NC-ND 4.0" title="CC BY-NC-ND 4.0" class="w-24" />
+        </a>
+    </div>
+
+    <a
+        href="/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/"
+        title="OkHttp笔记"
+        class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
+        <span>Next</span>
+        <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+            <i class="eva eva-chevron-right-outline"></i>
+        </span>
+    </a>
+</div>
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+                </main><footer>
+    <div
+        class="com-footer flex flex-col items-center border-t py-4 px-4 text-sm leading-none text-gray-600 dark:border-darkBorder dark:text-darkTextPlaceholder md:flex-row md:justify-between"
+    >
+        <div class="mb-2 flex items-center justify-between text-center md:mb-0">
+            <span class="">© 2021 - 2023</span>
+            <span class="mx-1.5 opacity-50"> | </span>Powered by <a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> <span class="text-xs opacity-70">❤</span> <a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://github.com/Ice-Hazymoon/hugo-theme-luna" target="_blank" rel="noopener noreferrer">Luna</a></div>
+
+        <div class="flex items-center"><span class="noscript-hidden mx-1.5 hidden opacity-50 md:block"> | </span><a data-no-swup href="https://nkj-666.github.io/index.xml" target="_blank" class="mr-1.5 hover:text-theme">
+                    <span class=" md:hidden lg:inline"><svg t="1650887361919" class="mr-0.5 w-3 fill-current text-inherit inline-block align-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3091"><path d="M320.16155 831.918c0 70.738-57.344 128.082-128.082 128.082S63.99955 902.656 63.99955 831.918s57.344-128.082 128.082-128.082 128.08 57.346 128.08 128.082z m351.32 94.5c-16.708-309.2-264.37-557.174-573.9-573.9C79.31155 351.53 63.99955 366.21 63.99955 384.506v96.138c0 16.83 12.98 30.944 29.774 32.036 223.664 14.568 402.946 193.404 417.544 417.544 1.094 16.794 15.208 29.774 32.036 29.774h96.138c18.298 0.002 32.978-15.31 31.99-33.58z m288.498 0.576C943.19155 459.354 566.92955 80.89 97.00555 64.02 78.94555 63.372 63.99955 77.962 63.99955 96.032v96.136c0 17.25 13.67 31.29 30.906 31.998 382.358 15.678 689.254 322.632 704.93 704.93 0.706 17.236 14.746 30.906 31.998 30.906h96.136c18.068-0.002 32.658-14.948 32.01-33.008z" p-id="3092"></path></svg></span>
+                    <span>RSS</span>
+                </a><a data-no-swup href="https://nkj-666.github.io/sitemap.xml" target="_blank" class="mr-1.5 hover:text-theme">
+                    <span class=" md:hidden lg:inline"><svg t="1650887940556" class="mr-0.5 w-3 fill-current text-inherit inline-block align-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6291"><path d="M950.044 625.778h-68.266v-56.89c0-45.51-39.822-85.332-85.334-85.332h-256v-85.334h68.267c39.822 0 73.956-34.133 73.956-73.955V130.844c0-39.822-34.134-73.955-73.956-73.955H415.29c-39.822 0-73.956 34.133-73.956 73.955v193.423c0 39.822 34.134 73.955 73.956 73.955h68.267v85.334h-256c-45.512 0-85.334 39.822-85.334 85.333v56.889H73.956C34.133 625.778 0 659.91 0 699.733v193.423c0 39.822 34.133 73.955 73.956 73.955h193.422c39.822 0 73.955-34.133 73.955-73.955V699.733c0-39.822-34.133-73.955-73.955-73.955H199.11v-56.89c0-17.066 11.378-28.444 28.445-28.444h568.888c17.067 0 28.445 11.378 28.445 28.445v56.889h-68.267c-39.822 0-73.955 34.133-73.955 73.955v193.423c0 39.822 34.133 73.955 73.955 73.955h193.422c39.823 0 73.956-34.133 73.956-73.955V699.733c0-39.822-34.133-73.955-73.956-73.955z" p-id="6292"></path></svg></span>
+                    <span>Sitemap</span>
+                </a><div id="google_translate_element" class="overflow-hidden rounded border dark:border-darkBorder"></div></div><div id="run-time" class="mt-2 flex-grow text-right md:mt-0">
+    <span>Run time: </span><b id="run-time-d">0</b>
+    <span class="text-xs">days</span>
+    <b id="run-time-h">0</b>
+    <span class="text-xs">h</span>
+    <b id="run-time-m">0</b>
+    <span class="text-xs">m</span>
+    <b id="run-time-s">0</b>
+    <span class="text-xs">s</span>
+</div>
+</div>
+
+    <script type="text/javascript">
+window.__theme = {
+    cdn: '',
+    pjax: true ,
+    isServer: false ,
+    $version:"",
+    lang: 'en-us',
+    imageZoom: true ,
+    lazyload: true ,
+    bionicReading: {
+        enabled: true ,
+        skipLinks: false ,
+        autoBionic: false ,
+        excludeWords:[],
+        excludeClasses:["github"],
+        excludeNodeNames:[],
+    },
+    katex: true ,
+    search: true ,
+    backtop: true ,
+    pangu: true ,
+    autoDarkMode: false ,
+    googleAnalytics:false,
+    hugoEncrypt: {
+        wrongPasswordText: 'Password is incorrect',
+        userStorage:window['sessionStorage'],
+    },
+    console: {
+        enabled: true ,
+        leftColor: '#dd6065',
+        rightColor: '#feb462',
+        leftText: 'Hugo Theme Luna',
+        rightText: 'Powered by NKJ-666',
+    },
+    assets: {
+        error_svg: "\/images\/error.svg",
+        search_svg: "\/images\/search.svg",
+    },
+    i18n: {
+        copy: {
+            success: "Copy success",
+            failed: "Copy failed",
+            copyCode: "Copy code",
+        },
+        search: {
+            untitled: "Untitled",
+            loadFailure: "Initialization of the search engine failed",
+            input: "Type something...",
+        },
+        darkMode: {
+            dark: "Switch to dark mode",
+            light: "Switch to light mode"
+        }
+    },creatTime: "2021\/12\/12"}
+</script>
+<script type="text/javascript" src="/ts/main.1f7accfe243b98c78d4e4dd412caf872a0bc99d72fa4ed9b8bdf02db3f739896.js" defer integrity="sha256-H3rM/iQ7mMeNTk3UEsr4cqC8mdcvpO2bi98C2z9zmJY="></script><script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('\/sw.js');
+        });
+    }
+</script>
+<script type="text/javascript" src="/translate-google.ecd37c3cc8f7e1b08910201dd0d9fc3e5f4b1395fb8ebead3141b931f036f777.js" defer integrity="sha256-7NN8PMj34bCJECAd0Nn8Pl9LE5X7jr6tMUG5MfA293c="></script><script type="text/javascript">
+    window.translateelement_styles = "\/sass\/translateelement.min.c65796c6c3e4d48c75f72776948be83c5c448d1c5cc466b996b00657c558d28a.css";
+    function googleTranslateElementInit(){
+        new google.translate.TranslateElement({
+            pageLanguage: 'en-us',
+            includedLanguages: 'af,ga,sq,it,ar,ja,az,kn,eu,ko,bn,la,be,lv,bg,lt,ca,mk,zh-CN,ms,zh-TW,mt,hr,no,cs,fa,da,pl,nl,pt,en,ro,eo,ru,et,sr,tl,sk,fi,sl,fr,es,gl,sw,ka,sv,de,ta,el,te,gu,th,ht,tr,iw,uk,hi,ur,hu,vi,is,cy,id,yi',
+            autoDisplay:false
+        },'google_translate_element');
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    
+</script>
+
+<script data-swup-reload-script>
+    
+    
+</script>
+</footer>
+</div>
+        </div><a
+        href="#nav"
+        title="Back to top"
+        id="back-top"
+        class="fixed right-6 bottom-9 z-10 translate-y-3 scale-90 cursor-pointer rounded-full bg-white opacity-0 transition duration-300 ease-[ease] dark:bg-darkBgAccent sm:scale-100"
+    >
+        <div class="relative">
+            <div class="absolute left-0 top-0 flex h-full w-full items-center justify-center text-xl">
+                <i class="eva eva-arrow-upward-outline"></i>
+            </div>
+            <svg id="svg" width="54" height="54" viewBox="0 0 54 54" preserveAspectRatio="xMinYMin meet">
+                <circle
+                    transform="rotate(-90, 27 , 27)"
+                    style="stroke-dasharray: 157, 157; stroke-dashoffset: 157;"
+                    cx="27"
+                    cy="27"
+                    r="25"
+                    fill="none"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke="var(--theme)"
+                />
+            </svg>
+        </div>
+    </a><div id="i18nlist"></div><noscript>
+    <style>
+        .dark-mode-switch,
+        #run-time,
+        #bionicReading,
+        .noscript-hidden,
+        [data-clipboard-text],
+        [data-lazyload] {
+            display: none;
+        }
+        #back-top {
+            opacity: 1;
+        }
+        .noscript-show {
+            display: initial;
+        }
+    </style>
+</noscript>
+</body>
+</html>
