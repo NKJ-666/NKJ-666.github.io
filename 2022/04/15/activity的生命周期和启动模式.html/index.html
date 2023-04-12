@@ -65,6 +65,16 @@
                             class="eva eva-heart flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
                         ></i>
                         <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">About</span>
+                    </a><a
+                        title="Search"
+                        data-active-link="/search/"
+                        href="/search/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-search flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">Search</span>
                     </a>
             </div>
         </nav><div class="dark-mode-switch absolute right-0 top-0 z-10 cursor-pointer pr-2 pt-2 text-xl leading-none">
@@ -126,6 +136,9 @@
                 </span><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-flag-outline mr-1"></i>
                 <span>1 min read</span>
+            </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                <i class="eva eva-bar-chart-outline mr-1"></i>
+                <span>425 words</span>
             </div></div><div class="mb-3 flex items-center">
             <i class="eva eva-pricetags-outline mr-1"></i>
             <span class="mr-3">Tags</span><a href="/tags/android" title="Android" class="group mr-2 flex items-center text-sm">
@@ -380,7 +393,25 @@ window.__theme = {
                 />
             </svg>
         </div>
-    </a><div id="i18nlist"></div><noscript>
+    </a><div id="i18nlist"><div
+                style="font-size: 0;"
+                class="
+                    absolute
+                 left-0 top-0 z-50 rounded rounded-tl-none rounded-bl-none p-1.5 dark:bg-darkBgAccent md:bg-white md:shadow-custom"
+            >
+                <input type="checkbox" name="i18nlist-input" id="i18nlist-checkbox" />
+                <label for="i18nlist-checkbox">
+                    <span class="cursor-pointer leading-none group-hover:hidden"><svg class="w-5 h-5 fill-current text-inherit dark:text-darkTextPlaceholder" t="1655231528998" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2176" ><path d="M213.333333 640v85.333333a85.333333 85.333333 0 0 0 78.933334 85.12L298.666667 810.666667h128v85.333333H298.666667a170.666667 170.666667 0 0 1-170.666667-170.666667v-85.333333h85.333333z m554.666667-213.333333l187.733333 469.333333h-91.946666l-51.242667-128h-174.506667l-51.157333 128h-91.904L682.666667 426.666667h85.333333z m-42.666667 123.093333L672.128 682.666667h106.325333L725.333333 549.76zM341.333333 85.333333v85.333334h170.666667v298.666666H341.333333v128H256v-128H85.333333V170.666667h170.666667V85.333333h85.333333z m384 42.666667a170.666667 170.666667 0 0 1 170.666667 170.666667v85.333333h-85.333333V298.666667a85.333333 85.333333 0 0 0-85.333334-85.333334h-128V128h128zM256 256H170.666667v128h85.333333V256z m170.666667 0H341.333333v128h85.333334V256z" p-id="2177"></path></svg></span>
+                </label>
+                <ul class="hidden border border-transparent pb-0 group-hover:block"><li class="mb-1.5 cursor-pointer last:mb-0">
+                            <a data-no-swup href="https://nkj-666.github.io/zh-cn/2022/04/15/activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.html/" title="Switch language to 中文"><img
+                                    class="w-6 cursor-pointer rounded-sm border border-gray-50"
+                                    src="/images/i18n/zh-cn.svg"
+                                    alt="zh-cn"
+                                />
+                            </a>
+                        </li></ul>
+            </div></div><noscript>
     <style>
         .dark-mode-switch,
         #run-time,

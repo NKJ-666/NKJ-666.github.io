@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="lang-zh-cn">
+    <head><meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="keywords" content="Android,Hugo,Hugo Theme,Luna," /><meta name="description" content="Android 消息机制（native层)" />
+<meta itemprop="description" content="Android 消息机制（native层)" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<meta itemprop="name" content="Android 消息机制（native层) - Kevier Blog" />
+<link href="https://nkj-666.github.io/index.xml" title="Android 消息机制（native层) - Kevier Blog" type="application/rss+xml" rel="alternate" />
+<title>Android 消息机制（native层) - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="Android 消息机制（native层) - Kevier Blog" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Android 消息机制（native层)" />
+<meta property="og:description" content="Android 消息机制（native层)" />
+<meta property="og:url" content="https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/" /><meta property="article:published_time" content="2022-04-15T02:49:13&#43;02:00" /><meta property="article:modified_time" content="2023-04-07T17:17:34&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Android 消息机制（native层) - Kevier Blog" />
+<meta name="apple-mobile-web-app-status-bar-style" content="white" />
+
+<meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="@Ice_Hazymoon" />
+    <meta name="twitter:creator" content="@Ice_Hazymoon" /><meta name="twitter:title" content="Android 消息机制（native层) - Kevier Blog" />
+<meta name="twitter:description" content="Android 消息机制（native层)" />
+<meta name="twitter:url" content="https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/" /><meta name="twitter:image" content="" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="manifest" href="/zh-cn/manifest.json" /><link href="/icon.png" rel="shortcut icon" />
+<link href="/icon.png" rel="Bookmark" />
+<link rel="apple-touch-icon" href="/icon.png" /><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Android 消息机制（native层)",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https:\/\/nkj-666.github.io\/zh-cn\/2022\/04\/15\/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html\/"
+  },"genre": "posts","keywords": "Android","wordcount": 3827 ,
+  "url": "https:\/\/nkj-666.github.io\/zh-cn\/2022\/04\/15\/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html\/","datePublished": "2022-04-15T02:49:13\u002b02:00","dateModified": "2023-04-07T17:17:34\u002b08:00","author": {
+    "@type": "Person",
+    "name": "Ice-Hazymoon"
+  },"description": ""
+}
+</script>
+
+
+    </head>
+
+    <body class="dark:bg-darkBg dark:text-darkText">
+        <div class="relative mx-auto shadow-lg md:max-w-4xl xl:max-w-4xl 2xl:max-w-4xl">
+            <div class="main flex flex-col justify-between bg-white dark:bg-darkFg"><header
+    class="relative"
+><nav id="nav" class="navbar top-0 z-10 flex items-center border-b px-5 py-6 dark:border-darkBorder md:px-10">
+            <div class="route-items flex w-full items-center justify-around"><a
+                        title="首页"
+                        data-active-link="/zh-cn/"
+                        href="/zh-cn/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-home flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">首页</span>
+                    </a><a
+                        title="关于我"
+                        data-active-link="/zh-cn/about/"
+                        href="/zh-cn/about/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-heart flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">关于我</span>
+                    </a><a
+                        title="搜索"
+                        data-active-link="/zh-cn/search/"
+                        href="/zh-cn/search/"
+                        class=" relative flex cursor-pointer flex-col items-center text-gray-700 transition duration-150 ease-[ease]"
+                    >
+                        <i
+                            class="eva eva-search flex h-8 w-8 items-center justify-center text-3xl leading-none text-gray-500 transition duration-150 ease-[ease] dark:text-darkTextPlaceholder"
+                        ></i>
+                        <span class="mt-1 block text-xs text-gray-400 dark:text-darkText sm:text-sm md:hidden">搜索</span>
+                    </a>
+            </div>
+        </nav><div class="dark-mode-switch absolute right-0 top-0 z-10 cursor-pointer pr-2 pt-2 text-xl leading-none">
+    <i class="eva eva-moon opacity-20 dark:opacity-70"></i>
+</div>
+</header>
+<main class=" relative flex flex-grow" id="swup"><style>:root {
+        --font:Times New Roman,Times,Heti Song,serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    }</style>
+<div class="type-posts layout- w-full"><div class="relative h-full">
+    <div class="relative h-full">
+        <div class="page-view-article flex h-full flex-col bg-white dark:bg-darkFg"><div class="relative"><div>
+    <div class="-mb-2 w-full p-6 pb-0 text-3xl md:px-10">
+        Android 消息机制（native层)
+    </div>
+</div>
+</div>
+<div class="article-info border-b p-6 pb-3 text-sm dark:border-darkBorder md:px-10">
+    <div>
+        <div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+            <i class="eva eva-clock-outline mr-1"></i>
+            <span>
+                <time
+                    title="发布于 2022年4月15日 02:49:13"datetime="2022-04-15T02:49:13+02:00">2022年4月15日</time
+                >
+            </span>
+        </div><span class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                    <i class="eva eva-edit-2-outline mr-1"></i>
+                    <span>
+                        <time
+                            title="最后修改于：2023年4月7日 17:17:34"datetime="2023-04-07T17:17:34+08:00">2023年4月7日</time
+                        >
+                    </span>
+                </span><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                <i class="eva eva-flag-outline mr-1"></i>
+                <span>8 分钟</span>
+            </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                <i class="eva eva-bar-chart-outline mr-1"></i>
+                <span>3827 字</span>
+            </div></div><div class="mb-3 flex items-center">
+            <i class="eva eva-pricetags-outline mr-1"></i>
+            <span class="mr-3">标签</span><a href="/zh-cn/tags/android" title="Android" class="group mr-2 flex items-center text-sm">
+                    <i class="mr-1 text-gray-400 group-hover:text-theme">#</i>
+                    <span class="text-gray-400 group-hover:text-theme">Android</span>
+                </a></div></div>
+<aside
+            class="toc border-b border-gray-300 px-5 py-5 dark:border-darkBorder md:px-10 2xl:fixed 2xl:top-10 2xl:m-0 2xl:-ml-72 2xl:w-72 2xl:border-none 2xl:p-0 2xl:py-4 2xl:pr-4 "
+        >
+            <header>
+                <h1 class="mb-3 text-2xl font-bold 2xl:mb-4">文章目录</h1>
+            </header>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nativeinit">nativeInit()</a></li>
+    <li><a href="#nativepollonce">nativePollOnce</a></li>
+    <li><a href="#nativewake">nativeWake</a></li>
+  </ul>
+</nav>
+        </aside><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="更快的阅读" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
+            ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
+        >
+
+<h1 class="group " id="android-消息机制native层"
+    >Android 消息机制（native层)<a href="#android-%e6%b6%88%e6%81%af%e6%9c%ba%e5%88%b6native%e5%b1%82"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h1>
+
+<p>native层中一些重要的类：</p>
+<ul>
+<li><code>MessageQueue</code>：和java层中的<code>MessageQueue</code>同名，里面包含一个<code>Looper</code></li>
+<li><code>NativeMessageQueue</code>:是<code>MessageQueue</code>的继承类，是<code>native</code>层的消息队列，只是一个代理类，它的大部分逻辑在<code>Looper</code>中实现</li>
+<li><code>Looper</code>：相当于java层的<code>Handler</code>，他可以发送消息，取出消息，处理消息</li>
+<li><code>MessageHandler</code>：<code>native</code>层的消息处理类，<code>Looper</code>将消息处理的逻辑交给这个类</li>
+<li><code>WeakMessageHandler</code>：是<code>MessageHandler</code>的继承类，也是<code>native</code>层的消息处理类，最终还是会把消息处理的逻辑交给<code>MessageHandler</code></li>
+</ul>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">MessageQueue</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">native</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">long</span> <span style="color:#50fa7b">nativeInit</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">native</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">nativeDestroy</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> ptr<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">native</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">nativePollOnce</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> ptr<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> timeoutMillis<span style="color:#ff79c6">);</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">native</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">nativeWake</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> ptr<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">native</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">nativeIsPolling</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> ptr<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">native</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">nativeSetFileDescriptorEvents</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> ptr<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> fd<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> events<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这是java层中声明的一些<code>native</code>方法</p>
+
+
+<h2 class="group " id="nativeinit"
+    >nativeInit()<a href="#nativeinit"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p><code>MessageQueue</code>在<code>Looper</code>的构造器中创建，在<code>MessageQueue</code>的构造器中会执行下面代码：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>MessageQueue<span style="color:#ff79c6">(</span><span style="color:#8be9fd">boolean</span> quitAllowed<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    mQuitAllowed <span style="color:#ff79c6">=</span> quitAllowed<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    mPtr <span style="color:#ff79c6">=</span> nativeInit<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这里会执行<code>native</code>层的<code>nativeInit</code>方法，并将其返回值保存到<code>mPtr</code>中，下面再看一下<code>native</code>层中这个方法的实现：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">static</span> jlong <span style="color:#50fa7b">android_os_MessageQueue_nativeInit</span>(JNIEnv<span style="color:#ff79c6">*</span> env, jclass clazz) {   
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//创建native消息队列NativeMessageQueue
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    NativeMessageQueue<span style="color:#ff79c6">*</span> nativeMessageQueue <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> NativeMessageQueue();
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//增加引用计数
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    nativeMessageQueue<span style="color:#ff79c6">-&gt;</span>incStrong(env);
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//使用C++强制类型转换符reinterpret_cast把NativeMessageQueue指针强转成long类型并返回到java层
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">reinterpret_cast</span><span style="color:#ff79c6">&lt;</span>jlong<span style="color:#ff79c6">&gt;</span>(nativeMessageQueue);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以发现在这里创建了一个<code>NativeMessageQueue</code>对象，增加了其引用计数，并将这个对象的指针强制转换为<code>Long</code>类型返回，也就是说java层保存了<code>native</code>层<code>nativeMessageQueue</code>的指针，下面再看一下<code>NativeMessageQueue</code>的构造函数：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>NativeMessageQueue<span style="color:#ff79c6">::</span>NativeMessageQueue() 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">:</span> mPollEnv(<span style="color:#8be9fd;font-style:italic">NULL</span>), mPollObj(<span style="color:#8be9fd;font-style:italic">NULL</span>), mExceptionObj(<span style="color:#8be9fd;font-style:italic">NULL</span>) {
+</span></span><span style="display:flex;"><span>    mLooper <span style="color:#ff79c6">=</span> Looper<span style="color:#ff79c6">::</span>getForThread();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (mLooper <span style="color:#ff79c6">==</span> <span style="color:#8be9fd;font-style:italic">NULL</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//创建native层的Looper
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        mLooper <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Looper(<span style="color:#8be9fd;font-style:italic">false</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//保存Looper到TLS中(Looper::setForThread相当于java层的ThreadLocal.set方法)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Looper<span style="color:#ff79c6">::</span>setForThread(mLooper);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个构造器中实现了线程中<code>Looper</code>的初始化</p>
+<p>下面看一下<code>native</code>层中<code>Looper</code>的构造函数：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>Looper<span style="color:#ff79c6">::</span>Looper(<span style="color:#8be9fd">bool</span> allowNonCallbacks) <span style="color:#ff79c6">:</span>
+</span></span><span style="display:flex;"><span>        mAllowNonCallbacks(allowNonCallbacks), mSendingMessage(<span style="color:#8be9fd;font-style:italic">false</span>),
+</span></span><span style="display:flex;"><span>        mPolling(<span style="color:#8be9fd;font-style:italic">false</span>), mEpollFd(<span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>), mEpollRebuildRequired(<span style="color:#8be9fd;font-style:italic">false</span>),
+</span></span><span style="display:flex;"><span>        mNextRequestSeq(<span style="color:#bd93f9">0</span>), mResponseIndex(<span style="color:#bd93f9">0</span>), mNextMessageUptime(LLONG_MAX) {
+</span></span><span style="display:flex;"><span>    mWakeEventFd <span style="color:#ff79c6">=</span> eventfd(<span style="color:#bd93f9">0</span>, EFD_NONBLOCK <span style="color:#ff79c6">|</span> EFD_CLOEXEC);
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>    rebuildEpollLocked();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中<code>mWakeEventFd</code>是文件描述符，在<code>linux</code>中打开或创建一个文件都会返回一个文件描述符，读写文件需要使用这个文件描述符来指定待读写的文件，所以文件描述符就是指代被打开的文件，所有文件的IO操作都需要这个文件描述符</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> Looper<span style="color:#ff79c6">::</span>rebuildEpollLocked() {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//1、关闭旧的管道
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (mEpollFd <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>        close(mEpollFd);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//2、创建一个新的epoll文件描述符，并注册wake管道
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    mEpollFd <span style="color:#ff79c6">=</span> epoll_create(EPOLL_SIZE_HINT);<span style="color:#6272a4">//EPOLL_SIZE_HINT为8
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> eventItem;
+</span></span><span style="display:flex;"><span>    memset(<span style="color:#ff79c6">&amp;</span> eventItem, <span style="color:#bd93f9">0</span>, <span style="color:#ff79c6">sizeof</span>(epoll_event)); <span style="color:#6272a4">//置空eventItem
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">//3、设置监听事件类型和需要监听的文件描述符
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    eventItem.events <span style="color:#ff79c6">=</span> EPOLLIN;<span style="color:#6272a4">//监听可读事件（EPOLLIN）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    eventItem.data.fd <span style="color:#ff79c6">=</span> mWakeEventFd;<span style="color:#6272a4">//设置唤醒事件的fd（mWakeEventFd）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//4、将唤醒事件fd(mWakeEventFd)添加到epoll文件描述符(mEpollFd)，并监听唤醒事件fd(mWakeEventFd)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">int</span> result <span style="color:#ff79c6">=</span> epoll_ctl(mEpollFd, EPOLL_CTL_ADD, mWakeEventFd, <span style="color:#ff79c6">&amp;</span> eventItem);   
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//5、将各种事件，如键盘、鼠标等事件的fd添加到epoll文件描述符(mEpollFd)，进行监听
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> (size_t i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> mRequests.size(); i<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">const</span> Request<span style="color:#ff79c6">&amp;</span> request <span style="color:#ff79c6">=</span> mRequests.valueAt(i);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> eventItem;
+</span></span><span style="display:flex;"><span>        request.initEventItem(<span style="color:#ff79c6">&amp;</span>eventItem);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> epollResult <span style="color:#ff79c6">=</span> epoll_ctl(mEpollFd, EPOLL_CTL_ADD, request.fd, <span style="color:#ff79c6">&amp;</span> eventItem);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (epollResult <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>            ALOGE(<span style="color:#f1fa8c">&#34;Error adding epoll events for fd %d while rebuilding epoll set: %s&#34;</span>,
+</span></span><span style="display:flex;"><span>                  request.fd, strerror(errno));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在这个方法中使用了<code>epoll</code>机制，下面是对<code>epoll</code>机制的一些简单了解：</p>
+<ul>
+<li>首先调用<code>epoll_create</code>方法来建立一个<code>epoll</code>对象(在<code>epoll</code>系统中为这个句柄分配空间)，</li>
+<li>之后调用<code>epoll_ctl</code>向<code>epoll</code>对象中进行添加，删除，修改操作</li>
+<li>最后调用<code>epoll_wait</code>收集所有事件的连接</li>
+</ul>
+<p><code>epoll</code>的优点简单来说就是可以显著减少大量并发连接中只有少部分活跃的CPU资源耗费，</p>
+<p>那么这一部分总的来说就是以下几个步骤：</p>
+<ul>
+<li>java层中在<code>Looper</code>的构造函数中创建<code>MessageQueue</code>对象</li>
+<li><code>MessageQueue</code>的构造器中又会调用<code>native</code>层的<code>nativeInit</code>方法初始化<code>native</code>层的<code>NativeMessageQueue</code>，在这个类的构造函数中又会创建<code>Looper</code>对象，并通过管道和<code>epoll</code>机制建立一套消息机制</li>
+<li><code>native</code>层构建完毕后，会将<code>native</code>层的<code>nativeMessageQueue</code>对象转换为<code>Long</code>类型的数据储存到<code>java</code>层的<code>MessageQueue</code>的<code>mPtr</code>中</li>
+</ul>
+
+
+<h2 class="group " id="nativepollonce"
+    >nativePollOnce<a href="#nativepollonce"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>这个方法的调用在<code>messagequeue.next</code>中</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Message <span style="color:#50fa7b">next</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span><span style="color:#ff79c6">(;;){</span>
+</span></span><span style="display:flex;"><span>         nativePollOnce<span style="color:#ff79c6">(</span>ptr<span style="color:#ff79c6">,</span> nextPollTimeoutMillis<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span> <span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>next</code>方法返回一个<code>Message</code>对象，在没有消息时<code>nativePollOnce</code>会进入阻塞</p>
+<p>下面看一下这个函数的源码：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">android_os_MessageQueue_nativePollOnce</span>(JNIEnv<span style="color:#ff79c6">*</span> env, jobject obj,
+</span></span><span style="display:flex;"><span>        jlong ptr, jint timeoutMillis) {
+</span></span><span style="display:flex;"><span>    NativeMessageQueue<span style="color:#ff79c6">*</span> nativeMessageQueue <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">reinterpret_cast</span><span style="color:#ff79c6">&lt;</span>NativeMessageQueue<span style="color:#ff79c6">*&gt;</span>(ptr);
+</span></span><span style="display:flex;"><span>    nativeMessageQueue<span style="color:#ff79c6">-&gt;</span>pollOnce(env, obj, timeoutMillis);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个方法首先从<code>java</code>层中获取到保存的<code>nativeMessageQueue</code>对象，然后再调用<code>pollOnce</code>方法，在这个方法内部又调用了<code>Looper.pollOnce</code>方法，下面看一下这个方法的实现</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> Looper<span style="color:#ff79c6">::</span>pollOnce(<span style="color:#8be9fd">int</span> timeoutMillis, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> outFd, <span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> outEvents, <span style="color:#8be9fd">void</span><span style="color:#ff79c6">**</span> outData) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> result <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (;;) {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (result <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">return</span> result;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//处理内部轮询
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        result <span style="color:#ff79c6">=</span> pollInner(timeoutMillis);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该方法也是一个死循环，如果<code>result</code>不等于0，那么就会返回到<code>java</code>层，那么看一下这个<code>result</code>的赋值操作，</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> Looper<span style="color:#ff79c6">::</span>pollInner(<span style="color:#8be9fd">int</span> timeoutMillis) {    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">epoll_event</span> eventItems[EPOLL_MAX_EVENTS];
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//1、等待事件发生或者超时(timeoutMillis)，如果有事件发生，就从管道中读取事件放入事件集合(eventItems)返回，如果没有事件发生，进入休眠等待，如果timeoutMillis时间后还没有被唤醒，就会返回
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">int</span> eventCount <span style="color:#ff79c6">=</span> epoll_wait(mEpollFd, eventItems, EPOLL_MAX_EVENTS, timeoutMillis);  
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//获取锁
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    mLock.lock();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...省略的逻辑是：如果eventCount &lt;= 0 都会直接跳转到Done:;标记的代码段
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//2、遍历事件集合（eventItems），检测哪一个文件描述符发生了IO事件
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span>; i <span style="color:#ff79c6">&lt;</span> eventCount; i<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//取出文件描述符
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">int</span> fd <span style="color:#ff79c6">=</span> eventItems[i].data.fd;
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//取出事件类型
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#8be9fd">uint32_t</span> epollEvents <span style="color:#ff79c6">=</span> eventItems[i].events;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (fd <span style="color:#ff79c6">==</span> mWakeEventFd) {<span style="color:#6272a4">//如果文件描述符为mWakeEventFd
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">if</span> (epollEvents <span style="color:#ff79c6">&amp;</span> EPOLLIN) {<span style="color:#6272a4">//并且事件类型为EPOLLIN（可读事件）
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#6272a4">//这说明当前线程关联的管道的另外一端写入了新数据
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#6272a4">//调用awoken方法不断的读取管道数据，直到清空管道
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                awoken();
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>                ALOGW(<span style="color:#f1fa8c">&#34;Ignoring unexpected epoll events 0x%x on wake event fd.&#34;</span>, epollEvents);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff79c6">else</span> {<span style="color:#6272a4">//如果是其他文件描述符，就进行它们自己的处理逻辑
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>           <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//2、下面是处理Native的Message
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">Done</span>:;
+</span></span><span style="display:flex;"><span>    mNextMessageUptime <span style="color:#ff79c6">=</span> LLONG_MAX;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//mMessageEnvelopes是一个Vector集合，它代表着native中的消息队列
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">while</span> (mMessageEnvelopes.size() <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span>) {
+</span></span><span style="display:flex;"><span>        nsecs_t now <span style="color:#ff79c6">=</span> systemTime(SYSTEM_TIME_MONOTONIC);
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//取出MessageEnvelope，MessageEnvelop有收件人Hanlder和消息内容Message
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">const</span> MessageEnvelope<span style="color:#ff79c6">&amp;</span> messageEnvelope <span style="color:#ff79c6">=</span> mMessageEnvelopes.itemAt(<span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//判断消息的执行时间
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (messageEnvelope.uptime <span style="color:#ff79c6">&lt;=</span> now) {<span style="color:#6272a4">//消息到达执行时间
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">//获取native层的Handler
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                sp<span style="color:#ff79c6">&lt;</span>MessageHandler<span style="color:#ff79c6">&gt;</span> handler <span style="color:#ff79c6">=</span> messageEnvelope.handler;
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">//获取native层的消息
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                Message message <span style="color:#ff79c6">=</span> messageEnvelope.message;
+</span></span><span style="display:flex;"><span>                mMessageEnvelopes.removeAt(<span style="color:#bd93f9">0</span>);
+</span></span><span style="display:flex;"><span>                mSendingMessage <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">true</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">//释放锁
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                mLock.unlock();
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">//通过MessageHandler的handleMessage方法处理native层的消息
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                handler<span style="color:#ff79c6">-&gt;</span>handleMessage(message);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            mLock.lock();
+</span></span><span style="display:flex;"><span>            mSendingMessage <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">false</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//result等于POLL_CALLBACK，表示某个监听事件被触发
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            result <span style="color:#ff79c6">=</span> POLL_CALLBACK;
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff79c6">else</span> {<span style="color:#6272a4">//消息还没到执行时间
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            mNextMessageUptime <span style="color:#ff79c6">=</span> messageEnvelope.uptime;
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//跳出循环，进入下一次轮询
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//释放锁
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    mLock.unlock();
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个方法内执行的逻辑大致可分为三步：</p>
+<ol>
+<li>执行<code>epoll_wait</code>方法，等待事件发生或超时</li>
+</ol>
+<p>如果文件描述符监听的任何时间发生，那么<code>epoll_wait</code>就会监听到，并将事件放入到事件集合中，并返回发生的时间数目，<code>timeOut</code>就是从<code>java</code>层中传过来的<code>nextPollTimeOutMilis</code>,当值为-1时表示java层的消息队列中没有消息，会一直等待下去，当值为0时就会立即返回,另外<code>epoll</code>机制只会把发生了的事件放入到事件集合中。</p>
+<ol start="2">
+<li>遍历事件集合，检测是哪个文件描述符发生了IO事件</li>
+<li>处理native层的<code>message</code></li>
+</ol>
+<p>这里面就有一个结构体：</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Looper</span> <span style="color:#ff79c6">:</span> <span style="color:#ff79c6">public</span> RefBase { 
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">struct</span> <span style="color:#50fa7b">MessageEnvelope</span> {
+</span></span><span style="display:flex;"><span>        MessageEnvelope() <span style="color:#ff79c6">:</span> uptime(<span style="color:#bd93f9">0</span>) { }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        MessageEnvelope(nsecs_t u, <span style="color:#ff79c6">const</span> sp<span style="color:#ff79c6">&lt;</span>MessageHandler<span style="color:#ff79c6">&gt;</span> h, <span style="color:#ff79c6">const</span> Message<span style="color:#ff79c6">&amp;</span> m) <span style="color:#ff79c6">:</span> uptime(u), handler(h), message(m) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        nsecs_t uptime;
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//收信人handler
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        sp<span style="color:#ff79c6">&lt;</span>MessageHandler<span style="color:#ff79c6">&gt;</span> handler;
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//信息内容message
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        Message message;
+</span></span><span style="display:flex;"><span>    };   
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>native</code>层中的<code>message</code>存放在<code>messageEnvelop</code>中，然后进如循环中，如果到达执行时间，就会调用<code>MessageHandler</code>的<code>handleMessage</code>方法处理消息</p>
+
+
+<h2 class="group " id="nativewake"
+    >nativeWake<a href="#nativewake"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>这个方法执行在消息入队时</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">enqueueMessage</span><span style="color:#ff79c6">(</span>Message msg<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">long</span> when<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#8be9fd;font-style:italic">synchronized</span> <span style="color:#ff79c6">(</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>needWake<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>            nativeWake<span style="color:#ff79c6">(</span>mPtr<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个方法最终会调用到<code>native</code>层的<code>Looper.wake</code>方法</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> Looper<span style="color:#ff79c6">::</span>wake() {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">uint64_t</span> inc <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//使用write函数通过mWakeEventFd往管道写入字符inc
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    ssize_t nWrite <span style="color:#ff79c6">=</span> TEMP_FAILURE_RETRY(write(mWakeEventFd, <span style="color:#ff79c6">&amp;</span>inc, <span style="color:#ff79c6">sizeof</span>(<span style="color:#8be9fd">uint64_t</span>)));
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">//...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个方法其实是使用<code>write</code>方法向管道中写入字符inc,如果写入失败就重复写入，直到写入成功为止，这个字符起到一个通知作用，用来通知线程处理消息</p>
+<p>java层和native层通过<code>MessageQueue</code>的JNI进行连接，从而使得<code>MessageQueue</code>既能处理java层又能处理native层</p>
+</section>
+<div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14"><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="分享到 Twitter"
+                href="https://twitter.com/share?&text=Android%20%e6%b6%88%e6%81%af%e6%9c%ba%e5%88%b6%ef%bc%88native%e5%b1%82%29&url=https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="eva eva-twitter hover:text-theme"></i
+            ></a><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="分享到 Facebook"
+                href="https://www.facebook.com/sharer.php?u=https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="eva eva-facebook hover:text-theme"></i
+            ></a><a
+                class="mr-4 inline-flex h-5 w-5 items-center"
+                title="分享到微博"
+                href="https://service.weibo.com/share/share.php?url=https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/&title=Android%20%e6%b6%88%e6%81%af%e6%9c%ba%e5%88%b6%ef%bc%88native%e5%b1%82%29&sudaref=nkj-666.github.io"
+                target="_blank"
+                rel="noopener noreferrer"
+            ><svg class="inline-block h-5 w-5 fill-current hover:text-theme" viewBox="0 0 1193 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2681" width="200" height="200"> <path d="M456.991736 557.336482c-107.598583 0-194.644628 74.956316-194.644629 166.838252s87.046045 166.838253 194.644629 166.838253c107.598583 0 194.644628-74.956316 194.644628-166.838253s-87.046045-166.838253-194.644628-166.838252zM391.707202 822.101535c-36.269185 0-66.493506-27.806375-66.493507-62.866588s29.015348-62.866588 66.493507-62.866588c36.269185 0 66.493506 27.806375 66.493506 62.866588S427.976387 822.101535 391.707202 822.101535z m93.090909-91.881936c-14.507674 0-26.597403-12.089728-26.597403-26.597403s12.089728-26.597403 26.597403-26.597403 26.597403 12.089728 26.597403 26.597403-12.089728 26.597403-26.597403 26.597403zM239.376623 281.690673C97.9268 394.125148-18.134593 600.859504 30.224321 661.308146c32.642267 41.105077 59.239669-19.343566 124.524203-89.46399 30.224321-32.642267 77.374262-54.403778 122.106258-90.672964 20.552538-16.92562 197.062574-35.060213 230.913813-35.060212 97.9268-99.135773 114.85242-207.943329 74.956316-258.720189-48.358914-59.239669-201.898465-16.92562-343.348288 94.299882z" p-id="2682" ></path> <path d="M808.802834 560.9634C906.729634 461.827627 911.565525 377.199528 870.460449 326.422668c-47.149941-60.448642-211.570248-32.642267-351.811098 78.583235" p-id="2683" ></path> <path d="M605.695396 353.020071c-14.507674 8.46281-25.38843 12.089728-29.015349 7.253837-1.208973-2.417946-1.208973-6.044864 1.208973-9.671783-16.92562-1.208973-33.85124-1.208973-50.776859-1.208973C235.749705 349.393152 0 500.514758 0 686.696576s235.749705 337.303424 527.112161 337.303424 527.112161-151.121606 527.11216-337.303424c0-170.465171-194.644628-309.497048-448.528925-333.676505zM481.171192 959.924439C275.645809 959.924439 108.807556 847.489965 108.807556 708.458087s166.838253-251.466352 372.363636-251.466351 372.363636 112.434475 372.363637 251.466351-166.838253 251.466352-372.363637 251.466352z" p-id="2684" ></path> <path d="M1021.582054 423.140496c-3.626919 0-6.044864 0-9.671782-1.208973-18.134593-4.835891-29.015348-24.179457-22.970485-42.31405 2.417946-7.253837 3.626919-16.92562 3.626919-29.015348 0-65.284534-53.194805-119.688312-119.688312-119.688312-19.343566 0-33.85124-15.716647-33.851239-33.851239s15.716647-33.85124 33.851239-33.85124c103.971665 0 187.390791 84.628099 187.390791 187.390791 0 18.134593-2.417946 33.85124-6.044864 48.358914-4.835891 14.507674-18.134593 24.179457-32.642267 24.179457z" p-id="2685" ></path> <path d="M1146.106257 473.917355c-2.417946 0-6.044864 0-8.46281-1.208972-20.552538-4.835891-32.642267-25.38843-27.806375-45.940969 6.044864-24.179457 8.46281-47.149941 8.46281-71.329397C1118.299882 201.898465 991.357733 74.956316 836.609209 74.956316c-20.552538 0-37.478158-16.92562-37.478158-37.478158S816.056671 0 836.609209 0c197.062574 0 356.646989 159.584416 356.646989 356.646989 0 29.015348-3.626919 59.239669-10.880755 88.255018-3.626919 18.134593-19.343566 29.015348-36.269186 29.015348z" p-id="2686" ></path> </svg></a><i class="eva eva-copy mr-4 cursor-pointer hover:text-theme" title="复制链接" data-clipboard-text="https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/"></i><div class="group relative hidden h-5 w-5 cursor-pointer sm:inline-block">
+                <i title="二维码" class="eva show-qrcode eva-smartphone hover:text-theme"></i>
+                <div
+                    class="qrcode-wrapper pointer-events-none absolute left-2/4 bottom-10 h-32 w-32 -translate-x-1/2 overflow-hidden rounded border border-gray-300 bg-white p-2 opacity-0 transition duration-300 ease-[ease] group-hover:opacity-100"
+                >
+                    <img class="h-full w-full" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://nkj-666.github.io/zh-cn/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/" alt="二维码" />
+                </div>
+            </div></div>
+<div class="border-b dark:border-darkBorder"></div><div class="flex justify-between px-2 py-4 text-xl md:px-6 md:text-2xl">
+    <div>
+        <a
+            href="/zh-cn/2022/04/15/android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6java%E5%B1%82.html/"
+            title="Android消息机制（Java层）"
+            class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
+            <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+                <i class="eva eva-chevron-left-outline"></i>
+            </span>
+            <span>上一篇</span>
+        </a>
+    </div><div class="hidden items-center text-xs xl:flex">
+        除特殊声明外，本博客一律使用以下协议进行授权 「
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" rel="noopener noreferrer" class="text-theme">署名 - 非商业性使用 - 禁止演绎 4.0</a>
+        」
+    </div>
+    <div class="flex items-center text-sm xl:hidden">
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh" target="_blank" rel="noopener noreferrer" class="text-theme">
+            <img src="/Cc-by-nc-nd.svg" alt="署名 - 非商业性使用 - 禁止演绎 4.0" title="署名 - 非商业性使用 - 禁止演绎 4.0" class="w-24" />
+        </a>
+    </div>
+
+    <a
+        href="/zh-cn/2022/04/15/android-%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91.html/"
+        title="Android 事件分发"
+        class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
+        <span>下一篇</span>
+        <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
+            <i class="eva eva-chevron-right-outline"></i>
+        </span>
+    </a>
+</div>
+<div class="border-t py-6 px-6 dark:border-darkBorder md:px-8">
+        <script
+        src="https://giscus.app/client.js"
+        data-repo="Ice-Hazymoon/hugo-theme-luna"
+        data-repo-id="R_kgDOHQOwYw"
+        data-category="Comments"
+        data-category-id="DIC_kwDOHQOwY84CP0Sy"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="zh-CN"
+        data-loading="false"
+        crossorigin="anonymous"
+        data-swup-reload-script
+        async
+    ></script>
+
+    <script data-swup-reload-script>
+        (function () {
+            addEventListener('message', e => {
+                if (event.origin !== 'https://giscus.app') return;
+                handler();
+            });
+            window.addEventListener('onThemeChange', handler);
+
+            function handler() {
+                if (document.documentElement.dataset.scheme === 'light') {
+                    setGiscusTheme('light');
+                } else {
+                    setGiscusTheme('dark');
+                }
+            }
+        })();
+
+        function setGiscusTheme(theme) {
+            let giscus = document.querySelector('iframe.giscus-frame');
+            if (giscus) {
+                giscus.contentWindow.postMessage(
+                    {
+                        giscus: {
+                            setConfig: {
+                                theme: theme,
+                            },
+                        },
+                    },
+                    'https://giscus.app'
+                );
+            }
+        }
+    </script>
+    </div>
+
+
+        </div>
+    </div>
+</div>
+
+</div>
+                </main><footer>
+    <div
+        class="com-footer flex flex-col items-center border-t py-4 px-4 text-sm leading-none text-gray-600 dark:border-darkBorder dark:text-darkTextPlaceholder md:flex-row md:justify-between"
+    >
+        <div class="mb-2 flex items-center justify-between text-center md:mb-0">
+            <span class="">© 2021 - 2023</span>
+            <span class="mx-1.5 opacity-50"> | </span>由 <a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> <span class="text-xs opacity-70">❤</span> <a data-no-swup class="mx-1 font-bold hover:text-theme" href="https://github.com/Ice-Hazymoon/hugo-theme-luna" target="_blank" rel="noopener noreferrer">Luna</a> 驱动</div>
+
+        <div class="flex items-center"><span class="noscript-hidden mx-1.5 hidden opacity-50 md:block"> | </span><a data-no-swup href="https://nkj-666.github.io/zh-cn/index.xml" target="_blank" class="mr-1.5 hover:text-theme">
+                    <span class=" md:hidden lg:inline"><svg t="1650887361919" class="mr-0.5 w-3 fill-current text-inherit inline-block align-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3091"><path d="M320.16155 831.918c0 70.738-57.344 128.082-128.082 128.082S63.99955 902.656 63.99955 831.918s57.344-128.082 128.082-128.082 128.08 57.346 128.08 128.082z m351.32 94.5c-16.708-309.2-264.37-557.174-573.9-573.9C79.31155 351.53 63.99955 366.21 63.99955 384.506v96.138c0 16.83 12.98 30.944 29.774 32.036 223.664 14.568 402.946 193.404 417.544 417.544 1.094 16.794 15.208 29.774 32.036 29.774h96.138c18.298 0.002 32.978-15.31 31.99-33.58z m288.498 0.576C943.19155 459.354 566.92955 80.89 97.00555 64.02 78.94555 63.372 63.99955 77.962 63.99955 96.032v96.136c0 17.25 13.67 31.29 30.906 31.998 382.358 15.678 689.254 322.632 704.93 704.93 0.706 17.236 14.746 30.906 31.998 30.906h96.136c18.068-0.002 32.658-14.948 32.01-33.008z" p-id="3092"></path></svg></span>
+                    <span>RSS</span>
+                </a><a data-no-swup href="https://nkj-666.github.io/zh-cn/sitemap.xml" target="_blank" class="mr-1.5 hover:text-theme">
+                    <span class=" md:hidden lg:inline"><svg t="1650887940556" class="mr-0.5 w-3 fill-current text-inherit inline-block align-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6291"><path d="M950.044 625.778h-68.266v-56.89c0-45.51-39.822-85.332-85.334-85.332h-256v-85.334h68.267c39.822 0 73.956-34.133 73.956-73.955V130.844c0-39.822-34.134-73.955-73.956-73.955H415.29c-39.822 0-73.956 34.133-73.956 73.955v193.423c0 39.822 34.134 73.955 73.956 73.955h68.267v85.334h-256c-45.512 0-85.334 39.822-85.334 85.333v56.889H73.956C34.133 625.778 0 659.91 0 699.733v193.423c0 39.822 34.133 73.955 73.956 73.955h193.422c39.822 0 73.955-34.133 73.955-73.955V699.733c0-39.822-34.133-73.955-73.955-73.955H199.11v-56.89c0-17.066 11.378-28.444 28.445-28.444h568.888c17.067 0 28.445 11.378 28.445 28.445v56.889h-68.267c-39.822 0-73.955 34.133-73.955 73.955v193.423c0 39.822 34.133 73.955 73.955 73.955h193.422c39.823 0 73.956-34.133 73.956-73.955V699.733c0-39.822-34.133-73.955-73.956-73.955z" p-id="6292"></path></svg></span>
+                    <span>Sitemap</span>
+                </a><div id="google_translate_element" class="overflow-hidden rounded border dark:border-darkBorder"></div></div><div id="run-time" class="mt-2 flex-grow text-right md:mt-0">
+    <span>运行时间： </span><b id="run-time-d">0</b>
+    <span class="text-xs">天</span>
+    <b id="run-time-h">0</b>
+    <span class="text-xs">小时</span>
+    <b id="run-time-m">0</b>
+    <span class="text-xs">分钟</span>
+    <b id="run-time-s">0</b>
+    <span class="text-xs">秒</span>
+</div>
+</div>
+
+    <script type="text/javascript">
+window.__theme = {
+    cdn: '',
+    pjax: true ,
+    isServer: false ,
+    $version:"",
+    lang: 'zh-cn',
+    imageZoom: true ,
+    lazyload: true ,
+    bionicReading: {
+        enabled: true ,
+        skipLinks: false ,
+        autoBionic: false ,
+        excludeWords:[],
+        excludeClasses:["github"],
+        excludeNodeNames:[],
+    },
+    katex: true ,
+    search: true ,
+    backtop: true ,
+    pangu: true ,
+    autoDarkMode: false ,
+    googleAnalytics:false,
+    hugoEncrypt: {
+        wrongPasswordText: '密码错误',
+        userStorage:window['sessionStorage'],
+    },
+    console: {
+        enabled: true ,
+        leftColor: '#dd6065',
+        rightColor: '#feb462',
+        leftText: 'Hugo Theme Luna',
+        rightText: 'Powered by NKJ-666',
+    },
+    assets: {
+        error_svg: "\/images\/error.svg",
+        search_svg: "\/images\/search.svg",
+    },
+    i18n: {
+        copy: {
+            success: "复制成功",
+            failed: "复制失败，请手动复制",
+            copyCode: "复制代码",
+        },
+        search: {
+            untitled: "无标题",
+            loadFailure: "初始化搜索引擎失败",
+            input: "请输入内容...",
+        },
+        darkMode: {
+            dark: "切换到夜间模式",
+            light: "切换到日间模式"
+        }
+    },creatTime: "2021\/12\/12"}
+</script>
+<script type="text/javascript" src="/ts/main.1f7accfe243b98c78d4e4dd412caf872a0bc99d72fa4ed9b8bdf02db3f739896.js" defer integrity="sha256-H3rM/iQ7mMeNTk3UEsr4cqC8mdcvpO2bi98C2z9zmJY="></script><script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('\/sw.js');
+        });
+    }
+</script>
+<script type="text/javascript" src="/translate-google.ecd37c3cc8f7e1b08910201dd0d9fc3e5f4b1395fb8ebead3141b931f036f777.js" defer integrity="sha256-7NN8PMj34bCJECAd0Nn8Pl9LE5X7jr6tMUG5MfA293c="></script><script type="text/javascript">
+    window.translateelement_styles = "\/sass\/translateelement.min.c65796c6c3e4d48c75f72776948be83c5c448d1c5cc466b996b00657c558d28a.css";
+    function googleTranslateElementInit(){
+        new google.translate.TranslateElement({
+            pageLanguage: 'zh-cn',
+            includedLanguages: 'af,ga,sq,it,ar,ja,az,kn,eu,ko,bn,la,be,lv,bg,lt,ca,mk,zh-CN,ms,zh-TW,mt,hr,no,cs,fa,da,pl,nl,pt,en,ro,eo,ru,et,sr,tl,sk,fi,sl,fr,es,gl,sw,ka,sv,de,ta,el,te,gu,th,ht,tr,iw,uk,hi,ur,hu,vi,is,cy,id,yi',
+            autoDisplay:false
+        },'google_translate_element');
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    
+</script>
+
+<script data-swup-reload-script>
+    
+    
+</script>
+</footer>
+</div>
+        </div><a
+        href="#nav"
+        title="返回顶部"
+        id="back-top"
+        class="fixed right-6 bottom-9 z-10 translate-y-3 scale-90 cursor-pointer rounded-full bg-white opacity-0 transition duration-300 ease-[ease] dark:bg-darkBgAccent sm:scale-100"
+    >
+        <div class="relative">
+            <div class="absolute left-0 top-0 flex h-full w-full items-center justify-center text-xl">
+                <i class="eva eva-arrow-upward-outline"></i>
+            </div>
+            <svg id="svg" width="54" height="54" viewBox="0 0 54 54" preserveAspectRatio="xMinYMin meet">
+                <circle
+                    transform="rotate(-90, 27 , 27)"
+                    style="stroke-dasharray: 157, 157; stroke-dashoffset: 157;"
+                    cx="27"
+                    cy="27"
+                    r="25"
+                    fill="none"
+                    stroke-width="4"
+                    stroke-linecap="round"
+                    stroke="var(--theme)"
+                />
+            </svg>
+        </div>
+    </a><div id="i18nlist"><div
+                style="font-size: 0;"
+                class="
+                    absolute
+                 left-0 top-0 z-50 rounded rounded-tl-none rounded-bl-none p-1.5 dark:bg-darkBgAccent md:bg-white md:shadow-custom"
+            >
+                <input type="checkbox" name="i18nlist-input" id="i18nlist-checkbox" />
+                <label for="i18nlist-checkbox">
+                    <span class="cursor-pointer leading-none group-hover:hidden"><svg class="w-5 h-5 fill-current text-inherit dark:text-darkTextPlaceholder" t="1655231528998" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2176" ><path d="M213.333333 640v85.333333a85.333333 85.333333 0 0 0 78.933334 85.12L298.666667 810.666667h128v85.333333H298.666667a170.666667 170.666667 0 0 1-170.666667-170.666667v-85.333333h85.333333z m554.666667-213.333333l187.733333 469.333333h-91.946666l-51.242667-128h-174.506667l-51.157333 128h-91.904L682.666667 426.666667h85.333333z m-42.666667 123.093333L672.128 682.666667h106.325333L725.333333 549.76zM341.333333 85.333333v85.333334h170.666667v298.666666H341.333333v128H256v-128H85.333333V170.666667h170.666667V85.333333h85.333333z m384 42.666667a170.666667 170.666667 0 0 1 170.666667 170.666667v85.333333h-85.333333V298.666667a85.333333 85.333333 0 0 0-85.333334-85.333334h-128V128h128zM256 256H170.666667v128h85.333333V256z m170.666667 0H341.333333v128h85.333334V256z" p-id="2177"></path></svg></span>
+                </label>
+                <ul class="hidden border border-transparent pb-0 group-hover:block"><li class="mb-1.5 cursor-pointer last:mb-0">
+                            <a data-no-swup href="https://nkj-666.github.io/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/" title="切换语言到 English"><img
+                                    class="w-6 cursor-pointer rounded-sm border border-gray-50"
+                                    src="/images/i18n/en-us.svg"
+                                    alt="en-us"
+                                />
+                            </a>
+                        </li></ul>
+            </div></div><noscript>
+    <style>
+        .dark-mode-switch,
+        #run-time,
+        #bionicReading,
+        .noscript-hidden,
+        [data-clipboard-text],
+        [data-lazyload] {
+            display: none;
+        }
+        #back-top {
+            opacity: 1;
+        }
+        .noscript-show {
+            display: initial;
+        }
+    </style>
+</noscript>
+</body>
+</html>
