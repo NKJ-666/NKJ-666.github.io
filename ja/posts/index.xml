@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Kevier Blog</title>
+    <link>https://nkj-666.github.io/ja/posts/</link>
+    <description>Recent content in Posts on Kevier Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Apr 2022 02:49:13 +0200</lastBuildDate><atom:link href="https://nkj-666.github.io/ja/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Activity的生命周期和启动模式</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.html/</guid>
+      <description>学习Activity的生命周期和启动模式</description>
+    </item>
+    
+    <item>
+      <title>Android UI绘制原理</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/android-ui%E7%BB%98%E5%88%B6%E5%8E%9F%E7%90%86.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/android-ui%E7%BB%98%E5%88%B6%E5%8E%9F%E7%90%86.html/</guid>
+      <description>Android UI绘制原理</description>
+    </item>
+    
+    <item>
+      <title>Android 事件分发</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/android-%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/android-%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%91.html/</guid>
+      <description>Android 事件分发</description>
+    </item>
+    
+    <item>
+      <title>Android 消息机制（native层)</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/android-%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6native%E5%B1%82.html/</guid>
+      <description>Android 消息机制（native层)</description>
+    </item>
+    
+    <item>
+      <title>Android消息机制（Java层）</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6java%E5%B1%82.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/android%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6java%E5%B1%82.html/</guid>
+      <description>学习Android消息机制（java层）</description>
+    </item>
+    
+    <item>
+      <title>Java 高级 - 注解</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/java-%E9%AB%98%E7%BA%A7-%E6%B3%A8%E8%A7%A3.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/java-%E9%AB%98%E7%BA%A7-%E6%B3%A8%E8%A7%A3.html/</guid>
+      <description>Java 高级 - 注解</description>
+    </item>
+    
+    <item>
+      <title>Java 高级 - 反射</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/java-%E9%AB%98%E7%BA%A7-%E5%8F%8D%E5%B0%84.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/java-%E9%AB%98%E7%BA%A7-%E5%8F%8D%E5%B0%84.html/</guid>
+      <description>Java 高级 - 反射</description>
+    </item>
+    
+    <item>
+      <title>Java高级 - 锁</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E9%94%81.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E9%94%81.html/</guid>
+      <description>Java高级 - 锁</description>
+    </item>
+    
+    <item>
+      <title>Java高级 - 多线程</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E5%A4%9A%E7%BA%BF%E7%A8%8B.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E5%A4%9A%E7%BA%BF%E7%A8%8B.html/</guid>
+      <description>Java高级 - 多线程</description>
+    </item>
+    
+    <item>
+      <title>Java高级 - 代理</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E4%BB%A3%E7%90%86.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E4%BB%A3%E7%90%86.html/</guid>
+      <description>Java高级 - 代理</description>
+    </item>
+    
+    <item>
+      <title>Java高级 - 泛型</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E6%B3%9B%E5%9E%8B.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/java%E9%AB%98%E7%BA%A7-%E6%B3%9B%E5%9E%8B.html/</guid>
+      <description>Java高级 - 泛型</description>
+    </item>
+    
+    <item>
+      <title>Java集合框架</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6.html/</guid>
+      <description>Java集合框架</description>
+    </item>
+    
+    <item>
+      <title>MySQL笔记</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/mysql%E7%AC%94%E8%AE%B0.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/mysql%E7%AC%94%E8%AE%B0.html/</guid>
+      <description>MySQL笔记</description>
+    </item>
+    
+    <item>
+      <title>OkHttp笔记</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/</guid>
+      <description>OkHttp笔记</description>
+    </item>
+    
+    <item>
+      <title>Retrofit 笔记</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/</guid>
+      <description>Retrofit 笔记</description>
+    </item>
+    
+    <item>
+      <title>SQLite笔记</title>
+      <link>https://nkj-666.github.io/ja/2022/04/15/sqlite%E7%AC%94%E8%AE%B0.html/</link>
+      <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
+      
+      <guid>https://nkj-666.github.io/ja/2022/04/15/sqlite%E7%AC%94%E8%AE%B0.html/</guid>
+      <description>SQLite笔记</description>
+    </item>
+    
+  </channel>
+</rss>
