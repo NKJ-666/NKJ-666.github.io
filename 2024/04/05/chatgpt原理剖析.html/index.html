@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-us" class="lang-en-us">
     <head><meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="keywords" content="Android,Hugo,Hugo Theme,Luna," /><meta name="description" content="" />
-<meta itemprop="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="keywords" content="Machine Learning,Hugo,Hugo Theme,Luna," /><meta name="description" content="ChatGPT原理剖析" />
+<meta itemprop="description" content="ChatGPT原理剖析" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="ChatGPT原理剖析 - Kevier Blog" />
 <link href="https://nkj-666.github.io/index.xml" title="ChatGPT原理剖析 - Kevier Blog" type="application/rss+xml" rel="alternate" />
 <title>ChatGPT原理剖析 - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="ChatGPT原理剖析 - Kevier Blog" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="ChatGPT原理剖析" />
-<meta property="og:description" content="" />
-<meta property="og:url" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:published_time" content="2024-04-05T18:05:29&#43;08:00" /><meta property="article:modified_time" content="2024-04-05T18:08:34&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta property="og:description" content="ChatGPT原理剖析" />
+<meta property="og:url" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:published_time" content="2024-04-05T18:27:05&#43;08:00" /><meta property="article:modified_time" content="2024-04-05T18:30:01&#43;08:00" /><meta name="theme-color" content="#dd6065" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="ChatGPT原理剖析 - Kevier Blog" />
 <meta name="apple-mobile-web-app-status-bar-style" content="white" />
 
 <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="@Ice_Hazymoon" />
     <meta name="twitter:creator" content="@Ice_Hazymoon" /><meta name="twitter:title" content="ChatGPT原理剖析 - Kevier Blog" />
-<meta name="twitter:description" content="" />
+<meta name="twitter:description" content="ChatGPT原理剖析" />
 <meta name="twitter:url" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta name="twitter:image" content="" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="manifest" href="/manifest.json" /><link href="/icon.png" rel="shortcut icon" />
 <link href="/icon.png" rel="Bookmark" />
@@ -29,8 +29,8 @@
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/"
-  },"genre": "posts","keywords": "Android","wordcount": 0 ,
-  "url": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/","datePublished": "2024-04-05T18:05:29\u002b08:00","dateModified": "2024-04-05T18:08:34\u002b08:00","author": {
+  },"genre": "posts","keywords": "Machine Learning","wordcount": 206 ,
+  "url": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/","datePublished": "2024-04-05T18:27:05\u002b08:00","dateModified": "2024-04-05T18:30:01\u002b08:00","author": {
     "@type": "Person",
     "name": "Ice-Hazymoon"
   },"description": ""
@@ -108,28 +108,63 @@
             <i class="eva eva-clock-outline mr-1"></i>
             <span>
                 <time
-                    title="Published in 05 Apr 2024 18:05:29"datetime="2024-04-05T18:05:29+08:00">05 Apr 2024</time
+                    title="Published in 05 Apr 2024 18:27:05"datetime="2024-04-05T18:27:05+08:00">05 Apr 2024</time
                 >
             </span>
         </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-flag-outline mr-1"></i>
-                <span>0 mins read</span>
+                <span>1 min read</span>
             </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-bar-chart-outline mr-1"></i>
-                <span>0 words</span>
+                <span>206 words</span>
             </div></div><div class="mb-3 flex items-center">
             <i class="eva eva-pricetags-outline mr-1"></i>
-            <span class="mr-3">Tags</span><a href="/tags/android" title="Android" class="group mr-2 flex items-center text-sm">
+            <span class="mr-3">Tags</span><a href="/tags/machine-learning" title="Machine Learning" class="group mr-2 flex items-center text-sm">
                     <i class="mr-1 text-gray-400 group-hover:text-theme">#</i>
-                    <span class="text-gray-400 group-hover:text-theme">Android</span>
+                    <span class="text-gray-400 group-hover:text-theme">Machine Learning</span>
                 </a></div></div>
 <section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="Faster Reads" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
             ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
-        ></section>
+        >
+
+<h1 class="group " id="chatgpt原理剖析"
+    >ChatGPT原理剖析<a href="#chatgpt%e5%8e%9f%e7%90%86%e5%89%96%e6%9e%90"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h1>
+
+
+
+<h2 class="group " id="文字接龙"
+    >文字接龙<a href="#%e6%96%87%e5%ad%97%e6%8e%a5%e9%be%99"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>根据用户的输入来获取一个概率图表，从这个图表中选择一个字（这个字可能并不是概率最高的那一个）</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/05/huDf.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/05/huDf.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/05/huDf.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
+<p>用一个例子来说明，比如用户输入<strong>什么是机器学习</strong>，那么程序会结合这个字符串来计算一个概率表，以这个概率表来输出下一个字。</p>
+<p>那么如果用户下一次输入直接输入<strong>你回答的不够详细，请具体说明</strong>，那么程序会将之前的输入和新输入的字符串结合来算出新的概率表，再通过相同的流程来输出下一个字，类似于一种文字接龙。</p>
+</section>
 <div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14"><a
                 class="mr-4 inline-flex h-5 w-5 items-center"
                 title="Share to twitter"
-                href="https://twitter.com/share?&text=&url=https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/"
+                href="https://twitter.com/share?&text=ChatGPT%e5%8e%9f%e7%90%86%e5%89%96%e6%9e%90&url=https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/"
                 target="_blank"
                 rel="noopener noreferrer"
                 ><i class="eva eva-twitter hover:text-theme"></i
@@ -332,32 +367,7 @@ window.__theme = {
                 />
             </svg>
         </div>
-    </a><div id="i18nlist"><div
-                style="font-size: 0;"
-                class="
-                    absolute
-                 left-0 top-0 z-50 rounded rounded-tl-none rounded-bl-none p-1.5 dark:bg-darkBgAccent md:bg-white md:shadow-custom"
-            >
-                <input type="checkbox" name="i18nlist-input" id="i18nlist-checkbox" />
-                <label for="i18nlist-checkbox">
-                    <span class="cursor-pointer leading-none group-hover:hidden"><svg class="w-5 h-5 fill-current text-inherit dark:text-darkTextPlaceholder" t="1655231528998" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2176" ><path d="M213.333333 640v85.333333a85.333333 85.333333 0 0 0 78.933334 85.12L298.666667 810.666667h128v85.333333H298.666667a170.666667 170.666667 0 0 1-170.666667-170.666667v-85.333333h85.333333z m554.666667-213.333333l187.733333 469.333333h-91.946666l-51.242667-128h-174.506667l-51.157333 128h-91.904L682.666667 426.666667h85.333333z m-42.666667 123.093333L672.128 682.666667h106.325333L725.333333 549.76zM341.333333 85.333333v85.333334h170.666667v298.666666H341.333333v128H256v-128H85.333333V170.666667h170.666667V85.333333h85.333333z m384 42.666667a170.666667 170.666667 0 0 1 170.666667 170.666667v85.333333h-85.333333V298.666667a85.333333 85.333333 0 0 0-85.333334-85.333334h-128V128h128zM256 256H170.666667v128h85.333333V256z m170.666667 0H341.333333v128h85.333334V256z" p-id="2177"></path></svg></span>
-                </label>
-                <ul class="hidden border border-transparent pb-0 group-hover:block"><li class="mb-1.5 cursor-pointer last:mb-0">
-                            <a data-no-swup href="https://nkj-666.github.io/ja/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" title="Switch language to 日本語"><img
-                                    class="w-6 cursor-pointer rounded-sm border border-gray-50"
-                                    src="/images/i18n/ja.svg"
-                                    alt="ja"
-                                />
-                            </a>
-                        </li><li class="mb-1.5 cursor-pointer last:mb-0">
-                            <a data-no-swup href="https://nkj-666.github.io/zh-cn/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" title="Switch language to 中文"><img
-                                    class="w-6 cursor-pointer rounded-sm border border-gray-50"
-                                    src="/images/i18n/zh-cn.svg"
-                                    alt="zh-cn"
-                                />
-                            </a>
-                        </li></ul>
-            </div></div><noscript>
+    </a><div id="i18nlist"></div><noscript>
     <style>
         .dark-mode-switch,
         #run-time,
