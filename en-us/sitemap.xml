@@ -2,6 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://nkj-666.github.io/tags/android/</loc>
+    <lastmod>2024-04-05T18:08:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nkj-666.github.io/ja/tags/android/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://nkj-666.github.io/zh-cn/tags/android/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://nkj-666.github.io/tags/android/"
+                />
+  </url><url>
+    <loc>https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/</loc>
+    <lastmod>2024-04-05T18:08:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nkj-666.github.io/ja/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://nkj-666.github.io/zh-cn/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/"
+                />
+  </url><url>
+    <loc>https://nkj-666.github.io/</loc>
+    <lastmod>2024-04-05T18:08:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nkj-666.github.io/ja/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://nkj-666.github.io/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://nkj-666.github.io/"
+                />
+  </url><url>
+    <loc>https://nkj-666.github.io/posts/</loc>
+    <lastmod>2024-04-05T18:08:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nkj-666.github.io/ja/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://nkj-666.github.io/zh-cn/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://nkj-666.github.io/posts/"
+                />
+  </url><url>
+    <loc>https://nkj-666.github.io/tags/</loc>
+    <lastmod>2024-04-05T18:08:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nkj-666.github.io/ja/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://nkj-666.github.io/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://nkj-666.github.io/tags/"
+                />
+  </url><url>
     <loc>https://nkj-666.github.io/2022/04/15/activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.html/</loc>
     <lastmod>2024-04-05T17:27:06+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -20,26 +120,6 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="https://nkj-666.github.io/2022/04/15/activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.html/"
-                />
-  </url><url>
-    <loc>https://nkj-666.github.io/tags/android/</loc>
-    <lastmod>2024-04-05T17:27:06+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nkj-666.github.io/ja/tags/android/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://nkj-666.github.io/zh-cn/tags/android/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://nkj-666.github.io/tags/android/"
                 />
   </url><url>
     <loc>https://nkj-666.github.io/2022/04/15/android-ui%E7%BB%98%E5%88%B6%E5%8E%9F%E7%90%86.html/</loc>
@@ -282,26 +362,6 @@
                 href="https://nkj-666.github.io/2022/04/15/java%E9%AB%98%E7%BA%A7-%E9%94%81.html/"
                 />
   </url><url>
-    <loc>https://nkj-666.github.io/</loc>
-    <lastmod>2024-04-05T17:27:06+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nkj-666.github.io/ja/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://nkj-666.github.io/zh-cn/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://nkj-666.github.io/"
-                />
-  </url><url>
     <loc>https://nkj-666.github.io/2022/04/15/mysql%E7%AC%94%E8%AE%B0.html/</loc>
     <lastmod>2023-04-07T17:19:26+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -342,26 +402,6 @@
                 href="https://nkj-666.github.io/2022/04/15/okhttp%E7%AC%94%E8%AE%B0.html/"
                 />
   </url><url>
-    <loc>https://nkj-666.github.io/posts/</loc>
-    <lastmod>2024-04-05T17:27:06+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nkj-666.github.io/ja/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://nkj-666.github.io/zh-cn/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://nkj-666.github.io/posts/"
-                />
-  </url><url>
     <loc>https://nkj-666.github.io/2022/04/15/retrofit-%E7%AC%94%E8%AE%B0.html/</loc>
     <lastmod>2023-04-07T17:19:34+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -400,26 +440,6 @@
                 rel="alternate"
                 hreflang="en-us"
                 href="https://nkj-666.github.io/2022/04/15/sqlite%E7%AC%94%E8%AE%B0.html/"
-                />
-  </url><url>
-    <loc>https://nkj-666.github.io/tags/</loc>
-    <lastmod>2024-04-05T17:27:06+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ja"
-                href="https://nkj-666.github.io/ja/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://nkj-666.github.io/zh-cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://nkj-666.github.io/tags/"
                 />
   </url><url>
     <loc>https://nkj-666.github.io/github/</loc>
