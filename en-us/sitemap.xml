@@ -486,6 +486,21 @@
     <lastmod>2024-04-05T17:16:05+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="ja"
+                href="https://nkj-666.github.io/ja/1/01/01/.html/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://nkj-666.github.io/zh-cn/1/01/01/.html/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://nkj-666.github.io/1/01/01/.html/"
+                />
   </url><url>
     <loc>https://nkj-666.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
