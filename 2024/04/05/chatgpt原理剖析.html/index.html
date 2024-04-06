@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="ChatGPT原理剖析" />
 <meta property="og:description" content="ChatGPT原理剖析" />
-<meta property="og:url" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:published_time" content="2024-04-05T18:27:05&#43;08:00" /><meta property="article:modified_time" content="2024-04-05T18:30:01&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta property="og:url" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:published_time" content="2024-04-05T18:27:05&#43;08:00" /><meta property="article:modified_time" content="2024-04-06T14:25:59&#43;08:00" /><meta name="theme-color" content="#dd6065" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="ChatGPT原理剖析 - Kevier Blog" />
 <meta name="apple-mobile-web-app-status-bar-style" content="white" />
@@ -29,8 +29,8 @@
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/"
-  },"genre": "posts","keywords": "Machine Learning","wordcount": 206 ,
-  "url": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/","datePublished": "2024-04-05T18:27:05\u002b08:00","dateModified": "2024-04-05T18:30:01\u002b08:00","author": {
+  },"genre": "posts","keywords": "Machine Learning","wordcount": 1096 ,
+  "url": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/","datePublished": "2024-04-05T18:27:05\u002b08:00","dateModified": "2024-04-06T14:25:59\u002b08:00","author": {
     "@type": "Person",
     "name": "Ice-Hazymoon"
   },"description": ""
@@ -111,19 +111,52 @@
                     title="Published in 05 Apr 2024 18:27:05"datetime="2024-04-05T18:27:05+08:00">05 Apr 2024</time
                 >
             </span>
-        </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+        </div><span class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                    <i class="eva eva-edit-2-outline mr-1"></i>
+                    <span>
+                        <time
+                            title="Last modified on: 06 Apr 2024 14:25:59"datetime="2024-04-06T14:25:59+08:00">06 Apr 2024</time
+                        >
+                    </span>
+                </span><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-flag-outline mr-1"></i>
-                <span>1 min read</span>
+                <span>3 mins read</span>
             </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-bar-chart-outline mr-1"></i>
-                <span>206 words</span>
+                <span>1096 words</span>
             </div></div><div class="mb-3 flex items-center">
             <i class="eva eva-pricetags-outline mr-1"></i>
             <span class="mr-3">Tags</span><a href="/tags/machine-learning" title="Machine Learning" class="group mr-2 flex items-center text-sm">
                     <i class="mr-1 text-gray-400 group-hover:text-theme">#</i>
                     <span class="text-gray-400 group-hover:text-theme">Machine Learning</span>
                 </a></div></div>
-<section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="Faster Reads" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
+<aside
+            class="toc border-b border-gray-300 px-5 py-5 dark:border-darkBorder md:px-10 2xl:fixed 2xl:top-10 2xl:m-0 2xl:-ml-72 2xl:w-72 2xl:border-none 2xl:p-0 2xl:py-4 2xl:pr-4 "
+        >
+            <header>
+                <h1 class="mb-3 text-2xl font-bold 2xl:mb-4">Table of Contents</h1>
+            </header>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文字接龙">文字接龙</a></li>
+    <li><a href="#训练原理">训练原理</a>
+      <ul>
+        <li><a href="#预训练自督导式学习">预训练（自督导式学习）</a></li>
+        <li><a href="#督导式学习">督导式学习</a></li>
+        <li><a href="#增强式学习reinforcement-learning-rl">增强式学习（Reinforcement Learning, RL）</a></li>
+      </ul>
+    </li>
+    <li><a href="#chatgpt带来的研究课题">ChatGPT带来的研究课题</a>
+      <ul>
+        <li><a href="#1-如何精确提出需求">1. 如何精确提出需求</a></li>
+        <li><a href="#2-如何更正错误">2. 如何更正错误</a></li>
+        <li><a href="#3-侦测ai生成的物件">3. 侦测AI生成的物件</a></li>
+        <li><a href="#4-ai泄露机密">4. AI泄露机密</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </aside><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="Faster Reads" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
             ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
         >
 
@@ -160,6 +193,215 @@
 </p>
 <p>用一个例子来说明，比如用户输入<strong>什么是机器学习</strong>，那么程序会结合这个字符串来计算一个概率表，以这个概率表来输出下一个字。</p>
 <p>那么如果用户下一次输入直接输入<strong>你回答的不够详细，请具体说明</strong>，那么程序会将之前的输入和新输入的字符串结合来算出新的概率表，再通过相同的流程来输出下一个字，类似于一种文字接龙。</p>
+
+
+<h2 class="group " id="训练原理"
+    >训练原理<a href="#%e8%ae%ad%e7%bb%83%e5%8e%9f%e7%90%86"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p><strong>预训练（自督导式学习）-&gt; 督导式学习 -&gt; 增强式学习（Reinforcement Learning, RL）</strong></p>
+
+
+<h3 class="group " id="预训练自督导式学习"
+    >预训练（自督导式学习）<a href="#%e9%a2%84%e8%ae%ad%e7%bb%83%e8%87%aa%e7%9d%a3%e5%af%bc%e5%bc%8f%e5%ad%a6%e4%b9%a0"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>给定特定的数据集，学习样本数据的表述特征来应用于未来的问题。</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/06/huTx.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/huTx.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/06/huTx.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
+<p>例如这样一个例子，数据集中有世界第一高峰是喜马拉雅山这句话，那么当之后有人问这个问题时，GPT就会回答这个问题喜马拉雅山。</p>
+<p>经过预训练后会有一种现象：</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/06/huTB.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/huTB.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/06/huTB.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
+<p>我们可以看到经过一百多种语言的预训练之后，即使只完成了英文问答的训练，没有完成中文问答的训练，他最后在中文问答测试上的准确率和<strong>没有经过预训练，而通过中文问答训练</strong>的最终准确率相差不大。</p>
+
+
+<h3 class="group " id="督导式学习"
+    >督导式学习<a href="#%e7%9d%a3%e5%af%bc%e5%bc%8f%e5%ad%a6%e4%b9%a0"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>人类再给GPT数据集之外的一些问题答案，给GPT加以训练</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/06/huTy.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/huTy.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/06/huTy.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
+<p>GPT经过督导式学习后就变成了ChatGPT</p>
+
+
+<h3 class="group " id="增强式学习reinforcement-learning-rl"
+    >增强式学习（Reinforcement Learning, RL）<a href="#%e5%a2%9e%e5%bc%ba%e5%bc%8f%e5%ad%a6%e4%b9%a0reinforcement-learning-rl"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/06/huTz.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/huTz.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/06/huTz.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
+<p>ChatGPT在督导式学习的基础上还会进行增强式学习，这种学习不需要人类直接给出问题的答案。</p>
+<p>比如上面这个例子，用户问<strong>请帮我赞美AI</strong>这个问题，由ChatGPT进行回答，人类只需要对这个问题的答案进行打分来评价回答的好与坏，让ChatGPT自己调整即可。</p>
+
+
+<h2 class="group " id="chatgpt带来的研究课题"
+    >ChatGPT带来的研究课题<a href="#chatgpt%e5%b8%a6%e6%9d%a5%e7%9a%84%e7%a0%94%e7%a9%b6%e8%af%be%e9%a2%98"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+
+
+<h3 class="group " id="1-如何精确提出需求"
+    >1. 如何精确提出需求<a href="#1-%e5%a6%82%e4%bd%95%e7%b2%be%e7%a1%ae%e6%8f%90%e5%87%ba%e9%9c%80%e6%b1%82"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>举一个例子：</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/06/huTC.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/huTC.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/06/huTC.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
+<p>如果只是单纯的跟ChatGPT对话，“我今天工作很累”，那么它并不会像人一样和你聊天。</p>
+<p>我们必须对他进行催眠（Prompting)，精确到具体场景：</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/06/huTD.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/huTD.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/06/huTD.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
+<p>这样才可以完成自己想要的对话。</p>
+
+
+<h3 class="group " id="2-如何更正错误"
+    >2. 如何更正错误<a href="#2-%e5%a6%82%e4%bd%95%e6%9b%b4%e6%ad%a3%e9%94%99%e8%af%af"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>因为ChatGPT的认识只截止到2021年，对2021年之后的事情并不完全知道，所以在回答时可能会出现错误。</p>
+<p>比如说：</p>
+<p>问ChatGPT最近的世界杯足球赛冠军是谁，那么他只能回答到2018年的冠军，这个回答显然是错误的，但是当我们尝试告诉它最近的冠军是阿根廷时，可能这个问题它知道了答案，但是由于修改了里面的参数，可能修改对了一个答案，但是改错了很多正确答案。</p>
+
+
+<h3 class="group " id="3-侦测ai生成的物件"
+    >3. 侦测AI生成的物件<a href="#3-%e4%be%a6%e6%b5%8bai%e7%94%9f%e6%88%90%e7%9a%84%e7%89%a9%e4%bb%b6"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>例如怎样用模型侦测一段文字是否是AI生成的。</p>
+<p>普通的训练就是由人类对一些文字添加标签，再使用这些数据集对模型进行训练。</p>
+
+
+<h3 class="group " id="4-ai泄露机密"
+    >4. AI泄露机密<a href="#4-ai%e6%b3%84%e9%9c%b2%e6%9c%ba%e5%af%86"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h3>
+
+<p>早期GPT的数据集可能是直接从网上爬取的各种文件，那么会不会爬取到机要领域呢。</p>
+<p>比如说GPT-2：</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://i.niupic.com/images/2024/04/06/huTE.png"
+            src="/images/outload.svg"data-alt="img"data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/huTE.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://i.niupic.com/images/2024/04/06/huTE.png"alt="img"/>
+            </picture>
+        </a>
+    </noscript><figcaption>img</figcaption></figure>
+</p>
 </section>
 <div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14"><a
                 class="mr-4 inline-flex h-5 w-5 items-center"

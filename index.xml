@@ -38,6 +38,103 @@
 &lt;/p&gt;
 &lt;p&gt;用一个例子来说明，比如用户输入&lt;strong&gt;什么是机器学习&lt;/strong&gt;，那么程序会结合这个字符串来计算一个概率表，以这个概率表来输出下一个字。&lt;/p&gt;
 &lt;p&gt;那么如果用户下一次输入直接输入&lt;strong&gt;你回答的不够详细，请具体说明&lt;/strong&gt;，那么程序会将之前的输入和新输入的字符串结合来算出新的概率表，再通过相同的流程来输出下一个字，类似于一种文字接龙。&lt;/p&gt;
+
+
+&lt;h2 class=&#34;group &#34; id=&#34;训练原理&#34;
+    &gt;训练原理&lt;a href=&#34;#%e8%ae%ad%e7%bb%83%e5%8e%9f%e7%90%86&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;预训练（自督导式学习）-&amp;gt; 督导式学习 -&amp;gt; 增强式学习（Reinforcement Learning, RL）&lt;/strong&gt;&lt;/p&gt;
+
+
+&lt;h3 class=&#34;group &#34; id=&#34;预训练自督导式学习&#34;
+    &gt;预训练（自督导式学习）&lt;a href=&#34;#%e9%a2%84%e8%ae%ad%e7%bb%83%e8%87%aa%e7%9d%a3%e5%af%bc%e5%bc%8f%e5%ad%a6%e4%b9%a0&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h3&gt;
+
+&lt;p&gt;给定特定的数据集，学习样本数据的表述特征来应用于未来的问题。&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;例如这样一个例子，数据集中有世界第一高峰是喜马拉雅山这句话，那么当之后有人问这个问题时，GPT就会回答这个问题喜马拉雅山。&lt;/p&gt;
+&lt;p&gt;经过预训练后会有一种现象：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;我们可以看到经过一百多种语言的预训练之后，即使只完成了英文问答的训练，没有完成中文问答的训练，他最后在中文问答测试上的准确率和&lt;strong&gt;没有经过预训练，而通过中文问答训练&lt;/strong&gt;的最终准确率相差不大。&lt;/p&gt;
+
+
+&lt;h3 class=&#34;group &#34; id=&#34;督导式学习&#34;
+    &gt;督导式学习&lt;a href=&#34;#%e7%9d%a3%e5%af%bc%e5%bc%8f%e5%ad%a6%e4%b9%a0&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h3&gt;
+
+&lt;p&gt;人类再给GPT数据集之外的一些问题答案，给GPT加以训练&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;GPT经过督导式学习后就变成了ChatGPT&lt;/p&gt;
+
+
+&lt;h3 class=&#34;group &#34; id=&#34;增强式学习reinforcement-learning-rl&#34;
+    &gt;增强式学习（Reinforcement Learning, RL）&lt;a href=&#34;#%e5%a2%9e%e5%bc%ba%e5%bc%8f%e5%ad%a6%e4%b9%a0reinforcement-learning-rl&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h3&gt;
+
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;ChatGPT在督导式学习的基础上还会进行增强式学习，这种学习不需要人类直接给出问题的答案。&lt;/p&gt;
+&lt;p&gt;比如上面这个例子，用户问&lt;strong&gt;请帮我赞美AI&lt;/strong&gt;这个问题，由ChatGPT进行回答，人类只需要对这个问题的答案进行打分来评价回答的好与坏，让ChatGPT自己调整即可。&lt;/p&gt;
+
+
+&lt;h2 class=&#34;group &#34; id=&#34;chatgpt带来的研究课题&#34;
+    &gt;ChatGPT带来的研究课题&lt;a href=&#34;#chatgpt%e5%b8%a6%e6%9d%a5%e7%9a%84%e7%a0%94%e7%a9%b6%e8%af%be%e9%a2%98&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h2&gt;
+
+
+
+&lt;h3 class=&#34;group &#34; id=&#34;1-如何精确提出需求&#34;
+    &gt;1. 如何精确提出需求&lt;a href=&#34;#1-%e5%a6%82%e4%bd%95%e7%b2%be%e7%a1%ae%e6%8f%90%e5%87%ba%e9%9c%80%e6%b1%82&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h3&gt;
+
+&lt;p&gt;举一个例子：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;如果只是单纯的跟ChatGPT对话，“我今天工作很累”，那么它并不会像人一样和你聊天。&lt;/p&gt;
+&lt;p&gt;我们必须对他进行催眠（Prompting)，精确到具体场景：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;这样才可以完成自己想要的对话。&lt;/p&gt;
+
+
+&lt;h3 class=&#34;group &#34; id=&#34;2-如何更正错误&#34;
+    &gt;2. 如何更正错误&lt;a href=&#34;#2-%e5%a6%82%e4%bd%95%e6%9b%b4%e6%ad%a3%e9%94%99%e8%af%af&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h3&gt;
+
+&lt;p&gt;因为ChatGPT的认识只截止到2021年，对2021年之后的事情并不完全知道，所以在回答时可能会出现错误。&lt;/p&gt;
+&lt;p&gt;比如说：&lt;/p&gt;
+&lt;p&gt;问ChatGPT最近的世界杯足球赛冠军是谁，那么他只能回答到2018年的冠军，这个回答显然是错误的，但是当我们尝试告诉它最近的冠军是阿根廷时，可能这个问题它知道了答案，但是由于修改了里面的参数，可能修改对了一个答案，但是改错了很多正确答案。&lt;/p&gt;
+
+
+&lt;h3 class=&#34;group &#34; id=&#34;3-侦测ai生成的物件&#34;
+    &gt;3. 侦测AI生成的物件&lt;a href=&#34;#3-%e4%be%a6%e6%b5%8bai%e7%94%9f%e6%88%90%e7%9a%84%e7%89%a9%e4%bb%b6&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h3&gt;
+
+&lt;p&gt;例如怎样用模型侦测一段文字是否是AI生成的。&lt;/p&gt;
+&lt;p&gt;普通的训练就是由人类对一些文字添加标签，再使用这些数据集对模型进行训练。&lt;/p&gt;
+
+
+&lt;h3 class=&#34;group &#34; id=&#34;4-ai泄露机密&#34;
+    &gt;4. AI泄露机密&lt;a href=&#34;#4-ai%e6%b3%84%e9%9c%b2%e6%9c%ba%e5%af%86&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h3&gt;
+
+&lt;p&gt;早期GPT的数据集可能是直接从网上爬取的各种文件，那么会不会爬取到机要领域呢。&lt;/p&gt;
+&lt;p&gt;比如说GPT-2：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
 </description></item><item>
             <title>Activity的生命周期和启动模式</title>
             <link>https://nkj-666.github.io/2022/04/15/activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.html/</link>
