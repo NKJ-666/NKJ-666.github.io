@@ -34,8 +34,6 @@
         &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
 &gt;&lt;/h2&gt;
 
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;根据宝可梦的初始cp值，type, weight, height来预测进化后的cp值&lt;/p&gt;
 
 
@@ -54,12 +52,8 @@
 &gt;&lt;/h2&gt;
 
 &lt;p&gt;第二步我们需要找到一个数据集，这个数据集包括我们需要输入的数据以及其对应的正确输出数据&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;我们还需要找到一个评估对应参数b和参数w好坏的function：&lt;strong&gt;Loss function&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;普通的&lt;strong&gt;Loss function&lt;/strong&gt; 为&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;其中&lt;strong&gt;hat y&lt;/strong&gt; 是训练集中正确的y值，当然这个&lt;strong&gt;Loss function&lt;/strong&gt;结果越小越好&lt;/p&gt;
 &lt;p&gt;那么我们怎么找出这个对应&lt;strong&gt;Loss function&lt;/strong&gt;结果最小的参数b,w呢？&lt;/p&gt;
 &lt;p&gt;我们可以使用&lt;strong&gt;Gradient Descent&lt;/strong&gt;来完成&lt;/p&gt;
@@ -71,21 +65,19 @@
 &gt;&lt;/h2&gt;
 
 &lt;p&gt;简单起见我们可以暂时先考虑一个参数w&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;可以通过以下步骤：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;选取一个起始点&lt;em&gt;w = w0&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;计算这个点&lt;strong&gt;L(w)&lt;strong&gt;对w的导数，导数小于0则说明函数成下降趋势，大于0则说明函数成上升趋势，因为我们需要找出最小的&lt;/strong&gt;L(w)&lt;/strong&gt;，所以可以根据导数的正负来更新w0，例如下图选取点为w1（注：参数η为关系变化快慢的参数）&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;
-&lt;/p&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;重复取新点执行步骤2，最终会得到一个局部最小值点（为什么是局部呢，因为根据导数只会选取下降的点，但是&lt;strong&gt;Linear Model&lt;/strong&gt;不用考虑这个问题，因为它没有局部最优解）&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;选取一个起始点&lt;em&gt;w = w0&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算这个点&lt;strong&gt;L(w)&lt;strong&gt;对w的导数，导数小于0则说明函数成下降趋势，大于0则说明函数成上升趋势，因为我们需要找出最小的&lt;/strong&gt;L(w)&lt;/strong&gt;，所以可以根据导数的正负来更新w0，例如下图选取点为w1（注：参数η为关系变化快慢的参数）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重复取新点执行步骤2，最终会得到一个局部最小值点（为什么是局部呢，因为根据导数只会选取下降的点，但是&lt;strong&gt;Linear Model&lt;/strong&gt;不用考虑这个问题，因为它没有局部最优解）&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;学会一维后，其实二维也大同小异：&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;最终移动方向其实为法线方向&lt;/p&gt;
 
 
@@ -95,23 +87,15 @@
 &gt;&lt;/h2&gt;
 
 &lt;p&gt;通过上诉步骤我们可以得到一个上诉模型的最优解&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;我们可以计算每个训练数据的差值，并算出一个总差值train e&lt;/p&gt;
 &lt;p&gt;再算出测试数据集中数据的差值，并算出一个总差值test e&lt;/p&gt;
 &lt;p&gt;那么我们怎么获取到更准确的function呢？&lt;/p&gt;
 &lt;p&gt;我们需要重新找出更适合的model，再从Step1一步一步执行,比如&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;当然我们也可以到Xcp的三次方，四次方等等，最终可以得到以下数据&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;右图分别为对应训练集和测试集上的误差&lt;/p&gt;
 &lt;p&gt;可以发现四次方，五次方已经出现了&lt;strong&gt;over fitting&lt;/strong&gt;的情况&lt;/p&gt;
 &lt;p&gt;那么我们怎么解决这种情况呢？&lt;/p&gt;
 &lt;p&gt;可以回到Step 2进行Regularization&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;可以在Loss Function后面增加一部分来使曲线尽可能的平滑，其中参数可调&lt;/p&gt;
 </description></item><item>
             <title>ChatGPT原理剖析</title>
@@ -132,8 +116,6 @@
 &gt;&lt;/h2&gt;
 
 &lt;p&gt;根据用户的输入来获取一个概率图表，从这个图表中选择一个字（这个字可能并不是概率最高的那一个）&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;用一个例子来说明，比如用户输入&lt;strong&gt;什么是机器学习&lt;/strong&gt;，那么程序会结合这个字符串来计算一个概率表，以这个概率表来输出下一个字。&lt;/p&gt;
 &lt;p&gt;那么如果用户下一次输入直接输入&lt;strong&gt;你回答的不够详细，请具体说明&lt;/strong&gt;，那么程序会将之前的输入和新输入的字符串结合来算出新的概率表，再通过相同的流程来输出下一个字，类似于一种文字接龙。&lt;/p&gt;
 
@@ -156,8 +138,6 @@
 &lt;/p&gt;
 &lt;p&gt;例如这样一个例子，数据集中有世界第一高峰是喜马拉雅山这句话，那么当之后有人问这个问题时，GPT就会回答这个问题喜马拉雅山。&lt;/p&gt;
 &lt;p&gt;经过预训练后会有一种现象：&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;我们可以看到经过一百多种语言的预训练之后，即使只完成了英文问答的训练，没有完成中文问答的训练，他最后在中文问答测试上的准确率和&lt;strong&gt;没有经过预训练，而通过中文问答训练&lt;/strong&gt;的最终准确率相差不大。&lt;/p&gt;
 
 
@@ -167,8 +147,6 @@
 &gt;&lt;/h3&gt;
 
 &lt;p&gt;人类再给GPT数据集之外的一些问题答案，给GPT加以训练&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;GPT经过督导式学习后就变成了ChatGPT&lt;/p&gt;
 
 
@@ -177,8 +155,6 @@
         &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
 &gt;&lt;/h3&gt;
 
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;ChatGPT在督导式学习的基础上还会进行增强式学习，这种学习不需要人类直接给出问题的答案。&lt;/p&gt;
 &lt;p&gt;比如上面这个例子，用户问&lt;strong&gt;请帮我赞美AI&lt;/strong&gt;这个问题，由ChatGPT进行回答，人类只需要对这个问题的答案进行打分来评价回答的好与坏，让ChatGPT自己调整即可。&lt;/p&gt;
 
@@ -196,12 +172,8 @@
 &gt;&lt;/h3&gt;
 
 &lt;p&gt;举一个例子：&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;如果只是单纯的跟ChatGPT对话，“我今天工作很累”，那么它并不会像人一样和你聊天。&lt;/p&gt;
 &lt;p&gt;我们必须对他进行催眠（Prompting)，精确到具体场景：&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 &lt;p&gt;这样才可以完成自己想要的对话。&lt;/p&gt;
 
 
@@ -231,8 +203,6 @@
 
 &lt;p&gt;早期GPT的数据集可能是直接从网上爬取的各种文件，那么会不会爬取到机要领域呢。&lt;/p&gt;
 &lt;p&gt;比如说GPT-2：&lt;/p&gt;
-&lt;p&gt;
-&lt;/p&gt;
 </description></item><item>
             <title>Activity的生命周期和启动模式</title>
             <link>https://nkj-666.github.io/2022/04/15/activity%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F.html/</link>

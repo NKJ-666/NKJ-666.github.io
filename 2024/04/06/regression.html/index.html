@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Regression" />
 <meta property="og:description" content="Regression" />
-<meta property="og:url" content="https://nkj-666.github.io/2024/04/06/regression.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/06/regression.html/" /><meta property="article:published_time" content="2024-04-06T17:47:53&#43;08:00" /><meta property="article:modified_time" content="2024-04-06T19:45:05&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta property="og:url" content="https://nkj-666.github.io/2024/04/06/regression.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/06/regression.html/" /><meta property="article:published_time" content="2024-04-06T17:47:53&#43;08:00" /><meta property="article:modified_time" content="2024-07-04T15:08:30&#43;08:00" /><meta name="theme-color" content="#dd6065" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="Regression - Kevier Blog" />
 <meta name="apple-mobile-web-app-status-bar-style" content="white" />
@@ -29,8 +29,8 @@
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/nkj-666.github.io\/2024\/04\/06\/regression.html\/"
-  },"genre": "posts","keywords": "Machine Learning","wordcount": 875 ,
-  "url": "https:\/\/nkj-666.github.io\/2024\/04\/06\/regression.html\/","datePublished": "2024-04-06T17:47:53\u002b08:00","dateModified": "2024-04-06T19:45:05\u002b08:00","author": {
+  },"genre": "posts","keywords": "Machine Learning","wordcount": 865 ,
+  "url": "https:\/\/nkj-666.github.io\/2024\/04\/06\/regression.html\/","datePublished": "2024-04-06T17:47:53\u002b08:00","dateModified": "2024-07-04T15:08:30\u002b08:00","author": {
     "@type": "Person",
     "name": "Ice-Hazymoon"
   },"description": ""
@@ -111,12 +111,19 @@
                     title="Published in 06 Apr 2024 17:47:53"datetime="2024-04-06T17:47:53+08:00">06 Apr 2024</time
                 >
             </span>
-        </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+        </div><span class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
+                    <i class="eva eva-edit-2-outline mr-1"></i>
+                    <span>
+                        <time
+                            title="Last modified on: 04 Jul 2024 15:08:30"datetime="2024-07-04T15:08:30+08:00">04 Jul 2024</time
+                        >
+                    </span>
+                </span><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-flag-outline mr-1"></i>
                 <span>2 mins read</span>
             </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-bar-chart-outline mr-1"></i>
-                <span>875 words</span>
+                <span>865 words</span>
             </div></div><div class="mb-3 flex items-center">
             <i class="eva eva-pricetags-outline mr-1"></i>
             <span class="mr-3">Tags</span><a href="/tags/machine-learning" title="Machine Learning" class="group mr-2 flex items-center text-sm">
@@ -155,24 +162,6 @@
         ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
 ></h2>
 
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv5q.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv5q.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv5q.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>根据宝可梦的初始cp值，type, weight, height来预测进化后的cp值</p>
 
 
@@ -191,44 +180,8 @@
 ></h2>
 
 <p>第二步我们需要找到一个数据集，这个数据集包括我们需要输入的数据以及其对应的正确输出数据</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6c.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6c.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6c.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>我们还需要找到一个评估对应参数b和参数w好坏的function：<strong>Loss function</strong></p>
 <p>普通的<strong>Loss function</strong> 为</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6i.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6i.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6i.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>其中<strong>hat y</strong> 是训练集中正确的y值，当然这个<strong>Loss function</strong>结果越小越好</p>
 <p>那么我们怎么找出这个对应<strong>Loss function</strong>结果最小的参数b,w呢？</p>
 <p>我们可以使用<strong>Gradient Descent</strong>来完成</p>
@@ -240,69 +193,19 @@
 ></h2>
 
 <p>简单起见我们可以暂时先考虑一个参数w</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6q.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6q.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6q.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>可以通过以下步骤：</p>
 <ol>
-<li>选取一个起始点<em>w = w0</em></li>
-<li>计算这个点<strong>L(w)<strong>对w的导数，导数小于0则说明函数成下降趋势，大于0则说明函数成上升趋势，因为我们需要找出最小的</strong>L(w)</strong>，所以可以根据导数的正负来更新w0，例如下图选取点为w1（注：参数η为关系变化快慢的参数）</li>
-</ol>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6r.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6r.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6r.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
-<ol start="3">
-<li>重复取新点执行步骤2，最终会得到一个局部最小值点（为什么是局部呢，因为根据导数只会选取下降的点，但是<strong>Linear Model</strong>不用考虑这个问题，因为它没有局部最优解）</li>
+<li>
+<p>选取一个起始点<em>w = w0</em></p>
+</li>
+<li>
+<p>计算这个点<strong>L(w)<strong>对w的导数，导数小于0则说明函数成下降趋势，大于0则说明函数成上升趋势，因为我们需要找出最小的</strong>L(w)</strong>，所以可以根据导数的正负来更新w0，例如下图选取点为w1（注：参数η为关系变化快慢的参数）</p>
+</li>
+<li>
+<p>重复取新点执行步骤2，最终会得到一个局部最小值点（为什么是局部呢，因为根据导数只会选取下降的点，但是<strong>Linear Model</strong>不用考虑这个问题，因为它没有局部最优解）</p>
+</li>
 </ol>
 <p>学会一维后，其实二维也大同小异：</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6y.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6y.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6y.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>最终移动方向其实为法线方向</p>
 
 
@@ -312,87 +215,15 @@
 ></h2>
 
 <p>通过上诉步骤我们可以得到一个上诉模型的最优解</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6C.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6C.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6C.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>我们可以计算每个训练数据的差值，并算出一个总差值train e</p>
 <p>再算出测试数据集中数据的差值，并算出一个总差值test e</p>
 <p>那么我们怎么获取到更准确的function呢？</p>
 <p>我们需要重新找出更适合的model，再从Step1一步一步执行,比如</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6G.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6G.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6G.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>当然我们也可以到Xcp的三次方，四次方等等，最终可以得到以下数据</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6H.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6H.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6H.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>右图分别为对应训练集和测试集上的误差</p>
 <p>可以发现四次方，五次方已经出现了<strong>over fitting</strong>的情况</p>
 <p>那么我们怎么解决这种情况呢？</p>
 <p>可以回到Step 2进行Regularization</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://i.niupic.com/images/2024/04/06/hv6I.png"
-            src="/images/outload.svg"data-alt="img"data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://i.niupic.com/images/2024/04/06/hv6I.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://i.niupic.com/images/2024/04/06/hv6I.png"alt="img"/>
-            </picture>
-        </a>
-    </noscript><figcaption>img</figcaption></figure>
-</p>
 <p>可以在Loss Function后面增加一部分来使曲线尽可能的平滑，其中参数可调</p>
 </section>
 <div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14"><a
