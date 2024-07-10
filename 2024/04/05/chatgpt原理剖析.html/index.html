@@ -6,11 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="ChatGPT原理剖析 - Kevier Blog" />
 <link href="https://nkj-666.github.io/index.xml" title="ChatGPT原理剖析 - Kevier Blog" type="application/rss+xml" rel="alternate" />
-<title>ChatGPT原理剖析 - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="ChatGPT原理剖析 - Kevier Blog" />
+<title>ChatGPT原理剖析 - Kevier Blog</title><link rel="stylesheet" href="/main.b3a6aecd0f469c014eb09ea91c6f7864b4455851e1be22ab8bb49e577581f783.css" integrity="sha256-s6auzQ9GnAFOsJ6pHG94ZLRFWFHhviKri7SeV3WB94M=" /><meta property="og:site_name" content="ChatGPT原理剖析 - Kevier Blog" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="ChatGPT原理剖析" />
 <meta property="og:description" content="ChatGPT原理剖析" />
-<meta property="og:url" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:published_time" content="2024-04-05T18:27:05&#43;08:00" /><meta property="article:modified_time" content="2024-07-04T15:07:32&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta property="og:url" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/" /><meta property="article:published_time" content="2024-04-05T18:27:05&#43;08:00" /><meta property="article:modified_time" content="2024-07-10T11:17:44&#43;08:00" /><meta name="theme-color" content="#dd6065" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-title" content="ChatGPT原理剖析 - Kevier Blog" />
 <meta name="apple-mobile-web-app-status-bar-style" content="white" />
@@ -29,8 +29,8 @@
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/"
-  },"genre": "posts","keywords": "Machine Learning","wordcount": 1089 ,
-  "url": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/","datePublished": "2024-04-05T18:27:05\u002b08:00","dateModified": "2024-07-04T15:07:32\u002b08:00","author": {
+  },"genre": "posts","keywords": "Machine Learning","wordcount": 1088 ,
+  "url": "https:\/\/nkj-666.github.io\/2024\/04\/05\/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html\/","datePublished": "2024-04-05T18:27:05\u002b08:00","dateModified": "2024-07-10T11:17:44\u002b08:00","author": {
     "@type": "Person",
     "name": "亿万克拉"
   },"description": ""
@@ -115,7 +115,7 @@
                     <i class="eva eva-edit-2-outline mr-1"></i>
                     <span>
                         <time
-                            title="Last modified on: 04 Jul 2024 15:07:32"datetime="2024-07-04T15:07:32+08:00">04 Jul 2024</time
+                            title="Last modified on: 10 Jul 2024 11:17:44"datetime="2024-07-10T11:17:44+08:00">10 Jul 2024</time
                         >
                     </span>
                 </span><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
@@ -123,7 +123,7 @@
                 <span>3 mins read</span>
             </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-bar-chart-outline mr-1"></i>
-                <span>1089 words</span>
+                <span>1088 words</span>
             </div></div><div class="mb-3 flex items-center">
             <i class="eva eva-pricetags-outline mr-1"></i>
             <span class="mr-3">Tags</span><a href="/tags/machine-learning" title="Machine Learning" class="group mr-2 flex items-center text-sm">
@@ -172,7 +172,7 @@
         ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
 ></h2>
 
-<p>根据用户的输入来获取一个概率图表，从这个图表中选择一个字（这个字可能并不是概率最高的那一个）</p>
+<p>根据用户的输入来获取一个概率图表，从这个图表中选择一个（这个字可能并不是概率最高的那一个）</p>
 <p>用一个例子来说明，比如用户输入<strong>什么是机器学习</strong>，那么程序会结合这个字符串来计算一个概率表，以这个概率表来输出下一个字。</p>
 <p>那么如果用户下一次输入直接输入<strong>你回答的不够详细，请具体说明</strong>，那么程序会将之前的输入和新输入的字符串结合来算出新的概率表，再通过相同的流程来输出下一个字，类似于一种文字接龙。</p>
 
@@ -425,14 +425,14 @@ window.__theme = {
         }
     },creatTime: "2021\/12\/12"}
 </script>
-<script type="text/javascript" src="/ts/main.1f7accfe243b98c78d4e4dd412caf872a0bc99d72fa4ed9b8bdf02db3f739896.js" defer integrity="sha256-H3rM/iQ7mMeNTk3UEsr4cqC8mdcvpO2bi98C2z9zmJY="></script><script>
+<script type="text/javascript" src="/ts/main.fa21df0bbd468c9a44ce58f9a10714084879339aac43b5cae9c239cc16174675.js" defer integrity="sha256-&#43;iHfC71GjJpEzlj5oQcUCEh5M5qsQ7XK6cI5zBYXRnU="></script><script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('\/sw.js');
         });
     }
 </script>
-<script type="text/javascript" src="/translate-google.ecd37c3cc8f7e1b08910201dd0d9fc3e5f4b1395fb8ebead3141b931f036f777.js" defer integrity="sha256-7NN8PMj34bCJECAd0Nn8Pl9LE5X7jr6tMUG5MfA293c="></script><script type="text/javascript">
+<script type="text/javascript" src="/translate-google.ad39ff7276d4f89b927627a918cace8600e2973c29bc6e7e3b5bd383012ca009.js" defer integrity="sha256-rTn/cnbU&#43;JuSdiepGMrOhgDilzwpvG5&#43;O1vTgwEsoAk="></script><script type="text/javascript">
     window.translateelement_styles = "\/sass\/translateelement.min.c65796c6c3e4d48c75f72776948be83c5c448d1c5cc466b996b00657c558d28a.css";
     function googleTranslateElementInit(){
         new google.translate.TranslateElement({

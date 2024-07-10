@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="Android 事件分发 - Kevier Blog" />
 <link href="https://nkj-666.github.io/index.xml" title="Android 事件分发 - Kevier Blog" type="application/rss+xml" rel="alternate" />
-<title>Android 事件分发 - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="Android 事件分发 - Kevier Blog" />
+<title>Android 事件分发 - Kevier Blog</title><link rel="stylesheet" href="/main.b3a6aecd0f469c014eb09ea91c6f7864b4455851e1be22ab8bb49e577581f783.css" integrity="sha256-s6auzQ9GnAFOsJ6pHG94ZLRFWFHhviKri7SeV3WB94M=" /><meta property="og:site_name" content="Android 事件分发 - Kevier Blog" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Android 事件分发" />
 <meta property="og:description" content="Android 事件分发" />
@@ -156,7 +156,7 @@
         </aside><div class="border-b bg-blue-100 bg-opacity-20 p-6 dark:border-darkBorder dark:bg-darkBg md:px-10">
             <time
                 datetime="2023-04-07T17:17:24+08:00"
-                >最後更新日は :<span class="mx-1 font-bold">453</span> 日前，記事の内容が古い可能性があります。</time
+                >最後更新日は :<span class="mx-1 font-bold">459</span> 日前，記事の内容が古い可能性があります。</time
             >
         </div><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="高速な読み取り" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
             ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
@@ -224,13 +224,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>VelocityTracker velocitytracker <span style="color:#ff79c6">=</span> VelocityTracker<span style="color:#ff79c6">.</span><span style="color:#50fa7b">obtain</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>velocityTracker<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addMovement</span><span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>velocityTracker<span style="color:#ff79c6">.</span><span style="color:#50fa7b">computeCurrentVelocity</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1000</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> xVelocity <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">)</span> velocityTracker<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getXVelocity</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> yVelocity <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span><span style="color:#ff79c6">)</span> velocityTracker<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getYVelocity</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>velocityTracker<span style="color:#ff79c6">.</span><span style="color:#50fa7b">clear</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>velocityTracker<span style="color:#ff79c6">.</span><span style="color:#50fa7b">recycle</span><span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>VelocityTracker velocitytracker <span style="color:#ff79c6">=</span> VelocityTracker.<span style="color:#50fa7b">obtain</span>();
+</span></span><span style="display:flex;"><span>velocityTracker.<span style="color:#50fa7b">addMovement</span>(event);
+</span></span><span style="display:flex;"><span>velocityTracker.<span style="color:#50fa7b">computeCurrentVelocity</span>(1000);
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> xVelocity <span style="color:#ff79c6">=</span> (<span style="color:#8be9fd">int</span>) velocityTracker.<span style="color:#50fa7b">getXVelocity</span>();
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> yVelocity <span style="color:#ff79c6">=</span> (<span style="color:#8be9fd">int</span>) velocityTracker.<span style="color:#50fa7b">getYVelocity</span>();
+</span></span><span style="display:flex;"><span>velocityTracker.<span style="color:#50fa7b">clear</span>();
+</span></span><span style="display:flex;"><span>velocityTracker.<span style="color:#50fa7b">recycle</span>();
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在获取速度之前必须调用<code>computeCurrentVelocity</code>方法计算速度，可以用：速度 = （终点位置 - 起点位置） / 时间段 来表示，并且<code>computeCurrentVelocity</code>中的参数单位为毫秒。</p>
@@ -251,8 +251,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">boolean</span> consume <span style="color:#ff79c6">=</span> mGestureDetector<span style="color:#ff79c6">.</span><span style="color:#50fa7b">onTouchEvent</span><span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">return</span> consume<span style="color:#ff79c6">;</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">boolean</span> consume <span style="color:#ff79c6">=</span> mGestureDetector.<span style="color:#50fa7b">onTouchEvent</span>(event);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">return</span> consume;
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -311,13 +311,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">dispatchTouchEvent</span><span style="color:#ff79c6">(</span>MotionEvent ev<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>getWindow<span style="color:#ff79c6">().</span><span style="color:#50fa7b">superDispatchTouchEvent</span><span style="color:#ff79c6">(</span>ev<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> onTouchEvent<span style="color:#ff79c6">(</span>ev<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">dispatchTouchEvent</span>(MotionEvent ev) {
+</span></span><span style="display:flex;"><span>	...
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> (getWindow().<span style="color:#50fa7b">superDispatchTouchEvent</span>(ev)) {
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> onTouchEvent(ev);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>可以发现在<code>Activity</code>的这个方法中调用了<code>Window.superDispatchTouchEvent</code>方法，而<code>window</code>对象的实现类是<code>PhoneWindow</code>，所以事件其实分发给了<code>phoneWindow</code>,查看这个文件中的<code>superDispatchTouchEvnet</code>方法：</p>
@@ -329,10 +329,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> DecorView mDecor<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">superDispatchTouchEvent</span><span style="color:#ff79c6">(</span>MotionEvent event<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> mDecor<span style="color:#ff79c6">.</span><span style="color:#50fa7b">superDispatchTouchEvent</span><span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> DecorView mDecor;
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">superDispatchTouchEvent</span>(MotionEvent event) {
+</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> mDecor.<span style="color:#50fa7b">superDispatchTouchEvent</span>(event);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>发现又将事件传递给了顶层<code>view</code>-<code>decorView</code>,而<code>DecorView</code>是一个<code>FrameLayout</code>,也就是一个<code>viewGroup</code>，也就是将事件传递到了<code>viewGroup</code>的<code>dispatchTouchEvent</code>中，如果这个<code>viewGroup</code>拦截事件则<code>onInterceptTouchEvent</code>返回<code>true</code>，事件由<code>viewGroup</code>处理，如果<code>viewGroup</code>的<code>mOnTouchListener</code>被设置则<code>onTouch</code>会被调用，否则<code>onTouchEvent</code>会被调用，如果都提供的话，那么<code>onTouch</code>会覆盖<code>onTouchEvent</code>,<code>onTouchEvent</code>中如果设置了<code>mOnClickListener</code>则<code>onClick</code>会被调用，如果顶级<code>viewGroup</code>不拦截事件，则事件会传递给他的子<code>view</code>,这时子<code>view</code>的<code>dispatchTouchEvent</code>会被调用，也就和上面的过程一样了</p>
@@ -353,18 +353,18 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">boolean</span> intercepted<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>actionMasked <span style="color:#ff79c6">==</span> MotionEvent<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ACTION_DOWN</span> <span style="color:#ff79c6">||</span> mFirstTouchTarget <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">boolean</span> disallowIntercept <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>mGroupFlags <span style="color:#ff79c6">&amp;</span> FLAG_DISALLOW_INTERCEPT<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>disallowIntercept<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    intercepted <span style="color:#ff79c6">=</span> onInterceptTouchEvent<span style="color:#ff79c6">(</span>ev<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>                    ev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setAction</span><span style="color:#ff79c6">(</span>action<span style="color:#ff79c6">);</span> 
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    intercepted <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                intercepted <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">boolean</span> intercepted;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (actionMasked <span style="color:#ff79c6">==</span> MotionEvent.<span style="color:#50fa7b">ACTION_DOWN</span> <span style="color:#ff79c6">||</span> mFirstTouchTarget <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">boolean</span> disallowIntercept <span style="color:#ff79c6">=</span> (mGroupFlags <span style="color:#ff79c6">&amp;</span> FLAG_DISALLOW_INTERCEPT) <span style="color:#ff79c6">!=</span> 0;
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>disallowIntercept) {
+</span></span><span style="display:flex;"><span>                    intercepted <span style="color:#ff79c6">=</span> onInterceptTouchEvent(ev);
+</span></span><span style="display:flex;"><span>                    ev.<span style="color:#50fa7b">setAction</span>(action); 
+</span></span><span style="display:flex;"><span>                } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>                    intercepted <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>                intercepted <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>            }
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中<code>mFirstTouchTarget</code>是对消耗的<code>view</code>的一个链表形式的保存，如果事件由当前<code>viewGroup</code>拦截时那么<code>mFirstTouchTarget</code>就为空，如果传递给子<code>view</code>并交由子元素拦截时那么<code>mFirstTouchTarget</code>就指向子元素</p>
@@ -377,10 +377,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>actionMasked <span style="color:#ff79c6">==</span> MotionEvent<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ACTION_DOWN</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    cancelAndClearTouchTargets<span style="color:#ff79c6">(</span>ev<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    resetTouchState<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (actionMasked <span style="color:#ff79c6">==</span> MotionEvent.<span style="color:#50fa7b">ACTION_DOWN</span>) {
+</span></span><span style="display:flex;"><span>    cancelAndClearTouchTargets(ev);
+</span></span><span style="display:flex;"><span>    resetTouchState();
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>从这一段代码的<code>resetTouchState</code>方法重置标志位，通过上面的代码可以发现，当<code>viewGroup</code>决定拦截事件后，那么之后的点击事件都会默认交给他来处理，而不会调用<code>onInterceptTouchEvent</code>方法</p>
@@ -436,53 +436,53 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> View<span style="color:#ff79c6">[]</span> children <span style="color:#ff79c6">=</span> mChildren<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> childrenCount <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span><span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&gt;=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">--)</span> <span style="color:#ff79c6">{</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> View<span style="color:#ff79c6">[]</span> children <span style="color:#ff79c6">=</span> mChildren;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> childrenCount <span style="color:#ff79c6">-</span> 1; i <span style="color:#ff79c6">&gt;=</span> 0; i<span style="color:#ff79c6">--</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childIndex <span style="color:#ff79c6">=</span> customOrder
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">?</span> getChildDrawingOrder<span style="color:#ff79c6">(</span>childrenCount<span style="color:#ff79c6">,</span> i<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">:</span> i<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> View child <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>preorderedList <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">?</span> children<span style="color:#ff79c6">[</span>childIndex<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">:</span> preorderedList<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>childIndex<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">?</span> getChildDrawingOrder(childrenCount, i) : i;
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> View child <span style="color:#ff79c6">=</span> (preorderedList <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">?</span> children<span style="color:#ff79c6">[</span>childIndex<span style="color:#ff79c6">]</span> : preorderedList.<span style="color:#50fa7b">get</span>(childIndex);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>childWithAccessibilityFocus <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>childWithAccessibilityFocus <span style="color:#ff79c6">!=</span> child<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">continue</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        childWithAccessibilityFocus <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        i <span style="color:#ff79c6">=</span> childrenCount <span style="color:#ff79c6">-</span> <span style="color:#bd93f9">1</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (childWithAccessibilityFocus <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (childWithAccessibilityFocus <span style="color:#ff79c6">!=</span> child) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">continue</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        childWithAccessibilityFocus <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">null</span>;
+</span></span><span style="display:flex;"><span>        i <span style="color:#ff79c6">=</span> childrenCount <span style="color:#ff79c6">-</span> 1;
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>canViewReceivePointerEvents<span style="color:#ff79c6">(</span>child<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">!</span>isTransformedTouchPointInView<span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">,</span> y<span style="color:#ff79c6">,</span> child<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        ev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setTargetAccessibilityFocus</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">false</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">continue</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>canViewReceivePointerEvents(child)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">!</span>isTransformedTouchPointInView(x, y, child, <span style="color:#ff79c6">null</span>)) {
+</span></span><span style="display:flex;"><span>        ev.<span style="color:#50fa7b">setTargetAccessibilityFocus</span>(<span style="color:#ff79c6">false</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">continue</span>;
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    newTouchTarget <span style="color:#ff79c6">=</span> getTouchTarget<span style="color:#ff79c6">(</span>child<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>newTouchTarget <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        newTouchTarget<span style="color:#ff79c6">.</span><span style="color:#50fa7b">pointerIdBits</span> <span style="color:#ff79c6">|=</span> idBitsToAssign<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    newTouchTarget <span style="color:#ff79c6">=</span> getTouchTarget(child);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (newTouchTarget <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>        newTouchTarget.<span style="color:#50fa7b">pointerIdBits</span> <span style="color:#ff79c6">|=</span> idBitsToAssign;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    resetCancelNextUpFlag<span style="color:#ff79c6">(</span>child<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>dispatchTransformedTouchEvent<span style="color:#ff79c6">(</span>ev<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">,</span> child<span style="color:#ff79c6">,</span> idBitsToAssign<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        mLastTouchDownTime <span style="color:#ff79c6">=</span> ev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getDownTime</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>preorderedList <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> j <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">;</span> j <span style="color:#ff79c6">&lt;</span> childrenCount<span style="color:#ff79c6">;</span> j<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>children<span style="color:#ff79c6">[</span>childIndex<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">==</span> mChildren<span style="color:#ff79c6">[</span>j<span style="color:#ff79c6">])</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    mLastTouchDownIndex <span style="color:#ff79c6">=</span> j<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            mLastTouchDownIndex <span style="color:#ff79c6">=</span> childIndex<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        mLastTouchDownX <span style="color:#ff79c6">=</span> ev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getX</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>        mLastTouchDownY <span style="color:#ff79c6">=</span> ev<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getY</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>        newTouchTarget <span style="color:#ff79c6">=</span> addTouchTarget<span style="color:#ff79c6">(</span>child<span style="color:#ff79c6">,</span> idBitsToAssign<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        alreadyDispatchedToNewTouchTarget <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    resetCancelNextUpFlag(child);
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (dispatchTransformedTouchEvent(ev, <span style="color:#ff79c6">false</span>, child, idBitsToAssign)) {
+</span></span><span style="display:flex;"><span>        mLastTouchDownTime <span style="color:#ff79c6">=</span> ev.<span style="color:#50fa7b">getDownTime</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (preorderedList <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> j <span style="color:#ff79c6">=</span> 0; j <span style="color:#ff79c6">&lt;</span> childrenCount; j<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> (children<span style="color:#ff79c6">[</span>childIndex<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">==</span> mChildren<span style="color:#ff79c6">[</span>j<span style="color:#ff79c6">]</span>) {
+</span></span><span style="display:flex;"><span>                    mLastTouchDownIndex <span style="color:#ff79c6">=</span> j;
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>            mLastTouchDownIndex <span style="color:#ff79c6">=</span> childIndex;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        mLastTouchDownX <span style="color:#ff79c6">=</span> ev.<span style="color:#50fa7b">getX</span>();
+</span></span><span style="display:flex;"><span>        mLastTouchDownY <span style="color:#ff79c6">=</span> ev.<span style="color:#50fa7b">getY</span>();
+</span></span><span style="display:flex;"><span>        newTouchTarget <span style="color:#ff79c6">=</span> addTouchTarget(child, idBitsToAssign);
+</span></span><span style="display:flex;"><span>        alreadyDispatchedToNewTouchTarget <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>遍历所有子元素，判断子元素能否接收到点击事件，在<code>dispatchTransformedTouchEvent</code>中调用的是子元素的<code>dispatchTouchEvent</code>，在他的内部有下面一段代码：</p>
@@ -495,11 +495,11 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>child <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">){</span>
-</span></span><span style="display:flex;"><span>    handled <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">super</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">dispatchTouchEvent</span><span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    handled <span style="color:#ff79c6">=</span> child<span style="color:#ff79c6">.</span><span style="color:#50fa7b">dispatchTouchEvent</span><span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (child <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span>){
+</span></span><span style="display:flex;"><span>    handled <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">super</span>.<span style="color:#50fa7b">dispatchTouchEvent</span>(event);
+</span></span><span style="display:flex;"><span>} <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>    handled <span style="color:#ff79c6">=</span> child.<span style="color:#50fa7b">dispatchTouchEvent</span>(event);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>而上面传入的<code>child</code>不是<code>null</code>，所以会调用子元素的<code>dispatchTouchEvent</code>，如果子元素的这个方法返回<code>true</code>那么<code>mFirstTouchEvent</code>就会呗赋值同时跳出<code>for</code>循环，</p>
@@ -510,9 +510,9 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>newTouchTarget <span style="color:#ff79c6">=</span> addTouchTarget<span style="color:#ff79c6">(</span>child<span style="color:#ff79c6">,</span> idBitsToAssign<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>alreadyDispatchedToNewTouchTarget <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>newTouchTarget <span style="color:#ff79c6">=</span> addTouchTarget(child, idBitsToAssign);
+</span></span><span style="display:flex;"><span>alreadyDispatchedToNewTouchTarget <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">break</span>;
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中<code>mFirstTouchEvent</code>的赋值过程在<code>addTouchTarget</code>方法中</p>
@@ -526,12 +526,12 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> TouchTarget <span style="color:#50fa7b">addTouchTarget</span><span style="color:#ff79c6">(</span>View child<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> pointerIdBits<span style="color:#ff79c6">){</span>
-</span></span><span style="display:flex;"><span>    TouchTarget target <span style="color:#ff79c6">=</span> TouchTarget<span style="color:#ff79c6">.</span><span style="color:#50fa7b">obtain</span><span style="color:#ff79c6">(</span>child<span style="color:#ff79c6">,</span> pointerIdBits<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    target<span style="color:#ff79c6">.</span><span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mFirstTouchTarget<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    mFirstTouchTarget <span style="color:#ff79c6">=</span> target<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> target<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> TouchTarget <span style="color:#50fa7b">addTouchTarget</span>(View child, <span style="color:#8be9fd">int</span> pointerIdBits){
+</span></span><span style="display:flex;"><span>    TouchTarget target <span style="color:#ff79c6">=</span> TouchTarget.<span style="color:#50fa7b">obtain</span>(child, pointerIdBits);
+</span></span><span style="display:flex;"><span>    target.<span style="color:#50fa7b">next</span> <span style="color:#ff79c6">=</span> mFirstTouchTarget;
+</span></span><span style="display:flex;"><span>    mFirstTouchTarget <span style="color:#ff79c6">=</span> target;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> target;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果遍历所有的子元素后事件没有被处理，那么<code>viewGroup</code>会自己处理点击事件，从上面的源码就可以得出这个结论</p>
@@ -543,10 +543,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>mFirstTouchTarget <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    handled <span style="color:#ff79c6">=</span> dispatchTransformedTouchEvent<span style="color:#ff79c6">(</span>ev<span style="color:#ff79c6">,</span> canceled<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span>        TouchTarget<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ALL_POINTER_IDS</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span> 
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (mFirstTouchTarget <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>    handled <span style="color:#ff79c6">=</span> dispatchTransformedTouchEvent(ev, canceled, <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        TouchTarget.<span style="color:#50fa7b">ALL_POINTER_IDS</span>);
+</span></span><span style="display:flex;"><span>} 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>第三个参数为<code>null</code>也就是调用<code>super.dispatchTouchEvent</code>,也就是交由<code>view</code>来处理。</p>
@@ -585,29 +585,29 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">dispatchTouchEvent</span><span style="color:#ff79c6">(</span>MotionEvent event<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>mInputEventConsistencyVerifier <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            mInputEventConsistencyVerifier<span style="color:#ff79c6">.</span><span style="color:#50fa7b">onTouchEvent</span><span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">,</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">dispatchTouchEvent</span>(MotionEvent event) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (mInputEventConsistencyVerifier <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>            mInputEventConsistencyVerifier.<span style="color:#50fa7b">onTouchEvent</span>(event, 0);
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>onFilterTouchEventForSecurity<span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//noinspection SimplifiableIfStatement
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            ListenerInfo li <span style="color:#ff79c6">=</span> mListenerInfo<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>li <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> li<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mOnTouchListener</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">(</span>mViewFlags <span style="color:#ff79c6">&amp;</span> ENABLED_MASK<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> ENABLED
-</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&amp;&amp;</span> li<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mOnTouchListener</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">onTouch</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">,</span> event<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (onFilterTouchEventForSecurity(event)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//noinspection SimplifiableIfStatement</span>
+</span></span><span style="display:flex;"><span>            ListenerInfo li <span style="color:#ff79c6">=</span> mListenerInfo;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (li <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> li.<span style="color:#50fa7b">mOnTouchListener</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> (mViewFlags <span style="color:#ff79c6">&amp;</span> ENABLED_MASK) <span style="color:#ff79c6">==</span> ENABLED
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&amp;&amp;</span> li.<span style="color:#50fa7b">mOnTouchListener</span>.<span style="color:#50fa7b">onTouch</span>(<span style="color:#ff79c6">this</span>, event)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>onTouchEvent<span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (onTouchEvent(event)) {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>mInputEventConsistencyVerifier <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            mInputEventConsistencyVerifier<span style="color:#ff79c6">.</span><span style="color:#50fa7b">onUnhandledEvent</span><span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">,</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (mInputEventConsistencyVerifier <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>            mInputEventConsistencyVerifier.<span style="color:#50fa7b">onUnhandledEvent</span>(event, 0);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>分析上面源码，发现会先判断有没有设置<code>onTouchListener</code>，如果其中的<code>onTouch</code>方法返回<code>true</code>，那么<code>onTouchEvent</code>就不会调用，从这可以发现<code>onTouchListener</code>的优先级高于<code>onTouchEvent</code></p>
@@ -625,15 +625,15 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">((</span>viewFlags <span style="color:#ff79c6">&amp;</span> ENABLED_MASK<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> DISABLED<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAction</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">==</span> MotionEvent<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ACTION_UP</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">(</span>mPrivateFlags <span style="color:#ff79c6">&amp;</span> PFLAG_PRESSED<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        setPressed<span style="color:#ff79c6">(</span><span style="color:#ff79c6">false</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// A disabled view that is clickable still consumes the touch
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// events, it just doesn&#39;t respond to them.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">(((</span>viewFlags <span style="color:#ff79c6">&amp;</span> CLICKABLE<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> CLICKABLE <span style="color:#ff79c6">||</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">(</span>viewFlags <span style="color:#ff79c6">&amp;</span> LONG_CLICKABLE<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> LONG_CLICKABLE<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> ((viewFlags <span style="color:#ff79c6">&amp;</span> ENABLED_MASK) <span style="color:#ff79c6">==</span> DISABLED) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (event.<span style="color:#50fa7b">getAction</span>() <span style="color:#ff79c6">==</span> MotionEvent.<span style="color:#50fa7b">ACTION_UP</span> <span style="color:#ff79c6">&amp;&amp;</span> (mPrivateFlags <span style="color:#ff79c6">&amp;</span> PFLAG_PRESSED) <span style="color:#ff79c6">!=</span> 0) {
+</span></span><span style="display:flex;"><span>        setPressed(<span style="color:#ff79c6">false</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// A disabled view that is clickable still consumes the touch</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// events, it just doesn&#39;t respond to them.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> (((viewFlags <span style="color:#ff79c6">&amp;</span> CLICKABLE) <span style="color:#ff79c6">==</span> CLICKABLE <span style="color:#ff79c6">||</span>
+</span></span><span style="display:flex;"><span>            (viewFlags <span style="color:#ff79c6">&amp;</span> LONG_CLICKABLE) <span style="color:#ff79c6">==</span> LONG_CLICKABLE));
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>可以发现，即使<code>view</code>的状态不可用，仍然会消耗点击事件，下面看<code>onTouchEvent</code>中对点击事件的具体处理</p>
@@ -669,34 +669,34 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(((</span>viewFlags <span style="color:#ff79c6">&amp;</span> CLICKABLE<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> CLICKABLE <span style="color:#ff79c6">||</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">(</span>viewFlags <span style="color:#ff79c6">&amp;</span> LONG_CLICKABLE<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> LONG_CLICKABLE<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">switch</span> <span style="color:#ff79c6">(</span>event<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAction</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">case</span> MotionEvent<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ACTION_UP</span><span style="color:#ff79c6">:</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">boolean</span> prepressed <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>mPrivateFlags <span style="color:#ff79c6">&amp;</span> PFLAG_PREPRESSED<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>mHasPerformedLongPress<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// This is a tap, so remove the longpress check
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                removeLongPressCallback<span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (((viewFlags <span style="color:#ff79c6">&amp;</span> CLICKABLE) <span style="color:#ff79c6">==</span> CLICKABLE <span style="color:#ff79c6">||</span>
+</span></span><span style="display:flex;"><span>        (viewFlags <span style="color:#ff79c6">&amp;</span> LONG_CLICKABLE) <span style="color:#ff79c6">==</span> LONG_CLICKABLE)) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">switch</span> (event.<span style="color:#50fa7b">getAction</span>()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">case</span> MotionEvent.<span style="color:#50fa7b">ACTION_UP</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">boolean</span> prepressed <span style="color:#ff79c6">=</span> (mPrivateFlags <span style="color:#ff79c6">&amp;</span> PFLAG_PREPRESSED) <span style="color:#ff79c6">!=</span> 0;
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>mHasPerformedLongPress) {
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// This is a tap, so remove the longpress check</span>
+</span></span><span style="display:flex;"><span>                removeLongPressCallback();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// Only perform take click actions if we were in the pressed state
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>focusTaken<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">// Use a Runnable and post this rather than calling
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                    <span style="color:#6272a4">// performClick directly. This lets other visual state
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                    <span style="color:#6272a4">// of the view update before click actions start.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>mPerformClick <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                        mPerformClick <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PerformClick<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>post<span style="color:#ff79c6">(</span>mPerformClick<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                        performClick<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// Only perform take click actions if we were in the pressed state</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>focusTaken) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">// Use a Runnable and post this rather than calling</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">// performClick directly. This lets other visual state</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">// of the view update before click actions start.</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">if</span> (mPerformClick <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>                        mPerformClick <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> PerformClick();
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>post(mPerformClick)) {
+</span></span><span style="display:flex;"><span>                        performClick();
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>从这一段代码可以看出来，<code>view</code>的<code>CLICKABLE</code>和<code>LONG_CLICKABLE</code>有一个为true，那么事件就会被消耗，如果<code>view</code>设置了<code>onClickListener</code>那么<code>performClick</code>就会被调用，就会在他内部调用<code>onclick</code>方法</p>
@@ -716,18 +716,18 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">performClick</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        sendAccessibilityEvent<span style="color:#ff79c6">(</span>AccessibilityEvent<span style="color:#ff79c6">.</span><span style="color:#50fa7b">TYPE_VIEW_CLICKED</span><span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">performClick</span>() {
+</span></span><span style="display:flex;"><span>        sendAccessibilityEvent(AccessibilityEvent.<span style="color:#50fa7b">TYPE_VIEW_CLICKED</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        ListenerInfo li <span style="color:#ff79c6">=</span> mListenerInfo<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>li <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> li<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mOnClickListener</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            playSoundEffect<span style="color:#ff79c6">(</span>SoundEffectConstants<span style="color:#ff79c6">.</span><span style="color:#50fa7b">CLICK</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>            li<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mOnClickListener</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">onClick</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        ListenerInfo li <span style="color:#ff79c6">=</span> mListenerInfo;
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (li <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> li.<span style="color:#50fa7b">mOnClickListener</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
+</span></span><span style="display:flex;"><span>            playSoundEffect(SoundEffectConstants.<span style="color:#50fa7b">CLICK</span>);
+</span></span><span style="display:flex;"><span>            li.<span style="color:#50fa7b">mOnClickListener</span>.<span style="color:#50fa7b">onClick</span>(<span style="color:#ff79c6">this</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>另外</p>
@@ -748,19 +748,19 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setOnClickListener</span><span style="color:#ff79c6">(</span>OnClickListener l<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>isClickable<span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            setClickable<span style="color:#ff79c6">(</span><span style="color:#ff79c6">true</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        getListenerInfo<span style="color:#ff79c6">().</span><span style="color:#50fa7b">mOnClickListener</span> <span style="color:#ff79c6">=</span> l<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setOnClickListener</span>(OnClickListener l) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>isClickable()) {
+</span></span><span style="display:flex;"><span>            setClickable(<span style="color:#ff79c6">true</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        getListenerInfo().<span style="color:#50fa7b">mOnClickListener</span> <span style="color:#ff79c6">=</span> l;
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setOnLongClickListener</span><span style="color:#ff79c6">(</span>OnLongClickListener l<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>isLongClickable<span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            setLongClickable<span style="color:#ff79c6">(</span><span style="color:#ff79c6">true</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        getListenerInfo<span style="color:#ff79c6">().</span><span style="color:#50fa7b">mOnLongClickListener</span> <span style="color:#ff79c6">=</span> l<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>  
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">setOnLongClickListener</span>(OnLongClickListener l) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>isLongClickable()) {
+</span></span><span style="display:flex;"><span>            setLongClickable(<span style="color:#ff79c6">true</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        getListenerInfo().<span style="color:#50fa7b">mOnLongClickListener</span> <span style="color:#ff79c6">=</span> l;
+</span></span><span style="display:flex;"><span>}  
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>观察这两个方法会发现设置这两个<code>listener</code>会自动将对应的属性设置为<code>true</code></p>
@@ -966,14 +966,14 @@ window.__theme = {
         }
     },creatTime: "2021\/12\/12"}
 </script>
-<script type="text/javascript" src="/ts/main.1f7accfe243b98c78d4e4dd412caf872a0bc99d72fa4ed9b8bdf02db3f739896.js" defer integrity="sha256-H3rM/iQ7mMeNTk3UEsr4cqC8mdcvpO2bi98C2z9zmJY="></script><script>
+<script type="text/javascript" src="/ts/main.fa21df0bbd468c9a44ce58f9a10714084879339aac43b5cae9c239cc16174675.js" defer integrity="sha256-&#43;iHfC71GjJpEzlj5oQcUCEh5M5qsQ7XK6cI5zBYXRnU="></script><script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('\/sw.js');
         });
     }
 </script>
-<script type="text/javascript" src="/translate-google.ecd37c3cc8f7e1b08910201dd0d9fc3e5f4b1395fb8ebead3141b931f036f777.js" defer integrity="sha256-7NN8PMj34bCJECAd0Nn8Pl9LE5X7jr6tMUG5MfA293c="></script><script type="text/javascript">
+<script type="text/javascript" src="/translate-google.ad39ff7276d4f89b927627a918cace8600e2973c29bc6e7e3b5bd383012ca009.js" defer integrity="sha256-rTn/cnbU&#43;JuSdiepGMrOhgDilzwpvG5&#43;O1vTgwEsoAk="></script><script type="text/javascript">
     window.translateelement_styles = "\/sass\/translateelement.min.c65796c6c3e4d48c75f72776948be83c5c448d1c5cc466b996b00657c558d28a.css";
     function googleTranslateElementInit(){
         new google.translate.TranslateElement({

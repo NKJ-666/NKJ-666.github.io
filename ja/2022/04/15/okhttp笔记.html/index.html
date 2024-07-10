@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="OkHttp笔记 - Kevier Blog" />
 <link href="https://nkj-666.github.io/index.xml" title="OkHttp笔记 - Kevier Blog" type="application/rss+xml" rel="alternate" />
-<title>OkHttp笔记 - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="OkHttp笔记 - Kevier Blog" />
+<title>OkHttp笔记 - Kevier Blog</title><link rel="stylesheet" href="/main.b3a6aecd0f469c014eb09ea91c6f7864b4455851e1be22ab8bb49e577581f783.css" integrity="sha256-s6auzQ9GnAFOsJ6pHG94ZLRFWFHhviKri7SeV3WB94M=" /><meta property="og:site_name" content="OkHttp笔记 - Kevier Blog" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="OkHttp笔记" />
 <meta property="og:description" content="OkHttp笔记" />
@@ -188,7 +188,7 @@
         </aside><div class="border-b bg-blue-100 bg-opacity-20 p-6 dark:border-darkBorder dark:bg-darkBg md:px-10">
             <time
                 datetime="2023-04-07T17:19:23+08:00"
-                >最後更新日は :<span class="mx-1 font-bold">453</span> 日前，記事の内容が古い可能性があります。</time
+                >最後更新日は :<span class="mx-1 font-bold">459</span> 日前，記事の内容が古い可能性があります。</time
             >
         </div><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="高速な読み取り" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
             ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
@@ -237,17 +237,17 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">run</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">run</span>(String url) <span style="color:#8be9fd;font-style:italic">throws</span> IOException {
+</span></span><span style="display:flex;"><span>  Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">url</span>(url)
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">build</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">try</span> (Response response <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request).<span style="color:#50fa7b">execute</span>()) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> response.<span style="color:#50fa7b">body</span>().<span style="color:#50fa7b">string</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>run方法下载URL并返回其内容的字符串。</p>
@@ -278,20 +278,20 @@
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> MediaType JSON
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">=</span> MediaType<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;application/json; charset=utf-8&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">=</span> MediaType.<span style="color:#50fa7b">get</span>(<span style="color:#f1fa8c">&#34;application/json; charset=utf-8&#34;</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">,</span> String json<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  RequestBody body <span style="color:#ff79c6">=</span> RequestBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>JSON<span style="color:#ff79c6">,</span> json<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>body<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span>(String url, String json) <span style="color:#8be9fd;font-style:italic">throws</span> IOException {
+</span></span><span style="display:flex;"><span>  RequestBody body <span style="color:#ff79c6">=</span> RequestBody.<span style="color:#50fa7b">create</span>(JSON, json);
+</span></span><span style="display:flex;"><span>  Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">url</span>(url)
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">post</span>(body)
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">try</span> (Response response <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request).<span style="color:#50fa7b">execute</span>()) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> response.<span style="color:#50fa7b">body</span>().<span style="color:#50fa7b">string</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>通过RequestBody的create方法，传入两个参数，第一个参数是内容类型，第二个参数是要发送的数据，创建RequestBody的实例,然后调用post方法将其传入。</p>
@@ -398,10 +398,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Call call <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">...</span> <span style="color:#6272a4">// Use the response.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Call call <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> (Response response <span style="color:#ff79c6">=</span> call.<span style="color:#50fa7b">execute</span>()) {
+</span></span><span style="display:flex;"><span>... <span style="color:#6272a4">// Use the response.</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>可以使用类似的块进行异步调用：</p>
@@ -421,18 +421,18 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Call call <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> Response response<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>ResponseBody responseBody <span style="color:#ff79c6">=</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">...</span> <span style="color:#6272a4">// Use the response.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Call call <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request);
+</span></span><span style="display:flex;"><span>call.<span style="color:#50fa7b">enqueue</span>(<span style="color:#ff79c6">new</span> Callback() {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span>(Call call, Response response) <span style="color:#8be9fd;font-style:italic">throws</span> IOException {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span> (ResponseBody responseBody <span style="color:#ff79c6">=</span> response.<span style="color:#50fa7b">body</span>()) {
+</span></span><span style="display:flex;"><span>    ... <span style="color:#6272a4">// Use the response.</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> IOException e<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span> <span style="color:#6272a4">// Handle the failure.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">});</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span>(Call call, IOException e) {
+</span></span><span style="display:flex;"><span>  ... <span style="color:#6272a4">// Handle the failure.</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>});
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果您在另一个线程上使用响应正文，这些示例将不起作用。在这种情况下，消费线程必须在完成读取响应正文后调用<a
@@ -592,10 +592,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">noCache</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">cacheControl</span>(<span style="color:#ff79c6">new</span> CacheControl.<span style="color:#50fa7b">Builder</span>().<span style="color:#50fa7b">noCache</span>().<span style="color:#50fa7b">build</span>())
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果只需要强制服务器验证缓存的响应，请改用更高效的<code>max-age=0</code>指令：</p>
@@ -609,12 +609,12 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">maxAge</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">0</span><span style="color:#ff79c6">,</span> TimeUnit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">SECONDS</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">cacheControl</span>(<span style="color:#ff79c6">new</span> CacheControl.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#50fa7b">maxAge</span>(0, TimeUnit.<span style="color:#50fa7b">SECONDS</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#50fa7b">build</span>())
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -641,18 +641,18 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">onlyIfCached</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>Response forceCacheResponse <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>forceCacheResponse<span style="color:#ff79c6">.</span><span style="color:#50fa7b">code</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">504</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// The resource was cached! Show it.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// The resource was not cached.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">cacheControl</span>(<span style="color:#ff79c6">new</span> CacheControl.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#50fa7b">onlyIfCached</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#50fa7b">build</span>())
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span>Response forceCacheResponse <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request).<span style="color:#50fa7b">execute</span>();
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> (forceCacheResponse.<span style="color:#50fa7b">code</span>() <span style="color:#ff79c6">!=</span> 504) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// The resource was cached! Show it.</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// The resource was not cached.</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在陈旧的响应比没有响应更好的情况下，这种技术更有效。要允许陈旧的缓存响应，请使用<code>max-stale</code>以秒为单位的最大陈旧程度的指令：</p>
@@ -666,12 +666,12 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">cacheControl</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> CacheControl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">maxStale</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">365</span><span style="color:#ff79c6">,</span> TimeUnit<span style="color:#ff79c6">.</span><span style="color:#50fa7b">DAYS</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">())</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">cacheControl</span>(<span style="color:#ff79c6">new</span> CacheControl.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#50fa7b">maxStale</span>(365, TimeUnit.<span style="color:#50fa7b">DAYS</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#50fa7b">build</span>())
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;http://publicobject.com/helloworld.txt&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>该<a
@@ -714,13 +714,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">scheme</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">host</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;www.google.com&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addPathSegment</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;search&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addQueryParameter</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;q&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;polar bears&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HttpUrl.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">scheme</span>(<span style="color:#f1fa8c">&#34;https&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">host</span>(<span style="color:#f1fa8c">&#34;www.google.com&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">addPathSegment</span>(<span style="color:#f1fa8c">&#34;search&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">addQueryParameter</span>(<span style="color:#f1fa8c">&#34;q&#34;</span>, <span style="color:#f1fa8c">&#34;polar bears&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span>System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(url);
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>打印：</p>
@@ -741,10 +741,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://twitter.com/search?q=cute%20%23puppies&amp;f=images&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">,</span> size <span style="color:#ff79c6">=</span> url<span style="color:#ff79c6">.</span><span style="color:#50fa7b">querySize</span><span style="color:#ff79c6">();</span> i <span style="color:#ff79c6">&lt;</span> size<span style="color:#ff79c6">;</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">.</span><span style="color:#50fa7b">queryParameterName</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;: &#34;</span> <span style="color:#ff79c6">+</span> url<span style="color:#ff79c6">.</span><span style="color:#50fa7b">queryParameterValue</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> HttpUrl.<span style="color:#50fa7b">parse</span>(<span style="color:#f1fa8c">&#34;https://twitter.com/search?q=cute%20%23puppies&amp;f=images&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0, size <span style="color:#ff79c6">=</span> url.<span style="color:#50fa7b">querySize</span>(); i <span style="color:#ff79c6">&lt;</span> size; i<span style="color:#ff79c6">++</span>) {
+</span></span><span style="display:flex;"><span>  System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(url.<span style="color:#50fa7b">queryParameterName</span>(i) <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;: &#34;</span> <span style="color:#ff79c6">+</span> url.<span style="color:#50fa7b">queryParameterValue</span>(i));
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>打印：</p>
@@ -766,9 +766,9 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl base <span style="color:#ff79c6">=</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://www.youtube.com/user/WatchTheDaily/videos&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>HttpUrl link <span style="color:#ff79c6">=</span> base<span style="color:#ff79c6">.</span><span style="color:#50fa7b">resolve</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;../../watch?v=cbP2N1BQdYc&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>link<span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl base <span style="color:#ff79c6">=</span> HttpUrl.<span style="color:#50fa7b">parse</span>(<span style="color:#f1fa8c">&#34;https://www.youtube.com/user/WatchTheDaily/videos&#34;</span>);
+</span></span><span style="display:flex;"><span>HttpUrl link <span style="color:#ff79c6">=</span> base.<span style="color:#50fa7b">resolve</span>(<span style="color:#f1fa8c">&#34;../../watch?v=cbP2N1BQdYc&#34;</span>);
+</span></span><span style="display:flex;"><span>System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(link);
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>打印：</p>
@@ -877,12 +877,12 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> HttpUrl<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;http://who-let-the-dogs.out&#34;</span><span style="color:#ff79c6">).</span><span style="color:#50fa7b">newBuilder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">addPathSegment</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;_Who?_&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">query</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;_Who?_&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">fragment</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;_Who?_&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>HttpUrl url <span style="color:#ff79c6">=</span> HttpUrl.<span style="color:#50fa7b">parse</span>(<span style="color:#f1fa8c">&#34;http://who-let-the-dogs.out&#34;</span>).<span style="color:#50fa7b">newBuilder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">addPathSegment</span>(<span style="color:#f1fa8c">&#34;_Who?_&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">query</span>(<span style="color:#f1fa8c">&#34;_Who?_&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">fragment</span>(<span style="color:#f1fa8c">&#34;_Who?_&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span>System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(url);
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这打印：</p>
@@ -1047,36 +1047,36 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">PrintingEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">long</span> callStartNanos<span style="color:#ff79c6">;</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">PrintingEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">long</span> callStartNanos;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printEvent</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> nowNanos <span style="color:#ff79c6">=</span> System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">nanoTime</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">.</span><span style="color:#50fa7b">equals</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callStart&#34;</span><span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>      callStartNanos <span style="color:#ff79c6">=</span> nowNanos<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> elapsedNanos <span style="color:#ff79c6">=</span> nowNanos <span style="color:#ff79c6">-</span> callStartNanos<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">printf</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;%.3f %s%n&#34;</span><span style="color:#ff79c6">,</span> elapsedNanos <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">1000000000</span>d<span style="color:#ff79c6">,</span> name<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printEvent</span>(String name) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> nowNanos <span style="color:#ff79c6">=</span> System.<span style="color:#50fa7b">nanoTime</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (name.<span style="color:#50fa7b">equals</span>(<span style="color:#f1fa8c">&#34;callStart&#34;</span>)) {
+</span></span><span style="display:flex;"><span>      callStartNanos <span style="color:#ff79c6">=</span> nowNanos;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> elapsedNanos <span style="color:#ff79c6">=</span> nowNanos <span style="color:#ff79c6">-</span> callStartNanos;
+</span></span><span style="display:flex;"><span>    System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">printf</span>(<span style="color:#f1fa8c">&#34;%.3f %s%n&#34;</span>, elapsedNanos <span style="color:#ff79c6">/</span> 1000000000d, name);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callStart</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callStart&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callStart</span>(Call call) {
+</span></span><span style="display:flex;"><span>    printEvent(<span style="color:#f1fa8c">&#34;callStart&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callEnd</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callEnd&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callEnd</span>(Call call) {
+</span></span><span style="display:flex;"><span>    printEvent(<span style="color:#f1fa8c">&#34;callEnd&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dnsStart</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> String domainName<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;dnsStart&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dnsStart</span>(Call call, String domainName) {
+</span></span><span style="display:flex;"><span>    printEvent(<span style="color:#f1fa8c">&#34;dnsStart&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dnsEnd</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">,</span> String domainName<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>InetAddress<span style="color:#ff79c6">&gt;</span> inetAddressList<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;dnsEnd&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">dnsEnd</span>(Call call, String domainName, List<span style="color:#ff79c6">&lt;</span>InetAddress<span style="color:#ff79c6">&gt;</span> inetAddressList) {
+</span></span><span style="display:flex;"><span>    printEvent(<span style="color:#f1fa8c">&#34;dnsEnd&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们发出了几个call</p>
@@ -1099,21 +1099,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://publicobject.com/helloworld.txt&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;https://publicobject.com/helloworld.txt&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;REQUEST 1 (new connection)&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Consume and discard the response body.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">source</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">readByteString</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(<span style="color:#f1fa8c">&#34;REQUEST 1 (new connection)&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> (Response response <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request).<span style="color:#50fa7b">execute</span>()) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Consume and discard the response body.</span>
+</span></span><span style="display:flex;"><span>  response.<span style="color:#50fa7b">body</span>().<span style="color:#50fa7b">source</span>().<span style="color:#50fa7b">readByteString</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;REQUEST 2 (pooled connection)&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> <span style="color:#ff79c6">(</span>Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Consume and discard the response body.
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">source</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">readByteString</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(<span style="color:#f1fa8c">&#34;REQUEST 2 (pooled connection)&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">try</span> (Response response <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request).<span style="color:#50fa7b">execute</span>()) {
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Consume and discard the response body.</span>
+</span></span><span style="display:flex;"><span>  response.<span style="color:#50fa7b">body</span>().<span style="color:#50fa7b">source</span>().<span style="color:#50fa7b">readByteString</span>();
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>并且侦听器打印相应的事件：</p>
@@ -1231,40 +1231,40 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">PrintingEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Factory FACTORY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Factory<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> AtomicLong nextCallId <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> AtomicLong<span style="color:#ff79c6">(</span><span style="color:#bd93f9">1L</span><span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">PrintingEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Factory FACTORY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Factory() {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> AtomicLong nextCallId <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> AtomicLong(1L);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    @Override <span style="color:#8be9fd;font-style:italic">public</span> EventListener <span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">long</span> callId <span style="color:#ff79c6">=</span> nextCallId<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getAndIncrement</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>      System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">printf</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;%04d %s%n&#34;</span><span style="color:#ff79c6">,</span> callId<span style="color:#ff79c6">,</span> call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">request</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">());</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> PrintingEventListener<span style="color:#ff79c6">(</span>callId<span style="color:#ff79c6">,</span> System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">nanoTime</span><span style="color:#ff79c6">());</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">};</span>
+</span></span><span style="display:flex;"><span>    @Override <span style="color:#8be9fd;font-style:italic">public</span> EventListener <span style="color:#50fa7b">create</span>(Call call) {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">long</span> callId <span style="color:#ff79c6">=</span> nextCallId.<span style="color:#50fa7b">getAndIncrement</span>();
+</span></span><span style="display:flex;"><span>      System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">printf</span>(<span style="color:#f1fa8c">&#34;%04d %s%n&#34;</span>, callId, call.<span style="color:#50fa7b">request</span>().<span style="color:#50fa7b">url</span>());
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> PrintingEventListener(callId, System.<span style="color:#50fa7b">nanoTime</span>());
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">long</span> callId<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">long</span> callStartNanos<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">long</span> callId;
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">long</span> callStartNanos;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">PrintingEventListener</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">long</span> callId<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">long</span> callStartNanos<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">callId</span> <span style="color:#ff79c6">=</span> callId<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">callStartNanos</span> <span style="color:#ff79c6">=</span> callStartNanos<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#50fa7b">PrintingEventListener</span>(<span style="color:#8be9fd">long</span> callId, <span style="color:#8be9fd">long</span> callStartNanos) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">callId</span> <span style="color:#ff79c6">=</span> callId;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">callStartNanos</span> <span style="color:#ff79c6">=</span> callStartNanos;
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printEvent</span><span style="color:#ff79c6">(</span>String name<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> elapsedNanos <span style="color:#ff79c6">=</span> System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">nanoTime</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">-</span> callStartNanos<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">printf</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;%04d %.3f %s%n&#34;</span><span style="color:#ff79c6">,</span> callId<span style="color:#ff79c6">,</span> elapsedNanos <span style="color:#ff79c6">/</span> <span style="color:#bd93f9">1000000000</span>d<span style="color:#ff79c6">,</span> name<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printEvent</span>(String name) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">long</span> elapsedNanos <span style="color:#ff79c6">=</span> System.<span style="color:#50fa7b">nanoTime</span>() <span style="color:#ff79c6">-</span> callStartNanos;
+</span></span><span style="display:flex;"><span>    System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">printf</span>(<span style="color:#f1fa8c">&#34;%04d %.3f %s%n&#34;</span>, callId, elapsedNanos <span style="color:#ff79c6">/</span> 1000000000d, name);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callStart</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callStart&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callStart</span>(Call call) {
+</span></span><span style="display:flex;"><span>    printEvent(<span style="color:#f1fa8c">&#34;callStart&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callEnd</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    printEvent<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;callEnd&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  @Override <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">callEnd</span>(Call call) {
+</span></span><span style="display:flex;"><span>    printEvent(<span style="color:#f1fa8c">&#34;callEnd&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>我们可以使用这个监听器来竞争一对并发 HTTP 请求：</p>
@@ -1285,19 +1285,19 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request washingtonPostRequest <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://www.washingtonpost.com/&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>washingtonPostRequest<span style="color:#ff79c6">).</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">});</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Request washingtonPostRequest <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;https://www.washingtonpost.com/&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span>client.<span style="color:#50fa7b">newCall</span>(washingtonPostRequest).<span style="color:#50fa7b">enqueue</span>(<span style="color:#ff79c6">new</span> Callback() {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>});
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Request newYorkTimesRequest <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://www.nytimes.com/&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>newYorkTimesRequest<span style="color:#ff79c6">).</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">});</span>
+</span></span><span style="display:flex;"><span>Request newYorkTimesRequest <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;https://www.nytimes.com/&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span>client.<span style="color:#50fa7b">newCall</span>(newYorkTimesRequest).<span style="color:#50fa7b">enqueue</span>(<span style="color:#ff79c6">new</span> Callback() {
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>});
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在家庭 WiFi 上运行这场比赛显示 Times ( <code>0002</code>) 完成得比 Post ( <code>0001</code>)稍早：</p>
@@ -1393,19 +1393,19 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">MetricsEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Factory FACTORY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Factory<span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    @Override <span style="color:#8be9fd;font-style:italic">public</span> EventListener <span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>Call call<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">random</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0.10</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> MetricsEventListener<span style="color:#ff79c6">(</span>call<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> EventListener<span style="color:#ff79c6">.</span><span style="color:#50fa7b">NONE</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">};</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">MetricsEventListener</span> <span style="color:#8be9fd;font-style:italic">extends</span> EventListener {
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Factory FACTORY <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Factory() {
+</span></span><span style="display:flex;"><span>    @Override <span style="color:#8be9fd;font-style:italic">public</span> EventListener <span style="color:#50fa7b">create</span>(Call call) {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (Math.<span style="color:#50fa7b">random</span>() <span style="color:#ff79c6">&lt;</span> 0.<span style="color:#50fa7b">10</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> MetricsEventListener(call);
+</span></span><span style="display:flex;"><span>      } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> EventListener.<span style="color:#50fa7b">NONE</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -1518,28 +1518,28 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//创建okHttpClient对象
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>OkHttpClient mOkHttpClient <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">//创建一个Request
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">final</span> Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;https://github.com/hongyangAndroid&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">//new call
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>Call call <span style="color:#ff79c6">=</span> mOkHttpClient<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">);</span> 
-</span></span><span style="display:flex;"><span><span style="color:#6272a4">//请求加入调度
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>call<span style="color:#ff79c6">.</span><span style="color:#50fa7b">enqueue</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Callback<span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">{</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//创建okHttpClient对象</span>
+</span></span><span style="display:flex;"><span>OkHttpClient mOkHttpClient <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient();
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//创建一个Request</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">final</span> Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>                .<span style="color:#50fa7b">url</span>(<span style="color:#f1fa8c">&#34;https://github.com/hongyangAndroid&#34;</span>)
+</span></span><span style="display:flex;"><span>                .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//new call</span>
+</span></span><span style="display:flex;"><span>Call call <span style="color:#ff79c6">=</span> mOkHttpClient.<span style="color:#50fa7b">newCall</span>(request); 
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">//请求加入调度</span>
+</span></span><span style="display:flex;"><span>call.<span style="color:#50fa7b">enqueue</span>(<span style="color:#ff79c6">new</span> Callback()
+</span></span><span style="display:flex;"><span>        {
 </span></span><span style="display:flex;"><span>            @Override
-</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span><span style="color:#ff79c6">(</span>Request request<span style="color:#ff79c6">,</span> IOException e<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onFailure</span>(Request request, IOException e)
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>            @Override
-</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">final</span> Response response<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">//String htmlStr =  response.body().string();
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">});</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onResponse</span>(<span style="color:#8be9fd;font-style:italic">final</span> Response response) <span style="color:#8be9fd;font-style:italic">throws</span> IOException
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                    <span style="color:#6272a4">//String htmlStr =  response.body().string();</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        });
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>代码分析：</p>
@@ -1579,21 +1579,21 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> MediaType JSON <span style="color:#ff79c6">=</span> MediaType<span style="color:#ff79c6">.</span><span style="color:#50fa7b">parse</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;application/json; charset=utf-8&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">,</span> String json<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>     RequestBody body <span style="color:#ff79c6">=</span> RequestBody<span style="color:#ff79c6">.</span><span style="color:#50fa7b">create</span><span style="color:#ff79c6">(</span>JSON<span style="color:#ff79c6">,</span> json<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>      Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>body<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isSuccessful</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> IOException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Unexpected code &#34;</span> <span style="color:#ff79c6">+</span> response<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> MediaType JSON <span style="color:#ff79c6">=</span> MediaType.<span style="color:#50fa7b">parse</span>(<span style="color:#f1fa8c">&#34;application/json; charset=utf-8&#34;</span>);
+</span></span><span style="display:flex;"><span>OkHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient();
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span>(String url, String json) <span style="color:#8be9fd;font-style:italic">throws</span> IOException {
+</span></span><span style="display:flex;"><span>     RequestBody body <span style="color:#ff79c6">=</span> RequestBody.<span style="color:#50fa7b">create</span>(JSON, json);
+</span></span><span style="display:flex;"><span>      Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">url</span>(url)
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">post</span>(body)
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">build</span>();
+</span></span><span style="display:flex;"><span>    Response response <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request).<span style="color:#50fa7b">execute</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (response.<span style="color:#50fa7b">isSuccessful</span>()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> response.<span style="color:#50fa7b">body</span>().<span style="color:#50fa7b">string</span>();
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> IOException(<span style="color:#f1fa8c">&#34;Unexpected code &#34;</span> <span style="color:#ff79c6">+</span> response);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用Request的post方法来提交请求体RequestBody</p>
@@ -1629,27 +1629,27 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>kHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>String url<span style="color:#ff79c6">,</span> String json<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span> IOException <span style="color:#ff79c6">{</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>kHttpClient client <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> OkHttpClient();
+</span></span><span style="display:flex;"><span>String <span style="color:#50fa7b">post</span>(String url, String json) <span style="color:#8be9fd;font-style:italic">throws</span> IOException {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     RequestBody formBody <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FormEncodingBuilder<span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;platform&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;android&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;name&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;bug&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;subject&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;XXXXXXXXXXXXXXX&#34;</span><span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>     RequestBody formBody <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> FormEncodingBuilder()
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">add</span>(<span style="color:#f1fa8c">&#34;platform&#34;</span>, <span style="color:#f1fa8c">&#34;android&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">add</span>(<span style="color:#f1fa8c">&#34;name&#34;</span>, <span style="color:#f1fa8c">&#34;bug&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">add</span>(<span style="color:#f1fa8c">&#34;subject&#34;</span>, <span style="color:#f1fa8c">&#34;XXXXXXXXXXXXXXX&#34;</span>)
+</span></span><span style="display:flex;"><span>    .<span style="color:#50fa7b">build</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request<span style="color:#ff79c6">.</span><span style="color:#50fa7b">Builder</span><span style="color:#ff79c6">()</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">url</span><span style="color:#ff79c6">(</span>url<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">post</span><span style="color:#ff79c6">(</span>body<span style="color:#ff79c6">)</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">.</span><span style="color:#50fa7b">build</span><span style="color:#ff79c6">();</span>
+</span></span><span style="display:flex;"><span>      Request request <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Request.<span style="color:#50fa7b">Builder</span>()
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">url</span>(url)
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">post</span>(body)
+</span></span><span style="display:flex;"><span>      .<span style="color:#50fa7b">build</span>();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Response response <span style="color:#ff79c6">=</span> client<span style="color:#ff79c6">.</span><span style="color:#50fa7b">newCall</span><span style="color:#ff79c6">(</span>request<span style="color:#ff79c6">).</span><span style="color:#50fa7b">execute</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">isSuccessful</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> response<span style="color:#ff79c6">.</span><span style="color:#50fa7b">body</span><span style="color:#ff79c6">().</span><span style="color:#50fa7b">string</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> IOException<span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Unexpected code &#34;</span> <span style="color:#ff79c6">+</span> response<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    Response response <span style="color:#ff79c6">=</span> client.<span style="color:#50fa7b">newCall</span>(request).<span style="color:#50fa7b">execute</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (response.<span style="color:#50fa7b">isSuccessful</span>()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> response.<span style="color:#50fa7b">body</span>().<span style="color:#50fa7b">string</span>();
+</span></span><span style="display:flex;"><span>    } <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> IOException(<span style="color:#f1fa8c">&#34;Unexpected code &#34;</span> <span style="color:#ff79c6">+</span> response);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div></section>
@@ -1854,14 +1854,14 @@ window.__theme = {
         }
     },creatTime: "2021\/12\/12"}
 </script>
-<script type="text/javascript" src="/ts/main.1f7accfe243b98c78d4e4dd412caf872a0bc99d72fa4ed9b8bdf02db3f739896.js" defer integrity="sha256-H3rM/iQ7mMeNTk3UEsr4cqC8mdcvpO2bi98C2z9zmJY="></script><script>
+<script type="text/javascript" src="/ts/main.fa21df0bbd468c9a44ce58f9a10714084879339aac43b5cae9c239cc16174675.js" defer integrity="sha256-&#43;iHfC71GjJpEzlj5oQcUCEh5M5qsQ7XK6cI5zBYXRnU="></script><script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('\/sw.js');
         });
     }
 </script>
-<script type="text/javascript" src="/translate-google.ecd37c3cc8f7e1b08910201dd0d9fc3e5f4b1395fb8ebead3141b931f036f777.js" defer integrity="sha256-7NN8PMj34bCJECAd0Nn8Pl9LE5X7jr6tMUG5MfA293c="></script><script type="text/javascript">
+<script type="text/javascript" src="/translate-google.ad39ff7276d4f89b927627a918cace8600e2973c29bc6e7e3b5bd383012ca009.js" defer integrity="sha256-rTn/cnbU&#43;JuSdiepGMrOhgDilzwpvG5&#43;O1vTgwEsoAk="></script><script type="text/javascript">
     window.translateelement_styles = "\/sass\/translateelement.min.c65796c6c3e4d48c75f72776948be83c5c448d1c5cc466b996b00657c558d28a.css";
     function googleTranslateElementInit(){
         new google.translate.TranslateElement({

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <meta itemprop="name" content="Android UI绘制原理 - Kevier Blog" />
 <link href="https://nkj-666.github.io/index.xml" title="Android UI绘制原理 - Kevier Blog" type="application/rss+xml" rel="alternate" />
-<title>Android UI绘制原理 - Kevier Blog</title><link rel="stylesheet" href="/main.aeff231f8309fc7d7996ee8a87ba1eb3329dc023f6da090a4509cf56b71b8e2f.css" integrity="sha256-rv8jH4MJ/H15lu6Kh7oeszKdwCP22gkKRQnPVrcbji8=" /><meta property="og:site_name" content="Android UI绘制原理 - Kevier Blog" />
+<title>Android UI绘制原理 - Kevier Blog</title><link rel="stylesheet" href="/main.b3a6aecd0f469c014eb09ea91c6f7864b4455851e1be22ab8bb49e577581f783.css" integrity="sha256-s6auzQ9GnAFOsJ6pHG94ZLRFWFHhviKri7SeV3WB94M=" /><meta property="og:site_name" content="Android UI绘制原理 - Kevier Blog" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Android UI绘制原理" />
 <meta property="og:description" content="Android UI绘制原理" />
@@ -150,7 +150,7 @@
         </aside><div class="border-b bg-blue-100 bg-opacity-20 p-6 dark:border-darkBorder dark:bg-darkBg md:px-10">
             <time
                 datetime="2023-04-07T17:17:43+08:00"
-                >文章最后编辑于: <span class="mx-1 font-bold">453</span> 天前，文中所描述的信息可能已发生改变</time
+                >文章最后编辑于: <span class="mx-1 font-bold">459</span> 天前，文中所描述的信息可能已发生改变</time
             >
         </div><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="更快的阅读" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
             ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
@@ -192,7 +192,7 @@
 <pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DecorView</span> <span style="color:#8be9fd;font-style:italic">extends</span> FrameLayout <span style="color:#ff79c6">{}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">DecorView</span> <span style="color:#8be9fd;font-style:italic">extends</span> FrameLayout {}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>DecorView</code>作为顶层<code>View</code>，内部包含一个<code>LinearLayout</code>，然后就像上图一样，上面是标题栏，下面是内容栏，这也是为什么<code>Activity</code>的<code>onCreate</code>方法中是<code>setContentView</code>的原因了</p>
@@ -210,8 +210,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>root <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ViewRootImpl<span style="color:#ff79c6">(</span>view<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getContext</span><span style="color:#ff79c6">(),</span> display<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>root<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setView</span><span style="color:#ff79c6">(</span>view<span style="color:#ff79c6">,</span> wparams<span style="color:#ff79c6">,</span> panelParentView<span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>root <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ViewRootImpl(view.<span style="color:#50fa7b">getContext</span>(), display);
+</span></span><span style="display:flex;"><span>root.<span style="color:#50fa7b">setView</span>(view, wparams, panelParentView);
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>而<code>View</code>的绘制流程是从<code>ViewRoot</code>的<code>performTraversals</code>开始，在这个方法中会依次调用<code>performMeasure</code>,<code>performLayout</code>,<code>performDraw</code>方法：</p>
@@ -263,9 +263,9 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>childWidthMeasureSpec <span style="color:#ff79c6">=</span> getRootMeasureSpec<span style="color:#ff79c6">(</span>desiredWindowWidth<span style="color:#ff79c6">,</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">width</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>childHeightMeasureSpec <span style="color:#ff79c6">=</span> getRootMeasureSpec<span style="color:#ff79c6">(</span>desiredWindowHeight<span style="color:#ff79c6">,</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">height</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>performMeasure<span style="color:#ff79c6">(</span>childWidthMeasureSpec<span style="color:#ff79c6">,</span> childHeightMeasureSpec<span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>childWidthMeasureSpec <span style="color:#ff79c6">=</span> getRootMeasureSpec(desiredWindowWidth, lp.<span style="color:#50fa7b">width</span>);
+</span></span><span style="display:flex;"><span>childHeightMeasureSpec <span style="color:#ff79c6">=</span> getRootMeasureSpec(desiredWindowHeight, lp.<span style="color:#50fa7b">height</span>);
+</span></span><span style="display:flex;"><span>performMeasure(childWidthMeasureSpec, childHeightMeasureSpec);
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>其中<code>desiredWindowWidth</code>和<code>desiredWindowHeight</code>是屏幕的大小，它会根据<code>LayoutParams</code>的宽高参数来划分</p>
@@ -291,23 +291,23 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">measureChildWithMargins</span><span style="color:#ff79c6">(</span>View child<span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> parentWidthMeasureSpec<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> widthUsed<span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> parentHeightMeasureSpec<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> heightUsed<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> MarginLayoutParams lp <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>MarginLayoutParams<span style="color:#ff79c6">)</span> child<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLayoutParams</span><span style="color:#ff79c6">();</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">measureChildWithMargins</span>(View child,
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> parentWidthMeasureSpec, <span style="color:#8be9fd">int</span> widthUsed,
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd">int</span> parentHeightMeasureSpec, <span style="color:#8be9fd">int</span> heightUsed) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> MarginLayoutParams lp <span style="color:#ff79c6">=</span> (MarginLayoutParams) child.<span style="color:#50fa7b">getLayoutParams</span>();
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childWidthMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec<span style="color:#ff79c6">(</span>
-</span></span><span style="display:flex;"><span>    parentWidthMeasureSpec<span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span>    mPaddingLeft <span style="color:#ff79c6">+</span> mPaddingRight <span style="color:#ff79c6">+</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">leftMargin</span> <span style="color:#ff79c6">+</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">rightMargin</span> <span style="color:#ff79c6">+</span> widthUsed<span style="color:#ff79c6">,</span> 
-</span></span><span style="display:flex;"><span>    lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">width</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childWidthMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec(
+</span></span><span style="display:flex;"><span>    parentWidthMeasureSpec,
+</span></span><span style="display:flex;"><span>    mPaddingLeft <span style="color:#ff79c6">+</span> mPaddingRight <span style="color:#ff79c6">+</span> lp.<span style="color:#50fa7b">leftMargin</span> <span style="color:#ff79c6">+</span> lp.<span style="color:#50fa7b">rightMargin</span> <span style="color:#ff79c6">+</span> widthUsed, 
+</span></span><span style="display:flex;"><span>    lp.<span style="color:#50fa7b">width</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childHeightMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec<span style="color:#ff79c6">(</span>
-</span></span><span style="display:flex;"><span>    parentHeightMeasureSpec<span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span>    mPaddingTop <span style="color:#ff79c6">+</span> mPaddingBottom <span style="color:#ff79c6">+</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">topMargin</span> <span style="color:#ff79c6">+</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">bottomMargin</span> <span style="color:#ff79c6">+</span> heightUsed<span style="color:#ff79c6">,</span> 
-</span></span><span style="display:flex;"><span>    lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">height</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childHeightMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec(
+</span></span><span style="display:flex;"><span>    parentHeightMeasureSpec,
+</span></span><span style="display:flex;"><span>    mPaddingTop <span style="color:#ff79c6">+</span> mPaddingBottom <span style="color:#ff79c6">+</span> lp.<span style="color:#50fa7b">topMargin</span> <span style="color:#ff79c6">+</span> lp.<span style="color:#50fa7b">bottomMargin</span> <span style="color:#ff79c6">+</span> heightUsed, 
+</span></span><span style="display:flex;"><span>    lp.<span style="color:#50fa7b">height</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    child<span style="color:#ff79c6">..</span><span style="color:#50fa7b">measure</span><span style="color:#ff79c6">(</span>childWidthMeasureSpec<span style="color:#ff79c6">,</span> childHeightMeasureSpec<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    child..<span style="color:#50fa7b">measure</span>(childWidthMeasureSpec, childHeightMeasureSpec);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>从上面代码可以知道子元素的<code>MeasureSpec</code>与自己的<code>LayoutParams</code>和父元素的<code>MeasureSpec</code>有关</p>
@@ -346,10 +346,10 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onMeasure</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> widthMeasureSpec<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> heightMeasureSpec<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        setMeasuredDimension<span style="color:#ff79c6">(</span>getDefaultSize<span style="color:#ff79c6">(</span>getSuggestedMinimumWidth<span style="color:#ff79c6">(),</span> widthMeasureSpec<span style="color:#ff79c6">),</span>
-</span></span><span style="display:flex;"><span>                getDefaultSize<span style="color:#ff79c6">(</span>getSuggestedMinimumHeight<span style="color:#ff79c6">(),</span> heightMeasureSpec<span style="color:#ff79c6">));</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">onMeasure</span>(<span style="color:#8be9fd">int</span> widthMeasureSpec, <span style="color:#8be9fd">int</span> heightMeasureSpec) {
+</span></span><span style="display:flex;"><span>        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
+</span></span><span style="display:flex;"><span>                getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这是这个方法的默认实现，发现调用了<code>getDefaultSize</code>这个方法，查看这个方法的源码</p>
@@ -376,25 +376,25 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getDefaultSize</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> size<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> measureSpec<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>  
-</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> result <span style="color:#ff79c6">=</span> size<span style="color:#ff79c6">;</span> 
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">getDefaultSize</span>(<span style="color:#8be9fd">int</span> size, <span style="color:#8be9fd">int</span> measureSpec) {  
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> result <span style="color:#ff79c6">=</span> size; 
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> specMode <span style="color:#ff79c6">=</span> MeasureSpec<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getMode</span><span style="color:#ff79c6">(</span>measureSpec<span style="color:#ff79c6">);</span>  
-</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> specSize <span style="color:#ff79c6">=</span> MeasureSpec<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getSize</span><span style="color:#ff79c6">(</span>measureSpec<span style="color:#ff79c6">);</span>  
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> specMode <span style="color:#ff79c6">=</span> MeasureSpec.<span style="color:#50fa7b">getMode</span>(measureSpec);  
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> specSize <span style="color:#ff79c6">=</span> MeasureSpec.<span style="color:#50fa7b">getSize</span>(measureSpec);  
 </span></span><span style="display:flex;"><span>          
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">switch</span> <span style="color:#ff79c6">(</span>specMode<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>  
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">case</span> MeasureSpec<span style="color:#ff79c6">.</span><span style="color:#50fa7b">UNSPECIFIED</span><span style="color:#ff79c6">:</span>  
-</span></span><span style="display:flex;"><span>                    result <span style="color:#ff79c6">=</span> size<span style="color:#ff79c6">;</span>  
-</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>  
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">switch</span> (specMode) {  
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">case</span> MeasureSpec.<span style="color:#50fa7b">UNSPECIFIED</span>:  
+</span></span><span style="display:flex;"><span>                    result <span style="color:#ff79c6">=</span> size;  
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">break</span>;  
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">case</span> MeasureSpec<span style="color:#ff79c6">.</span><span style="color:#50fa7b">AT_MOST</span><span style="color:#ff79c6">:</span>  
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">case</span> MeasureSpec<span style="color:#ff79c6">.</span><span style="color:#50fa7b">EXACTLY</span><span style="color:#ff79c6">:</span>  
-</span></span><span style="display:flex;"><span>                    result <span style="color:#ff79c6">=</span> specSize<span style="color:#ff79c6">;</span>  
-</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">break</span><span style="color:#ff79c6">;</span>  
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>  
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">case</span> MeasureSpec.<span style="color:#50fa7b">AT_MOST</span>:  
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">case</span> MeasureSpec.<span style="color:#50fa7b">EXACTLY</span>:  
+</span></span><span style="display:flex;"><span>                    result <span style="color:#ff79c6">=</span> specSize;  
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">break</span>;  
+</span></span><span style="display:flex;"><span>            }  
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> result<span style="color:#ff79c6">;</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> 
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> result;  
+</span></span><span style="display:flex;"><span>    } 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>发现它会根据父元素的<code>specMode</code>进行选择，如果是<code>UNSPECIFIED</code>,就为传入的<code>size</code>否则就为<code>view</code>测量后的大小<code>specSize</code>,另外，从这一段代码还有上表可以知道在自定义控件中如果直接继承<code>View</code>就需要自己配置<code>wrap_content</code>时的<code>size</code>，因为如果传入的是<code>wrap_content</code>，那么对应的<code>mode</code>就是<code>AT_MOST</code>，在这个模式下，<code>view</code>的大小始终为父元素所剩余的空间大小，也就和<code>match_parent</code>的效果一样。</p>
@@ -413,16 +413,16 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">measureChildren</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> widthMeasureSpec<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> heightMeasureSpec<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> size <span style="color:#ff79c6">=</span> mChildrenCount<span style="color:#ff79c6">;</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> View<span style="color:#ff79c6">[]</span> children <span style="color:#ff79c6">=</span> mChildren<span style="color:#ff79c6">;</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> size<span style="color:#ff79c6">;</span> <span style="color:#ff79c6">++</span>i<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>  
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> View child <span style="color:#ff79c6">=</span> children<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">];</span>  
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">((</span>child<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mViewFlags</span> <span style="color:#ff79c6">&amp;</span> VISIBILITY_MASK<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">!=</span> GONE<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>  
-</span></span><span style="display:flex;"><span>            measureChild<span style="color:#ff79c6">(</span>child<span style="color:#ff79c6">,</span> widthMeasureSpec<span style="color:#ff79c6">,</span> heightMeasureSpec<span style="color:#ff79c6">);</span>  
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>  
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span> 
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">measureChildren</span>(<span style="color:#8be9fd">int</span> widthMeasureSpec, <span style="color:#8be9fd">int</span> heightMeasureSpec) {  
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> size <span style="color:#ff79c6">=</span> mChildrenCount;  
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> View<span style="color:#ff79c6">[]</span> children <span style="color:#ff79c6">=</span> mChildren;  
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0; i <span style="color:#ff79c6">&lt;</span> size; <span style="color:#ff79c6">++</span>i) {  
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">final</span> View child <span style="color:#ff79c6">=</span> children<span style="color:#ff79c6">[</span>i<span style="color:#ff79c6">]</span>;  
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> ((child.<span style="color:#50fa7b">mViewFlags</span> <span style="color:#ff79c6">&amp;</span> VISIBILITY_MASK) <span style="color:#ff79c6">!=</span> GONE) {  
+</span></span><span style="display:flex;"><span>            measureChild(child, widthMeasureSpec, heightMeasureSpec);  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>} 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在这个方法中会遍历每一个子<code>view</code>,在这个方法中又会调用<code>measureChild</code>方法，</p>
@@ -440,16 +440,16 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">measureChild</span><span style="color:#ff79c6">(</span>View child<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> parentWidthMeasureSpec<span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> parentHeightMeasureSpec<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> LayoutParams lp <span style="color:#ff79c6">=</span> child<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getLayoutParams</span><span style="color:#ff79c6">();</span>   
-</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childWidthMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec<span style="color:#ff79c6">(</span>parentWidthMeasureSpec<span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span>         mPaddingLeft <span style="color:#ff79c6">+</span> mPaddingRight<span style="color:#ff79c6">,</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">width</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>   	<span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childHeightMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec<span style="color:#ff79c6">(</span>parentHeightMeasureSpec<span style="color:#ff79c6">,</span>
-</span></span><span style="display:flex;"><span>         mPaddingTop <span style="color:#ff79c6">+</span> mPaddingBottom<span style="color:#ff79c6">,</span> lp<span style="color:#ff79c6">.</span><span style="color:#50fa7b">height</span><span style="color:#ff79c6">);</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">protected</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">measureChild</span>(View child, <span style="color:#8be9fd">int</span> parentWidthMeasureSpec,
+</span></span><span style="display:flex;"><span>            <span style="color:#8be9fd">int</span> parentHeightMeasureSpec) {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">final</span> LayoutParams lp <span style="color:#ff79c6">=</span> child.<span style="color:#50fa7b">getLayoutParams</span>();   
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childWidthMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec(parentWidthMeasureSpec,
+</span></span><span style="display:flex;"><span>         mPaddingLeft <span style="color:#ff79c6">+</span> mPaddingRight, lp.<span style="color:#50fa7b">width</span>);
+</span></span><span style="display:flex;"><span>   	<span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">int</span> childHeightMeasureSpec <span style="color:#ff79c6">=</span> getChildMeasureSpec(parentHeightMeasureSpec,
+</span></span><span style="display:flex;"><span>         mPaddingTop <span style="color:#ff79c6">+</span> mPaddingBottom, lp.<span style="color:#50fa7b">height</span>);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    child<span style="color:#ff79c6">.</span><span style="color:#50fa7b">measure</span><span style="color:#ff79c6">(</span>childWidthMeasureSpec<span style="color:#ff79c6">,</span> childHeightMeasureSpec<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>    child.<span style="color:#50fa7b">measure</span>(childWidthMeasureSpec, childHeightMeasureSpec);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>获取到子元素的<code>measureSpec</code>后在执行子元素的<code>measure</code>方法</p>
@@ -494,34 +494,34 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">layout</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> l<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> t<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> r<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">((</span>mPrivateFlags3 <span style="color:#ff79c6">&amp;</span> PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">!=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            onMeasure<span style="color:#ff79c6">(</span>mOldWidthMeasureSpec<span style="color:#ff79c6">,</span> mOldHeightMeasureSpec<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>            mPrivateFlags3 <span style="color:#ff79c6">&amp;=</span> <span style="color:#ff79c6">~</span>PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">layout</span>(<span style="color:#8be9fd">int</span> l, <span style="color:#8be9fd">int</span> t, <span style="color:#8be9fd">int</span> r, <span style="color:#8be9fd">int</span> b) {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> ((mPrivateFlags3 <span style="color:#ff79c6">&amp;</span> PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT) <span style="color:#ff79c6">!=</span> 0) {
+</span></span><span style="display:flex;"><span>            onMeasure(mOldWidthMeasureSpec, mOldHeightMeasureSpec);
+</span></span><span style="display:flex;"><span>            mPrivateFlags3 <span style="color:#ff79c6">&amp;=</span> <span style="color:#ff79c6">~</span>PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT;
+</span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldL <span style="color:#ff79c6">=</span> mLeft<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldT <span style="color:#ff79c6">=</span> mTop<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldB <span style="color:#ff79c6">=</span> mBottom<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldR <span style="color:#ff79c6">=</span> mRight<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">boolean</span> changed <span style="color:#ff79c6">=</span> isLayoutModeOptical<span style="color:#ff79c6">(</span>mParent<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">?</span>
-</span></span><span style="display:flex;"><span>                setOpticalFrame<span style="color:#ff79c6">(</span>l<span style="color:#ff79c6">,</span> t<span style="color:#ff79c6">,</span> r<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">:</span> setFrame<span style="color:#ff79c6">(</span>l<span style="color:#ff79c6">,</span> t<span style="color:#ff79c6">,</span> r<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>changed <span style="color:#ff79c6">||</span> <span style="color:#ff79c6">(</span>mPrivateFlags <span style="color:#ff79c6">&amp;</span> PFLAG_LAYOUT_REQUIRED<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">==</span> PFLAG_LAYOUT_REQUIRED<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>            onLayout<span style="color:#ff79c6">(</span>changed<span style="color:#ff79c6">,</span> l<span style="color:#ff79c6">,</span> t<span style="color:#ff79c6">,</span> r<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>            mPrivateFlags <span style="color:#ff79c6">&amp;=</span> <span style="color:#ff79c6">~</span>PFLAG_LAYOUT_REQUIRED<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            ListenerInfo li <span style="color:#ff79c6">=</span> mListenerInfo<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>li <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> li<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mOnLayoutChangeListeners</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldL <span style="color:#ff79c6">=</span> mLeft;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldT <span style="color:#ff79c6">=</span> mTop;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldB <span style="color:#ff79c6">=</span> mBottom;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">int</span> oldR <span style="color:#ff79c6">=</span> mRight;
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">boolean</span> changed <span style="color:#ff79c6">=</span> isLayoutModeOptical(mParent) <span style="color:#ff79c6">?</span>
+</span></span><span style="display:flex;"><span>                setOpticalFrame(l, t, r, b) : setFrame(l, t, r, b);
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (changed <span style="color:#ff79c6">||</span> (mPrivateFlags <span style="color:#ff79c6">&amp;</span> PFLAG_LAYOUT_REQUIRED) <span style="color:#ff79c6">==</span> PFLAG_LAYOUT_REQUIRED) {
+</span></span><span style="display:flex;"><span>            onLayout(changed, l, t, r, b);
+</span></span><span style="display:flex;"><span>            mPrivateFlags <span style="color:#ff79c6">&amp;=</span> <span style="color:#ff79c6">~</span>PFLAG_LAYOUT_REQUIRED;
+</span></span><span style="display:flex;"><span>            ListenerInfo li <span style="color:#ff79c6">=</span> mListenerInfo;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">if</span> (li <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span> <span style="color:#ff79c6">&amp;&amp;</span> li.<span style="color:#50fa7b">mOnLayoutChangeListeners</span> <span style="color:#ff79c6">!=</span> <span style="color:#ff79c6">null</span>) {
 </span></span><span style="display:flex;"><span>                ArrayList<span style="color:#ff79c6">&lt;</span>OnLayoutChangeListener<span style="color:#ff79c6">&gt;</span> listenersCopy <span style="color:#ff79c6">=</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#ff79c6">(</span>ArrayList<span style="color:#ff79c6">&lt;</span>OnLayoutChangeListener<span style="color:#ff79c6">&gt;)</span>li<span style="color:#ff79c6">.</span><span style="color:#50fa7b">mOnLayoutChangeListeners</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">clone</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">int</span> numListeners <span style="color:#ff79c6">=</span> listenersCopy<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> numListeners<span style="color:#ff79c6">;</span> <span style="color:#ff79c6">++</span>i<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    listenersCopy<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">).</span><span style="color:#50fa7b">onLayoutChange</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">this</span><span style="color:#ff79c6">,</span> l<span style="color:#ff79c6">,</span> t<span style="color:#ff79c6">,</span> r<span style="color:#ff79c6">,</span> b<span style="color:#ff79c6">,</span> oldL<span style="color:#ff79c6">,</span> oldT<span style="color:#ff79c6">,</span> oldR<span style="color:#ff79c6">,</span> oldB<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>        mPrivateFlags <span style="color:#ff79c6">&amp;=</span> <span style="color:#ff79c6">~</span>PFLAG_FORCE_LAYOUT<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        mPrivateFlags3 <span style="color:#ff79c6">|=</span> PFLAG3_IS_LAID_OUT<span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>                        (ArrayList<span style="color:#ff79c6">&lt;</span>OnLayoutChangeListener<span style="color:#ff79c6">&gt;</span>)li.<span style="color:#50fa7b">mOnLayoutChangeListeners</span>.<span style="color:#50fa7b">clone</span>();
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">int</span> numListeners <span style="color:#ff79c6">=</span> listenersCopy.<span style="color:#50fa7b">size</span>();
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">for</span> (<span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0; i <span style="color:#ff79c6">&lt;</span> numListeners; <span style="color:#ff79c6">++</span>i) {
+</span></span><span style="display:flex;"><span>                    listenersCopy.<span style="color:#50fa7b">get</span>(i).<span style="color:#50fa7b">onLayoutChange</span>(<span style="color:#ff79c6">this</span>, l, t, r, b, oldL, oldT, oldR, oldB);
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        mPrivateFlags <span style="color:#ff79c6">&amp;=</span> <span style="color:#ff79c6">~</span>PFLAG_FORCE_LAYOUT;
+</span></span><span style="display:flex;"><span>        mPrivateFlags3 <span style="color:#ff79c6">|=</span> PFLAG3_IS_LAID_OUT;
+</span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>在<code>onLayout</code>中就会遍历每个子元素，执行其<code>layout</code>方法，这样重复遍历就完成了整个<code>viewGroup</code>的<code>layout</code>过程</p>
@@ -587,8 +587,8 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">draw</span><span style="color:#ff79c6">(</span>Canvas canvas<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">...</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">draw</span>(Canvas canvas) {
+</span></span><span style="display:flex;"><span>     ...
 </span></span><span style="display:flex;"><span>     <span style="color:#6272a4">/*
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      * Draw traversal performs several drawing steps which must be executed
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      * in the appropriate order:
@@ -601,43 +601,43 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      *      6\. Draw decorations (scrollbars for instance)
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      */</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 1, draw the background, if needed
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>dirtyOpaque<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>         drawBackground<span style="color:#ff79c6">(</span>canvas<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 1, draw the background, if needed</span>
+</span></span><span style="display:flex;"><span>     ...
+</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>dirtyOpaque) {
+</span></span><span style="display:flex;"><span>         drawBackground(canvas);
+</span></span><span style="display:flex;"><span>     }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// skip step 2 &amp; 5 if possible (common case)
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// skip step 2 &amp; 5 if possible (common case)</span>
+</span></span><span style="display:flex;"><span>     ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 2, save the canvas&#39; layers
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>drawTop<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>             canvas<span style="color:#ff79c6">.</span><span style="color:#50fa7b">saveLayer</span><span style="color:#ff79c6">(</span>left<span style="color:#ff79c6">,</span> top<span style="color:#ff79c6">,</span> right<span style="color:#ff79c6">,</span> top <span style="color:#ff79c6">+</span> length<span style="color:#ff79c6">,</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">,</span> flags<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 2, save the canvas&#39; layers</span>
+</span></span><span style="display:flex;"><span>     ...
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">if</span> (drawTop) {
+</span></span><span style="display:flex;"><span>             canvas.<span style="color:#50fa7b">saveLayer</span>(left, top, right, top <span style="color:#ff79c6">+</span> length, <span style="color:#ff79c6">null</span>, flags);
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>     ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 3, draw the content
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>dirtyOpaque<span style="color:#ff79c6">)</span> onDraw<span style="color:#ff79c6">(</span>canvas<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 3, draw the content</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>dirtyOpaque) onDraw(canvas);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 4, draw the children
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>     dispatchDraw<span style="color:#ff79c6">(</span>canvas<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 4, draw the children</span>
+</span></span><span style="display:flex;"><span>     dispatchDraw(canvas);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 5, draw the fade effect and restore layers
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>     <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>drawTop<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>         matrix<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setScale</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">,</span> fadeHeight <span style="color:#ff79c6">*</span> topFadeStrength<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>         matrix<span style="color:#ff79c6">.</span><span style="color:#50fa7b">postTranslate</span><span style="color:#ff79c6">(</span>left<span style="color:#ff79c6">,</span> top<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>         fade<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setLocalMatrix</span><span style="color:#ff79c6">(</span>matrix<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>         p<span style="color:#ff79c6">.</span><span style="color:#50fa7b">setShader</span><span style="color:#ff79c6">(</span>fade<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>         canvas<span style="color:#ff79c6">.</span><span style="color:#50fa7b">drawRect</span><span style="color:#ff79c6">(</span>left<span style="color:#ff79c6">,</span> top<span style="color:#ff79c6">,</span> right<span style="color:#ff79c6">,</span> top <span style="color:#ff79c6">+</span> length<span style="color:#ff79c6">,</span> p<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 5, draw the fade effect and restore layers</span>
+</span></span><span style="display:flex;"><span>     ...
+</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">if</span> (drawTop) {
+</span></span><span style="display:flex;"><span>         matrix.<span style="color:#50fa7b">setScale</span>(1, fadeHeight <span style="color:#ff79c6">*</span> topFadeStrength);
+</span></span><span style="display:flex;"><span>         matrix.<span style="color:#50fa7b">postTranslate</span>(left, top);
+</span></span><span style="display:flex;"><span>         fade.<span style="color:#50fa7b">setLocalMatrix</span>(matrix);
+</span></span><span style="display:flex;"><span>         p.<span style="color:#50fa7b">setShader</span>(fade);
+</span></span><span style="display:flex;"><span>         canvas.<span style="color:#50fa7b">drawRect</span>(left, top, right, top <span style="color:#ff79c6">+</span> length, p);
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>     ...
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 6, draw decorations (scrollbars)
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>     onDrawScrollBars<span style="color:#ff79c6">(</span>canvas<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">...</span>
-</span></span><span style="display:flex;"><span> <span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#6272a4">// Step 6, draw decorations (scrollbars)</span>
+</span></span><span style="display:flex;"><span>     onDrawScrollBars(canvas);
+</span></span><span style="display:flex;"><span>     ...
+</span></span><span style="display:flex;"><span> }
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>从这段代码可以看出来，<code>draw</code>过程遵循如下几步：</p>
@@ -676,13 +676,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">requestLayout</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>mHandlingLayoutInLayoutRequest<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        checkThread<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>        mLayoutRequested <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>        scheduleTraversals<span style="color:#ff79c6">();</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">requestLayout</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>mHandlingLayoutInLayoutRequest) {
+</span></span><span style="display:flex;"><span>        checkThread();
+</span></span><span style="display:flex;"><span>        mLayoutRequested <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>        scheduleTraversals();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>会发现在这个方法中调用了<code>checkThread</code>这个方法，查看这个方法的源码</p>
@@ -697,13 +697,13 @@
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">checkThread</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>mThread <span style="color:#ff79c6">!=</span> Thread<span style="color:#ff79c6">.</span><span style="color:#50fa7b">currentThread</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd">void</span> <span style="color:#50fa7b">checkThread</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> (mThread <span style="color:#ff79c6">!=</span> Thread.<span style="color:#50fa7b">currentThread</span>()) {
 </span></span><span style="display:flex;"><span>            
-</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> CalledFromWrongThreadException<span style="color:#ff79c6">(</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#34;Only the original thread that created a view hierarchy can touch its views.&#34;</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> CalledFromWrongThreadException(
+</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#34;Only the original thread that created a view hierarchy can touch its views.&#34;</span>);
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>会发现就是在这个方法中检查现在的县城并抛出了异常，其中的<code>mThread</code>就是<code>viewRootImpl</code>创建并初始化的线程</p>
@@ -910,14 +910,14 @@ window.__theme = {
         }
     },creatTime: "2021\/12\/12"}
 </script>
-<script type="text/javascript" src="/ts/main.1f7accfe243b98c78d4e4dd412caf872a0bc99d72fa4ed9b8bdf02db3f739896.js" defer integrity="sha256-H3rM/iQ7mMeNTk3UEsr4cqC8mdcvpO2bi98C2z9zmJY="></script><script>
+<script type="text/javascript" src="/ts/main.fa21df0bbd468c9a44ce58f9a10714084879339aac43b5cae9c239cc16174675.js" defer integrity="sha256-&#43;iHfC71GjJpEzlj5oQcUCEh5M5qsQ7XK6cI5zBYXRnU="></script><script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
             navigator.serviceWorker.register('\/sw.js');
         });
     }
 </script>
-<script type="text/javascript" src="/translate-google.ecd37c3cc8f7e1b08910201dd0d9fc3e5f4b1395fb8ebead3141b931f036f777.js" defer integrity="sha256-7NN8PMj34bCJECAd0Nn8Pl9LE5X7jr6tMUG5MfA293c="></script><script type="text/javascript">
+<script type="text/javascript" src="/translate-google.ad39ff7276d4f89b927627a918cace8600e2973c29bc6e7e3b5bd383012ca009.js" defer integrity="sha256-rTn/cnbU&#43;JuSdiepGMrOhgDilzwpvG5&#43;O1vTgwEsoAk="></script><script type="text/javascript">
     window.translateelement_styles = "\/sass\/translateelement.min.c65796c6c3e4d48c75f72776948be83c5c448d1c5cc466b996b00657c558d28a.css";
     function googleTranslateElementInit(){
         new google.translate.TranslateElement({
