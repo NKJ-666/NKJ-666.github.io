@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://nkj-666.github.io/</loc>
-    <lastmod>2024-07-12T17:19:18+08:00</lastmod>
+    <lastmod>2024-07-12T17:48:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -23,7 +23,7 @@
                 />
   </url><url>
     <loc>https://nkj-666.github.io/posts/</loc>
-    <lastmod>2024-07-12T17:19:18+08:00</lastmod>
+    <lastmod>2024-07-12T17:48:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -42,18 +42,18 @@
                 href="https://nkj-666.github.io/posts/"
                 />
   </url><url>
-    <loc>https://nkj-666.github.io/tags/machine-learning/</loc>
-    <lastmod>2024-07-10T11:17:44+08:00</lastmod>
+    <loc>https://nkj-666.github.io/tags/pytorch/</loc>
+    <lastmod>2024-07-12T17:48:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://nkj-666.github.io/2024/04/06/regression.html/</loc>
-    <lastmod>2024-07-04T15:08:30+08:00</lastmod>
+    <loc>https://nkj-666.github.io/2024/07/09/pytorch-note.html/</loc>
+    <lastmod>2024-07-12T17:48:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://nkj-666.github.io/tags/</loc>
-    <lastmod>2024-07-10T11:17:44+08:00</lastmod>
+    <lastmod>2024-07-12T17:48:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -71,6 +71,16 @@
                 hreflang="en-us"
                 href="https://nkj-666.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://nkj-666.github.io/tags/machine-learning/</loc>
+    <lastmod>2024-07-10T11:17:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://nkj-666.github.io/2024/04/06/regression.html/</loc>
+    <lastmod>2024-07-04T15:08:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://nkj-666.github.io/2024/04/05/chatgpt%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.html/</loc>
     <lastmod>2024-07-10T11:17:44+08:00</lastmod>
