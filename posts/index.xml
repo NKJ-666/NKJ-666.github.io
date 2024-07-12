@@ -6,14 +6,14 @@
     <description>Recent content in Posts on Kevier Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jul 2024 17:48:16 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jul 2024 17:53:48 +0800</lastBuildDate>
     <atom:link href="https://nkj-666.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pytorch Note</title>
       <link>https://nkj-666.github.io/2024/07/09/pytorch-note.html/</link>
       <pubDate>Tue, 09 Jul 2024 09:30:07 +0800</pubDate>
       <guid>https://nkj-666.github.io/2024/07/09/pytorch-note.html/</guid>
-      <description>1. Pytorch的使用 1.1 Pytorch Pytorch是一个基于Torch的python开源机器学习库，用于自然语言处理等应用程序。它不仅能够实现强大的G</description>
+      <description>Pytorch Note</description>
     </item>
     <item>
       <title>Regression</title>
