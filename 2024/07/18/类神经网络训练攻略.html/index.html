@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="en-us" class="lang-en-us">
     <head><meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="keywords" content="Deep Learning,Hugo,Hugo Theme,Luna," /><meta name="description" content="Back Propagation" />
-<meta itemprop="description" content="Back Propagation" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="keywords" content="Deep Learning,Hugo,Hugo Theme,Luna," /><meta name="description" content="类神经网络训练攻略" />
+<meta itemprop="description" content="类神经网络训练攻略" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<meta itemprop="name" content="Back Propagation - Kevier Blog" />
-<link href="https://nkj-666.github.io/index.xml" title="Back Propagation - Kevier Blog" type="application/rss+xml" rel="alternate" />
-<title>Back Propagation - Kevier Blog</title><link rel="stylesheet" href="/main.b3a6aecd0f469c014eb09ea91c6f7864b4455851e1be22ab8bb49e577581f783.css" integrity="sha256-s6auzQ9GnAFOsJ6pHG94ZLRFWFHhviKri7SeV3WB94M=" /><meta property="og:site_name" content="Back Propagation - Kevier Blog" />
+<meta itemprop="name" content="类神经网络训练攻略 - Kevier Blog" />
+<link href="https://nkj-666.github.io/index.xml" title="类神经网络训练攻略 - Kevier Blog" type="application/rss+xml" rel="alternate" />
+<title>类神经网络训练攻略 - Kevier Blog</title><link rel="stylesheet" href="/main.b3a6aecd0f469c014eb09ea91c6f7864b4455851e1be22ab8bb49e577581f783.css" integrity="sha256-s6auzQ9GnAFOsJ6pHG94ZLRFWFHhviKri7SeV3WB94M=" /><meta property="og:site_name" content="类神经网络训练攻略 - Kevier Blog" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="Back Propagation" />
-<meta property="og:description" content="Back Propagation" />
-<meta property="og:url" content="https://nkj-666.github.io/2024/07/18/back-propagation.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/07/18/back-propagation.html/" /><meta property="article:published_time" content="2024-07-18T13:17:50&#43;08:00" /><meta property="article:modified_time" content="2024-07-18T14:24:28&#43;08:00" /><meta name="theme-color" content="#dd6065" />
+<meta property="og:title" content="类神经网络训练攻略" />
+<meta property="og:description" content="类神经网络训练攻略" />
+<meta property="og:url" content="https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/" /><meta property="article:publisher" content="https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/" /><meta property="article:published_time" content="2024-07-18T14:25:03&#43;08:00" /><meta property="article:modified_time" content="2024-07-18T20:42:59&#43;08:00" /><meta name="theme-color" content="#dd6065" />
 <meta name="mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-title" content="Back Propagation - Kevier Blog" />
+<meta name="apple-mobile-web-app-title" content="类神经网络训练攻略 - Kevier Blog" />
 <meta name="apple-mobile-web-app-status-bar-style" content="white" />
 
 <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:site" content="@Ice_Hazymoon" />
-    <meta name="twitter:creator" content="@Ice_Hazymoon" /><meta name="twitter:title" content="Back Propagation - Kevier Blog" />
-<meta name="twitter:description" content="Back Propagation" />
-<meta name="twitter:url" content="https://nkj-666.github.io/2024/07/18/back-propagation.html/" /><meta name="twitter:image" content="" />
+    <meta name="twitter:creator" content="@Ice_Hazymoon" /><meta name="twitter:title" content="类神经网络训练攻略 - Kevier Blog" />
+<meta name="twitter:description" content="类神经网络训练攻略" />
+<meta name="twitter:url" content="https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/" /><meta name="twitter:image" content="" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" /><link rel="manifest" href="/manifest.json" /><link href="/icon.png" rel="shortcut icon" />
 <link href="/icon.png" rel="Bookmark" />
 <link rel="apple-touch-icon" href="/icon.png" /><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
-  "headline": "Back Propagation",
+  "headline": "类神经网络训练攻略",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https:\/\/nkj-666.github.io\/2024\/07\/18\/back-propagation.html\/"
-  },"genre": "posts","keywords": "Deep Learning","wordcount": 765 ,
-  "url": "https:\/\/nkj-666.github.io\/2024\/07\/18\/back-propagation.html\/","datePublished": "2024-07-18T13:17:50\u002b08:00","dateModified": "2024-07-18T14:24:28\u002b08:00","author": {
+    "@id": "https:\/\/nkj-666.github.io\/2024\/07\/18\/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html\/"
+  },"genre": "posts","keywords": "Deep Learning","wordcount": 1234 ,
+  "url": "https:\/\/nkj-666.github.io\/2024\/07\/18\/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html\/","datePublished": "2024-07-18T14:25:03\u002b08:00","dateModified": "2024-07-18T20:42:59\u002b08:00","author": {
     "@type": "Person",
     "name": "Ice-Hazymoon"
   },"description": ""
@@ -98,7 +98,7 @@
     <div class="relative h-full">
         <div class="page-view-article flex h-full flex-col bg-white dark:bg-darkFg"><div class="relative"><div>
     <div class="-mb-2 w-full p-6 pb-0 text-3xl md:px-10">
-        Back Propagation
+        类神经网络训练攻略
     </div>
 </div>
 </div>
@@ -108,15 +108,15 @@
             <i class="eva eva-clock-outline mr-1"></i>
             <span>
                 <time
-                    title="Published in 18 Jul 2024 13:17:50"datetime="2024-07-18T13:17:50+08:00">18 Jul 2024</time
+                    title="Published in 18 Jul 2024 14:25:03"datetime="2024-07-18T14:25:03+08:00">18 Jul 2024</time
                 >
             </span>
         </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-flag-outline mr-1"></i>
-                <span>2 mins read</span>
+                <span>3 mins read</span>
             </div><div class="mb-3 mr-4 inline-flex items-center sm:rounded-full">
                 <i class="eva eva-bar-chart-outline mr-1"></i>
-                <span>765 words</span>
+                <span>1234 words</span>
             </div></div><div class="mb-3 flex items-center">
             <i class="eva eva-pricetags-outline mr-1"></i>
             <span class="mr-3">Tags</span><a href="/tags/deep-learning" title="Deep Learning" class="group mr-2 flex items-center text-sm">
@@ -131,229 +131,297 @@
             </header>
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#gradient-descent">Gradient Descent</a></li>
-    <li><a href="#反向传播">反向传播</a></li>
+    <li><a href="#optimization-fail">Optimization Fail</a></li>
+    <li><a href="#optimization-with-batch">Optimization with batch</a></li>
+    <li><a href="#adaptive-learning-rate">Adaptive Learning Rate</a></li>
   </ul>
 </nav>
         </aside><section class="article-content typo relative flex-grow px-6 py-5 md:px-10"><i title="Faster Reads" id="bionicReading" class="absolute right-0 top-0 cursor-pointer p-3"
             ><svg class="w-4 h-4 fill-current text-gray-400" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10811" ><path d="M480 192c-19.2 0-32-12.8-32-32v-128c0-19.2 12.8-32 32-32s32 12.8 32 32v128c0 19.2-12.8 32-32 32zM160 1024c-6.4 0-19.2 0-25.6-6.4l-128-128c0-6.4-6.4-19.2-6.4-25.6s6.4-19.2 6.4-25.6l512-512c12.8-6.4 38.4-6.4 51.2 0l128 128c0 6.4 6.4 19.2 6.4 25.6s-6.4 19.2-6.4 25.6l-512 512c-6.4 6.4-19.2 6.4-25.6 6.4z m-83.2-160l83.2 83.2 467.2-467.2-83.2-83.2-467.2 467.2zM992 576h-128c-19.2 0-32-12.8-32-32s12.8-32 32-32h128c19.2 0 32 12.8 32 32s-12.8 32-32 32zM768 288c-6.4 0-19.2 0-25.6-6.4-12.8-12.8-12.8-32 0-44.8l96-96c12.8-12.8 32-12.8 44.8 0s12.8 32 0 44.8l-96 96c0 6.4-12.8 6.4-19.2 6.4zM256 288c-6.4 0-19.2 0-25.6-6.4L134.4 185.6c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 12.8-12.8 12.8-19.2 12.8zM864 896c-6.4 0-19.2 0-25.6-6.4l-96-96c-12.8-12.8-12.8-32 0-44.8s32-12.8 44.8 0l96 96c12.8 12.8 12.8 32 0 44.8 0 6.4-12.8 6.4-19.2 6.4z" p-id="10812"></path><path d="M544 640c-6.4 0-19.2 0-25.6-6.4l-128-128c-6.4-12.8-6.4-38.4 0-51.2s32-12.8 44.8 0l128 128c12.8 12.8 12.8 38.4 6.4 51.2-6.4 6.4-19.2 6.4-25.6 6.4z" p-id="10813"></path></svg></i
         >
 
-<h1 class="group " id="back-propagation"
-    >Back Propagation<a href="#back-propagation"
+<h1 class="group " id="类神经网络训练攻略"
+    >类神经网络训练攻略<a href="#%e7%b1%bb%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c%e8%ae%ad%e7%bb%83%e6%94%bb%e7%95%a5"
         ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
 ></h1>
 
 
 
-<h2 class="group " id="gradient-descent"
-    >Gradient Descent<a href="#gradient-descent"
+<h2 class="group " id="optimization-fail"
+    >Optimization Fail<a href="#optimization-fail"
         ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
 ></h2>
 
-<p>Gradient Descent是一个一阶最优化算法，通常也称为最速下降法。要使用梯度下降法找到一个函数的局部最小值，必须向函数当前点对应梯度的反方向的规定步长距离点进行迭代搜索。</p>
-<p>举例来说，我们来看这样一个三维图像，在开始时任取一个起始点，算该点的梯度，并根据梯度绝对值的大小来决定步长，向梯度的反方向移动步长的距离，不断循环直到梯度为0，这样我们就找到了一个<strong>Local Minimum</strong>或<strong>Saddle Point</strong>，但是这样的点也许并不是损失函数的最低点，我们还需要其他方法来跳出这样的局部最低点来找全局最低点。</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://scm_mos.gitlab.io/algorithm/gradient-descent/gradient_descent-01.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://scm_mos.gitlab.io/algorithm/gradient-descent/gradient_descent-01.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://scm_mos.gitlab.io/algorithm/gradient-descent/gradient_descent-01.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>那现在的问题在于我们怎么算这个梯度或者说偏微分呢？</p>
-
-
-<h2 class="group " id="反向传播"
-    >反向传播<a href="#%e5%8f%8d%e5%90%91%e4%bc%a0%e6%92%ad"
-        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
-></h2>
-
-<p>首先我们看一个简单的网络示意图：</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721281734572.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721281734572.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721281734572.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>这里面$x^n$为输入，$y^n$为输出，中间经过的为整个神经网络，那么我们可以定义一个损失函数：</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721281836088.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721281836088.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721281836088.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>那么这个损失函数对某一个参数$w$做偏微分就可以表示为</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282011512.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282011512.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282011512.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>我们可以将一个$\frac{\partial C}{\partial w}$提出来单独运算，并且可以写成如下公式：</p>
-<p>$$\frac{\partial C}{\partial w} = \frac{\partial z}{\partial w} * \frac{\partial C}{\partial z}$$</p>
-<p>对于$\frac{\partial z}{\partial w}$我们可以假设$z = x1w1 + x2w2 + b$</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282473580.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282473580.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282473580.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>这样的话微分可以很简单的通过<strong>forward pass</strong>计算出来，但是对于$\frac{\partial C}{\partial z}$我们不容易通过<strong>forward pass</strong>计算出来，我们可以把它分解成：</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282631223.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282631223.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282631223.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>其中a使用的是sigmoid函数<figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282716365.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282716365.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721282716365.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>那么$\frac{\partial a}{\partial z}$就很容易算出来，对于$\frac{\partial C}{\partial a}$我们可以写成：</p>
-<p><figure
-    
->
-    <picture class="noscript-hidden"><img
-            
-            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721283160868.png"
-            src="/images/outload.svg"data-data-zoomable
-            data-lazyload data-lazyload-blur
-        />
-    </picture>
-    <noscript data-lazyload-noscript>
-        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721283160868.png" target="_blank" rel="noopener noreferrer">
-            <picture><img
-                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721283160868.png"/>
-            </picture>
-        </a>
-    </noscript></figure>
-</p>
-<p>而$\frac{\partial z\prime}{\partial a}$很容易能算出来为w3,与$\frac{\partial z}{\partial a}$同理，接下来的问题就只有$\frac{\partial C}{\partial z\prime}$</p>
+<p>我们做神经网络训练的时候有时会出现下面的问题</p>
 <p>![](<a
     class="link"
     href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
 >
-屏幕截图 2024-07-18 142120.png)</p>
-<p>这样就可以从最后的神经网络的output处一直进行<strong>backward pass</strong>直到算出$\frac{\partial C}{\partial z}$</p>
+屏幕截图 2024-07-18 142848.png)</p>
+<p>这种情况可能是模型卡到了<strong>Critical Point</strong>，包括但不限于以下两种情形：</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721284627416.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721284627416.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721284627416.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>那么我们如何判断我们的模型是遇到了哪一种情形呢？</p>
+<p>通过数学方法计算损失函数</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 145647.png)</p>
+<p>其中g为一阶微分，H为二阶微分，当到达<strong>Critical Point</strong>时，g为0，那么只需要判断最后一项即可，</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 145930.png)</p>
+<p>当最后一项全正时，则为<strong>local min</strong>，全负时为<strong>local max</strong>，<strong>saddle point</strong>同理，判断最后一项正负时只需要判断H矩阵的特征值即可。</p>
+<p>我们可以举一个例子来说明</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 150404.png)</p>
+<p>那么对w1和w2的一阶微分如下，也就是g：</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721286358538.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721286358538.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721286358538.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>二阶微分可以算出来如下：</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 150703.png)</p>
+<p>当某个点为<strong>critical point</strong>，且w1和w2均为0时，那么H矩阵为</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721286546303.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721286546303.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721286546303.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>这个H矩阵不仅可以告诉我们这个<strong>critical point</strong>为何种类型的点，也可以告诉我们更新的方向</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/image-20240718151432860.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/image-20240718151432860.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/image-20240718151432860.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>我们可以找到H的一个负特征值$\lambda$，朝着其对应特征向量方向$\theta = \theta \prime + u$方向即可减小损失函数的值，也即再一次更新模型。</p>
+
+
+<h2 class="group " id="optimization-with-batch"
+    >Optimization with batch<a href="#optimization-with-batch"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
+<p>在训练时将整个训练资料分为若干个<strong>batch</strong></p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721287878936.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721287878936.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721287878936.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>每次从一个batch中随机选择一笔训练资料，更新一次参数</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721287985869.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721287985869.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721287985869.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>将每一个batch都训练一遍则称为<strong>epoch</strong></p>
+<blockquote>
+<p>当batch size = N(full batch)时，模型会看过整个训练数据集中的数据后才会更新一次参数</p>
+<p>当batch size = 1时，模型每看过一个训练数据就会更新一次参数</p>
+</blockquote>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 160514.png)</p>
+<p>随着batch的增大，训练所花费的时间如下图：</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/image-20240718160902376.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/image-20240718160902376.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/image-20240718160902376.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>在一定范围内增大batch size并不会很大的增加所花时间，因为并行运算会很大程度上减少模型所花费的时间，但是这是有限度的，当batch size很大时，时间就会增加的很快。</p>
+<p>大的batch size模型会有更好的灵活性</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 161508.png)</p>
+<p>我们模型遇到的<strong>Flat Minimum</strong>一般会比<strong>Sharp Mininum</strong>更好一点，因为training loss和testing loss之间可能会有一点误差，比如下面这张图：</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 161709.png)</p>
+<p>这两个loss之间有平移的误差，这样的话<strong>Sharp Minimum</strong>在testing loss上就会很大，而<strong>Flat Minimum</strong>就不会有很大的差别。</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 162151.png)</p>
+<p>我们在进行gradient descent的时候可以类比成一个小球从坡上往下滚的情形：</p>
+<p>![](<a
+    class="link"
+    href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/"target="_blank" rel="noopener">https://raw.githubusercontent.com/NKJ-666/picture/main/img/</a
+>
+屏幕截图 2024-07-18 162337.png)</p>
+<p>那在正常的物理世界中，当滑到最低点的时候不一定会停在最低点，有可能会有一定的惯性直接冲过这个local minimum，从而找到下一个更小的最低点，那我们是不是也可以应用在我们的模型训练中呢？</p>
+<p>这时候我们就可以在Gradient descent的基础上加上Momentum</p>
+<p><figure
+    
+>
+    <picture class="noscript-hidden"><img
+            
+            data-src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721291251717.png"
+            src="/images/outload.svg"data-data-zoomable
+            data-lazyload data-lazyload-blur
+        />
+    </picture>
+    <noscript data-lazyload-noscript>
+        <a class="after:hidden" href="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721291251717.png" target="_blank" rel="noopener noreferrer">
+            <picture><img
+                    src="https://raw.githubusercontent.com/NKJ-666/picture/main/img/QQ_1721291251717.png"/>
+            </picture>
+        </a>
+    </noscript></figure>
+</p>
+<p>每一次走下一步的时候都会加上上一步已经走的步长矢量，如上图第二步的时候g1为梯度，则本来我们应该向其反方向走，现在加上上一步的”惯性“m1，最终决定向m2方向走，这样就会像球滑行的惯性一样有可能会走过Local minimum而找到最小的损失函数。</p>
+
+
+<h2 class="group " id="adaptive-learning-rate"
+    >Adaptive Learning Rate<a href="#adaptive-learning-rate"
+        ><i class="eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100"></i></a
+></h2>
+
 </section>
 <div class="flex items-center justify-center px-6 pb-5 pt-4 text-center text-xl text-gray-500 md:px-10 md:pb-10 md:pt-14"><a
                 class="mr-4 inline-flex h-5 w-5 items-center"
                 title="Share to twitter"
-                href="https://twitter.com/share?&text=Back%20Propagation&url=https://nkj-666.github.io/2024/07/18/back-propagation.html/"
+                href="https://twitter.com/share?&text=%e7%b1%bb%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c%e8%ae%ad%e7%bb%83%e6%94%bb%e7%95%a5&url=https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/"
                 target="_blank"
                 rel="noopener noreferrer"
                 ><i class="eva eva-twitter hover:text-theme"></i
             ></a><a
                 class="mr-4 inline-flex h-5 w-5 items-center"
                 title="Share to facebook"
-                href="https://www.facebook.com/sharer.php?u=https://nkj-666.github.io/2024/07/18/back-propagation.html/"
+                href="https://www.facebook.com/sharer.php?u=https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/"
                 target="_blank"
                 rel="noopener noreferrer"
                 ><i class="eva eva-facebook hover:text-theme"></i
             ></a><a
                 class="mr-4 inline-flex h-5 w-5 items-center"
                 title="Share to weibo"
-                href="https://service.weibo.com/share/share.php?url=https://nkj-666.github.io/2024/07/18/back-propagation.html/&title=Back%20Propagation&sudaref=nkj-666.github.io"
+                href="https://service.weibo.com/share/share.php?url=https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/&title=%e7%b1%bb%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c%e8%ae%ad%e7%bb%83%e6%94%bb%e7%95%a5&sudaref=nkj-666.github.io"
                 target="_blank"
                 rel="noopener noreferrer"
-            ><svg class="inline-block h-5 w-5 fill-current hover:text-theme" viewBox="0 0 1193 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2681" width="200" height="200"> <path d="M456.991736 557.336482c-107.598583 0-194.644628 74.956316-194.644629 166.838252s87.046045 166.838253 194.644629 166.838253c107.598583 0 194.644628-74.956316 194.644628-166.838253s-87.046045-166.838253-194.644628-166.838252zM391.707202 822.101535c-36.269185 0-66.493506-27.806375-66.493507-62.866588s29.015348-62.866588 66.493507-62.866588c36.269185 0 66.493506 27.806375 66.493506 62.866588S427.976387 822.101535 391.707202 822.101535z m93.090909-91.881936c-14.507674 0-26.597403-12.089728-26.597403-26.597403s12.089728-26.597403 26.597403-26.597403 26.597403 12.089728 26.597403 26.597403-12.089728 26.597403-26.597403 26.597403zM239.376623 281.690673C97.9268 394.125148-18.134593 600.859504 30.224321 661.308146c32.642267 41.105077 59.239669-19.343566 124.524203-89.46399 30.224321-32.642267 77.374262-54.403778 122.106258-90.672964 20.552538-16.92562 197.062574-35.060213 230.913813-35.060212 97.9268-99.135773 114.85242-207.943329 74.956316-258.720189-48.358914-59.239669-201.898465-16.92562-343.348288 94.299882z" p-id="2682" ></path> <path d="M808.802834 560.9634C906.729634 461.827627 911.565525 377.199528 870.460449 326.422668c-47.149941-60.448642-211.570248-32.642267-351.811098 78.583235" p-id="2683" ></path> <path d="M605.695396 353.020071c-14.507674 8.46281-25.38843 12.089728-29.015349 7.253837-1.208973-2.417946-1.208973-6.044864 1.208973-9.671783-16.92562-1.208973-33.85124-1.208973-50.776859-1.208973C235.749705 349.393152 0 500.514758 0 686.696576s235.749705 337.303424 527.112161 337.303424 527.112161-151.121606 527.11216-337.303424c0-170.465171-194.644628-309.497048-448.528925-333.676505zM481.171192 959.924439C275.645809 959.924439 108.807556 847.489965 108.807556 708.458087s166.838253-251.466352 372.363636-251.466351 372.363636 112.434475 372.363637 251.466351-166.838253 251.466352-372.363637 251.466352z" p-id="2684" ></path> <path d="M1021.582054 423.140496c-3.626919 0-6.044864 0-9.671782-1.208973-18.134593-4.835891-29.015348-24.179457-22.970485-42.31405 2.417946-7.253837 3.626919-16.92562 3.626919-29.015348 0-65.284534-53.194805-119.688312-119.688312-119.688312-19.343566 0-33.85124-15.716647-33.851239-33.851239s15.716647-33.85124 33.851239-33.85124c103.971665 0 187.390791 84.628099 187.390791 187.390791 0 18.134593-2.417946 33.85124-6.044864 48.358914-4.835891 14.507674-18.134593 24.179457-32.642267 24.179457z" p-id="2685" ></path> <path d="M1146.106257 473.917355c-2.417946 0-6.044864 0-8.46281-1.208972-20.552538-4.835891-32.642267-25.38843-27.806375-45.940969 6.044864-24.179457 8.46281-47.149941 8.46281-71.329397C1118.299882 201.898465 991.357733 74.956316 836.609209 74.956316c-20.552538 0-37.478158-16.92562-37.478158-37.478158S816.056671 0 836.609209 0c197.062574 0 356.646989 159.584416 356.646989 356.646989 0 29.015348-3.626919 59.239669-10.880755 88.255018-3.626919 18.134593-19.343566 29.015348-36.269186 29.015348z" p-id="2686" ></path> </svg></a><i class="eva eva-copy mr-4 cursor-pointer hover:text-theme" title="Copy Link" data-clipboard-text="https://nkj-666.github.io/2024/07/18/back-propagation.html/"></i><div class="group relative hidden h-5 w-5 cursor-pointer sm:inline-block">
+            ><svg class="inline-block h-5 w-5 fill-current hover:text-theme" viewBox="0 0 1193 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2681" width="200" height="200"> <path d="M456.991736 557.336482c-107.598583 0-194.644628 74.956316-194.644629 166.838252s87.046045 166.838253 194.644629 166.838253c107.598583 0 194.644628-74.956316 194.644628-166.838253s-87.046045-166.838253-194.644628-166.838252zM391.707202 822.101535c-36.269185 0-66.493506-27.806375-66.493507-62.866588s29.015348-62.866588 66.493507-62.866588c36.269185 0 66.493506 27.806375 66.493506 62.866588S427.976387 822.101535 391.707202 822.101535z m93.090909-91.881936c-14.507674 0-26.597403-12.089728-26.597403-26.597403s12.089728-26.597403 26.597403-26.597403 26.597403 12.089728 26.597403 26.597403-12.089728 26.597403-26.597403 26.597403zM239.376623 281.690673C97.9268 394.125148-18.134593 600.859504 30.224321 661.308146c32.642267 41.105077 59.239669-19.343566 124.524203-89.46399 30.224321-32.642267 77.374262-54.403778 122.106258-90.672964 20.552538-16.92562 197.062574-35.060213 230.913813-35.060212 97.9268-99.135773 114.85242-207.943329 74.956316-258.720189-48.358914-59.239669-201.898465-16.92562-343.348288 94.299882z" p-id="2682" ></path> <path d="M808.802834 560.9634C906.729634 461.827627 911.565525 377.199528 870.460449 326.422668c-47.149941-60.448642-211.570248-32.642267-351.811098 78.583235" p-id="2683" ></path> <path d="M605.695396 353.020071c-14.507674 8.46281-25.38843 12.089728-29.015349 7.253837-1.208973-2.417946-1.208973-6.044864 1.208973-9.671783-16.92562-1.208973-33.85124-1.208973-50.776859-1.208973C235.749705 349.393152 0 500.514758 0 686.696576s235.749705 337.303424 527.112161 337.303424 527.112161-151.121606 527.11216-337.303424c0-170.465171-194.644628-309.497048-448.528925-333.676505zM481.171192 959.924439C275.645809 959.924439 108.807556 847.489965 108.807556 708.458087s166.838253-251.466352 372.363636-251.466351 372.363636 112.434475 372.363637 251.466351-166.838253 251.466352-372.363637 251.466352z" p-id="2684" ></path> <path d="M1021.582054 423.140496c-3.626919 0-6.044864 0-9.671782-1.208973-18.134593-4.835891-29.015348-24.179457-22.970485-42.31405 2.417946-7.253837 3.626919-16.92562 3.626919-29.015348 0-65.284534-53.194805-119.688312-119.688312-119.688312-19.343566 0-33.85124-15.716647-33.851239-33.851239s15.716647-33.85124 33.851239-33.85124c103.971665 0 187.390791 84.628099 187.390791 187.390791 0 18.134593-2.417946 33.85124-6.044864 48.358914-4.835891 14.507674-18.134593 24.179457-32.642267 24.179457z" p-id="2685" ></path> <path d="M1146.106257 473.917355c-2.417946 0-6.044864 0-8.46281-1.208972-20.552538-4.835891-32.642267-25.38843-27.806375-45.940969 6.044864-24.179457 8.46281-47.149941 8.46281-71.329397C1118.299882 201.898465 991.357733 74.956316 836.609209 74.956316c-20.552538 0-37.478158-16.92562-37.478158-37.478158S816.056671 0 836.609209 0c197.062574 0 356.646989 159.584416 356.646989 356.646989 0 29.015348-3.626919 59.239669-10.880755 88.255018-3.626919 18.134593-19.343566 29.015348-36.269186 29.015348z" p-id="2686" ></path> </svg></a><i class="eva eva-copy mr-4 cursor-pointer hover:text-theme" title="Copy Link" data-clipboard-text="https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/"></i><div class="group relative hidden h-5 w-5 cursor-pointer sm:inline-block">
                 <i title="QR Code" class="eva show-qrcode eva-smartphone hover:text-theme"></i>
                 <div
                     class="qrcode-wrapper pointer-events-none absolute left-2/4 bottom-10 h-32 w-32 -translate-x-1/2 overflow-hidden rounded border border-gray-300 bg-white p-2 opacity-0 transition duration-300 ease-[ease] group-hover:opacity-100"
                 >
-                    <img class="h-full w-full" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://nkj-666.github.io/2024/07/18/back-propagation.html/" alt="QR Code" />
+                    <img class="h-full w-full" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&amp;data=https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/" alt="QR Code" />
                 </div>
             </div></div>
 <div class="border-b dark:border-darkBorder"></div><div class="flex justify-between px-2 py-4 text-xl md:px-6 md:text-2xl">
     <div>
         <a
-            href="/2024/07/09/pytorch-note.html/"
-            title="Pytorch Note"
+            href="/2024/07/18/back-propagation.html/"
+            title="Back Propagation"
             class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
             <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
                 <i class="eva eva-chevron-left-outline"></i>
@@ -372,9 +440,9 @@
     </div>
 
     <a
-        href="/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/"
-        title="类神经网络训练攻略"
-        class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText"style="visibility: visible;">
+        href=""
+        title=""
+        class="invisible flex cursor-pointer items-center text-gray-500 transition duration-300 ease-[ease] hover:text-theme dark:text-darkTextPlaceholder dark:hover:text-darkText">
         <span>Next</span>
         <span class="flex items-center text-5xl opacity-70 dark:bg-opacity-100">
             <i class="eva eva-chevron-right-outline"></i>

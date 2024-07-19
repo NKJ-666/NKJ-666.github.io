@@ -13,9 +13,135 @@
         <link>https://nkj-666.github.io/</link>
         <managingEditor>Ice-Hazymoon</managingEditor>
         <description>A simple, performance-first, SEO-friendly Hugo theme</description>
-        <lastBuildDate>Thu, 18 Jul 2024 13:17:50 +0800</lastBuildDate>
+        <lastBuildDate>Thu, 18 Jul 2024 14:25:03 +0800</lastBuildDate>
         <language>en-us</language>
         <generator>Hugo -- gohugo.io</generator><item>
+            <title>类神经网络训练攻略</title>
+            <link>https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/</link>
+            <pubDate>Thu, 18 Jul 2024 14:25:03 +0800</pubDate>
+            <guid>https://nkj-666.github.io/2024/07/18/%E7%B1%BB%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E6%94%BB%E7%95%A5.html/</guid><description>
+
+&lt;h1 class=&#34;group &#34; id=&#34;类神经网络训练攻略&#34;
+    &gt;类神经网络训练攻略&lt;a href=&#34;#%e7%b1%bb%e7%a5%9e%e7%bb%8f%e7%bd%91%e7%bb%9c%e8%ae%ad%e7%bb%83%e6%94%bb%e7%95%a5&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h1&gt;
+
+
+
+&lt;h2 class=&#34;group &#34; id=&#34;optimization-fail&#34;
+    &gt;Optimization Fail&lt;a href=&#34;#optimization-fail&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h2&gt;
+
+&lt;p&gt;我们做神经网络训练的时候有时会出现下面的问题&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 142848.png)&lt;/p&gt;
+&lt;p&gt;这种情况可能是模型卡到了&lt;strong&gt;Critical Point&lt;/strong&gt;，包括但不限于以下两种情形：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;那么我们如何判断我们的模型是遇到了哪一种情形呢？&lt;/p&gt;
+&lt;p&gt;通过数学方法计算损失函数&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 145647.png)&lt;/p&gt;
+&lt;p&gt;其中g为一阶微分，H为二阶微分，当到达&lt;strong&gt;Critical Point&lt;/strong&gt;时，g为0，那么只需要判断最后一项即可，&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 145930.png)&lt;/p&gt;
+&lt;p&gt;当最后一项全正时，则为&lt;strong&gt;local min&lt;/strong&gt;，全负时为&lt;strong&gt;local max&lt;/strong&gt;，&lt;strong&gt;saddle point&lt;/strong&gt;同理，判断最后一项正负时只需要判断H矩阵的特征值即可。&lt;/p&gt;
+&lt;p&gt;我们可以举一个例子来说明&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 150404.png)&lt;/p&gt;
+&lt;p&gt;那么对w1和w2的一阶微分如下，也就是g：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;二阶微分可以算出来如下：&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 150703.png)&lt;/p&gt;
+&lt;p&gt;当某个点为&lt;strong&gt;critical point&lt;/strong&gt;，且w1和w2均为0时，那么H矩阵为&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;这个H矩阵不仅可以告诉我们这个&lt;strong&gt;critical point&lt;/strong&gt;为何种类型的点，也可以告诉我们更新的方向&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;我们可以找到H的一个负特征值$\lambda$，朝着其对应特征向量方向$\theta = \theta \prime + u$方向即可减小损失函数的值，也即再一次更新模型。&lt;/p&gt;
+
+
+&lt;h2 class=&#34;group &#34; id=&#34;optimization-with-batch&#34;
+    &gt;Optimization with batch&lt;a href=&#34;#optimization-with-batch&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h2&gt;
+
+&lt;p&gt;在训练时将整个训练资料分为若干个&lt;strong&gt;batch&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;每次从一个batch中随机选择一笔训练资料，更新一次参数&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;将每一个batch都训练一遍则称为&lt;strong&gt;epoch&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当batch size = N(full batch)时，模型会看过整个训练数据集中的数据后才会更新一次参数&lt;/p&gt;
+&lt;p&gt;当batch size = 1时，模型每看过一个训练数据就会更新一次参数&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 160514.png)&lt;/p&gt;
+&lt;p&gt;随着batch的增大，训练所花费的时间如下图：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;在一定范围内增大batch size并不会很大的增加所花时间，因为并行运算会很大程度上减少模型所花费的时间，但是这是有限度的，当batch size很大时，时间就会增加的很快。&lt;/p&gt;
+&lt;p&gt;大的batch size模型会有更好的灵活性&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 161508.png)&lt;/p&gt;
+&lt;p&gt;我们模型遇到的&lt;strong&gt;Flat Minimum&lt;/strong&gt;一般会比&lt;strong&gt;Sharp Mininum&lt;/strong&gt;更好一点，因为training loss和testing loss之间可能会有一点误差，比如下面这张图：&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 161709.png)&lt;/p&gt;
+&lt;p&gt;这两个loss之间有平移的误差，这样的话&lt;strong&gt;Sharp Minimum&lt;/strong&gt;在testing loss上就会很大，而&lt;strong&gt;Flat Minimum&lt;/strong&gt;就不会有很大的差别。&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 162151.png)&lt;/p&gt;
+&lt;p&gt;我们在进行gradient descent的时候可以类比成一个小球从坡上往下滚的情形：&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 162337.png)&lt;/p&gt;
+&lt;p&gt;那在正常的物理世界中，当滑到最低点的时候不一定会停在最低点，有可能会有一定的惯性直接冲过这个local minimum，从而找到下一个更小的最低点，那我们是不是也可以应用在我们的模型训练中呢？&lt;/p&gt;
+&lt;p&gt;这时候我们就可以在Gradient descent的基础上加上Momentum&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;每一次走下一步的时候都会加上上一步已经走的步长矢量，如上图第二步的时候g1为梯度，则本来我们应该向其反方向走，现在加上上一步的”惯性“m1，最终决定向m2方向走，这样就会像球滑行的惯性一样有可能会走过Local minimum而找到最小的损失函数。&lt;/p&gt;
+
+
+&lt;h2 class=&#34;group &#34; id=&#34;adaptive-learning-rate&#34;
+    &gt;Adaptive Learning Rate&lt;a href=&#34;#adaptive-learning-rate&#34;
+        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
+&gt;&lt;/h2&gt;
+
+</description></item><item>
             <title>Back Propagation</title>
             <link>https://nkj-666.github.io/2024/07/18/back-propagation.html/</link>
             <pubDate>Thu, 18 Jul 2024 13:17:50 +0800</pubDate>
@@ -64,7 +190,16 @@
 &lt;/p&gt;
 &lt;p&gt;其中a使用的是sigmoid函数
 &lt;/p&gt;
-&lt;p&gt;那么$\frac{\partial a}{\partial z}$就很容易算出来，对于&lt;/p&gt;
+&lt;p&gt;那么$\frac{\partial a}{\partial z}$就很容易算出来，对于$\frac{\partial C}{\partial a}$我们可以写成：&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;p&gt;而$\frac{\partial z\prime}{\partial a}$很容易能算出来为w3,与$\frac{\partial z}{\partial a}$同理，接下来的问题就只有$\frac{\partial C}{\partial z\prime}$&lt;/p&gt;
+&lt;p&gt;![](&lt;a
+    class=&#34;link&#34;
+    href=&#34;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&#34;target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://raw.githubusercontent.com/NKJ-666/picture/main/img/&lt;/a
+&gt;
+屏幕截图 2024-07-18 142120.png)&lt;/p&gt;
+&lt;p&gt;这样就可以从最后的神经网络的output处一直进行&lt;strong&gt;backward pass&lt;/strong&gt;直到算出$\frac{\partial C}{\partial z}$&lt;/p&gt;
 </description></item><item>
             <title>Pytorch Note</title>
             <link>https://nkj-666.github.io/2024/07/09/pytorch-note.html/</link>
@@ -3605,255 +3740,5 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;这利用了两个&lt;code&gt;while&lt;/code&gt;循环，前面用来移除从队列头开始移除满足条件了&lt;code&gt;message&lt;/code&gt;之后用来移除之后的&lt;code&gt;message&lt;/code&gt;&lt;/p&gt;
-</description></item><item>
-            <title>Java 高级 - 反射</title>
-            <link>https://nkj-666.github.io/2022/04/15/java-%E9%AB%98%E7%BA%A7-%E5%8F%8D%E5%B0%84.html/</link>
-            <pubDate>Fri, 15 Apr 2022 02:49:13 +0200</pubDate>
-            <guid>https://nkj-666.github.io/2022/04/15/java-%E9%AB%98%E7%BA%A7-%E5%8F%8D%E5%B0%84.html/</guid><description>
-
-&lt;h1 class=&#34;group &#34; id=&#34;java-高级---反射&#34;
-    &gt;Java 高级 - 反射&lt;a href=&#34;#java-%e9%ab%98%e7%ba%a7---%e5%8f%8d%e5%b0%84&#34;
-        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
-&gt;&lt;/h1&gt;
-
-
-
-&lt;h2 class=&#34;group &#34; id=&#34;什么是反射&#34;
-    &gt;什么是反射&lt;a href=&#34;#%e4%bb%80%e4%b9%88%e6%98%af%e5%8f%8d%e5%b0%84&#34;
-        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
-&gt;&lt;/h2&gt;
-
-&lt;p&gt;在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。&lt;/p&gt;
-
-
-&lt;h2 class=&#34;group &#34; id=&#34;获取class对象&#34;
-    &gt;获取Class对象&lt;a href=&#34;#%e8%8e%b7%e5%8f%96class%e5%af%b9%e8%b1%a1&#34;
-        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
-&gt;&lt;/h2&gt;
-
-&lt;p&gt;有三种方式：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;User user &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; User();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Class testClass1 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; user.&lt;span style=&#34;color:#50fa7b&#34;&gt;getClass&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#50fa7b&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;println&lt;/span&gt;(testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getName&lt;/span&gt;());
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Class testClass2 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; User.&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#50fa7b&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;println&lt;/span&gt;(testClass2.&lt;span style=&#34;color:#50fa7b&#34;&gt;getName&lt;/span&gt;());
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;try&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Class testClass3 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; Class.&lt;span style=&#34;color:#50fa7b&#34;&gt;forName&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.company.User&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    System.&lt;span style=&#34;color:#50fa7b&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;println&lt;/span&gt;(testClass3.&lt;span style=&#34;color:#50fa7b&#34;&gt;getName&lt;/span&gt;());
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;} &lt;span style=&#34;color:#ff79c6&#34;&gt;catch&lt;/span&gt; (ClassNotFoundException e) {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    e.&lt;span style=&#34;color:#50fa7b&#34;&gt;printStackTrace&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;输出结果为：&lt;code&gt;com.company.User&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;其中第三种方法必须为完整的包名加类名。&lt;/p&gt;
-
-
-&lt;h2 class=&#34;group &#34; id=&#34;获取构造器&#34;
-    &gt;获取构造器&lt;a href=&#34;#%e8%8e%b7%e5%8f%96%e6%9e%84%e9%80%a0%e5%99%a8&#34;
-        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
-&gt;&lt;/h2&gt;
-
-&lt;p&gt;公有构造方法&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Constructor&lt;span style=&#34;color:#ff79c6&#34;&gt;[]&lt;/span&gt; array &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getConstructors&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这样就获得一个构造方法的数组。而获取所有的构造方法可以使用：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;array &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getDeclaredConstructors&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;另外可以指定所获取的构造器的参数：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Constructor constructor &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getConstructor&lt;/span&gt;(&lt;span style=&#34;color:#ff79c6&#34;&gt;null&lt;/span&gt;);	&lt;span style=&#34;color:#6272a4&#34;&gt;//获取公有无参构造器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;constructor &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getDeclaredConstructor&lt;/span&gt;(String.&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;);	&lt;span style=&#34;color:#6272a4&#34;&gt;//获取有一个String参数的构造器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;也可以直接调用获取到的构造方法：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Object obj &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; constructor.&lt;span style=&#34;color:#50fa7b&#34;&gt;newInstance&lt;/span&gt;();	&lt;span style=&#34;color:#6272a4&#34;&gt;//无参&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;User user1 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; (User) obj;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;user1.&lt;span style=&#34;color:#50fa7b&#34;&gt;setUsername&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Object obj &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; constructor.&lt;span style=&#34;color:#50fa7b&#34;&gt;newInstance&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;);	&lt;span style=&#34;color:#6272a4&#34;&gt;//有一个String参数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;User user1 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; (User) obj;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#50fa7b&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;println&lt;/span&gt;(user1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getUsername&lt;/span&gt;());
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;在使用私有构造器时需要使用&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;constructor.&lt;span style=&#34;color:#50fa7b&#34;&gt;setAccessible&lt;/span&gt;(&lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;来进行强制访问。&lt;/p&gt;
-
-
-&lt;h2 class=&#34;group &#34; id=&#34;获取字段&#34;
-    &gt;获取字段&lt;a href=&#34;#%e8%8e%b7%e5%8f%96%e5%ad%97%e6%ae%b5&#34;
-        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
-&gt;&lt;/h2&gt;
-
-&lt;p&gt;与获取构造器类似。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Field&lt;span style=&#34;color:#ff79c6&#34;&gt;[]&lt;/span&gt; fields &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getFields&lt;/span&gt;();	&lt;span style=&#34;color:#6272a4&#34;&gt;//公有字段&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;fields &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getDeclaredFields&lt;/span&gt;();	&lt;span style=&#34;color:#6272a4&#34;&gt;//所有字段&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;公有字段的引用：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Field field &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getField&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;ID&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;obj &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getConstructor&lt;/span&gt;().&lt;span style=&#34;color:#50fa7b&#34;&gt;newInstance&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;field.&lt;span style=&#34;color:#50fa7b&#34;&gt;set&lt;/span&gt;(obj,&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;12345&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;user &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; (User) obj;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#50fa7b&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;println&lt;/span&gt;(user.&lt;span style=&#34;color:#50fa7b&#34;&gt;ID&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这样就将就将&lt;code&gt;&amp;quot;12345&amp;quot;&lt;/code&gt;传给了&lt;code&gt;user&lt;/code&gt;对象的&lt;code&gt;username&lt;/code&gt;中&lt;/p&gt;
-&lt;p&gt;所有字段（包括私有字段的引用）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;obj &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getConstructor&lt;/span&gt;().&lt;span style=&#34;color:#50fa7b&#34;&gt;newInstance&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;field &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getDeclaredField&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;field.&lt;span style=&#34;color:#50fa7b&#34;&gt;setAccessible&lt;/span&gt;(&lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;);  &lt;span style=&#34;color:#6272a4&#34;&gt;//强制调用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;field.&lt;span style=&#34;color:#50fa7b&#34;&gt;set&lt;/span&gt;(obj,&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;testUsername&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;user &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; (User) obj;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#50fa7b&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;println&lt;/span&gt;(user.&lt;span style=&#34;color:#50fa7b&#34;&gt;getUsername&lt;/span&gt;());
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;注意&lt;code&gt;field.setAccessible(true);&lt;/code&gt;这一行代码强制调用私有字段，调用公有字段时不需要。&lt;/p&gt;
-
-
-&lt;h2 class=&#34;group &#34; id=&#34;获取方法&#34;
-    &gt;获取方法&lt;a href=&#34;#%e8%8e%b7%e5%8f%96%e6%96%b9%e6%b3%95&#34;
-        &gt;&lt;i class=&#34;eva eva-link ml-3 align-middle text-theme opacity-0 transition ease-in-out group-hover:opacity-100&#34;&gt;&lt;/i&gt;&lt;/a
-&gt;&lt;/h2&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Method&lt;span style=&#34;color:#ff79c6&#34;&gt;[]&lt;/span&gt; methods &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getMethods&lt;/span&gt;(); &lt;span style=&#34;color:#6272a4&#34;&gt;//所有的共有方法&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;methods &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getDeclaredMethods&lt;/span&gt;();	&lt;span style=&#34;color:#6272a4&#34;&gt;//所有的自己声明的方法（包括私有方法）&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;调用获取到的方法：&lt;/p&gt;
-&lt;p&gt;公有方法：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Method method &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getMethod&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;show2&amp;#34;&lt;/span&gt;, String.&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;obj &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getConstructor&lt;/span&gt;().&lt;span style=&#34;color:#50fa7b&#34;&gt;newInstance&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;method.&lt;span style=&#34;color:#50fa7b&#34;&gt;invoke&lt;/span&gt;(obj,&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;自己声明的方法（包括私有方法）：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;method &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getDeclaredMethod&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;show1&amp;#34;&lt;/span&gt;, String.&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;method.&lt;span style=&#34;color:#50fa7b&#34;&gt;setAccessible&lt;/span&gt;(&lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;);	&lt;span style=&#34;color:#6272a4&#34;&gt;//进行强制引用，调用私有方法时需要&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;method.&lt;span style=&#34;color:#50fa7b&#34;&gt;invoke&lt;/span&gt;(obj,&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;可以通过反射越过泛型：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;List&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; testList &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;testList.&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;test&amp;#34;&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;testClass1 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testList.&lt;span style=&#34;color:#50fa7b&#34;&gt;getClass&lt;/span&gt;();
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;method &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; testClass1.&lt;span style=&#34;color:#50fa7b&#34;&gt;getMethod&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;, Object.&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;method.&lt;span style=&#34;color:#50fa7b&#34;&gt;invoke&lt;/span&gt;(testList,123);
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#50fa7b&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#50fa7b&#34;&gt;println&lt;/span&gt;(testList);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;这样就可以添加&lt;code&gt;Integer&lt;/code&gt;型数据。&lt;/p&gt;
 </description></item></channel>
 </rss>
